@@ -1,0 +1,30 @@
+{
+  "name": "css-note",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "nodemon -w '../../packages/slidev/dist/*.mjs' --exec \"slidev ./slides.md --open=false --log=info --inspect\"",
+    "export": "slidev export",
+    "export:pdf": "npm run export -- --timeout 60000 --with-toc --output ./_export/soe_altschool_cssnote.pdf",
+    "export:pptx": "npm run export -- --timeout 60000 --with-clicks false --format pptx --output ./_export/soe_altschool_cssnote.pptx"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.49.16",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vue": "^3.4.31"
+  },
+  "devDependencies": {
+    "@iconify-json/logos": "^1.1.43",
+    "@iconify-json/mdi": "^1.1.67",
+    "@slidev/types": "^0.49.16",
+    "@vue/compiler-sfc": "^3.4.32",
+    "nodemon": "^3.1.4",
+    "playwright-chromium": "^1.45.2",
+    "prettier": "^3.3.3",
+    "prettier-plugin-slidev": "^1.0.5"
+  }
+}
