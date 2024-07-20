@@ -61,10 +61,98 @@ hideInToc: true
 <Toc columns="2" minDepth="1" maxDepth="2"></Toc>
 ---
 
-# Getting Started With CSS?
+# Getting Started with CSS?
+
+
+### CSS which stands in for Cascading Style Sheets is a stylesheet language used to describe the presentation of a document written in HTML or XML. 
+<br/>
+
+### Just as HTML serves as the skeletal part of the web, CSS describes how the element should be rendered on the web.
+
+### We use CSS to style our HTML elements and this is what you're going to learn througout this module.
+---
+
+# Selectors and Specificity
+
+
 
 ---
-hideInToc: true
+
+# Box Model
+
+
+
+---
+
+# Inheritance
+
+
+
+---
+
+# Colors/Units/Gradients
+
+
+
+---
+
+# Debugging in browser
+
+
+
+---
+
+# Inline, Internal and External CSS
+
+
+
+---
+
+# FlexBox
+
+
+
+---
+
+# Grid Layout
+
+
+
+--- 
+
+# Positioning
+
+
+
+---
+
+# Stacking Content/Z-index
+
+
+
+---
+
+# Overflow
+
+
+
+---
+
+# Responsiveness
+
+
+
+---
+
+# Animations
+
+
+
+---
+
+
+
+# CSS Frameworks
 ---
 
 <CounterReact />
@@ -84,5 +172,5 @@ hideInToc: true
 # Contributors
 
 
-- [Adebosin Ridwan](https://github.com/RidwanAdebosin)
+- [Ridwan Adebosin](https://github.com/RidwanAdebosin)
 - [Olubebe Faith](https://github.com/Olubebe)
