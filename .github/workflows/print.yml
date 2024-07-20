@@ -32,7 +32,7 @@ jobs:
 
       - name: Export
         run: |
-          npm exec slidev export -- --per-slide --format pdf --output ./_export/slides.pdf --timeout 10s
+          npm exec slidev export -- --per-slide --format pdf --output ./_export/soe_css_notes.pdf --timeout 10s
           npm exec slidev export -- --per-slide --format pptx --output ./_export/slides.pptx
       - name: Generate Body
         run: |
@@ -51,5 +51,5 @@ jobs:
           tag_name: export-${{ github.sha }}
           make_latest: true
           files: |
-            ./_export/slides.pdf
-            ./_export/slides.pptx
+            ./_export/soe_css_notes.pdf
+            ./_export/soe_css_notes.pptx
