@@ -32,8 +32,8 @@ jobs:
 
       - name: Export
         run: |
-          npm exec npm run export:pdf
-          # npm exec export:pptx
+          npm exec slidev export -- --per-slide --format pdf --output ./_export/slides.pdf
+          npm exec slidev export -- --per-slide --format pptx --output ./_export/slides.pptx
       - name: Generate Body
         run: |
           echo -e "## Welcome to the resource download section \n\r ### Please download the class note in PDF or PPTX (just pictures in png) files from the assets section below. \n\n Best of Luck and may the fourth be with you." > ./_export/body.txt
@@ -51,4 +51,5 @@ jobs:
           tag_name: export-${{ github.sha }}
           make_latest: true
           files: |
-            ./_export/soe_altschool_cssnote.pdf
+            ./_export/slides.pdf
+            ./_export/slides.pptx
