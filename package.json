@@ -6,7 +6,7 @@
     "build": "slidev build",
     "dev": "nodemon -w '../../packages/slidev/dist/*.mjs' --exec \"slidev ./slides.md --open=false --log=info --inspect\"",
     "export": "slidev export",
-    "export:pdf": "npm run export -- --timeout 60000 --with-toc --output ./_export/soe_altschool_cssnote.pdf",
+    "export:pdf": "npm run export -- --timeout 60000 --format pdf --output ./_export/soe_altschool_cssnote.pdf",
     "export:pptx": "npm run export -- --timeout 60000 --with-clicks false --format pptx --output ./_export/soe_altschool_cssnote.pptx"
   },
   "dependencies": {
