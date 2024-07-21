@@ -52,107 +52,81 @@ CSS Class notes for the 1st Semester
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
+
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Table of contents
 
-<Toc columns="2" minDepth="1" maxDepth="2"></Toc>
----
+## <Toc columns="2" minDepth="1" maxDepth="2"></Toc>
 
 # Getting Started with CSS?
 
+### CSS which stands in for Cascading Style Sheets is a stylesheet language used to describe the presentation of a document written in HTML or XML.
 
-### CSS which stands in for Cascading Style Sheets is a stylesheet language used to describe the presentation of a document written in HTML or XML. 
 <br/>
 
 ### Just as HTML serves as the skeletal part of the web, CSS describes how the element should be rendered on the web.
 
 ### We use CSS to style our HTML elements and this is what you're going to learn througout this module.
+
 ---
 
 # Selectors and Specificity
-
-
 
 ---
 
 # Box Model
 
-
-
 ---
 
 # Inheritance
-
-
 
 ---
 
 # Colors/Units/Gradients
 
-
-
 ---
 
 # Debugging in browser
-
-
 
 ---
 
 # Inline, Internal and External CSS
 
-
-
 ---
 
 # FlexBox
-
-
 
 ---
 
 # Grid Layout
 
-
-
---- 
+---
 
 # Positioning
-
-
 
 ---
 
 # Stacking Content/Z-index
 
-
-
 ---
 
 # Overflow
-
-
 
 ---
 
 # Responsiveness
 
-
-
 ---
 
 # Animations
 
-
-
 ---
 
-
-
 # CSS Frameworks
+
 ---
 
 <CounterReact />
@@ -167,10 +141,10 @@ hideInToc: true
 </ul>
 
 ---
-hideInToc: true
----
-# Contributors
 
+## hideInToc: true
+
+# Contributors
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
 - [Olubebe Faith](https://github.com/Olubebe)
