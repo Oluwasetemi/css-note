@@ -1,5 +1,5 @@
 name: Export
-
+# Abstracted from https://gist.github.com/KermanX/27461e8694f5d5b00c3817dbed15f39f
 on:
   push:
     branches: [main]
@@ -32,11 +32,11 @@ jobs:
 
       - name: Export
         run: |
-          npm run export:pdf
-          npm run export:pptx
+          npm exec slidev export -- --per-slide --format pdf --output ./_export/soe_css_notes.pdf --timeout 10s
+          npm exec slidev export -- --per-slide --format pptx --output ./_export/soe_css_notes.pptx --timeout 15s
       - name: Generate Body
         run: |
-          echo -e "## Welcome to the resource download section\n### Please download the class note in PDF or PPTX (just pictures in png) files from the assets section below"\n Best of Luck and may the fourth be with you.
+          echo -e "## Welcome to the resource download section \n\r ### Please download the class note in PDF or PPTX (just pictures in png) files from the assets section below. \n\n Best of Luck and may the fourth be with you." > ./_export/body.txt
 
       - name: Create Tag
         uses: rickstaa/action-create-tag@v1.7.2
@@ -46,10 +46,10 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          name: Exports for ${{ github.sha }}
+          name: Download CSS Class Notes for ${{ github.sha }}
           body_path: ./_export/body.txt
           tag_name: export-${{ github.sha }}
           make_latest: true
           files: |
-            ./_export/soe_altschool_semester1.pdf
-            ./_export/soe_altschool_semester1.pptx
+            ./_export/soe_css_notes.pdf
+            ./_export/soe_css_notes.pptx

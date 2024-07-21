@@ -39,11 +39,11 @@ CSS Class notes for the 1st Semester
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:edit />
   </button>
-  <a href="https://github.com/oluwasetemi/repo" target="_blank" alt="GitHub" title="Open in GitHub"
+  <a href="https://github.com/oluwasetemi/css-note" target="_blank" alt="GitHub" title="Open in GitHub"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
-  <a href="https://github.com/Oluwasetemi/repo/releases" target="_blank" alt="Download" title="Download PDF or PPTX version of the slide"
+  <a href="https://github.com/Oluwasetemi/css-note/releases" target="_blank" alt="Download" title="Download PDF or PPTX version of the slide"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-download />
   </a>

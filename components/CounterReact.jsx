@@ -1,9 +1,5 @@
-import * as React from 'react'
 
 export default function CounterReact() {
-  console.log(React.useState)
-  // const [counter, setCounter] = React.useState(0)
-  // console.log(counter)
 
   return (
   <div flex="~" w="min" border="~ main rounded-md">
