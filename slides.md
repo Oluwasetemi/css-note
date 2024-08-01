@@ -335,6 +335,107 @@ margin-bottom: 10px;
 
 # Specificity
 
+Specificity is the key to understanding how CSS decides between competing rules. Let's take a brief at this code before we dive deep into specificity.
+
+```
+
+<h1 class="title">Hi, Specificity</h1>
+
+h1 {
+  color: blue;
+}
+
+.title {
+  color: yellow;
+}
+
+```
+
+In the code above, we are trying to style the h1 element but we have two CSS ruleset, so which stylesheet will override the other? This is where our knowledge on specificity algorithm comes in.
+<br/>
+<br/>
+Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be apllied on the element.
+
+## <!-- We will come back to this at the end of this topic. -->
+
+---
+
+## Specificity Hierachy
+
+CSS selectors are of different forms and each of them has its place in the specificity hierachy.
+
+CSS Selectors decrease in specificity from top to bottom, meaning the selector at the top of the hierarchy has the highest specificity.
+
+<div class="grid grid-col-2 gap-4    h-85 p-4 border border-gray-300 bg-blue overflow-auto ">
+  <div class=" flex justify-center animate-slide-in-left">
+```mermaid
+graph TD;
+    Inline_styles-->IDs;
+    IDs-->Classes;
+    IDs-->pseudo-classes;
+    IDs-->attribute_selectors;
+    Classes-->Elements;
+    Classes-->pseudo-elements;
+    pseudo-classes-->Elements;
+    attribute_selectors-->Elements;
+    pseudo-classes-->pseudo-elements;
+    attribute_selectors-->pseudo-elements;
+```
+</div>
+
+<div class="bg-red animate-slide-in-right" >
+```mermaid
+graph TD;
+    Selectors-->Specificity_Value;
+    Inline_styles-->1000;
+    IDS-->100;
+    Classes-->10;
+    Pseudo-classes-->10;
+    Attribute_selectors-->10;
+    Elements-->1;
+    Pseudo-elements-->1;
+    
+```
+</div>
+
+Note:
+The specificity of a CSS selector is typically represented as a four-part value like 0,0,0,0. <br/>
+Looking up the tree if we are to calculate the specificity for IDs, it's going to be 0,1,0,0 <br/>
+Also, a universal selector (\*) has no specificity and gets 0 points. This means that any rule with 1 or more points will override it.
+<br/>
+
+<p class="bg-white p-4 animate-slide-in-bottom">
+Class Assessment: Calculate the specificity of these selectors:
+<ul>
+<li>#content .menu li:hover</li>
+<li>div p .note
+</li>
+</ul>
+</p>
+</div>
+
+---
+
+## !impotant rule
+
+In CSS, there is one rule that has the highest specificity score of 10,000. This rule is used to give a property-value pair the highest priority, allowing it to override any other declarations.
+
+The only way to override inline styles which has specificity value of 1000 is by using this rule called !important, though this is considered as a bad practice and should be avoided.
+<a class="bg-red color-black no-underline rounded-sm hover:font-bold hover:text-black" href="https://developer.mozilla.org/en-US/docs/Web/CSS/important" target="_blank">Read more</a>
+
+Code Example
+
+```
+selector {
+  property: value !important;
+}
+
+.h1 {
+  color: red !important;
+}
+
+```
+
 ---
 
 # Box Model
@@ -408,6 +509,14 @@ margin-bottom: 10px;
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
 - [Olubebe Faith](https://github.com/Olubebe)
+
+```
+
+```
+
+```
+
+```
 
 ```
 
