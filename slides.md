@@ -39,11 +39,11 @@ CSS Class notes for the 1st Semester
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:edit />
   </button>
-  <a href="https://github.com/oluwasetemi/repo" target="_blank" alt="GitHub" title="Open in GitHub"
+  <a href="https://github.com/oluwasetemi/css-note" target="_blank" alt="GitHub" title="Open in GitHub"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
-  <a href="https://github.com/Oluwasetemi/repo/releases" target="_blank" alt="Download" title="Download PDF or PPTX version of the slide"
+  <a href="https://github.com/Oluwasetemi/css-note/releases" target="_blank" alt="Download" title="Download PDF or PPTX version of the slide"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-download />
   </a>
@@ -69,7 +69,7 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ### Just as HTML serves as the skeletal part of the web, CSS describes how the element should be rendered on the web.
 
-### We use CSS to style our HTML elements and this is what you're going to learn througout this module.
+### We use CSS to style our HTML elements and this is what you're going to learn throughout this module.
 
 ---
 
@@ -77,7 +77,7 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 Before we move deeply into Selectors, let's dive into CSS rule which is a block of code, that has one or more selectors and one or more declarations.
 
-<img src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
+<img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
 
@@ -91,11 +91,11 @@ Types of selectors
 
 <ins>Code Example</ins>:
 
-```
- * {
-margin: 0;
-padding: 0;
-box-sizing:
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 ```
 
@@ -107,14 +107,14 @@ This rule is saying that remove any default margin and padding from all the elem
 
 <ins>Code Example</ins>:
 
-```
-  <p>I am taking color red and increasing my font size.</p>
+```html
+<p>I am taking color red and increasing my font size.</p>
 ```
 
-```
+```css
 p {
-color: red;
-font-size: 36px;
+  color: red;
+  font-size: 36px;
 }
 ```
 
@@ -130,11 +130,11 @@ This CSS rule is saying that apply color of red to every <kbd>p</kbd> element an
 <p class="paragraph">You can style me using my class name.</p>
 ```
 
-```
+```css
 .paragraph {
   color: red;
   font-size: 36px;
-  }
+}
 ```
 
 This CSS rule is saying that
@@ -160,11 +160,11 @@ paragraph and also increase its font size to 36px.
 </span>
 ```
 
-```
+```css
 #container-wrapper {
   color: red;
   font-size: 36px;
-  }
+}
 ```
 
 ---
@@ -179,7 +179,7 @@ paragraph and also increase its font size to 36px.
 </a>
 ```
 
-```
+```css
 [href] {
   color: red;
 }
@@ -196,12 +196,12 @@ paragraph and also increase its font size to 36px.
 </a>
 ```
 
-```
-[href="https://altschoolafrica.com"] {
-color: red;
-font-size: 36px;
+```css
+[href="https://altschoolafrica.com"]
+{
+  color: red;
+  font-size: 36px;
 }
-
 ```
 
 Note: This method give you the access to style any element that has an attribute of data-type but with a specific value of href.
@@ -223,19 +223,18 @@ Note: This method give you the access to style any element that has an attribute
 
 <ins>Code Example</ins>
 
-```
-button:hover{
-background-color: orange;
-};
+```css
+button:hover {
+  background-color: orange;
+}
 
-li:nth-child(even){
-text-transform: uppercase;
-};
+li:nth-child(even) {
+  text-transform: uppercase;
+}
 
-input:focus{
-border: 2px solid red;
-};
-
+input:focus {
+  border: 2px solid red;
+}
 ```
 
 ---
@@ -253,8 +252,7 @@ Here are some common pseudo-elements:
 
 ```
 
-`Note: Pseudo-elements are particularly useful for enhancing the design and readability of web content without the need for additional HTML elements.
-`
+Note: Pseudo-elements are particularly useful for enhancing the design and readability of web content without the need for additional HTML elements.
 
 ---
 
@@ -262,10 +260,12 @@ Here are some common pseudo-elements:
 
 To have more power in accessing elements in the DOM we have some selectors which we will brief through but let's quickly look at parents and child elements using this code below:
 
-```
-
-<p>AltSchool Africa is a tech school that offers varieties of tech courses like <span>Frontend engineering</span>, <span>Backend engineering</span> and newly added <span>Cybersecurity</span> online.</p>
-
+```html
+<p>
+  AltSchool Africa is a tech school that offers varieties of tech courses like
+  <span>Frontend engineering</span>, <span>Backend engineering</span> and newly
+  added <span>Cybersecurity</span> online.
+</p>
 ```
 
 In the code above, the parent element is the <kbd>p</kbd>, inside which we have 3 span elements, since all these 3 span elements are inside the <kbd>p</kbd> we call them the child elements of <kbd>p</kbd>.
@@ -274,11 +274,10 @@ In the code above, the parent element is the <kbd>p</kbd>, inside which we have 
 
 <ins>Code Example</ins>:
 
-```
+```css
 p span {
-color: red;
+  color: red;
 }
-
 ```
 
 All the texts wrapped inside the span tag will take the CSS rule.
@@ -289,22 +288,20 @@ All the texts wrapped inside the span tag will take the CSS rule.
 
 <ins>Code Example</ins>:
 
-```
+```css
 ul > li {
-list-style:none;
-};
-
+  list-style: none;
+}
 ```
 
 - Adjacent Sibling Selector (prev + next): This selects an element that is immediately preceded by a specified element.
 
 <ins>Code Example</ins>:
 
-```
+```css
 h1 + p {
-margin-top: 0;
-};
-
+  margin-top: 0;
+}
 ```
 
 ---
@@ -313,22 +310,22 @@ margin-top: 0;
 
 Code Example:
 
-```
+```css
 h1 ~ p {
-color: blue;
+  color: blue;
 }
-
 ```
 
 - Grouping Selector: Applies the same styles to multiple selectors.
 
 Code Example:
 
-```
-h1, h2, h3 {
-margin-bottom: 10px;
+```css
+h1,
+h2,
+h3 {
+  margin-bottom: 10px;
 }
-
 ```
 
 ---
@@ -337,10 +334,11 @@ margin-bottom: 10px;
 
 Specificity is the key to understanding how CSS decides between competing rules. Let's take a brief at this code before we dive deep into specificity.
 
+```html
+<h1 class="title">Hi, Specificity</h1>
 ```
 
-<h1 class="title">Hi, Specificity</h1>
-
+```css
 h1 {
   color: blue;
 }
@@ -348,7 +346,6 @@ h1 {
 .title {
   color: yellow;
 }
-
 ```
 
 In the code above, we are trying to style the h1 element but we have two CSS ruleset, so which stylesheet will override the other? This is where our knowledge on specificity algorithm comes in.
@@ -425,7 +422,7 @@ The only way to override inline styles which has specificity value of 1000 is by
 
 Code Example
 
-```
+```css
 selector {
   property: value !important;
 }
@@ -433,7 +430,6 @@ selector {
 .h1 {
   color: red !important;
 }
-
 ```
 
 ---
