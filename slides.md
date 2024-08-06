@@ -436,6 +436,88 @@ selector {
 
 # Box Model
 
+The CSS Box Model is a core concept in web design and layout. It describes how every element on a web page is rendered as a rectangular box.
+It’s basically a box that wraps around every HTML element. Understanding this model is crucial for creating precise layouts and solving common design challenges.
+
+---
+
+# Components Of Box Model
+
+a) Content:
+
+- This is the innermost layer.
+- It contains the actual content of the element (text, images, etc.).
+- Dimensions are set using 'width' and 'height' properties.
+
+b) Padding:
+
+- Surrounds the content area.
+- Creates space between the content and the border.
+- Can be set using 'padding' property (or padding-top, padding-right, etc.).
+- Is transparent, allowing the background of the element to show through.
+
+c) Border:
+
+- Encircles the padding (or content if no padding is set).
+- Can have different styles, colors, and widths.
+- Set using the 'border' property or individual properties like 'border-width'.
+
+d) Margin:
+
+- The outermost layer.
+- Creates space between the element and adjacent elements.
+- Is always transparent.
+- Set using the 'margin' property or individual properties (margin-top, etc.).
+
+---
+
+![Alt text](https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png)
+
+---
+
+1. Calculating Total Element Size
+
+One of the most important aspects of the Box Model is understanding how the total size of an element is calculated:
+
+- Total Width = width + left padding + right padding + left border + right border
+- Total Height = height + top padding + bottom padding + top border + bottom border
+
+Note: Margins are not included in these calculations as they affect spacing between elements, not the element's size itself.
+
+2. Box-Sizing Property
+
+The default box model can sometimes lead to unexpected results. CSS3 introduced the 'box-sizing' property to address this:
+
+'content-box' (default): Width and height apply to content area only.
+'border-box': Width and height include content, padding, and border.
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+---
+
+# Example
+
+```css
+div {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  border: 10px solid black;
+  margin: 25px;
+}
+```
+
+### Understanding the Box Model is crucial for:
+
+- Centering elements
+- Creating consistent spacing
+- Implementing responsive designs
+- Debugging layout issues
+
 ---
 
 # Inheritance
@@ -702,7 +784,7 @@ This shorthand resets all properties (except unicode-bidi and direction) of an e
 # Contributors
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
-- [Olubebe Faith](https://github.com/Olubebe)
+- [Oluwibe Faith](https://github.com/Olubebe)
 
 ```
 
