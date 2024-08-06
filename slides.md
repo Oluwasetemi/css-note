@@ -440,6 +440,204 @@ selector {
 
 # Inheritance
 
+Inheritance, this is when a child element get a computed value which represents its parent's value. Inheritance cascade downwards and every property has a default value in CSS.
+
+<div class=" flex justify-center p-10 border border-gray-300 bg-blue overflow-auto animate-slide-in-left">
+```mermaid
+graph TD;
+    Types-Of-Inheritance-->Inherited-properties;
+    Types-Of-Inheritance-->Non-Inherited-properties;
+```
+</div>
+
+- Inherited-properties: These are properties that by default passed down from a parent element to its children.
+
+- Non-Inherited-properties: These are properties that by default can't be passed down from a parent element to its children.
+
+---
+
+Some inherited and non-inherited CSS properties:
+
+<table class="  p-4 border border-black overflow-scroll">
+<tr class="p-4 border border-black-400 bg-green">
+<th>Inherited Properties</th>
+<th>Non-Inherited Properties</th>
+</tr>
+<tr>
+<td class="bg-black text-white">list-style</td>
+<td class="bg-black text-white">border</td>
+</tr>
+<tr>
+<td>color</td>
+<td>margin</td>
+</tr>
+<tr>
+<td class="bg-black text-white">cursor</td>
+<td class="bg-black text-white">padding</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>width</td>
+</tr>
+<tr>
+<td class="bg-black text-white">font-size</td>
+<td class="bg-black text-white">height</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>position</td>
+</tr>
+<tr>
+<td class="bg-black text-white">font-weight</td>
+<td class="bg-black text-white">box-shadow</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>z-index</td>
+</tr>
+</table>
+---
+
+Inherited property
+
+Code Example: The color property falls under the inherited properties, so the <kbd>em</kbd> element will inherit the color value from the parent element which is <kbd>p</kbd>
+
+<div class="p-8 bg-green">
+
+```html
+<p>This paragraph has <em>emphasized text</em>in it.</p>
+```
+
+```css
+p {
+  color: green;
+  font-weight-500;
+}
+```
+
+ <p class="color-red-500 font-large">This paragraph has <em>emphasized text</em> in it.</p>
+</div>
+
+---
+
+Non-inherited property
+
+Code Example: The border property falls under the non-inherited properties so, the <kbd>em</kbd> element will not inherit the border value from the parent element which is <kbd>p</kbd>.
+
+<div class="p-8 bg-red">
+
+```html
+<p>This paragraph has <em>emphasized text</em>in it.</p>
+```
+
+```css
+p {
+  border: 3px solid red;
+}
+```
+
+ <p class="border-3 border-solid border-black-500">This paragraph has <em>emphasized text</em> in it.</p>
+
+</div>
+
+---
+
+## Setting inheritance explicitly in CSS
+
+Using the inherit keyword
+
+To keep everything under the developer's control, we have the inherit keyword that can make any property inherit its parent's computed value.
+
+Code Example:
+
+<div class="p-8 bg-red animate-slide-in-right">
+
+```html
+<p>This paragraph has <em>emphasized text</em>in it.</p>
+```
+
+```css
+p {
+  border: 3px solid red;
+}
+em {
+  border: inherit; //using the inherit keyword to make the em tag inherit the border style from its parent.
+}
+```
+
+ <p class="border-3 border-solid border-black-500">This paragraph has <em class="border border-inherit">emphasized text</em> in it.</p>
+</div>
+
+---
+
+## Controlling Inheritance
+
+Note: Inheritance is always from the parent element in the document tree, even when the parent element is not the containing block.
+
+There are 5 major keywords in inheritance:
+
+<dl class="h-80 bg-yellow p-4 border border-rounded-4 overflow-y-scroll animate-slide-in-left">
+<dt class="font-sans font-extrabold">
+inherit:
+</dt>
+<dd>
+The inherit keyword causes element to take the computed value of the propety from its parent element.
+
+</dd>
+<br/>
+<dt class="font-sans font-extrabold">
+initial: 
+</dt>
+<dd>
+This keyword sets a property back to that initial, default value.
+</dd>
+<br/>
+<dt class="font-sans font-extrabold"> unset: </dt><dd> This keyword resets a property to its inherited value if the property naturally inherits from its parent, and to its initial value if not. This is like shuffling between the inherit and the initial keyword because in its first case it behaves like the inherit keyword when the property is an inherited property and like the initial keyword in the second case when the property is a non-inherited property.
+</dd>
+<br/>
+<dt class="font-sans font-extrabold">
+revert:
+</dt>
+<dd>
+This keyword reverts the cascaded value of the property from its current value to the value the property would have had if no changes had been made by the current style origin to the current element.
+</dd>
+<!-- </dl> -->
+<br/>
+<dt class="font-sans font-extrabold">
+revert-layer:
+</dt>
+<dd>
+This keyword rolls back the value of a property in a cascade layer to the value of a CSS rule matching the element in a previous cascade layer. 
+</dd>
+</dl>
+
+---
+
+The <kbd>all</kbd> CSS property
+
+This shorthand resets all properties (except unicode-bidi and direction) of an element to their initial, inherited, or unset state. This property can be particularly useful when you want to ensure that an element does not inherit any styles from its parents or previous rules and instead starts with a clean slate.
+
+```html
+<div class="parent">
+  Parent Text
+  <div class="child-inherit">Child Text with all: inherit</div>
+</div>
+```
+
+```css
+.parent {
+  color: red;
+  font-size: 10px;
+  background-color: lightgray;
+}
+
+.child-inherit {
+  all: inherit;
+}
+```
+
+<div class="text-red-500 text-xl bg-gray-300">Parent Text</div>
+<div class="text-red-500 text-xl bg-gray-300">Child Text with all: inherit</div>
 ---
 
 # Colors/Units/Gradients
@@ -505,6 +703,14 @@ selector {
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
 - [Olubebe Faith](https://github.com/Olubebe)
+
+```
+
+```
+
+```
+
+```
 
 ```
 
