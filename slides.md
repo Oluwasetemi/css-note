@@ -471,7 +471,7 @@ d) Margin:
 
 ---
 
-![Alt text](https://imgtr.ee/images/2024/08/02/d1e6333470bc58900e12cc8d5a1d2768.png)
+![Alt text](https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png)
 
 ---
 
@@ -586,7 +586,7 @@ div {
 # Contributors
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
-- [Olubebe Faith](https://github.com/Olubebe)
+- [Oluwibe Faith](https://github.com/Olubebe)
 
 ```
 
