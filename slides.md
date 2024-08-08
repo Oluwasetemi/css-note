@@ -728,6 +728,71 @@ This shorthand resets all properties (except unicode-bidi and direction) of an e
 
 # Debugging in browser
 
+<h1 class="p-4 bg-green text-center">Debugging</h1>
+Debugging is the process of finding and fixing errors or bug in the source code of any software.
+When writing code, everything may appear normal during development, but errors can arise during runtime. These errors typically fall into two categories:
+
+<ul>
+<li class="animate-slide-in-left"> Syntax Error: Occurs when the code does not adhere to the language's rules or grammar, preventing it from being compiled or interpreted correctly.</li>
+
+<li class="animate-slide-in-right"> Logic Error: Occurs when the code is syntactically correct but produces incorrect or unintended results due to flawed reasoning or incorrect algorithm implementation.</li>
+</ul>
+
+<p>You might wonder when you'd need to debug CSS. Let me explain: Sometimes, when writing CSS rules for an element, you may encounter situations where your styles aren't being applied as expected, or the element isn't behaving the way you intended.</p>
+<p class="w-full bg-black text-white py-4">
+Note: When in doubt in CSS put a border on the element.
+</p>
+
+---
+
+<h1 class="p-4 bg-green text-center">Debugging in the browser</h1>
+
+One of the fastest way to get your CSS debugged is to use the browser. Browser like Chrome, Firefox etc offer powerful developer tools for debugging and this is what we are referring to as debugging in the browser.
+
+<h2 class="p-2 bg-green text-center">How to access browser DevTools</h2>
+
+<p class="text font-700">This devtools live inside the browser and you can access it by:</p>
+<ol>
+<li>
+Press-and-hold/right-click an item on a webpage and choose inspect from the context menu that appears. This will show all the code that made up the UI but highlighted the code of the element you right-clicked. Click on Elements to see how the HTML looks like on runtime and their respective CSS applied.
+</li>
+<li>
+Keyboard: On WIndows <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
+On macOS:  <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
+</li>
+</ol>
+
+---
+
+<h1 class="p-4 bg-green text-center">DevTools</h1>
+<p>
+In the developer tools, you can immediately modify the HTML and CSS, with the changes reflected live in the browser. This feature is valuable for previewing your intended modifications before implementing them locally.</p>
+
+<p>Also, you can toggle CSS rules by unchecking the corresponding checkboxes in the devTools, allowing you to experiment with different styles on the fly.</p>
+
+<p>Additionally, we have talked about the Box Model in the previous lesson, the devTools layout view shows you the box model on a selected elements and gives you proper insight on the element box property like border, margin, padding, height and width.</p>
+
+<div class="h-80 overflow-scroll  grid place-items-center animate-slide-in-left w-full ">
+
+<img src="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools/css_inspector.png" alt="image showing chrome developer tools" class="w-3/5" />
+<small>How the DevTools look like</small>
+</div>
+
+---
+
+ <h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
+
+To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.
+<br/>
+<br/>
+In the image below the developer is trying to check the CSS on the body element.
+
+<div class="h-80 overflow-scroll bg-grey">
+ <img src="https://developer.chrome.com/static/docs/devtools/css/reference/image/the-tooltip-specificity-e28a5e9a4b32.png" alt="Image of a devtools" />
+</div>
+
+---
+
 ---
 
 # Inline, Internal and External CSS
