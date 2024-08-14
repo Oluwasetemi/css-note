@@ -797,7 +797,7 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 ---
 
- <h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
+<h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
 
 To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.
 <br/>
@@ -811,6 +811,8 @@ In the image below the developer is trying to check the CSS on the body element.
 ---
 hide: true
 ---
+
+# Some Title
 
 ---
 hide: true
@@ -827,36 +829,43 @@ hide: true
 ---
 hide: true
 ---
+
 # Grid Layout
 
 ---
 hide: true
 ---
+
 # Positioning
 
 ---
 hide: true
 ---
+
 # Stacking Content/Z-index
 
 ---
 hide: true
 ---
+
 # Overflow
 
 ---
 hide: true
 ---
+
 # Responsiveness
 
 ---
 hide: true
 ---
+
 # Animations
 
 ---
 hide: true
 ---
+
 # CSS Frameworks
 
 ---
@@ -866,6 +875,7 @@ hide: true
 ---
 hide: true
 ---
+
 # Assignments
 
 <ul>
