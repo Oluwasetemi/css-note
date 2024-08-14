@@ -88,6 +88,7 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 ---
 hideInToc: true
 ---
+
 <ins>Definition of selectors</ins>
 
 Looking at the image in the previous slide we'll notice that CSS selector is the first part of a CSS rule. In order to choose or select HTML elements that's going to carry the CSS property values inside the rule we have to use CSS Selector. In summary, for us to add a style for a particular HTML element we need a selector.
@@ -360,7 +361,7 @@ h1 {
 In the code above, we are trying to style the h1 element but we have two CSS ruleset, so which stylesheet will override the other? This is where our knowledge on specificity algorithm comes in.
 <br/>
 <br/>
-Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be apllied on the element.
+Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be applied on the element.
 
 ## <!-- We will come back to this at the end of this topic. -->
 
@@ -368,9 +369,9 @@ Specificity is a score given to selectors, and whenever we have two or more CSS 
 hideInToc: true
 ---
 
-## Specificity Hierachy
+## Specificity Hierarchy
 
-CSS selectors are of different forms and each of them has its place in the specificity hierachy.
+CSS selectors are of different forms and each of them has its place in the specificity hierarchy.
 
 CSS Selectors decrease in specificity from top to bottom, meaning the selector at the top of the hierarchy has the highest specificity.
 
@@ -391,7 +392,7 @@ graph TD;
 ```
 </div>
 
-<div class="bg-red animate-slide-in-right" >
+<div class="bg-red animate-slide-in-right">
 ```mermaid
 graph TD;
     Selectors-->Specificity_Value;
@@ -402,7 +403,6 @@ graph TD;
     Attribute_selectors-->10;
     Elements-->1;
     Pseudo-elements-->1;
-
 ```
 </div>
 
@@ -426,7 +426,7 @@ Class Assessment: Calculate the specificity of these selectors:
 hideInToc: true
 ---
 
-## !impotant rule
+## !important rule
 
 In CSS, there is one rule that has the highest specificity score of 10,000. This rule is used to give a property-value pair the highest priority, allowing it to override any other declarations.
 
@@ -679,7 +679,7 @@ There are 5 major keywords in inheritance:
 inherit:
 </dt>
 <dd>
-The inherit keyword causes element to take the computed value of the propety from its parent element.
+The inherit keyword causes element to take the computed value of the property from its parent element.
 
 </dd>
 <br/>
@@ -713,7 +713,7 @@ This keyword rolls back the value of a property in a cascade layer to the value 
 
 The <kbd>all</kbd> CSS property
 
-This shorthand resets all properties (except unicode-bidi and direction) of an element to their initial, inherited, or unset state. This property can be particularly useful when you want to ensure that an element does not inherit any styles from its parents or previous rules and instead starts with a clean slate.
+This shorthand resets all properties (except unicode-bdi and direction) of an element to their initial, inherited, or unset state. This property can be particularly useful when you want to ensure that an element does not inherit any styles from its parents or previous rules and instead starts with a clean slate.
 
 ```html
 <div class="parent">
@@ -797,7 +797,7 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 ---
 
- <h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
+<h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
 
 To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.
 <br/>
@@ -811,6 +811,8 @@ In the image below the developer is trying to check the CSS on the body element.
 ---
 hide: true
 ---
+
+# Some Title
 
 ---
 hide: true
@@ -827,36 +829,43 @@ hide: true
 ---
 hide: true
 ---
+
 # Grid Layout
 
 ---
 hide: true
 ---
+
 # Positioning
 
 ---
 hide: true
 ---
+
 # Stacking Content/Z-index
 
 ---
 hide: true
 ---
+
 # Overflow
 
 ---
 hide: true
 ---
+
 # Responsiveness
 
 ---
 hide: true
 ---
+
 # Animations
 
 ---
 hide: true
 ---
+
 # CSS Frameworks
 
 ---
@@ -866,6 +875,7 @@ hide: true
 ---
 hide: true
 ---
+
 # Assignments
 
 <ul>
