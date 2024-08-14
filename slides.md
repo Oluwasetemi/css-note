@@ -80,7 +80,8 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 <img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
-
+hideInToc: true
+---
 <ins>Definition of selectors</ins>
 
 Looking at the image in the previous slide we'll notice that CSS selector is the first part of a CSS rule. In order to choose or select HTML elements that's going to carry the CSS property values inside the rule we have to use CSS Selector. In summary, for us to add a style for a particular HTML element we need a selector.
@@ -101,6 +102,8 @@ Types of selectors
 
 This rule is saying that remove any default margin and padding from all the elements in this document and also change the box-sizing value to border-box.
 
+---
+hideInToc: true
 ---
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
@@ -356,6 +359,8 @@ Specificity is a score given to selectors, and whenever we have two or more CSS 
 ## <!-- We will come back to this at the end of this topic. -->
 
 ---
+hideInToc: true
+---
 
 ## Specificity Hierachy
 
@@ -391,7 +396,7 @@ graph TD;
     Attribute_selectors-->10;
     Elements-->1;
     Pseudo-elements-->1;
-    
+
 ```
 </div>
 
@@ -411,6 +416,8 @@ Class Assessment: Calculate the specificity of these selectors:
 </p>
 </div>
 
+---
+hideInToc: true
 ---
 
 ## !impotant rule
@@ -539,8 +546,7 @@ graph TD;
 ---
 
 Some inherited and non-inherited CSS properties:
-
-<table class="  p-4 border border-black overflow-scroll">
+<table class="p-4 border border-black overflow-scroll">
 <tr class="p-4 border border-black-400 bg-green">
 <th>Inherited Properties</th>
 <th>Non-Inherited Properties</th>
@@ -623,6 +629,8 @@ p {
 </div>
 
 ---
+hideInToc: true
+---
 
 ## Setting inheritance explicitly in CSS
 
@@ -651,6 +659,8 @@ em {
 </div>
 
 ---
+hideInToc: true
+---
 
 ## Controlling Inheritance
 
@@ -668,7 +678,7 @@ The inherit keyword causes element to take the computed value of the propety fro
 </dd>
 <br/>
 <dt class="font-sans font-extrabold">
-initial: 
+initial:
 </dt>
 <dd>
 This keyword sets a property back to that initial, default value.
@@ -689,7 +699,7 @@ This keyword reverts the cascaded value of the property from its current value t
 revert-layer:
 </dt>
 <dd>
-This keyword rolls back the value of a property in a cascade layer to the value of a CSS rule matching the element in a previous cascade layer. 
+This keyword rolls back the value of a property in a cascade layer to the value of a CSS rule matching the element in a previous cascade layer.
 </dd>
 </dl>
 
@@ -721,7 +731,8 @@ This shorthand resets all properties (except unicode-bidi and direction) of an e
 <div class="text-red-500 text-xl bg-gray-300">Parent Text</div>
 <div class="text-red-500 text-xl bg-gray-300">Child Text with all: inherit</div>
 ---
-
+hide: true
+---
 # Colors/Units/Gradients
 
 ---
@@ -792,49 +803,63 @@ In the image below the developer is trying to check the CSS on the body element.
 </div>
 
 ---
+hide: true
+---
 
+---
+hide: true
 ---
 
 # Inline, Internal and External CSS
 
 ---
+hide: true
+---
 
 # FlexBox
 
 ---
-
+hide: true
+---
 # Grid Layout
 
 ---
-
+hide: true
+---
 # Positioning
 
 ---
-
+hide: true
+---
 # Stacking Content/Z-index
 
 ---
-
+hide: true
+---
 # Overflow
 
 ---
-
+hide: true
+---
 # Responsiveness
 
 ---
-
+hide: true
+---
 # Animations
 
 ---
-
+hide: true
+---
 # CSS Frameworks
 
 ---
-
-<CounterReact />
-
+hide: true
 ---
 
+---
+hide: true
+---
 # Assignments
 
 <ul>
@@ -843,8 +868,8 @@ In the image below the developer is trying to check the CSS on the body element.
 </ul>
 
 ---
-
-<!-- hideInToc: true -->
+hideInToc: true
+---
 
 # Contributors
 
