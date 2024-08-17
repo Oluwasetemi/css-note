@@ -76,7 +76,6 @@ The last comment block of each slide will be treated as slide notes. It will be 
 - [21](https://www.youtube.com/watch?v=Eik3R556Xg8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=21)
 - [22](https://www.youtube.com/watch?v=87-WHDYRSic&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=22)
 
-
 ---
 
 # Selectors
@@ -86,8 +85,8 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 <img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <ins>Definition of selectors</ins>
 
@@ -110,8 +109,8 @@ Types of selectors
 This rule is saying that remove any default margin and padding from all the elements in this document and also change the box-sizing value to border-box.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
 
@@ -366,8 +365,8 @@ Specificity is a score given to selectors, and whenever we have two or more CSS 
 ## <!-- We will come back to this at the end of this topic. -->
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Specificity Hierarchy
 
@@ -423,8 +422,8 @@ Class Assessment: Calculate the specificity of these selectors:
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## !important rule
 
@@ -552,6 +551,7 @@ graph TD;
 ---
 
 Some inherited and non-inherited CSS properties:
+
 <table class="p-4 border border-black overflow-scroll">
 <tr class="p-4 border border-black-400 bg-green">
 <th>Inherited Properties</th>
@@ -635,8 +635,8 @@ p {
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Setting inheritance explicitly in CSS
 
@@ -665,8 +665,8 @@ em {
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Controlling Inheritance
 
@@ -737,9 +737,232 @@ This shorthand resets all properties (except unicode-bdi and direction) of an el
 <div class="text-red-500 text-xl bg-gray-300">Parent Text</div>
 <div class="text-red-500 text-xl bg-gray-300">Child Text with all: inherit</div>
 ---
-hide: true
 ---
 # Colors/Units/Gradients
+
+# Colors/Units/Gradients
+
+# CSS Color
+
+Colors in CSS can be defined in various ways, such as using color names, hexadecimal values, RGB, RGBA, HSL, and HSLA.
+
+## Color Names
+
+Definition: These are predefined color names in CSS, such as red, blue, green, black, white, etc. There are 140 named colors in CSS.
+
+Named colors are convenient for quick, common colors but lack precision for more specific color needs.
+
+```css
+p {
+  color: red;
+  background-color: lightblue;
+}
+```
+
+---
+
+## Hexadecimal Colors
+
+Hexadecimal colors are defined using a six-digit code consisting of letters and numbers, preceded by a "#".The first two digits represent the red component, the next two represent the green, and the last two represent the blue
+
+You can also use a three-digit shorthand (e.g., #f00 for #ff0000), which is equivalent to doubling each digit.
+
+```css
+p {
+  color: #ff5733; /* Bright orange */
+  color: #f53; /* Equivalent shorthand for #ff5533 */
+  color: #ff0000; /* Red */
+  color: #f00; /* Shorthand for Red*/
+  background-color: #c0c0c0; /* Silver */
+}
+```
+
+---
+
+## RGB and RGBA Colors
+
+RGB stands for Red, Green, Blue, with values ranging from 0 to 255. RGBA adds an alpha channel for transparency, with a value between 0 (completely transparent) and 1 (completely opaque).
+
+RGBA is particularly useful for overlay effects and blending colors.
+
+```css
+color: rgb(255, 87, 51); /* Bright orange */
+color: rgba(255, 87, 51, 0.5); /* 50% transparent */
+```
+
+<div class="p-5 border border-gray-300 bg-gray-100 font-sans text-base">
+        <p class="text-[rgb(255,87,51)]">This text is bright orange.</p>
+        <p class="text-[rgba(255,87,51,0.5)]">This text is 50% transparent orange.</p>
+    </div>
+
+---
+
+## HSL & HSLA Colors
+
+HSL stands for Hue (0-360), Saturation (0%-100%), and Lightness (0%-100%). HSLA adds an alpha channel for transparency.
+
+HSL is intuitive for adjusting colors based on human perception, making it easier to create shades and tints.
+
+```css
+color: hsl(9, 100%, 60%); /* Bright orange */
+color: hsla(9, 100%, 60%, 0.5); /* 50% transparent */
+```
+
+## Opacity and Transparency
+
+Transparency: Besides RGBA and HSLA, you can control an element’s transparency using the opacity property, which affects the entire element, including its content.
+
+```css
+opacity: 0.5; /* Makes the element 50% transparent */
+```
+
+---
+
+# CSS Units
+
+CSS units are vital for defining the size, spacing, and layout of elements. Here’s a more in-depth look at the types of units:
+
+1. Absolute Units
+
+- Fixed Units: These do not scale based on the viewport or parent elements.
+
+- Pixels (px): Most common; ideal for precise control.
+
+```css
+font-size: 14px; /* Fixed size */
+```
+
+2. Relative Units
+
+- Flexible Units: These scale based on the parent element or viewport, making designs more responsive.
+- em: Relative to the font size of the parent element. Useful for scalable spacing and typography.
+
+```css
+padding: 1em; /* Equal to the current font size */
+```
+
+---
+
+## Contd (Relative Units)
+
+- <kbd>rem</kbd>: Relative to the root element's font size (<kbd>html</kbd>), offering consistency across the page.
+
+```css
+font-size: 1.2rem; /* 1.2 times the root font size */
+```
+
+- <kbd>%</kbd>: Relative to the parent element's size, commonly used in responsive design.
+
+```css
+width: 80%; /* 80% of the parent element's width */
+```
+
+- <kbd>vw</kbd>, <kbd>vh</kbd>: Relative to the viewport's width or height. Ideal for full-screen layouts and responsive elements.
+
+```css
+width: 100vw; /* Full width of the viewport */
+height: 100vh; /* Full height of the viewport */
+```
+
+---
+
+3. Viewport Units
+   - Viewport-based units: Perfect for responsive design.
+
+- vw: 1% of the viewport width.
+- vh: 1% of the viewport height.
+- vmin and vmax: Relative to the smaller or larger of vw and vh.
+
+```css
+font-size: 5vw; /* Font size based on viewport width */
+```
+
+---
+
+# CSS Gradients
+
+Gradients are used to create smooth transitions between colors, adding depth and visual interest to designs. Here’s a deeper look:
+
+1. Linear Gradients
+   A gradient that transitions along a straight line. You can control the direction and color stops.
+
+linear-gradient(direction, color-stop1, color-stop2, ...).
+
+Direction: Can be specified with angles (e.g., 45deg) or keywords (to right, to bottom).
+
+```css
+background: linear-gradient(45deg, red, yellow);
+```
+
+<div class="h-64 w-full" style="background: linear-gradient(45deg, red, yellow);">
+    </div>
+
+---
+
+2. Radial Gradients
+   Radiates from a central point outward, either circular or elliptical.
+
+radial-gradient(shape size at position, start-color, ..., end-color).
+
+Shapes and Sizes: You can control the shape (circle or ellipse) and size (closest-side, farthest-corner, etc.).
+
+```css
+background: radial-gradient(circle, red, yellow, green);
+```
+
+<div class="flex gap-3">
+<div class="h-64 w-full" style="background: radial-gradient(circle, red, yellow, green);">
+    </div>
+    <div class="h-64 w-full" style="background: radial-gradient(ellipse, red, yellow, green);">
+    </div>
+</div>
+
+---
+
+3. Conic Gradients
+
+- A gradient that rotates around a central point, similar to slices of a pie.
+- Often used for visualizations like pie charts.
+
+```css
+background: conic-gradient(from 90deg, red, yellow, green);
+```
+
+<div class="h-64 w-full" style="background: conic-gradient(from 90deg, red, yellow, green);">
+    </div>
+
+---
+
+4. Repeating Gradients
+
+- Repeats the linear gradient pattern indefinitely.
+
+```css
+background: repeating-linear-gradient(45deg, red, yellow 10%);
+```
+
+- Repeating Radial Gradients: Repeats the radial gradient pattern.
+
+```css
+background: repeating-radial-gradient(circle, red, yellow 10%);
+```
+
+<div class="flex text-black gap-3">
+<div class="h-64 w-full  text-center" style="background: repeating-linear-gradient(45deg, red, yellow 10%);">
+<p>Repeating Linear Gradient</p>
+</div>
+ <div class="h-64 w-full text-center" style="background: repeating-radial-gradient(circle, red, yellow 10%);">
+ <p>Repeating Radial Gradient</p>
+    </div>
+</div>
+
+---
+
+## Practical Tips
+
+- Combine Units: Use relative units (em, rem) for typography to maintain scalability and consistent spacing.
+- Gradients with Transparency: Combine gradients with RGBA or HSLA colors for layered effects with transparency.
+- Viewport Units for Responsiveness: Use vw and vh for elements that need to adapt to screen size changes, such as full-screen sections or responsive text sizes.
 
 ---
 
@@ -809,72 +1032,72 @@ In the image below the developer is trying to check the CSS on the body element.
 </div>
 
 ---
-hide: true
----
+
+## hide: true
 
 # Some Title
 
 ---
-hide: true
----
+
+## hide: true
 
 # Inline, Internal and External CSS
 
 ---
-hide: true
----
+
+## hide: true
 
 # FlexBox
 
 ---
-hide: true
----
+
+## hide: true
 
 # Grid Layout
 
 ---
-hide: true
----
+
+## hide: true
 
 # Positioning
 
 ---
-hide: true
----
+
+## hide: true
 
 # Stacking Content/Z-index
 
 ---
-hide: true
----
+
+## hide: true
 
 # Overflow
 
 ---
-hide: true
----
+
+## hide: true
 
 # Responsiveness
 
 ---
-hide: true
----
+
+## hide: true
 
 # Animations
 
 ---
-hide: true
----
+
+## hide: true
 
 # CSS Frameworks
 
 ---
-hide: true
----
+
+## hide: true
 
 ---
-hide: true
----
+
+## hide: true
 
 # Assignments
 
@@ -884,8 +1107,8 @@ hide: true
 </ul>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Contributors
 
