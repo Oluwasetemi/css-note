@@ -738,7 +738,6 @@ This shorthand resets all properties (except unicode-bdi and direction) of an el
 <div class="text-red-500 text-xl bg-gray-300">Child Text with all: inherit</div>
 ---
 ---
-# Colors/Units/Gradients
 
 # Colors/Units/Gradients
 
