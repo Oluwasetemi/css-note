@@ -1038,9 +1038,117 @@ In the image below the developer is trying to check the CSS on the body element.
 
 ---
 
-## hide: true
-
 # Inline, Internal and External CSS
+
+## Inline CSS
+
+Inline CSS is used to apply a unique style to a single HTML element. It is done using the style attribute directly within the HTML tag
+
+```html
+<p style="color: blue; font-size: 20px;">
+  This is a paragraph with inline CSS.
+</p>
+```
+
+Advantages:
+
+- Quick and easy for small, specific changes.
+- Good for overriding styles in a pinch.
+
+Disadvantages:
+
+- Makes the HTML code harder to read and maintain.
+- Not suitable for styling multiple elements.
+
+---
+
+## Internal CSS
+
+Internal CSS is used to define styles for an entire HTML document. It is placed within the <kbd>style</kbd> tag in the <kbd>head</kbd> section of the HTML file.
+
+```html
+<head>
+  <style>
+    p {
+      color: red;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <p>This is a paragraph with internal CSS.</p>
+</body>
+```
+
+<div class="flex justify-between">
+
+<ul>
+<h3>Advantages</h3>
+<li>Keeps styles in one place within the document.</li> 
+<li>Useful for applying styles to a single page.</li>
+<li>Easier to manage and maintain than inline CSS.</li>
+</ul>
+<ul>
+<h3>Disadvantages</h3>
+<li>Not efficient for styling across multiple pages.</li> 
+</ul>
+</div>
+
+---
+
+# External CSS
+
+External CSS involves linking an external .css file to your HTML document. This file contains all the styles, which can be applied to multiple HTML documents.
+
+Syntax
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+```
+
+```css
+/* In styles.css */
+p {
+  color: green;
+  font-size: 16px;
+}
+```
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <p>This is a paragraph with external CSS.</p>
+</body>
+```
+
+---
+
+# External CSS (CONTD)
+
+<div class="flex justify-between">
+
+<ul>
+<h3>Advantages</h3>
+<li>Keeps HTML files clean and separates content from design..</li> 
+<li>Efficient for applying the same styles across multiple pages.</li>
+<li>Easier to maintain and update, as changes in the external CSS file are reflected across all linked pages.</li>
+</ul>
+<ul>
+<h3>Disadvantages</h3>
+<li>Requires an additional HTTP request to load the CSS file.</li> 
+<li>No styles will be visible if the CSS file fails to load.</li>
+</ul>
+</div>
+
+## Summary
+
+- Inline CSS: Best for quick, single-use styles but not ideal for maintainability.
+- Internal CSS: Good for single-page styling, better than inline but still not ideal for multiple pages.
+- External CSS: Preferred method for styling, offering maintainability and scalability across multiple documents.
 
 ---
 
@@ -1113,3 +1221,7 @@ In the image below the developer is trying to check the CSS on the body element.
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
 - [Oluwibe Faith](https://github.com/Olubebe)
+
+```
+
+```
