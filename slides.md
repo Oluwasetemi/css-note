@@ -1158,9 +1158,201 @@ p {
 
 ---
 
-## hide: true
-
 # Grid Layout
+
+Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
+
+---
+
+# Grid Container
+
+The grid container is the parent element that contains the grid items (child elements). To create a grid container, you set the display property of the parent element to grid or inline-grid.
+
+```html
+<div class="grid-container">
+  <div class="grid-item">Item 1</div>
+  <div class="grid-item">Item 2</div>
+  <div class="grid-item">Item 3</div>
+</div>
+```
+
+```css
+.grid-container {
+  display: grid;
+}
+```
+
+<div class="grid">
+  <div class="grid-item text-red-500">Item 1</div>
+  <div class="grid-item text-blue-500">Item 2</div>
+  <div class="grid-item ">Item 3</div>
+</div>
+
+---
+
+# Defining Rows and Columns
+
+You can define the structure of the grid using the <b> grid-template-rows</b> and <b>grid-template-columns</b> properties. These properties determine the number of rows and columns in the grid and their respective sizes.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  grid-template-rows: 100px 200px;
+  grid-gap: 4;
+}
+```
+
+<div class="grid  text-center grid-cols-[200px_1fr_100px] grid-rows-[100px_200px] gap-4">
+  <div class="bg-blue-200">Item 1</div>
+  <div class="bg-green-200">Item 2</div>
+  <div class="bg-red-200">Item 3</div>
+  <div class="bg-yellow-200">Item 4</div>
+  <div class="bg-purple-200">Item 5</div>
+  <div class="bg-pink-200">Item 6</div>
+</div>
+
+---
+
+# Example
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  grid-template-rows: 100px 200px;
+  grid-gap: 4;
+}
+```
+
+In this example:
+
+- <b> grid-template-columns: 200px 1fr 100px;</b> creates three columns. The first column is 200px wide, the second column takes up the remaining space (<b>1fr</b>), and the third column is 100px wide.
+- <b> grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
+
+---
+
+# Placing Grid Items
+
+By default, grid items are placed in the grid based on the order they appear in the HTML. However, you can control their placement using the grid-column and grid-row properties.
+
+```css
+.grid-item:nth-child(1) {
+  grid-column: 1 / 3; /* Spans across the first and second columns */
+  grid-row: 1; /* Placed in the first row */
+}
+
+.grid-item:nth-child(2) {
+  grid-column: 3; /* Placed in the third column */
+  grid-row: 1 / 3; /* Spans across the first and second rows */
+}
+```
+
+<div class="grid grid-cols-3 grid-rows-2 gap-4">
+  <div class="col-span-2 row-start-1 bg-blue-200">Item 1</div>
+  <div class="col-start-3 row-span-2 bg-green-200">Item 2</div>
+  <div class="bg-red-200">Item 3</div>
+  <div class="bg-yellow-200">Item 4</div>
+</div>
+
+---
+
+# Grid Gaps
+
+To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap</b>, and <b>column-gap</b> properties.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; /* 20px space between all grid items */
+}
+```
+
+  <div class="grid grid-cols-3 gap-5">
+    <div class="bg-blue-500 text-white p-5">Item 1</div>
+    <div class="bg-green-500 text-white p-5">Item 2</div>
+    <div class="bg-red-500 text-white p-5">Item 3</div>
+    <div class="bg-yellow-500 text-white p-5">Item 4</div>
+    <div class="bg-purple-500 text-white p-5">Item 5</div>
+    <div class="bg-pink-500 text-white p-5">Item 6</div>
+  </div>
+
+---
+
+# Grid Areas
+
+Grid areas allow you to name specific sections of the grid, making it easier to define complex layouts. You can use grid-template-areas to define areas and grid-area to place grid items within those areas.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 150px 1fr 1fr;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+```
+
+---
+
+  <div class="grid grid-rows-[auto_1fr_auto] grid-cols-[150px_1fr_1fr] gap-5 h-100">
+    <!-- Header -->
+    <div class="bg-blue-500 text-white p-5 col-span-3">
+      Header
+    </div>
+    <div class="bg-green-500 text-white p-5">
+      Sidebar
+    </div>
+    <div class="bg-red-500 text-white p-5 col-span-2">
+      Main Content
+    </div>
+    <div class="bg-yellow-500 text-white p-5 col-span-3">
+      Footer
+    </div>
+  </div>
+
+---
+
+# Responsive Design with Grid
+
+CSS Grid makes it easy to create responsive designs. You can use functions like repeat() and minmax() to create grids that adjust based on the available space.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px;
+}
+```
+
+<div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2">
+  <div class="bg-blue-200 p-4">Item 1</div>
+  <div class="bg-green-200 p-4">Item 2</div>
+  <div class="bg-red-200 p-4">Item 3</div>
+  <div class="bg-yellow-200 p-4">Item 4</div>
+</div>
+
+- repeat(auto-fit, minmax(100px, 1fr)); automatically creates as many columns as will fit into the container, with each column being at least 100px wide and taking up a fraction of the remaining space.
+- This ensures that the grid adjusts dynamically as the viewport size changes.
 
 ---
 
