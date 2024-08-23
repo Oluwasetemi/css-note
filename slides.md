@@ -985,14 +985,12 @@ background: repeating-radial-gradient(circle, red, yellow 10%);
 hideInToc: true
 ---
 
-## Practical Tips
+Practical Tips
 
 - Combine Units: Use relative units (em, rem) for typography to maintain scalability and consistent spacing.
 - Gradients with Transparency: Combine gradients with RGBA or HSLA colors for layered effects with transparency.
 - Viewport Units for Responsiveness: Use vw and vh for elements that need to adapt to screen size changes, such as full-screen sections or responsive text sizes.
 
----
-hideInToc: true
 ---
 
 # Debugging in browser
@@ -1061,14 +1059,7 @@ In the image below the developer is trying to check the CSS on the body element.
 </div>
 
 ---
-hide: true
----
 
-# Some Title
-
----
-hide: true
----
 
 # Inline, Internal and External CSS
 
@@ -1213,8 +1204,6 @@ hideInToc: true
 - External CSS: Preferred method for styling, offering maintainability and scalability across multiple documents.
 
 
-
-
 ---
 hide: true
 ---
@@ -1222,8 +1211,7 @@ hide: true
 # FlexBox
 
 ---
-hide: true
----
+
 
 # Grid Layout
 
@@ -1494,7 +1482,107 @@ hide: true
 hide: true
 ---
 
-# Stacking Content/Z-index
+---
+
+# Stacking Context/Z-index
+
+## What is a Stacking Context?
+A stacking context is a concept in CSS that determines how elements are stacked or layered on top of each other along the z-axis. This z-axis stacking controls the visual order of elements that overlap.
+
+Stacking contexts are created in the following scenarios:
+
+- The root HTML element (<kbd>html</kbd>) creates a stacking context.
+- Elements with a position of relative, absolute, or fixed that also have a z-index value other than auto.
+- Elements with a position of sticky (in some browsers).
+- Elements with certain properties like opacity less than 1, transform, filter, perspective, clip-path, etc.
+- When an element creates a new stacking context, all of its child elements are part of that context. This means their z-index is relative to the parent stacking context, not globally on the page.
+
+---
+hideInToc: true
+---
+
+## What is z-index?
+The z-index property in CSS specifies the stack order of an element within its stacking context. An element with a higher z-index is positioned above an element with a lower z-index.
+
+However, z-index only works on positioned elements (elements whose position property is set to relative, absolute, fixed, or sticky).
+<br/>
+
+## How Stacking Context Works with z-index
+- Default Stacking Order: Elements are stacked according to their order in the HTML. Later elements in the HTML are above earlier ones by default.
+- With z-index: When a z-index is applied to a positioned element, it is layered according to its stacking context.
+
+---
+hideInToc: true
+---
+
+## Example
+
+<div class="flex justify-between">
+<div>
+```css
+.parent {
+  position: relative; /* Creates a stacking context */
+  z-index: 0; /* This z-index is relative to the global stacking context */
+  background-color: #e5e7eb; 
+  padding: 1rem; 
+}
+.child {
+  position: absolute; /* Positioned element with z-index creates a new stacking context */
+  z-index: 10; /* Within its parent stacking context */
+  background-color: #f87171; 
+  padding: 1rem; 
+}
+.sibling {
+  position: relative; /* Positioned element in the global stacking context */
+  z-index: 5; /* Relative to the global stacking context */
+  background-color: #3b82f6; 
+  padding: 1rem;
+}
+```
+</div>
+<div class="relative z-0 bg-gray-200 p-4">
+  <!-- This container creates a new stacking context -->
+  Parent Stacking Context
+  <div class="absolute z-10 bg-red-500 p-4">
+    <!-- This div is within its own stacking context created by the parent -->
+    Child with z-10 within its own context
+  </div>
+</div>
+<div class="relative z-5 bg-blue-500 p-4">
+  <!-- This div is outside the parent stacki  ng context -->
+  Outside of parent stacking context, z-5
+</div>
+</div>
+
+
+---
+hideInToc: true
+---
+
+## Example II
+
+
+<div class="relative bg-yellow-300 p-4">
+  <!-- This container creates a new stacking context due to opacity -->
+  <div class="absolute top-0 left-0 w-20 h-20 bg-blue-500 opacity-50 z-30">
+    <!-- The blue box will have a lower z-index but still be on top due to stacking context -->
+    Semi-transparent blue box
+  </div>
+  <div class="absolute top-10 left-10 w-20 h-20 bg-red-500 z-20">
+    <!-- The red box will appear behind the blue box even though it has a higher z-index in the global context -->
+    Red box behind blue box
+  </div>
+</div>
+
+
+---
+hide: true
+---
+
+## Key Takaways
+- z-index controls stacking order within the same stacking context.
+- Stacking contexts are isolated — a z-index in one context does not affect the stacking order in another context.
+- Some CSS properties (like opacity, transform, filter, etc.) can create new stacking contexts, changing how z-index is applied.
 
 ---
 hide: true
