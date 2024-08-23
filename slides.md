@@ -86,7 +86,9 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 
 ---
 
-## hideInToc: true
+hideInToc: true
+
+---
 
 <ins>Definition of selectors</ins>
 
@@ -110,7 +112,9 @@ This rule is saying that remove any default margin and padding from all the elem
 
 ---
 
-## hideInToc: true
+hideInToc: true
+
+---
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
 
@@ -366,7 +370,9 @@ Specificity is a score given to selectors, and whenever we have two or more CSS 
 
 ---
 
-## hideInToc: true
+hideInToc: true
+
+---
 
 ## Specificity Hierarchy
 
@@ -423,7 +429,9 @@ Class Assessment: Calculate the specificity of these selectors:
 
 ---
 
-## hideInToc: true
+hideInToc: true
+
+---
 
 ## !important rule
 
@@ -480,6 +488,10 @@ d) Margin:
 - Creates space between the element and adjacent elements.
 - Is always transparent.
 - Set using the 'margin' property or individual properties (margin-top, etc.).
+
+---
+
+hideInToc: true
 
 ---
 
@@ -590,6 +602,7 @@ Some inherited and non-inherited CSS properties:
 <td>z-index</td>
 </tr>
 </table>
+
 ---
 
 Inherited property
@@ -611,6 +624,10 @@ p {
 
  <p class="color-red-500 font-large">This paragraph has <em>emphasized text</em> in it.</p>
 </div>
+
+---
+
+hideInToc: true
 
 ---
 
@@ -636,7 +653,9 @@ p {
 
 ---
 
-## hideInToc: true
+hideInToc: true
+
+---
 
 ## Setting inheritance explicitly in CSS
 
@@ -666,7 +685,9 @@ em {
 
 ---
 
-## hideInToc: true
+hideInToc: true
+
+---
 
 ## Controlling Inheritance
 
@@ -736,11 +757,12 @@ This shorthand resets all properties (except unicode-bdi and direction) of an el
 
 <div class="text-red-500 text-xl bg-gray-300">Parent Text</div>
 <div class="text-red-500 text-xl bg-gray-300">Child Text with all: inherit</div>
+
 ---
 
 # Colors/Units/Gradients
 
-# CSS Color
+## CSS Color
 
 Colors in CSS can be defined in various ways, such as using color names, hexadecimal values, RGB, RGBA, HSL, and HSLA.
 
@@ -756,6 +778,10 @@ p {
   background-color: lightblue;
 }
 ```
+
+---
+
+hideInToc: true
 
 ---
 
@@ -965,6 +991,8 @@ background: repeating-radial-gradient(circle, red, yellow 10%);
 
 ---
 
+hideInToc: true
+
 ---
 
 # Debugging in browser
@@ -1034,71 +1062,95 @@ In the image below the developer is trying to check the CSS on the body element.
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # Some Title
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # Inline, Internal and External CSS
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # FlexBox
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # Grid Layout
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # Positioning
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # Stacking Content/Z-index
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # Overflow
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # Responsiveness
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # Animations
 
 ---
 
-## hide: true
+hide: true
+
+---
 
 # CSS Frameworks
 
 ---
 
-## hide: true
+hide: true
 
 ---
 
-## hide: true
+---
+
+hide: true
+
+---
 
 # Assignments
 
@@ -1109,7 +1161,9 @@ In the image below the developer is trying to check the CSS on the body element.
 
 ---
 
-## hideInToc: true
+hideInToc: true
+
+---
 
 # Contributors
 
