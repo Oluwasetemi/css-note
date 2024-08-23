@@ -1135,8 +1135,8 @@ hide: true
 </ul>
 
 ---
-
-## hideInToc: true
+ hideInToc: true
+---
 
 # Contributors
 
