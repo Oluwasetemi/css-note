@@ -784,6 +784,8 @@ p {
 ```
 
 ---
+hideInToc: true
+---
 
 ## RGB and RGBA Colors
 
@@ -801,6 +803,8 @@ color: rgba(255, 87, 51, 0.5); /* 50% transparent */
        <p class="text-[rgba(255,87,51,0.5)]">This text is 50% transparent orange.</p>
    </div>
 
+---
+hideInToc: true
 ---
 
 ## HSL & HSLA Colors
@@ -822,6 +826,8 @@ Transparency: Besides RGBA and HSLA, you can control an element’s transparency
 opacity: 0.5; /* Makes the element 50% transparent */
 ```
 
+---
+hideInToc: true
 ---
 
 # CSS Units
@@ -848,6 +854,8 @@ padding: 1em; /* Equal to the current font size */
 ```
 
 ---
+hideInToc: true
+---
 
 ## Contd (Relative Units)
 
@@ -871,6 +879,8 @@ height: 100vh; /* Full height of the viewport */
 ```
 
 ---
+hideInToc: true
+---
 
 3. Viewport Units
 
@@ -884,6 +894,8 @@ height: 100vh; /* Full height of the viewport */
 font-size: 5vw; /* Font size based on viewport width */
 ```
 
+---
+hideInToc: true
 ---
 
 # CSS Gradients
@@ -905,6 +917,8 @@ background: linear-gradient(45deg, red, yellow);
    </div>
 
 ---
+hideInToc: true
+---
 
 2. Radial Gradients
    Radiates from a central point outward, either circular or elliptical.
@@ -925,6 +939,8 @@ background: radial-gradient(circle, red, yellow, green);
 </div>
 
 ---
+hideInToc: true
+---
 
 3. Conic Gradients
 
@@ -938,6 +954,8 @@ background: conic-gradient(from 90deg, red, yellow, green);
 <div class="h-64 w-full" style="background: conic-gradient(from 90deg, red, yellow, green);">
    </div>
 
+---
+hideInToc: true
 ---
 
 4. Repeating Gradients
@@ -963,6 +981,8 @@ background: repeating-radial-gradient(circle, red, yellow 10%);
    </div>
 </div>
 
+---
+hideInToc: true
 ---
 
 ## Practical Tips
@@ -1041,97 +1061,72 @@ In the image below the developer is trying to check the CSS on the body element.
 </div>
 
 ---
-
 hide: true
-
 ---
 
 # Some Title
 
 ---
-
 hide: true
-
 ---
 
 # Inline, Internal and External CSS
 
 ---
-
 hide: true
-
 ---
 
 # FlexBox
 
 ---
-
 hide: true
-
 ---
 
 # Grid Layout
 
 ---
-
 hide: true
-
 ---
 
 # Positioning
 
 ---
-
 hide: true
-
 ---
 
 # Stacking Content/Z-index
 
 ---
-
 hide: true
-
 ---
 
 # Overflow
 
 ---
-
 hide: true
-
 ---
 
 # Responsiveness
 
 ---
-
 hide: true
-
 ---
 
 # Animations
 
 ---
-
 hide: true
-
 ---
 
 # CSS Frameworks
 
 ---
-
 hide: true
-
 ---
 
 ---
-
 hide: true
-
 ---
-
 # Assignments
 
 <ul>
@@ -1140,8 +1135,8 @@ hide: true
 </ul>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Contributors
 
