@@ -85,9 +85,7 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 <img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
-
 hideInToc: true
-
 ---
 
 <ins>Definition of selectors</ins>
@@ -111,9 +109,7 @@ Types of selectors
 This rule is saying that remove any default margin and padding from all the elements in this document and also change the box-sizing value to border-box.
 
 ---
-
 hideInToc: true
-
 ---
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
@@ -369,9 +365,7 @@ Specificity is a score given to selectors, and whenever we have two or more CSS 
 ## <!-- We will come back to this at the end of this topic. -->
 
 ---
-
 hideInToc: true
-
 ---
 
 ## Specificity Hierarchy
@@ -428,9 +422,7 @@ Class Assessment: Calculate the specificity of these selectors:
 </div>
 
 ---
-
 hideInToc: true
-
 ---
 
 ## !important rule
@@ -490,9 +482,7 @@ d) Margin:
 - Set using the 'margin' property or individual properties (margin-top, etc.).
 
 ---
-
 hideInToc: true
-
 ---
 
 ![Alt text](https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png)
@@ -626,9 +616,7 @@ p {
 </div>
 
 ---
-
 hideInToc: true
-
 ---
 
 Non-inherited property
@@ -652,9 +640,7 @@ p {
 </div>
 
 ---
-
 hideInToc: true
-
 ---
 
 ## Setting inheritance explicitly in CSS
@@ -684,9 +670,7 @@ em {
 </div>
 
 ---
-
 hideInToc: true
-
 ---
 
 ## Controlling Inheritance
@@ -780,9 +764,7 @@ p {
 ```
 
 ---
-
 hideInToc: true
-
 ---
 
 ## Hexadecimal Colors
@@ -990,9 +972,7 @@ background: repeating-radial-gradient(circle, red, yellow 10%);
 - Viewport Units for Responsiveness: Use vw and vh for elements that need to adapt to screen size changes, such as full-screen sections or responsive text sizes.
 
 ---
-
 hideInToc: true
-
 ---
 
 # Debugging in browser
@@ -1160,9 +1140,7 @@ hide: true
 </ul>
 
 ---
-
 hideInToc: true
-
 ---
 
 # Contributors
