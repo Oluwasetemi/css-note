@@ -1072,6 +1072,149 @@ hide: true
 
 # Inline, Internal and External CSS
 
+## Inline CSS
+
+
+Inline CSS is used to apply a unique style to a single HTML element. It is done using the style attribute directly within the HTML tag
+
+
+```html
+<p style="color: blue; font-size: 20px;">
+ This is a paragraph with inline CSS.
+</p>
+```
+
+
+Advantages:
+
+
+- Quick and easy for small, specific changes.
+- Good for overriding styles in a pinch.
+
+
+Disadvantages:
+
+
+- Makes the HTML code harder to read and maintain.
+- Not suitable for styling multiple elements.
+
+
+---
+hideInToc: true
+---
+
+
+## Internal CSS
+
+
+Internal CSS is used to define styles for an entire HTML document. It is placed within the <kbd>style</kbd> tag in the <kbd>head</kbd> section of the HTML file.
+
+
+```html
+<head>
+ <style>
+   p {
+     color: red;
+     font-size: 18px;
+   }
+ </style>
+</head>
+<body>
+ <p>This is a paragraph with internal CSS.</p>
+</body>
+```
+
+
+<div class="flex justify-between">
+
+
+<ul>
+<h3>Advantages</h3>
+<li>Keeps styles in one place within the document.</li>
+<li>Useful for applying styles to a single page.</li>
+<li>Easier to manage and maintain than inline CSS.</li>
+</ul>
+<ul>
+<h3>Disadvantages</h3>
+<li>Not efficient for styling across multiple pages.</li>
+</ul>
+</div>
+
+
+---
+hideInToc: true
+---
+
+
+## External CSS
+
+
+External CSS involves linking an external .css file to your HTML document. This file contains all the styles, which can be applied to multiple HTML documents.
+
+
+Syntax
+
+
+```html
+<head>
+ <link rel="stylesheet" href="styles.css" />
+</head>
+```
+
+
+```css
+/* In styles.css */
+p {
+ color: green;
+ font-size: 16px;
+}
+```
+
+
+```html
+<head>
+ <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ <p>This is a paragraph with external CSS.</p>
+</body>
+```
+
+
+---
+hideInToc: true
+---
+
+## External CSS (CONTD)
+
+
+<div class="flex justify-between">
+
+
+<ul>
+<h3>Advantages</h3>
+<li>Keeps HTML files clean and separates content from design..</li>
+<li>Efficient for applying the same styles across multiple pages.</li>
+<li>Easier to maintain and update, as changes in the external CSS file are reflected across all linked pages.</li>
+</ul>
+<ul>
+<h3>Disadvantages</h3>
+<li>Requires an additional HTTP request to load the CSS file.</li>
+<li>No styles will be visible if the CSS file fails to load.</li>
+</ul>
+</div>
+
+
+## Summary
+
+
+- Inline CSS: Best for quick, single-use styles but not ideal for maintainability.
+- Internal CSS: Good for single-page styling, better than inline but still not ideal for multiple pages.
+- External CSS: Preferred method for styling, offering maintainability and scalability across multiple documents.
+
+
+
+
 ---
 hide: true
 ---
@@ -1084,9 +1227,266 @@ hide: true
 
 # Grid Layout
 
+
+
+Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
+
+
+---
+hideInToc: true
+---
+
+
+## Grid Container
+
+
+The grid container is the parent element that contains the grid items (child elements). To create a grid container, you set the display property of the parent element to grid or inline-grid.
+
+
+```html
+<div class="grid-container">
+ <div class="grid-item">Item 1</div>
+ <div class="grid-item">Item 2</div>
+ <div class="grid-item">Item 3</div>
+</div>
+```
+
+
+```css
+.grid-container {
+ display: grid;
+}
+```
+
+
+<div class="grid">
+ <div class="grid-item text-red-500">Item 1</div>
+ <div class="grid-item text-blue-500">Item 2</div>
+ <div class="grid-item ">Item 3</div>
+</div>
+
+
+---
+hideInToc: true
+---
+
+
+# Defining Rows and Columns
+
+
+You can define the structure of the grid using the <b> grid-template-rows</b> and <b>grid-template-columns</b> properties. These properties determine the number of rows and columns in the grid and their respective sizes.
+
+
+```css
+.grid-container {
+ display: grid;
+ grid-template-columns: 200px 1fr 100px;
+ grid-template-rows: 100px 200px;
+ grid-gap: 4;
+}
+```
+
+
+<div class="grid  text-center grid-cols-[200px_1fr_100px] grid-rows-[100px_200px] gap-4">
+ <div class="bg-blue-200">Item 1</div>
+ <div class="bg-green-200">Item 2</div>
+ <div class="bg-red-200">Item 3</div>
+ <div class="bg-yellow-200">Item 4</div>
+ <div class="bg-purple-200">Item 5</div>
+ <div class="bg-pink-200">Item 6</div>
+</div>
+
+
+---
+hideIntoc: true
+---
+
+
+## Example
+
+
+```css
+.grid-container {
+ display: grid;
+ grid-template-columns: 200px 1fr 100px;
+ grid-template-rows: 100px 200px;
+ grid-gap: 4;
+}
+```
+
+
+In this example:
+
+
+- <b> grid-template-columns: 200px 1fr 100px;</b> creates three columns. The first column is 200px wide, the second column takes up the remaining space (<b>1fr</b>), and the third column is 100px wide.
+- <b> grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
+
+
+---
+hideInToc: true
+---
+
+
+## Placing Grid Items
+
+
+By default, grid items are placed in the grid based on the order they appear in the HTML. However, you can control their placement using the grid-column and grid-row properties.
+
+
+```css
+.grid-item:nth-child(1) {
+ grid-column: 1 / 3; /* Spans across the first and second columns */
+ grid-row: 1; /* Placed in the first row */
+}
+
+
+.grid-item:nth-child(2) {
+ grid-column: 3; /* Placed in the third column */
+ grid-row: 1 / 3; /* Spans across the first and second rows */
+}
+```
+
+
+<div class="grid grid-cols-3 grid-rows-2 gap-4">
+ <div class="col-span-2 row-start-1 bg-blue-200">Item 1</div>
+ <div class="col-start-3 row-span-2 bg-green-200">Item 2</div>
+ <div class="bg-red-200">Item 3</div>
+ <div class="bg-yellow-200">Item 4</div>
+</div>
+
+
+---
+hideInToc: true
+---
+
+
+## Grid Gaps
+
+
+To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap</b>, and <b>column-gap</b> properties.
+
+
+```css
+.grid-container {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ grid-gap: 20px; /* 20px space between all grid items */
+}
+```
+
+
+ <div class="grid grid-cols-3 gap-5">
+   <div class="bg-blue-500 text-white p-5">Item 1</div>
+   <div class="bg-green-500 text-white p-5">Item 2</div>
+   <div class="bg-red-500 text-white p-5">Item 3</div>
+   <div class="bg-yellow-500 text-white p-5">Item 4</div>
+   <div class="bg-purple-500 text-white p-5">Item 5</div>
+   <div class="bg-pink-500 text-white p-5">Item 6</div>
+ </div>
+
+
+---
+hideInToc: true
+---
+
+
+## Grid Areas
+
+
+Grid areas allow you to name specific sections of the grid, making it easier to define complex layouts. You can use grid-template-areas to define areas and grid-area to place grid items within those areas.
+
+
+```css
+.grid-container {
+ display: grid;
+ grid-template-areas:
+   "header header header"
+   "sidebar main main"
+   "footer footer footer";
+ grid-template-rows: auto 1fr auto;
+ grid-template-columns: 150px 1fr 1fr;
+}
+
+
+.header {
+ grid-area: header;
+}
+
+
+.sidebar {
+ grid-area: sidebar;
+}
+
+
+.main {
+ grid-area: main;
+}
+
+
+.footer {
+ grid-area: footer;
+}
+```
+
+
+---
+hideInToc: true
+---
+
+## Example(CONTD)
+
+ <div class="grid grid-rows-[auto_1fr_auto] grid-cols-[150px_1fr_1fr] gap-5 h-100">
+   <!-- Header -->
+   <div class="bg-blue-500 text-white p-5 col-span-3">
+     Header
+   </div>
+   <div class="bg-green-500 text-white p-5">
+     Sidebar
+   </div>
+   <div class="bg-red-500 text-white p-5 col-span-2">
+     Main Content
+   </div>
+   <div class="bg-yellow-500 text-white p-5 col-span-3">
+     Footer
+   </div>
+ </div>
+
+
+---
+hideInToc: true
+---
+
+
+## Responsive Design with Grid
+
+
+CSS Grid makes it easy to create responsive designs. You can use functions like repeat() and minmax() to create grids that adjust based on the available space.
+
+
+```css
+.grid-container {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+ grid-gap: 10px;
+}
+```
+
+
+<div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2">
+ <div class="bg-blue-200 p-4">Item 1</div>
+ <div class="bg-green-200 p-4">Item 2</div>
+ <div class="bg-red-200 p-4">Item 3</div>
+ <div class="bg-yellow-200 p-4">Item 4</div>
+</div>
+
+
+- repeat(auto-fit, minmax(100px, 1fr)); automatically creates as many columns as will fit into the container, with each column being at least 100px wide and taking up a fraction of the remaining space.
+- This ensures that the grid adjusts dynamically as the viewport size changes.
+
 ---
 hide: true
 ---
+
 
 # Positioning
 
