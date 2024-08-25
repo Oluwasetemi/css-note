@@ -799,7 +799,555 @@ In the image below the developer is trying to check the CSS on the body element.
 
 ---
 
-# FlexBox
+# Flexible Box Layout Model(FlexBox)
+
+<p>Flexbox is a one-dimensional layout method for arranging items vertically(columns) or horizontally(rows).<br/>
+<small>To implement a flexbox layout in CSS, you need to set <kbd>display: flex;</kbd> in your CSS rules.</small></p>
+
+<p>When elements are laid out as flex items, they are laid out along two axis:</p>
+
+<div class="w-full grid grid-cols-2  justify-center">
+  <img src="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox/flex_terms.png" alt="Flexbox model"/>
+  <div class= "h-70 overflow-scroll border rounded-lg border-gray-300 shadow-xl">
+  <ul >
+  <li>
+  The main axis is the direction in which flex items are laid out, such as across the page in a row or down the page in a column. The start and end points of this axis are referred to as the main start and main end. The distance between the main start and main end is known as the main size.
+  </li>
+  <li>
+The cross axis runs perpendicular to the direction in which flex items are laid out. The start and end points of this axis are called the cross start and cross end. The distance between the cross start and cross end is known as the cross size
+  </li>
+  <li>
+  The parents element must have the <kbd>display:flex;</kbd> set on it, and this makes it the parent container
+  </li>
+  <li>
+The items inside the parent container will be laid out as flexible boxes which makes them the flex items.
+  </li>
+  </ul>
+  </div>
+</div>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Why Flexbox?</h1>
+<ul>
+<li>It allows you to display item(s) as a row, or a column</li>
+<li>Vertically center a block of content inside its parent</li>
+<li>They respect the writing mode of the document</li>
+<li>Items in the layout can be visually reordered, away from their order in the DOM</li>
+<li>Make all columns in a multiple-column layout adopt the same height even if they contain a different amount of content.</li>
+<li>Space can be distributed inside the items, so they become bigger and smaller according to the space available in their parent.</li>
+<li>Make all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.</li>
+</ul>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Direction and Alignment</h1>
+<p>To determine how flex items are arranged within a flex contaniner, direction and alignment are the key aspects.</p>
+
+<p>Flex Direction:
+The <kbd>flex-direction</kbd> property defines the direction in which the flex items are placed within the flex container. The direction can be either block (column) or inline (row).</p> <small>The following values can be assigned to it:</small>
+
+```css
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  .container {
+    display: flex;
+    flex-direction: row-reverse; //row-reverse arranges items order from right to left
+  }
+  .container {
+   display: flex;
+   flex-direction: column;
+  }
+  .container {
+   display: flex;
+    flex-direction: column-reverse; //column-reverse arranges items order from bottom to top
+  }
+```
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Flex Direction Code Example:</h1>
+
+<h2 class="text-xl font-bold mb-4">Flex Direction: Row (Default)</h2>
+    <div class="flex flex-row border-2 border-gray-800 mb-8 w-fit">
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+    </div>
+
+<section>
+    <h2 class="text-xl font-bold mb-4">Flex Direction: Row-Reverse</h2>
+    <div class="flex flex-row-reverse border-2 border-gray-800 mb-8 w-fit">
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+    </div>
+</section>
+
+---
+
+<section class="grid grid-cols-2">
+<div>
+    <h3 class="text-xl font-bold mb-4">Flex Direction: Column</h3>
+    <div class="flex flex-col border-2 border-gray-800 mb-8 w-fit">
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+    </div>
+</div>
+<div>
+    <h3 class="text-xl font-bold mb-4">Flex Direction: Column-Reverse</h3>
+    <div class="flex flex-col-reverse border-2 border-gray-800 w-fit">
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+    </div>
+    </div>
+</section>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Alignment</h1>
+<p>Absolutely! Flexbox is indeed powerful for aligning elements with precision. It excels in both horizontal and vertical alignment, making it easier to create responsive layouts that adapt to different screen sizes.</p>
+<p>Let's take a look at the flexbox properties that controls alignment and spacing</p>
+<ol>
+<li>Justify Content(Main Axis Alignment)</li>
+<li>Align Items(Cross Axis Alignment)</li>
+<li>Align Content (Multi-line Cross Axis Alignment)</li>
+<li>Align Self </li>
+</ol>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Justify Content(Main Axis Alignment)</h1>
+   The main axis is the natural way the flex items are laid out across the page in a row. With the <kbd>justify-content</kbd> flex property you can control how you want your items to be laid out.
+   Code Example:
+
+<p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Items are aligned to the start of the container.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: flex-start;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- < -->
+       <div class="flex justify-start border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+---
+       
+<p class="text-xl mb-4"><strong><kbd>flex-end:</kbd></strong> Items are aligned to the end of the container.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <> -->
+       <div class="flex justify-end border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>center</kbd></strong> : Items are centered along the main axis.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: center;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <> -->
+       <div class="flex justify-center border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl  mb-4"><strong><kbd>space-between</kbd></strong> : Items are evenly distributed in the line; the first item is on the start line and the last item is on the end line.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex justify-between border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>space- around</kbd></strong> : Items are evenly distributed in the line with equal space around them.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <> -->
+       <div class="flex justify-around border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>space-evenly</kbd></strong> : Items are evenly distributed with equal space between them.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex justify-evenly border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Align Items (Cross Axis Alignment)</h1>  The cross axis runs perpendicular to the direction in which flex items are laid out.
+    The <kbd>align-items</kbd> property aligns the flex items along the cross axis (perpendicular to the main axis).
+
+<p class="text-xl mb-4"><strong><kbd>strech</kbd></strong> : Items stretch to fill the container (default).</p>
+
+```css
+.container {
+  display: flex;
+  align-items: stretch;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex items-strech border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl  mb-4"><strong><kbd>flex-start</kbd></strong> : Items are aligned to the start of the cross axis.</p>
+
+```css
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex items-start border-2 border-gray-800 mb-8 w-full h-70">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Items are aligned to the end of the cross axis.</p>
+
+```css
+.container {
+  display: flex;
+  align-items: flex-end;
+}
+```
+
+<section>
+    <div class="pt-4">
+     <!-- <> -->
+       <div class="flex items-end border-2 border-gray-800 mb-8 w-full h-70">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>center</kbd></strong>: Items are centered along the cross axis.</p>
+
+```css
+.container {
+  display: flex;
+  align-items: center;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex items-center border-2 border-gray-800 mb-8 w-full h-70">
+               <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
+        <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
+        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
+        <div class="w-24 h-40 m-2 bg-orange-500 text-white font-bold "></div>
+        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
+         <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
+          <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>baseline</kbd></strong>: Items are aligned along their baseline. If you want to make sure the bottoms of each character are aligned, as they would be if they were written on a page then <kbd>align-items: baseline;</kbd> is used instead of <kbd>align-items: center;</kbd>.</p>
+
+```css
+.container {
+  display: flex;
+  align-items: baseline;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <? -->
+      <div class="flex items-baseline border-2 border-gray-800 mb-8 p-10 w-full h-60">
+        <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
+        <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
+        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
+        <div class="w-24 h-40 m-2 bg-orange-500 text-white font-bold "></div>
+        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
+         <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
+          <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
+    </div>
+</div>
+ </section>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Align Content (Multi-line Cross Axis Alignment)</h1>
+   The <kbd>align-content</kbd> property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Rows are packed to the start of the container.</p>
+
+```css
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <. -->
+       <div class="flex flex-wrap items-start border-2 border-gray-800 mb-8 w-70 h-72">
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Rows are packed to the end of the container.</p>
+
+```css
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+```
+
+<section>
+     <div class="pt-4">
+       <!-- <> -->
+       <div class="flex flex-wrap items-end border-2 border-gray-800 mb-8 w-70 h-70">
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Align Self</h1> In a case where you want a specific child(ren) to have specific alignments instead of aligning all the children, flexbox gives you the <kbd>align-self</kbd> property to achieve this.
+
+```css
+.container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.container:nth-child(odd) {
+  align-self: flex-end;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <> -->
+       <div class="flex justify-start border-2 border-gray-800 mb-8 w-full h-40">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold self-end">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold self-end">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+            <div class="w-24 h-24 m-2 flex items-center justify-center bg-black text-white font-bold self-end">5</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-gray-500 text-white font-bold">6</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-yellow-500 text-white font-bold self-end">7</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-purple-500 text-white font-bold">8</div>
+       </div>
+    </div>
+</section>
+
+---
+
+ <JustifyAlign/>
+
+---
+
+ <AlignContent/>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Growing and Shrinking</h1>
+  There are two important sizes when dealing with Flexbox: the minimum content size, and the hypothetical size.
+
+- The minimum content size is the smallest an item can get without its contents overflowing.
+
+- The hypothetical size refers to the size a flex item would take up if it were not subjected to the flex-grow, flex-shrink, or any other flex properties that might cause it to stretch or shrink. It’s the size that the item "wants" to be, based on its content and its initial settings like width, height, padding, and margin, before any flex-related adjustments are applied.
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Flex-Grow</h1>
+
+<p>The <strong><kbd>flex-grow</kbd></strong> CSS property specifies how much a flex item will grow relative to the other flex items inside the same container when there is positive free space available.</p>
+<p>The value of flex-grow is a unitless number that serves as a proportion, determining how much of the available space inside the flex container the item should take up compared to other items.</p>
+<small>Flex grow is about consuming additional space and it only does something when items are above their hypothetical size</small>
+<section class="pt-8">
+ <FlexGrow/>
+</section>
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Flex-Shrink</h1>
+
+<p>The <strong><kbd>flex-shrink</kbd></strong> CSS property determines how much flex items will shrink relative to each other when the flex container is too small to accommodate their full size.
+</p>
+<p>Flex shrink only does something when the items are between their minimum size and hypothetical size <small>and you can disable the ability of an item to shrink by setting <kbd>flex-shrink: 0;</kbd>.</small></p>
+<section class="pt-10">
+ <FlexShrink/>
+</section>
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Flex-Basis</h1>
+
+<p>The <strong><kbd>flex-basis</kbd></strong> CSS property has the same effect as <kbd>width</kbd> in a flex row (height in a column). You can use them interchangeably, but flex-basis will win if there's a conflict.<kbd>flex-basis</kbd> can't scale an element below its minimum content size, but width can.
+</p>
+
+---
+
+ <h1 class="text-sm bg-orange p-4 text-center">The "flex" Shorthand</h1>
+
+<p>The <strong><kbd>flex</kbd></strong> CSS property takes 3 individual values:</p>
+<ol>
+<li><strong><kbd>flex-grow</kbd></strong></li>
+<li><strong><kbd>flex-shrink</kbd></strong></li>
+<li><strong><kbd>flex-basis</kbd></strong></li>
+</ol>
+<p><strong><kbd>flex</kbd></strong> sets how a flex item will grow or shrink to fit the space available in its flex container. It does the basic management automatically.
+</p>
+
+Note: It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead of separate <strong><kbd>flex-grow</kbd></strong> <strong><kbd>flex-shrink</kbd></strong>
+<strong><kbd>flex-basis</kbd></strong> declarations.
+
+<div class ="overflow-scroll h-40">
+```css
+//intead of this
+.container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0px;
+}
+
+//try this
+.container {
+flex: 1;
+}
+
+```
+</div>
+
 
 ---
 
@@ -850,6 +1398,16 @@ In the image below the developer is trying to check the CSS on the body element.
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
 - [Oluwibe Faith](https://github.com/Olubebe)
+
+```
+
+```
+
+```
+
+```
+
+```
 
 ```
 
