@@ -1,18 +1,18 @@
 /* eslint-disable no-new-func */
-import { defineCodeRunnersSetup } from '@slidev/types';
+import { defineCodeRunnersSetup } from "@slidev/types";
 
 export default defineCodeRunnersSetup(() => {
   return {
     // Support Vue SFC
     async vue(code) {
-      const Vue = await import('vue');
-      const { parse, compileScript } = await import('@vue/compiler-sfc');
+      const Vue = await import("vue");
+      const { parse, compileScript } = await import("@vue/compiler-sfc");
 
       // Compile the script, note this demo does not handle Vue styles
       const sfc = parse(code);
       let scripts = compileScript(sfc.descriptor, {
         id: sfc.descriptor.filename,
-        genDefaultAs: '__Component',
+        genDefaultAs: "__Component",
         inlineTemplate: true,
       }).content;
 
@@ -23,9 +23,9 @@ export default defineCodeRunnersSetup(() => {
       // Only for simple demo, it doesn't work with imports from other packages
       scripts = scripts.replace(
         /import (\{[^}]+\}) from ['"]vue['"]/g,
-        (_, imports) => `const ${imports.replace(/\sas\s/g, ':')} = Vue`,
+        (_, imports) => `const ${imports.replace(/\sas\s/g, ":")} = Vue`
       );
-      scripts += '\nreturn __Component';
+      scripts += "\nreturn __Component";
 
       // console.log(scripts)
 
@@ -37,7 +37,7 @@ export default defineCodeRunnersSetup(() => {
 
       // Mount the component
       const app = Vue.createApp(component);
-      const el = document.createElement('div');
+      const el = document.createElement("div");
       app.mount(el);
 
       return {
@@ -45,35 +45,33 @@ export default defineCodeRunnersSetup(() => {
       };
     },
     async jsx(code, ctx) {
-      console.log(ctx)
+      console.log(ctx);
       const highlight = ctx.highlight;
 
-      let a = highlight(code, 'jsx');
+      let a = highlight(code, "jsx");
 
       console.log(a);
 
-      const React = await import('react');
-      const ReactDOM = await import('react-dom/client');
-      const Babel = await import('@babel/standalone');
+      const React = await import("react");
+      const ReactDOM = await import("react-dom/client");
+      const Babel = await import("@babel/standalone");
 
       const result = Babel.transform(code, {
-        presets: ['react'],
+        presets: ["react"],
       });
-
 
       // replace import
 
+      let Component = new Function(`return (React) => ${result.code}`)()(React);
 
-      let Component = new Function(`return (React) => ${result.code}`)()(React)
-
-      const el = document.createElement('div');
+      const el = document.createElement("div");
 
       ReactDOM.createRoot(el).render(React.createElement(Component));
       console.log(el);
 
       return {
         element: el,
-      }
+      };
     },
   };
 });
