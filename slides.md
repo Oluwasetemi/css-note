@@ -1721,7 +1721,7 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
   flex-shrink: 1;
   flex-basis: 0px;
 }
-/* try this */
+/*try this */
 .container {
   flex: 1;
 }
