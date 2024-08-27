@@ -85,8 +85,8 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 <img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <ins>Definition of selectors</ins>
 
@@ -109,8 +109,8 @@ Types of selectors
 This rule is saying that remove any default margin and padding from all the elements in this document and also change the box-sizing value to border-box.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
 
@@ -365,8 +365,8 @@ Specificity is a score given to selectors, and whenever we have two or more CSS 
 ## <!-- We will come back to this at the end of this topic. -->
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Specificity Hierarchy
 
@@ -422,8 +422,8 @@ Class Assessment: Calculate the specificity of these selectors:
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## !important rule
 
@@ -482,8 +482,8 @@ d) Margin:
 - Set using the 'margin' property or individual properties (margin-top, etc.).
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ![Alt text](https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png)
 
@@ -616,8 +616,8 @@ p {
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 Non-inherited property
 
@@ -640,8 +640,8 @@ p {
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Setting inheritance explicitly in CSS
 
@@ -670,8 +670,8 @@ em {
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Controlling Inheritance
 
@@ -764,8 +764,8 @@ p {
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Hexadecimal Colors
 
@@ -784,8 +784,8 @@ p {
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## RGB and RGBA Colors
 
@@ -804,8 +804,8 @@ color: rgba(255, 87, 51, 0.5); /* 50% transparent */
    </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## HSL & HSLA Colors
 
@@ -827,8 +827,8 @@ opacity: 0.5; /* Makes the element 50% transparent */
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # CSS Units
 
@@ -854,8 +854,8 @@ padding: 1em; /* Equal to the current font size */
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Contd (Relative Units)
 
@@ -879,8 +879,8 @@ height: 100vh; /* Full height of the viewport */
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 3. Viewport Units
 
@@ -895,8 +895,8 @@ font-size: 5vw; /* Font size based on viewport width */
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # CSS Gradients
 
@@ -917,8 +917,8 @@ background: linear-gradient(45deg, red, yellow);
    </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 2. Radial Gradients
    Radiates from a central point outward, either circular or elliptical.
@@ -939,8 +939,8 @@ background: radial-gradient(circle, red, yellow, green);
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 3. Conic Gradients
 
@@ -955,8 +955,8 @@ background: conic-gradient(from 90deg, red, yellow, green);
    </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 4. Repeating Gradients
 
@@ -982,8 +982,8 @@ background: repeating-radial-gradient(circle, red, yellow 10%);
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 Practical Tips
 
@@ -1060,64 +1060,51 @@ In the image below the developer is trying to check the CSS on the body element.
 
 ---
 
-
 # Inline, Internal and External CSS
 
 ## Inline CSS
 
-
 Inline CSS is used to apply a unique style to a single HTML element. It is done using the style attribute directly within the HTML tag
-
 
 ```html
 <p style="color: blue; font-size: 20px;">
- This is a paragraph with inline CSS.
+  This is a paragraph with inline CSS.
 </p>
 ```
 
-
 Advantages:
-
 
 - Quick and easy for small, specific changes.
 - Good for overriding styles in a pinch.
 
-
 Disadvantages:
-
 
 - Makes the HTML code harder to read and maintain.
 - Not suitable for styling multiple elements.
 
-
----
-hideInToc: true
 ---
 
+## hideInToc: true
 
 ## Internal CSS
 
-
 Internal CSS is used to define styles for an entire HTML document. It is placed within the <kbd>style</kbd> tag in the <kbd>head</kbd> section of the HTML file.
-
 
 ```html
 <head>
- <style>
-   p {
-     color: red;
-     font-size: 18px;
-   }
- </style>
+  <style>
+    p {
+      color: red;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
- <p>This is a paragraph with internal CSS.</p>
+  <p>This is a paragraph with internal CSS.</p>
 </body>
 ```
 
-
 <div class="flex justify-between">
-
 
 <ul>
 <h3>Advantages</h3>
@@ -1131,56 +1118,46 @@ Internal CSS is used to define styles for an entire HTML document. It is placed 
 </ul>
 </div>
 
-
----
-hideInToc: true
 ---
 
+## hideInToc: true
 
 ## External CSS
 
-
 External CSS involves linking an external .css file to your HTML document. This file contains all the styles, which can be applied to multiple HTML documents.
-
 
 Syntax
 
-
 ```html
 <head>
- <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 ```
-
 
 ```css
 /* In styles.css */
 p {
- color: green;
- font-size: 16px;
+  color: green;
+  font-size: 16px;
 }
 ```
 
-
 ```html
 <head>
- <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
- <p>This is a paragraph with external CSS.</p>
+  <p>This is a paragraph with external CSS.</p>
 </body>
 ```
 
+---
 
----
-hideInToc: true
----
+## hideInToc: true
 
 ## External CSS (CONTD)
 
-
 <div class="flex justify-between">
-
 
 <ul>
 <h3>Advantages</h3>
@@ -1195,57 +1172,588 @@ hideInToc: true
 </ul>
 </div>
 
-
 ## Summary
-
 
 - Inline CSS: Best for quick, single-use styles but not ideal for maintainability.
 - Internal CSS: Good for single-page styling, better than inline but still not ideal for multiple pages.
 - External CSS: Preferred method for styling, offering maintainability and scalability across multiple documents.
 
+---
 
----
-hide: true
----
+## hide: true
 
 # FlexBox
 
----
+<p>Flexbox is a one-dimensional layout method for arranging items vertically(columns) or horizontally(rows).<br/>
+<small>To implement a flexbox layout in CSS, you need to set <kbd>display: flex;</kbd> in your CSS rules.</small></p>
 
+<p>When elements are laid out as flex items, they are laid out along two axis:</p>
 
-# Grid Layout
-
-
-
-Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
-
-
----
-hideInToc: true
----
-
-
-## Grid Container
-
-
-The grid container is the parent element that contains the grid items (child elements). To create a grid container, you set the display property of the parent element to grid or inline-grid.
-
-
-```html
-<div class="grid-container">
- <div class="grid-item">Item 1</div>
- <div class="grid-item">Item 2</div>
- <div class="grid-item">Item 3</div>
+<div class="w-full grid grid-cols-2  justify-center">
+  <img src="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox/flex_terms.png" alt="Flexbox model"/>
+  <div class= "h-70 overflow-scroll border rounded-lg border-gray-300 shadow-xl">
+  <ul >
+  <li>
+  The main axis is the direction in which flex items are laid out, such as across the page in a row or down the page in a column. The start and end points of this axis are referred to as the main start and main end. The distance between the main start and main end is known as the main size.
+  </li>
+  <li>
+The cross axis runs perpendicular to the direction in which flex items are laid out. The start and end points of this axis are called the cross start and cross end. The distance between the cross start and cross end is known as the cross size
+  </li>
+  <li>
+  The parents element must have the <kbd>display:flex;</kbd> set on it, and this makes it the parent container
+  </li>
+  <li>
+The items inside the parent container will be laid out as flexible boxes which makes them the flex items.
+  </li>
+  </ul>
+  </div>
 </div>
-```
 
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Why Flexbox?</h1>
+<ul>
+<li>It allows you to display item(s) as a row, or a column</li>
+<li>Vertically center a block of content inside its parent</li>
+<li>They respect the writing mode of the document</li>
+<li>Items in the layout can be visually reordered, away from their order in the DOM</li>
+<li>Make all columns in a multiple-column layout adopt the same height even if they contain a different amount of content.</li>
+<li>Space can be distributed inside the items, so they become bigger and smaller according to the space available in their parent.</li>
+<li>Make all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.</li>
+</ul>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Direction and Alignment</h1>
+<p>To determine how flex items are arranged within a flex contaniner, direction and alignment are the key aspects.</p>
+
+<p>Flex Direction:
+The <kbd>flex-direction</kbd> property defines the direction in which the flex items are placed within the flex container. The direction can be either block (column) or inline (row).</p> <small>The following values can be assigned to it:</small>
 
 ```css
-.grid-container {
- display: grid;
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  .container {
+    display: flex;
+    flex-direction: row-reverse; //row-reverse arranges items order from right to left
+  }
+  .container {
+   display: flex;
+   flex-direction: column;
+  }
+  .container {
+   display: flex;
+    flex-direction: column-reverse; //column-reverse arranges items order from bottom to top
+  }
+```
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Flex Direction Code Example:</h1>
+
+<h2 class="text-xl font-bold mb-4">Flex Direction: Row (Default)</h2>
+    <div class="flex flex-row border-2 border-gray-800 mb-8 w-fit">
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+    </div>
+
+<section>
+    <h2 class="text-xl font-bold mb-4">Flex Direction: Row-Reverse</h2>
+    <div class="flex flex-row-reverse border-2 border-gray-800 mb-8 w-fit">
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+    </div>
+</section>
+
+---
+
+<section class="grid grid-cols-2">
+<div>
+    <h3 class="text-xl font-bold mb-4">Flex Direction: Column</h3>
+    <div class="flex flex-col border-2 border-gray-800 mb-8 w-fit">
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+    </div>
+</div>
+<div>
+    <h3 class="text-xl font-bold mb-4">Flex Direction: Column-Reverse</h3>
+    <div class="flex flex-col-reverse border-2 border-gray-800 w-fit">
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+        <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+    </div>
+    </div>
+</section>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Alignment</h1>
+<p>Absolutely! Flexbox is indeed powerful for aligning elements with precision. It excels in both horizontal and vertical alignment, making it easier to create responsive layouts that adapt to different screen sizes.</p>
+<p>Let's take a look at the flexbox properties that controls alignment and spacing</p>
+<ol>
+<li>Justify Content(Main Axis Alignment)</li>
+<li>Align Items(Cross Axis Alignment)</li>
+<li>Align Content (Multi-line Cross Axis Alignment)</li>
+<li>Align Self </li>
+</ol>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Justify Content(Main Axis Alignment)</h1>
+   The main axis is the natural way the flex items are laid out across the page in a row. With the <kbd>justify-content</kbd> flex property you can control how you want your items to be laid out.
+   Code Example:
+
+<p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Items are aligned to the start of the container.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: flex-start;
 }
 ```
 
+<section>
+    <div class="pt-4">
+       <!-- < -->
+       <div class="flex justify-start border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+---
+       
+<p class="text-xl mb-4"><strong><kbd>flex-end:</kbd></strong> Items are aligned to the end of the container.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <> -->
+       <div class="flex justify-end border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>center</kbd></strong> : Items are centered along the main axis.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: center;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <> -->
+       <div class="flex justify-center border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl  mb-4"><strong><kbd>space-between</kbd></strong> : Items are evenly distributed in the line; the first item is on the start line and the last item is on the end line.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex justify-between border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>space- around</kbd></strong> : Items are evenly distributed in the line with equal space around them.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <> -->
+       <div class="flex justify-around border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>space-evenly</kbd></strong> : Items are evenly distributed with equal space between them.</p>
+
+```css
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex justify-evenly border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Align Items (Cross Axis Alignment)</h1>  The cross axis runs perpendicular to the direction in which flex items are laid out.
+    The <kbd>align-items</kbd> property aligns the flex items along the cross axis (perpendicular to the main axis).
+
+<p class="text-xl mb-4"><strong><kbd>strech</kbd></strong> : Items stretch to fill the container (default).</p>
+
+```css
+.container {
+  display: flex;
+  align-items: stretch;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex items-strech border-2 border-gray-800 mb-8 w-full">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl  mb-4"><strong><kbd>flex-start</kbd></strong> : Items are aligned to the start of the cross axis.</p>
+
+```css
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex items-start border-2 border-gray-800 mb-8 w-full h-70">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Items are aligned to the end of the cross axis.</p>
+
+```css
+.container {
+  display: flex;
+  align-items: flex-end;
+}
+```
+
+<section>
+    <div class="pt-4">
+     <!-- <> -->
+       <div class="flex items-end border-2 border-gray-800 mb-8 w-full h-70">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>center</kbd></strong>: Items are centered along the cross axis.</p>
+
+```css
+.container {
+  display: flex;
+  align-items: center;
+}
+```
+
+<section>
+    <div class="pt-4">
+       <!-- <> -->
+       <div class="flex items-center border-2 border-gray-800 mb-8 w-full h-70">
+               <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
+        <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
+        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
+        <div class="w-24 h-40 m-2 bg-orange-500 text-white font-bold "></div>
+        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
+         <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
+          <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>baseline</kbd></strong>: Items are aligned along their baseline. If you want to make sure the bottoms of each character are aligned, as they would be if they were written on a page then <kbd>align-items: baseline;</kbd> is used instead of <kbd>align-items: center;</kbd>.</p>
+
+```css
+.container {
+  display: flex;
+  align-items: baseline;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <? -->
+      <div class="flex items-baseline border-2 border-gray-800 mb-8 p-10 w-full h-60">
+        <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
+        <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
+        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
+        <div class="w-24 h-40 m-2 bg-orange-500 text-white font-bold "></div>
+        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
+         <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
+          <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
+    </div>
+</div>
+ </section>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Align Content (Multi-line Cross Axis Alignment)</h1>
+   The <kbd>align-content</kbd> property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Rows are packed to the start of the container.</p>
+
+```css
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <. -->
+       <div class="flex flex-wrap items-start border-2 border-gray-800 mb-8 w-70 h-72">
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+
+---
+
+<p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Rows are packed to the end of the container.</p>
+
+```css
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+```
+
+<section>
+     <div class="pt-4">
+       <!-- <> -->
+       <div class="flex flex-wrap items-end border-2 border-gray-800 mb-8 w-70 h-70">
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-18 h-18 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       </div>
+    </div>
+</section>
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Align Self</h1> In a case where you want a specific child(ren) to have specific alignments instead of aligning all the children, flexbox gives you the <kbd>align-self</kbd> property to achieve this.
+
+```css
+.container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.container:nth-child(odd) {
+  align-self: flex-end;
+}
+```
+
+<section>
+    <div class="pt-4">
+      <!-- <> -->
+       <div class="flex justify-start border-2 border-gray-800 mb-8 w-full h-40">
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold self-end">1</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold self-end">3</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+            <div class="w-24 h-24 m-2 flex items-center justify-center bg-black text-white font-bold self-end">5</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-gray-500 text-white font-bold">6</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-yellow-500 text-white font-bold self-end">7</div>
+           <div class="w-24 h-24 m-2 flex items-center justify-center bg-purple-500 text-white font-bold">8</div>
+       </div>
+    </div>
+</section>
+
+---
+
+ <JustifyAlign/>
+
+---
+
+ <AlignContent/>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Growing and Shrinking</h1>
+  There are two important sizes when dealing with Flexbox: the minimum content size, and the hypothetical size.
+
+- The minimum content size is the smallest an item can get without its contents overflowing.
+
+- The hypothetical size refers to the size a flex item would take up if it were not subjected to the flex-grow, flex-shrink, or any other flex properties that might cause it to stretch or shrink. It’s the size that the item "wants" to be, based on its content and its initial settings like width, height, padding, and margin, before any flex-related adjustments are applied.
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Flex-Grow</h1>
+
+<p>The <strong><kbd>flex-grow</kbd></strong> CSS property specifies how much a flex item will grow relative to the other flex items inside the same container when there is positive free space available.</p>
+<p>The value of flex-grow is a unitless number that serves as a proportion, determining how much of the available space inside the flex container the item should take up compared to other items.</p>
+<small>Flex grow is about consuming additional space and it only does something when items are above their hypothetical size</small>
+<section class="pt-8">
+ <FlexGrow/>
+</section>
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Flex-Shrink</h1>
+
+<p>The <strong><kbd>flex-shrink</kbd></strong> CSS property determines how much flex items will shrink relative to each other when the flex container is too small to accommodate their full size.
+</p>
+<p>Flex shrink only does something when the items are between their minimum size and hypothetical size <small>and you can disable the ability of an item to shrink by setting <kbd>flex-shrink: 0;</kbd>.</small></p>
+<section class="pt-10">
+ <FlexShrink/>
+</section>
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Flex-Basis</h1>
+
+<p>The <strong><kbd>flex-basis</kbd></strong> CSS property has the same effect as <kbd>width</kbd> in a flex row (height in a column). You can use them interchangeably, but flex-basis will win if there's a conflict.<kbd>flex-basis</kbd> can't scale an element below its minimum content size, but width can.
+</p>
+
+---
+
+ <h1 class="text-sm bg-orange p-4 text-center">The "flex" Shorthand</h1>
+
+<p>The <strong><kbd>flex</kbd></strong> CSS property takes 3 individual values:</p>
+<ol>
+<li><strong><kbd>flex-grow</kbd></strong></li>
+<li><strong><kbd>flex-shrink</kbd></strong></li>
+<li><strong><kbd>flex-basis</kbd></strong></li>
+</ol>
+<p><strong><kbd>flex</kbd></strong> sets how a flex item will grow or shrink to fit the space available in its flex container. It does the basic management automatically.
+</p>
+
+It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead of separate <strong><kbd>flex-grow</kbd></strong> <strong><kbd>flex-shrink</kbd></strong>
+<strong><kbd>flex-basis</kbd></strong> declarations.
+
+```css
+/*instead of this */
+.container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0px;
+}
+/*try this */
+.container {
+  flex: 1;
+}
+```
+
+---
+
+# Grid Layout
+
+Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
+
+---
+
+## hideInToc: true
+
+## Grid Container
+
+The grid container is the parent element that contains the grid items (child elements). To create a grid container, you set the display property of the parent element to grid or inline-grid.
+
+```html
+<div class="grid-container">
+  <div class="grid-item">Item 1</div>
+  <div class="grid-item">Item 2</div>
+  <div class="grid-item">Item 3</div>
+</div>
+```
+
+```css
+.grid-container {
+  display: grid;
+}
+```
 
 <div class="grid">
  <div class="grid-item text-red-500">Item 1</div>
@@ -1253,27 +1761,22 @@ The grid container is the parent element that contains the grid items (child ele
  <div class="grid-item ">Item 3</div>
 </div>
 
-
----
-hideInToc: true
 ---
 
+## hideInToc: true
 
 # Defining Rows and Columns
 
-
 You can define the structure of the grid using the <b> grid-template-rows</b> and <b>grid-template-columns</b> properties. These properties determine the number of rows and columns in the grid and their respective sizes.
-
 
 ```css
 .grid-container {
- display: grid;
- grid-template-columns: 200px 1fr 100px;
- grid-template-rows: 100px 200px;
- grid-gap: 4;
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  grid-template-rows: 100px 200px;
+  grid-gap: 4;
 }
 ```
-
 
 <div class="grid  text-center grid-cols-[200px_1fr_100px] grid-rows-[100px_200px] gap-4">
  <div class="bg-blue-200">Item 1</div>
@@ -1284,56 +1787,45 @@ You can define the structure of the grid using the <b> grid-template-rows</b> an
  <div class="bg-pink-200">Item 6</div>
 </div>
 
-
----
-hideIntoc: true
 ---
 
+## hideIntoc: true
 
 ## Example
 
-
 ```css
 .grid-container {
- display: grid;
- grid-template-columns: 200px 1fr 100px;
- grid-template-rows: 100px 200px;
- grid-gap: 4;
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  grid-template-rows: 100px 200px;
+  grid-gap: 4;
 }
 ```
 
-
 In this example:
-
 
 - <b> grid-template-columns: 200px 1fr 100px;</b> creates three columns. The first column is 200px wide, the second column takes up the remaining space (<b>1fr</b>), and the third column is 100px wide.
 - <b> grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
 
-
----
-hideInToc: true
 ---
 
+## hideInToc: true
 
 ## Placing Grid Items
 
-
 By default, grid items are placed in the grid based on the order they appear in the HTML. However, you can control their placement using the grid-column and grid-row properties.
-
 
 ```css
 .grid-item:nth-child(1) {
- grid-column: 1 / 3; /* Spans across the first and second columns */
- grid-row: 1; /* Placed in the first row */
+  grid-column: 1 / 3; /* Spans across the first and second columns */
+  grid-row: 1; /* Placed in the first row */
 }
-
 
 .grid-item:nth-child(2) {
- grid-column: 3; /* Placed in the third column */
- grid-row: 1 / 3; /* Spans across the first and second rows */
+  grid-column: 3; /* Placed in the third column */
+  grid-row: 1 / 3; /* Spans across the first and second rows */
 }
 ```
-
 
 <div class="grid grid-cols-3 grid-rows-2 gap-4">
  <div class="col-span-2 row-start-1 bg-blue-200">Item 1</div>
@@ -1342,26 +1834,21 @@ By default, grid items are placed in the grid based on the order they appear in 
  <div class="bg-yellow-200">Item 4</div>
 </div>
 
-
----
-hideInToc: true
 ---
 
+## hideInToc: true
 
 ## Grid Gaps
 
-
 To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap</b>, and <b>column-gap</b> properties.
-
 
 ```css
 .grid-container {
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- grid-gap: 20px; /* 20px space between all grid items */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; /* 20px space between all grid items */
 }
 ```
-
 
  <div class="grid grid-cols-3 gap-5">
    <div class="bg-blue-500 text-white p-5">Item 1</div>
@@ -1372,54 +1859,45 @@ To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap<
    <div class="bg-pink-500 text-white p-5">Item 6</div>
  </div>
 
-
----
-hideInToc: true
 ---
 
+## hideInToc: true
 
 ## Grid Areas
 
-
 Grid areas allow you to name specific sections of the grid, making it easier to define complex layouts. You can use grid-template-areas to define areas and grid-area to place grid items within those areas.
-
 
 ```css
 .grid-container {
- display: grid;
- grid-template-areas:
-   "header header header"
-   "sidebar main main"
-   "footer footer footer";
- grid-template-rows: auto 1fr auto;
- grid-template-columns: 150px 1fr 1fr;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 150px 1fr 1fr;
 }
-
 
 .header {
- grid-area: header;
+  grid-area: header;
 }
-
 
 .sidebar {
- grid-area: sidebar;
+  grid-area: sidebar;
 }
-
 
 .main {
- grid-area: main;
+  grid-area: main;
 }
 
-
 .footer {
- grid-area: footer;
+  grid-area: footer;
 }
 ```
 
+---
 
----
-hideInToc: true
----
+## hideInToc: true
 
 ## Example(CONTD)
 
@@ -1439,26 +1917,21 @@ hideInToc: true
    </div>
  </div>
 
-
----
-hideInToc: true
 ---
 
+## hideInToc: true
 
 ## Responsive Design with Grid
 
-
 CSS Grid makes it easy to create responsive designs. You can use functions like repeat() and minmax() to create grids that adjust based on the available space.
-
 
 ```css
 .grid-container {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
- grid-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px;
 }
 ```
-
 
 <div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2">
  <div class="bg-blue-200 p-4">Item 1</div>
@@ -1467,26 +1940,25 @@ CSS Grid makes it easy to create responsive designs. You can use functions like 
  <div class="bg-yellow-200 p-4">Item 4</div>
 </div>
 
-
 - repeat(auto-fit, minmax(100px, 1fr)); automatically creates as many columns as will fit into the container, with each column being at least 100px wide and taking up a fraction of the remaining space.
 - This ensures that the grid adjusts dynamically as the viewport size changes.
 
 ---
-hide: true
----
 
+## hide: true
 
 # Positioning
 
 ---
-hide: true
----
+
+## hide: true
 
 ---
 
 # Stacking Context/Z-index
 
 ## What is a Stacking Context?
+
 A stacking context is a concept in CSS that determines how elements are stacked or layered on top of each other along the z-axis. This z-axis stacking controls the visual order of elements that overlap.
 
 Stacking contexts are created in the following scenarios:
@@ -1498,22 +1970,24 @@ Stacking contexts are created in the following scenarios:
 - When an element creates a new stacking context, all of its child elements are part of that context. This means their z-index is relative to the parent stacking context, not globally on the page.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## What is z-index?
+
 The z-index property in CSS specifies the stack order of an element within its stacking context. An element with a higher z-index is positioned above an element with a lower z-index.
 
 However, z-index only works on positioned elements (elements whose position property is set to relative, absolute, fixed, or sticky).
 <br/>
 
 ## How Stacking Context Works with z-index
+
 - Default Stacking Order: Elements are stacked according to their order in the HTML. Later elements in the HTML are above earlier ones by default.
 - With z-index: When a z-index is applied to a positioned element, it is layered according to its stacking context.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Example
 
@@ -1554,13 +2028,11 @@ hideInToc: true
 </div>
 </div>
 
+---
 
----
-hideInToc: true
----
+## hideInToc: true
 
 ## Example II
-
 
 <div class="relative bg-yellow-300 p-4">
   <!-- This container creates a new stacking context due to opacity -->
@@ -1574,47 +2046,48 @@ hideInToc: true
   </div>
 </div>
 
+---
 
----
-hide: true
----
+## hide: true
 
 ## Key Takaways
+
 - z-index controls stacking order within the same stacking context.
 - Stacking contexts are isolated — a z-index in one context does not affect the stacking order in another context.
 - Some CSS properties (like opacity, transform, filter, etc.) can create new stacking contexts, changing how z-index is applied.
 
 ---
-hide: true
----
+
+## hide: true
 
 # Overflow
 
 ---
-hide: true
----
+
+## hide: true
 
 # Responsiveness
 
 ---
-hide: true
----
+
+## hide: true
 
 # Animations
 
 ---
-hide: true
----
+
+## hide: true
 
 # CSS Frameworks
 
 ---
-hide: true
----
+
+## hide: true
 
 ---
-hide: true
----
+
+## hide: true
+
 # Assignments
 
 <ul>
@@ -1623,8 +2096,8 @@ hide: true
 </ul>
 
 ---
- hideInToc: true
----
+
+## hideInToc: true
 
 # Contributors
 
