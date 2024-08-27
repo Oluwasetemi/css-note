@@ -1245,27 +1245,21 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 </ol>
 <p><strong><kbd>flex</kbd></strong> sets how a flex item will grow or shrink to fit the space available in its flex container. It does the basic management automatically.
 </p>
-
-Note: It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead of separate <strong><kbd>flex-grow</kbd></strong> <strong><kbd>flex-shrink</kbd></strong>
+It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead of separate <strong><kbd>flex-grow</kbd></strong> <strong><kbd>flex-shrink</kbd></strong>
 <strong><kbd>flex-basis</kbd></strong> declarations.
 
-<div class ="overflow-scroll h-40">
 ```css
-//intead of this
+/*instead of this */
 .container {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 0px;
 }
-
-//try this
+/*try this */
 .container {
-flex: 1;
+  flex: 1;
 }
-
 ```
-</div>
-
 
 ---
 
@@ -1316,6 +1310,8 @@ flex: 1;
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
 - [Olubebe Faith](https://github.com/Olubebe)
+
+```
 
 ```
 
