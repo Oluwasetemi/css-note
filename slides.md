@@ -1,10 +1,6 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
-# some information about your slides, markdown enabled
 title: CSS Class Note
 info: |
   ## AltSchool v4 CSS Class Notes
@@ -13,14 +9,10 @@ info: |
   join at [AltSchool Africa](https://altschoolafrica.com)
 # apply any unocss classes to the current slide
 class: text-center
-# https://sli.dev/custom/highlighters.html
 highlighter: shiki
-# https://sli.dev/guide/drawing
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations#slide-transitions
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/guide/syntax#mdc-syntax
 mdc: true
 hideInToc: true
 ---
@@ -73,6 +65,19 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 
+# [Previous Class Recording](https://www.youtube.com/watch?v=cW3Xm4LZkj8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=15)
+
+- [15](https://www.youtube.com/watch?v=cW3Xm4LZkj8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=15)
+- [16](https://www.youtube.com/watch?v=lvhi_YZELzY&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=16)
+- [17](https://www.youtube.com/watch?v=x6rcMevUjEQ&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=17)
+- [18](https://www.youtube.com/watch?v=_jKvpwTZ-P0&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=18)
+- [19](https://www.youtube.com/watch?v=jsOBRT-GHq4&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=19)
+- [20](https://www.youtube.com/watch?v=lYOeltZUojI&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=20)
+- [21](https://www.youtube.com/watch?v=Eik3R556Xg8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=21)
+- [22](https://www.youtube.com/watch?v=87-WHDYRSic&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=22)
+
+---
+
 # Selectors
 
 Before we move deeply into Selectors, let's dive into CSS rule which is a block of code, that has one or more selectors and one or more declarations.
@@ -80,6 +85,8 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 <img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
+
+## hideInToc: true
 
 <ins>Definition of selectors</ins>
 
@@ -102,6 +109,8 @@ Types of selectors
 This rule is saying that remove any default margin and padding from all the elements in this document and also change the box-sizing value to border-box.
 
 ---
+
+## hideInToc: true
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
 
@@ -351,15 +360,17 @@ h1 {
 In the code above, we are trying to style the h1 element but we have two CSS ruleset, so which stylesheet will override the other? This is where our knowledge on specificity algorithm comes in.
 <br/>
 <br/>
-Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be apllied on the element.
+Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be applied on the element.
 
 ## <!-- We will come back to this at the end of this topic. -->
 
 ---
 
-## Specificity Hierachy
+## hideInToc: true
 
-CSS selectors are of different forms and each of them has its place in the specificity hierachy.
+## Specificity Hierarchy
+
+CSS selectors are of different forms and each of them has its place in the specificity hierarchy.
 
 CSS Selectors decrease in specificity from top to bottom, meaning the selector at the top of the hierarchy has the highest specificity.
 
@@ -380,7 +391,7 @@ graph TD;
 ```
 </div>
 
-<div class="bg-red animate-slide-in-right" >
+<div class="bg-red animate-slide-in-right">
 ```mermaid
 graph TD;
     Selectors-->Specificity_Value;
@@ -391,7 +402,6 @@ graph TD;
     Attribute_selectors-->10;
     Elements-->1;
     Pseudo-elements-->1;
-    
 ```
 </div>
 
@@ -413,7 +423,9 @@ Class Assessment: Calculate the specificity of these selectors:
 
 ---
 
-## !impotant rule
+## hideInToc: true
+
+## !important rule
 
 In CSS, there is one rule that has the highest specificity score of 10,000. This rule is used to give a property-value pair the highest priority, allowing it to override any other declarations.
 
@@ -435,6 +447,90 @@ selector {
 ---
 
 # Box Model
+
+The CSS Box Model is a core concept in web design and layout. It describes how every element on a web page is rendered as a rectangular box.
+It’s basically a box that wraps around every HTML element. Understanding this model is crucial for creating precise layouts and solving common design challenges.
+
+---
+
+# Components Of Box Model
+
+a) Content:
+
+- This is the innermost layer.
+- It contains the actual content of the element (text, images, etc.).
+- Dimensions are set using 'width' and 'height' properties.
+
+b) Padding:
+
+- Surrounds the content area.
+- Creates space between the content and the border.
+- Can be set using 'padding' property (or padding-top, padding-right, etc.).
+- Is transparent, allowing the background of the element to show through.
+
+c) Border:
+
+- Encircles the padding (or content if no padding is set).
+- Can have different styles, colors, and widths.
+- Set using the 'border' property or individual properties like 'border-width'.
+
+d) Margin:
+
+- The outermost layer.
+- Creates space between the element and adjacent elements.
+- Is always transparent.
+- Set using the 'margin' property or individual properties (margin-top, etc.).
+
+---
+
+## hideInToc: true
+
+![Alt text](https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png)
+
+---
+
+1. Calculating Total Element Size
+
+One of the most important aspects of the Box Model is understanding how the total size of an element is calculated:
+
+- Total Width = width + left padding + right padding + left border + right border
+- Total Height = height + top padding + bottom padding + top border + bottom border
+
+Note: Margins are not included in these calculations as they affect spacing between elements, not the element's size itself.
+
+2. Box-Sizing Property
+
+The default box model can sometimes lead to unexpected results. CSS3 introduced the 'box-sizing' property to address this:
+
+'content-box' (default): Width and height apply to content area only.
+'border-box': Width and height include content, padding, and border.
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+---
+
+# Example
+
+```css
+div {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  border: 10px solid black;
+  margin: 25px;
+}
+```
+
+### Understanding the Box Model is crucial for:
+
+- Centering elements
+- Creating consistent spacing
+- Implementing responsive designs
+- Debugging layout issues
 
 ---
 
@@ -458,7 +554,7 @@ graph TD;
 
 Some inherited and non-inherited CSS properties:
 
-<table class="  p-4 border border-black overflow-scroll">
+<table class="p-4 border border-black overflow-scroll">
 <tr class="p-4 border border-black-400 bg-green">
 <th>Inherited Properties</th>
 <th>Non-Inherited Properties</th>
@@ -496,6 +592,7 @@ Some inherited and non-inherited CSS properties:
 <td>z-index</td>
 </tr>
 </table>
+
 ---
 
 Inherited property
@@ -520,6 +617,8 @@ p {
 
 ---
 
+## hideInToc: true
+
 Non-inherited property
 
 Code Example: The border property falls under the non-inherited properties so, the <kbd>em</kbd> element will not inherit the border value from the parent element which is <kbd>p</kbd>.
@@ -541,6 +640,8 @@ p {
 </div>
 
 ---
+
+## hideInToc: true
 
 ## Setting inheritance explicitly in CSS
 
@@ -570,6 +671,8 @@ em {
 
 ---
 
+## hideInToc: true
+
 ## Controlling Inheritance
 
 Note: Inheritance is always from the parent element in the document tree, even when the parent element is not the containing block.
@@ -581,12 +684,12 @@ There are 5 major keywords in inheritance:
 inherit:
 </dt>
 <dd>
-The inherit keyword causes element to take the computed value of the propety from its parent element.
+The inherit keyword causes element to take the computed value of the property from its parent element.
 
 </dd>
 <br/>
 <dt class="font-sans font-extrabold">
-initial: 
+initial:
 </dt>
 <dd>
 This keyword sets a property back to that initial, default value.
@@ -607,7 +710,7 @@ This keyword reverts the cascaded value of the property from its current value t
 revert-layer:
 </dt>
 <dd>
-This keyword rolls back the value of a property in a cascade layer to the value of a CSS rule matching the element in a previous cascade layer. 
+This keyword rolls back the value of a property in a cascade layer to the value of a CSS rule matching the element in a previous cascade layer.
 </dd>
 </dl>
 
@@ -615,7 +718,7 @@ This keyword rolls back the value of a property in a cascade layer to the value 
 
 The <kbd>all</kbd> CSS property
 
-This shorthand resets all properties (except unicode-bidi and direction) of an element to their initial, inherited, or unset state. This property can be particularly useful when you want to ensure that an element does not inherit any styles from its parents or previous rules and instead starts with a clean slate.
+This shorthand resets all properties (except unicode-bdi and direction) of an element to their initial, inherited, or unset state. This property can be particularly useful when you want to ensure that an element does not inherit any styles from its parents or previous rules and instead starts with a clean slate.
 
 ```html
 <div class="parent">
@@ -638,9 +741,255 @@ This shorthand resets all properties (except unicode-bidi and direction) of an e
 
 <div class="text-red-500 text-xl bg-gray-300">Parent Text</div>
 <div class="text-red-500 text-xl bg-gray-300">Child Text with all: inherit</div>
+
 ---
 
 # Colors/Units/Gradients
+
+## CSS Color
+
+Colors in CSS can be defined in various ways, such as using color names, hexadecimal values, RGB, RGBA, HSL, and HSLA.
+
+## Color Names
+
+Definition: These are predefined color names in CSS, such as red, blue, green, black, white, etc. There are 140 named colors in CSS.
+
+Named colors are convenient for quick, common colors but lack precision for more specific color needs.
+
+```css
+p {
+  color: red;
+  background-color: lightblue;
+}
+```
+
+---
+
+## hideInToc: true
+
+## Hexadecimal Colors
+
+Hexadecimal colors are defined using a six-digit code consisting of letters and numbers, preceded by a "#".The first two digits represent the red component, the next two represent the green, and the last two represent the blue
+
+You can also use a three-digit shorthand (e.g., #f00 for #ff0000), which is equivalent to doubling each digit.
+
+```css
+p {
+  color: #ff5733; /* Bright orange */
+  color: #f53; /* Equivalent shorthand for #ff5533 */
+  color: #ff0000; /* Red */
+  color: #f00; /* Shorthand for Red*/
+  background-color: #c0c0c0; /* Silver */
+}
+```
+
+---
+
+## hideInToc: true
+
+## RGB and RGBA Colors
+
+RGB stands for Red, Green, Blue, with values ranging from 0 to 255. RGBA adds an alpha channel for transparency, with a value between 0 (completely transparent) and 1 (completely opaque).
+
+RGBA is particularly useful for overlay effects and blending colors.
+
+```css
+color: rgb(255, 87, 51); /* Bright orange */
+color: rgba(255, 87, 51, 0.5); /* 50% transparent */
+```
+
+<div class="p-5 border border-gray-300 bg-gray-100 font-sans text-base">
+       <p class="text-[rgb(255,87,51)]">This text is bright orange.</p>
+       <p class="text-[rgba(255,87,51,0.5)]">This text is 50% transparent orange.</p>
+   </div>
+
+---
+
+## hideInToc: true
+
+## HSL & HSLA Colors
+
+HSL stands for Hue (0-360), Saturation (0%-100%), and Lightness (0%-100%). HSLA adds an alpha channel for transparency.
+
+HSL is intuitive for adjusting colors based on human perception, making it easier to create shades and tints.
+
+```css
+color: hsl(9, 100%, 60%); /* Bright orange */
+color: hsla(9, 100%, 60%, 0.5); /* 50% transparent */
+```
+
+## Opacity and Transparency
+
+Transparency: Besides RGBA and HSLA, you can control an element’s transparency using the opacity property, which affects the entire element, including its content.
+
+```css
+opacity: 0.5; /* Makes the element 50% transparent */
+```
+
+---
+
+## hideInToc: true
+
+# CSS Units
+
+CSS units are vital for defining the size, spacing, and layout of elements. Here’s a more in-depth look at the types of units:
+
+1. Absolute Units
+
+- Fixed Units: These do not scale based on the viewport or parent elements.
+
+- Pixels (px): Most common; ideal for precise control.
+
+```css
+font-size: 14px; /* Fixed size */
+```
+
+2. Relative Units
+
+- Flexible Units: These scale based on the parent element or viewport, making designs more responsive.
+- em: Relative to the font size of the parent element. Useful for scalable spacing and typography.
+
+```css
+padding: 1em; /* Equal to the current font size */
+```
+
+---
+
+## hideInToc: true
+
+## Contd (Relative Units)
+
+- <kbd>rem</kbd>: Relative to the root element's font size (<kbd>html</kbd>), offering consistency across the page.
+
+```css
+font-size: 1.2rem; /* 1.2 times the root font size */
+```
+
+- <kbd>%</kbd>: Relative to the parent element's size, commonly used in responsive design.
+
+```css
+width: 80%; /* 80% of the parent element's width */
+```
+
+- <kbd>vw</kbd>, <kbd>vh</kbd>: Relative to the viewport's width or height. Ideal for full-screen layouts and responsive elements.
+
+```css
+width: 100vw; /* Full width of the viewport */
+height: 100vh; /* Full height of the viewport */
+```
+
+---
+
+## hideInToc: true
+
+3. Viewport Units
+
+- Viewport-based units: Perfect for responsive design.
+
+- vw: 1% of the viewport width.
+- vh: 1% of the viewport height.
+- vmin and vmax: Relative to the smaller or larger of vw and vh.
+
+```css
+font-size: 5vw; /* Font size based on viewport width */
+```
+
+---
+
+## hideInToc: true
+
+# CSS Gradients
+
+Gradients are used to create smooth transitions between colors, adding depth and visual interest to designs. Here’s a deeper look:
+
+1. Linear Gradients
+   A gradient that transitions along a straight line. You can control the direction and color stops.
+
+linear-gradient(direction, color-stop1, color-stop2, ...).
+
+Direction: Can be specified with angles (e.g., 45deg) or keywords (to right, to bottom).
+
+```css
+background: linear-gradient(45deg, red, yellow);
+```
+
+<div class="h-64 w-full" style="background: linear-gradient(45deg, red, yellow);">
+   </div>
+
+---
+
+## hideInToc: true
+
+2. Radial Gradients
+   Radiates from a central point outward, either circular or elliptical.
+
+radial-gradient(shape size at position, start-color, ..., end-color).
+
+Shapes and Sizes: You can control the shape (circle or ellipse) and size (closest-side, farthest-corner, etc.).
+
+```css
+background: radial-gradient(circle, red, yellow, green);
+```
+
+<div class="flex gap-3">
+<div class="h-64 w-full" style="background: radial-gradient(circle, red, yellow, green);">
+   </div>
+   <div class="h-64 w-full" style="background: radial-gradient(ellipse, red, yellow, green);">
+   </div>
+</div>
+
+---
+
+## hideInToc: true
+
+3. Conic Gradients
+
+- A gradient that rotates around a central point, similar to slices of a pie.
+- Often used for visualizations like pie charts.
+
+```css
+background: conic-gradient(from 90deg, red, yellow, green);
+```
+
+<div class="h-64 w-full" style="background: conic-gradient(from 90deg, red, yellow, green);">
+   </div>
+
+---
+
+## hideInToc: true
+
+4. Repeating Gradients
+
+- Repeats the linear gradient pattern indefinitely.
+
+```css
+background: repeating-linear-gradient(45deg, red, yellow 10%);
+```
+
+- Repeating Radial Gradients: Repeats the radial gradient pattern.
+
+```css
+background: repeating-radial-gradient(circle, red, yellow 10%);
+```
+
+<div class="flex text-black gap-3">
+<div class="h-64 w-full  text-center" style="background: repeating-linear-gradient(45deg, red, yellow 10%);">
+<p>Repeating Linear Gradient</p>
+</div>
+<div class="h-64 w-full text-center" style="background: repeating-radial-gradient(circle, red, yellow 10%);">
+<p>Repeating Radial Gradient</p>
+   </div>
+</div>
+
+---
+
+## hideInToc: true
+
+Practical Tips
+
+- Combine Units: Use relative units (em, rem) for typography to maintain scalability and consistent spacing.
+- Gradients with Transparency: Combine gradients with RGBA or HSLA colors for layered effects with transparency.
+- Viewport Units for Responsiveness: Use vw and vh for elements that need to adapt to screen size changes, such as full-screen sections or responsive text sizes.
 
 ---
 
@@ -698,7 +1047,7 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 ---
 
- <h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
+<h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
 
 To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.
 <br/>
@@ -711,13 +1060,129 @@ In the image below the developer is trying to check the CSS on the body element.
 
 ---
 
----
-
 # Inline, Internal and External CSS
 
+## Inline CSS
+
+Inline CSS is used to apply a unique style to a single HTML element. It is done using the style attribute directly within the HTML tag
+
+```html
+<p style="color: blue; font-size: 20px;">
+  This is a paragraph with inline CSS.
+</p>
+```
+
+Advantages:
+
+- Quick and easy for small, specific changes.
+- Good for overriding styles in a pinch.
+
+Disadvantages:
+
+- Makes the HTML code harder to read and maintain.
+- Not suitable for styling multiple elements.
+
 ---
 
-# Flexible Box Layout Model(FlexBox)
+## hideInToc: true
+
+## Internal CSS
+
+Internal CSS is used to define styles for an entire HTML document. It is placed within the <kbd>style</kbd> tag in the <kbd>head</kbd> section of the HTML file.
+
+```html
+<head>
+  <style>
+    p {
+      color: red;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <p>This is a paragraph with internal CSS.</p>
+</body>
+```
+
+<div class="flex justify-between">
+
+<ul>
+<h3>Advantages</h3>
+<li>Keeps styles in one place within the document.</li>
+<li>Useful for applying styles to a single page.</li>
+<li>Easier to manage and maintain than inline CSS.</li>
+</ul>
+<ul>
+<h3>Disadvantages</h3>
+<li>Not efficient for styling across multiple pages.</li>
+</ul>
+</div>
+
+---
+
+## hideInToc: true
+
+## External CSS
+
+External CSS involves linking an external .css file to your HTML document. This file contains all the styles, which can be applied to multiple HTML documents.
+
+Syntax
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+```
+
+```css
+/* In styles.css */
+p {
+  color: green;
+  font-size: 16px;
+}
+```
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <p>This is a paragraph with external CSS.</p>
+</body>
+```
+
+---
+
+## hideInToc: true
+
+## External CSS (CONTD)
+
+<div class="flex justify-between">
+
+<ul>
+<h3>Advantages</h3>
+<li>Keeps HTML files clean and separates content from design..</li>
+<li>Efficient for applying the same styles across multiple pages.</li>
+<li>Easier to maintain and update, as changes in the external CSS file are reflected across all linked pages.</li>
+</ul>
+<ul>
+<h3>Disadvantages</h3>
+<li>Requires an additional HTTP request to load the CSS file.</li>
+<li>No styles will be visible if the CSS file fails to load.</li>
+</ul>
+</div>
+
+## Summary
+
+- Inline CSS: Best for quick, single-use styles but not ideal for maintainability.
+- Internal CSS: Good for single-page styling, better than inline but still not ideal for multiple pages.
+- External CSS: Preferred method for styling, offering maintainability and scalability across multiple documents.
+
+---
+
+## hide: true
+
+# FlexBox
 
 <p>Flexbox is a one-dimensional layout method for arranging items vertically(columns) or horizontally(rows).<br/>
 <small>To implement a flexbox layout in CSS, you need to set <kbd>display: flex;</kbd> in your CSS rules.</small></p>
@@ -1245,17 +1710,18 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 </ol>
 <p><strong><kbd>flex</kbd></strong> sets how a flex item will grow or shrink to fit the space available in its flex container. It does the basic management automatically.
 </p>
+
 It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead of separate <strong><kbd>flex-grow</kbd></strong> <strong><kbd>flex-shrink</kbd></strong>
 <strong><kbd>flex-basis</kbd></strong> declarations.
 
 ```css
-/*intead of this */
+/*instead of this */
 .container {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 0px;
 }
-/*try this */
+/* try this */
 .container {
   flex: 1;
 }
@@ -1265,35 +1731,362 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 
 # Grid Layout
 
+Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
+
 ---
+
+## hideInToc: true
+
+## Grid Container
+
+The grid container is the parent element that contains the grid items (child elements). To create a grid container, you set the display property of the parent element to grid or inline-grid.
+
+```html
+<div class="grid-container">
+  <div class="grid-item">Item 1</div>
+  <div class="grid-item">Item 2</div>
+  <div class="grid-item">Item 3</div>
+</div>
+```
+
+```css
+.grid-container {
+  display: grid;
+}
+```
+
+<div class="grid">
+ <div class="grid-item text-red-500">Item 1</div>
+ <div class="grid-item text-blue-500">Item 2</div>
+ <div class="grid-item ">Item 3</div>
+</div>
+
+---
+
+## hideInToc: true
+
+# Defining Rows and Columns
+
+You can define the structure of the grid using the <b> grid-template-rows</b> and <b>grid-template-columns</b> properties. These properties determine the number of rows and columns in the grid and their respective sizes.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  grid-template-rows: 100px 200px;
+  grid-gap: 4;
+}
+```
+
+<div class="grid  text-center grid-cols-[200px_1fr_100px] grid-rows-[100px_200px] gap-4">
+ <div class="bg-blue-200">Item 1</div>
+ <div class="bg-green-200">Item 2</div>
+ <div class="bg-red-200">Item 3</div>
+ <div class="bg-yellow-200">Item 4</div>
+ <div class="bg-purple-200">Item 5</div>
+ <div class="bg-pink-200">Item 6</div>
+</div>
+
+---
+
+## hideIntoc: true
+
+## Example
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  grid-template-rows: 100px 200px;
+  grid-gap: 4;
+}
+```
+
+In this example:
+
+- <b> grid-template-columns: 200px 1fr 100px;</b> creates three columns. The first column is 200px wide, the second column takes up the remaining space (<b>1fr</b>), and the third column is 100px wide.
+- <b> grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
+
+---
+
+## hideInToc: true
+
+## Placing Grid Items
+
+By default, grid items are placed in the grid based on the order they appear in the HTML. However, you can control their placement using the grid-column and grid-row properties.
+
+```css
+.grid-item:nth-child(1) {
+  grid-column: 1 / 3; /* Spans across the first and second columns */
+  grid-row: 1; /* Placed in the first row */
+}
+
+.grid-item:nth-child(2) {
+  grid-column: 3; /* Placed in the third column */
+  grid-row: 1 / 3; /* Spans across the first and second rows */
+}
+```
+
+<div class="grid grid-cols-3 grid-rows-2 gap-4">
+ <div class="col-span-2 row-start-1 bg-blue-200">Item 1</div>
+ <div class="col-start-3 row-span-2 bg-green-200">Item 2</div>
+ <div class="bg-red-200">Item 3</div>
+ <div class="bg-yellow-200">Item 4</div>
+</div>
+
+---
+
+## hideInToc: true
+
+## Grid Gaps
+
+To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap</b>, and <b>column-gap</b> properties.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; /* 20px space between all grid items */
+}
+```
+
+ <div class="grid grid-cols-3 gap-5">
+   <div class="bg-blue-500 text-white p-5">Item 1</div>
+   <div class="bg-green-500 text-white p-5">Item 2</div>
+   <div class="bg-red-500 text-white p-5">Item 3</div>
+   <div class="bg-yellow-500 text-white p-5">Item 4</div>
+   <div class="bg-purple-500 text-white p-5">Item 5</div>
+   <div class="bg-pink-500 text-white p-5">Item 6</div>
+ </div>
+
+---
+
+## hideInToc: true
+
+## Grid Areas
+
+Grid areas allow you to name specific sections of the grid, making it easier to define complex layouts. You can use grid-template-areas to define areas and grid-area to place grid items within those areas.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 150px 1fr 1fr;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+```
+
+---
+
+## hideInToc: true
+
+## Example(CONTD)
+
+ <div class="grid grid-rows-[auto_1fr_auto] grid-cols-[150px_1fr_1fr] gap-5 h-100">
+   <!-- Header -->
+   <div class="bg-blue-500 text-white p-5 col-span-3">
+     Header
+   </div>
+   <div class="bg-green-500 text-white p-5">
+     Sidebar
+   </div>
+   <div class="bg-red-500 text-white p-5 col-span-2">
+     Main Content
+   </div>
+   <div class="bg-yellow-500 text-white p-5 col-span-3">
+     Footer
+   </div>
+ </div>
+
+---
+
+## hideInToc: true
+
+## Responsive Design with Grid
+
+CSS Grid makes it easy to create responsive designs. You can use functions like repeat() and minmax() to create grids that adjust based on the available space.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px;
+}
+```
+
+<div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2">
+ <div class="bg-blue-200 p-4">Item 1</div>
+ <div class="bg-green-200 p-4">Item 2</div>
+ <div class="bg-red-200 p-4">Item 3</div>
+ <div class="bg-yellow-200 p-4">Item 4</div>
+</div>
+
+- repeat(auto-fit, minmax(100px, 1fr)); automatically creates as many columns as will fit into the container, with each column being at least 100px wide and taking up a fraction of the remaining space.
+- This ensures that the grid adjusts dynamically as the viewport size changes.
+
+---
+
+## hide: true
 
 # Positioning
 
 ---
 
-# Stacking Content/Z-index
+## hide: true
 
 ---
+
+# Stacking Context/Z-index
+
+## What is a Stacking Context?
+
+A stacking context is a concept in CSS that determines how elements are stacked or layered on top of each other along the z-axis. This z-axis stacking controls the visual order of elements that overlap.
+
+Stacking contexts are created in the following scenarios:
+
+- The root HTML element (<kbd>html</kbd>) creates a stacking context.
+- Elements with a position of relative, absolute, or fixed that also have a z-index value other than auto.
+- Elements with a position of sticky (in some browsers).
+- Elements with certain properties like opacity less than 1, transform, filter, perspective, clip-path, etc.
+- When an element creates a new stacking context, all of its child elements are part of that context. This means their z-index is relative to the parent stacking context, not globally on the page.
+
+---
+
+## hideInToc: true
+
+## What is z-index?
+
+The z-index property in CSS specifies the stack order of an element within its stacking context. An element with a higher z-index is positioned above an element with a lower z-index.
+
+However, z-index only works on positioned elements (elements whose position property is set to relative, absolute, fixed, or sticky).
+<br/>
+
+## How Stacking Context Works with z-index
+
+- Default Stacking Order: Elements are stacked according to their order in the HTML. Later elements in the HTML are above earlier ones by default.
+- With z-index: When a z-index is applied to a positioned element, it is layered according to its stacking context.
+
+---
+
+## hideInToc: true
+
+## Example
+
+<div class="flex justify-between">
+<div>
+```css
+.parent {
+  position: relative; /* Creates a stacking context */
+  z-index: 0; /* This z-index is relative to the global stacking context */
+  background-color: #e5e7eb; 
+  padding: 1rem; 
+}
+.child {
+  position: absolute; /* Positioned element with z-index creates a new stacking context */
+  z-index: 10; /* Within its parent stacking context */
+  background-color: #f87171; 
+  padding: 1rem; 
+}
+.sibling {
+  position: relative; /* Positioned element in the global stacking context */
+  z-index: 5; /* Relative to the global stacking context */
+  background-color: #3b82f6; 
+  padding: 1rem;
+}
+```
+</div>
+<div class="relative z-0 bg-gray-200 p-4">
+  <!-- This container creates a new stacking context -->
+  Parent Stacking Context
+  <div class="absolute z-10 bg-red-500 p-4">
+    <!-- This div is within its own stacking context created by the parent -->
+    Child with z-10 within its own context
+  </div>
+</div>
+<div class="relative z-5 bg-blue-500 p-4">
+  <!-- This div is outside the parent stacki  ng context -->
+  Outside of parent stacking context, z-5
+</div>
+</div>
+
+---
+
+## hideInToc: true
+
+## Example II
+
+<div class="relative bg-yellow-300 p-4">
+  <!-- This container creates a new stacking context due to opacity -->
+  <div class="absolute top-0 left-0 w-20 h-20 bg-blue-500 opacity-50 z-30">
+    <!-- The blue box will have a lower z-index but still be on top due to stacking context -->
+    Semi-transparent blue box
+  </div>
+  <div class="absolute top-10 left-10 w-20 h-20 bg-red-500 z-20">
+    <!-- The red box will appear behind the blue box even though it has a higher z-index in the global context -->
+    Red box behind blue box
+  </div>
+</div>
+
+---
+
+## hide: true
+
+## Key Takaways
+
+- z-index controls stacking order within the same stacking context.
+- Stacking contexts are isolated — a z-index in one context does not affect the stacking order in another context.
+- Some CSS properties (like opacity, transform, filter, etc.) can create new stacking contexts, changing how z-index is applied.
+
+---
+
+## hide: true
 
 # Overflow
 
 ---
 
+## hide: true
+
 # Responsiveness
 
 ---
+
+## hide: true
 
 # Animations
 
 ---
 
+## hide: true
+
 # CSS Frameworks
 
 ---
 
-<CounterReact />
+## hide: true
 
 ---
+
+## hide: true
 
 # Assignments
 
@@ -1304,53 +2097,9 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 
 ---
 
-<!-- hideInToc: true -->
+## hideInToc: true
 
 # Contributors
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
-- [Olubebe Faith](https://github.com/Olubebe)
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+- [Oluwibe Faith](https://github.com/Olubebe)
