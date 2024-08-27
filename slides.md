@@ -1,10 +1,6 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
-# some information about your slides, markdown enabled
 title: CSS Class Note
 info: |
   ## AltSchool v4 CSS Class Notes
@@ -13,14 +9,10 @@ info: |
   join at [AltSchool Africa](https://altschoolafrica.com)
 # apply any unocss classes to the current slide
 class: text-center
-# https://sli.dev/custom/highlighters.html
 highlighter: shiki
-# https://sli.dev/guide/drawing
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations#slide-transitions
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/guide/syntax#mdc-syntax
 mdc: true
 hideInToc: true
 ---
@@ -73,6 +65,19 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 
+# [Previous Class Recording](https://www.youtube.com/watch?v=cW3Xm4LZkj8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=15)
+
+- [15](https://www.youtube.com/watch?v=cW3Xm4LZkj8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=15)
+- [16](https://www.youtube.com/watch?v=lvhi_YZELzY&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=16)
+- [17](https://www.youtube.com/watch?v=x6rcMevUjEQ&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=17)
+- [18](https://www.youtube.com/watch?v=_jKvpwTZ-P0&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=18)
+- [19](https://www.youtube.com/watch?v=jsOBRT-GHq4&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=19)
+- [20](https://www.youtube.com/watch?v=lYOeltZUojI&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=20)
+- [21](https://www.youtube.com/watch?v=Eik3R556Xg8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=21)
+- [22](https://www.youtube.com/watch?v=87-WHDYRSic&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=22)
+
+---
+
 # Selectors
 
 Before we move deeply into Selectors, let's dive into CSS rule which is a block of code, that has one or more selectors and one or more declarations.
@@ -80,6 +85,8 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 <img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
+
+## hideInToc: true
 
 <ins>Definition of selectors</ins>
 
@@ -102,6 +109,8 @@ Types of selectors
 This rule is saying that remove any default margin and padding from all the elements in this document and also change the box-sizing value to border-box.
 
 ---
+
+## hideInToc: true
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
 
@@ -351,7 +360,7 @@ h1 {
 In the code above, we are trying to style the h1 element but we have two CSS ruleset, so which stylesheet will override the other? This is where our knowledge on specificity algorithm comes in.
 <br/>
 <br/>
-Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be apllied on the element.
+Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be applied on the element.
 
 ## <!-- We will come back to this at the end of this topic. -->
 
@@ -380,7 +389,7 @@ graph TD;
 ```
 </div>
 
-<div class="bg-red animate-slide-in-right" >
+<div class="bg-red animate-slide-in-right">
 ```mermaid
 graph TD;
     Selectors-->Specificity_Value;
@@ -391,7 +400,6 @@ graph TD;
     Attribute_selectors-->10;
     Elements-->1;
     Pseudo-elements-->1;
-    
 ```
 </div>
 
@@ -458,7 +466,7 @@ graph TD;
 
 Some inherited and non-inherited CSS properties:
 
-<table class="  p-4 border border-black overflow-scroll">
+<table class="p-4 border border-black overflow-scroll">
 <tr class="p-4 border border-black-400 bg-green">
 <th>Inherited Properties</th>
 <th>Non-Inherited Properties</th>
@@ -496,6 +504,7 @@ Some inherited and non-inherited CSS properties:
 <td>z-index</td>
 </tr>
 </table>
+
 ---
 
 Inherited property
@@ -520,6 +529,8 @@ p {
 
 ---
 
+## hideInToc: true
+
 Non-inherited property
 
 Code Example: The border property falls under the non-inherited properties so, the <kbd>em</kbd> element will not inherit the border value from the parent element which is <kbd>p</kbd>.
@@ -541,6 +552,8 @@ p {
 </div>
 
 ---
+
+## hideInToc: true
 
 ## Setting inheritance explicitly in CSS
 
@@ -570,6 +583,8 @@ em {
 
 ---
 
+## hideInToc: true
+
 ## Controlling Inheritance
 
 Note: Inheritance is always from the parent element in the document tree, even when the parent element is not the containing block.
@@ -581,12 +596,12 @@ There are 5 major keywords in inheritance:
 inherit:
 </dt>
 <dd>
-The inherit keyword causes element to take the computed value of the propety from its parent element.
+The inherit keyword causes element to take the computed value of the property from its parent element.
 
 </dd>
 <br/>
 <dt class="font-sans font-extrabold">
-initial: 
+initial:
 </dt>
 <dd>
 This keyword sets a property back to that initial, default value.
@@ -607,7 +622,7 @@ This keyword reverts the cascaded value of the property from its current value t
 revert-layer:
 </dt>
 <dd>
-This keyword rolls back the value of a property in a cascade layer to the value of a CSS rule matching the element in a previous cascade layer. 
+This keyword rolls back the value of a property in a cascade layer to the value of a CSS rule matching the element in a previous cascade layer.
 </dd>
 </dl>
 
@@ -615,7 +630,7 @@ This keyword rolls back the value of a property in a cascade layer to the value 
 
 The <kbd>all</kbd> CSS property
 
-This shorthand resets all properties (except unicode-bidi and direction) of an element to their initial, inherited, or unset state. This property can be particularly useful when you want to ensure that an element does not inherit any styles from its parents or previous rules and instead starts with a clean slate.
+This shorthand resets all properties (except unicode-bdi and direction) of an element to their initial, inherited, or unset state. This property can be particularly useful when you want to ensure that an element does not inherit any styles from its parents or previous rules and instead starts with a clean slate.
 
 ```html
 <div class="parent">
@@ -638,6 +653,7 @@ This shorthand resets all properties (except unicode-bidi and direction) of an e
 
 <div class="text-red-500 text-xl bg-gray-300">Parent Text</div>
 <div class="text-red-500 text-xl bg-gray-300">Child Text with all: inherit</div>
+
 ---
 
 # Colors/Units/Gradients
@@ -698,7 +714,7 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 ---
 
- <h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
+<h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
 
 To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.
 <br/>
@@ -708,8 +724,6 @@ In the image below the developer is trying to check the CSS on the body element.
 <div class="h-80 overflow-scroll bg-grey">
  <img src="https://developer.chrome.com/static/docs/devtools/css/reference/image/the-tooltip-specificity-e28a5e9a4b32.png" alt="Image of a devtools" />
 </div>
-
----
 
 ---
 
@@ -1350,6 +1364,101 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 ```
 
 ```
+
+```
+
+```
+
+</div>
+<div class="relative z-0 bg-gray-200 p-4">
+  <!-- This container creates a new stacking context -->
+  Parent Stacking Context
+  <div class="absolute z-10 bg-red-500 p-4">
+    <!-- This div is within its own stacking context created by the parent -->
+    Child with z-10 within its own context
+  </div>
+</div>
+<div class="relative z-5 bg-blue-500 p-4">
+  <!-- This div is outside the parent stacki  ng context -->
+  Outside of parent stacking context, z-5
+</div>
+</div>
+
+---
+
+## hideInToc: true
+
+## Example II
+
+<div class="relative bg-yellow-300 p-4">
+  <!-- This container creates a new stacking context due to opacity -->
+  <div class="absolute top-0 left-0 w-20 h-20 bg-blue-500 opacity-50 z-30">
+    <!-- The blue box will have a lower z-index but still be on top due to stacking context -->
+    Semi-transparent blue box
+  </div>
+  <div class="absolute top-10 left-10 w-20 h-20 bg-red-500 z-20">
+    <!-- The red box will appear behind the blue box even though it has a higher z-index in the global context -->
+    Red box behind blue box
+  </div>
+</div>
+
+---
+
+## hide: true
+
+## Key Takaways
+
+- z-index controls stacking order within the same stacking context.
+- Stacking contexts are isolated — a z-index in one context does not affect the stacking order in another context.
+- Some CSS properties (like opacity, transform, filter, etc.) can create new stacking contexts, changing how z-index is applied.
+
+---
+
+## hide: true
+
+# Overflow
+
+---
+
+## hide: true
+
+# Responsiveness
+
+---
+
+## hide: true
+
+# Animations
+
+---
+
+## hide: true
+
+# CSS Frameworks
+
+---
+
+## hide: true
+
+---
+
+## hide: true
+
+# Assignments
+
+<ul>
+  <li ><a @click="$slidev.nav.next()">Assignment 1</a></li>
+  <li ><a @click="$slidev.nav.go(113)">Assignment 2</a></li>
+</ul>
+
+---
+
+## hideInToc: true
+
+# Contributors
+
+- [Ridwan Adebosin](https://github.com/RidwanAdebosin)
+- [Oluwibe Faith](https://github.com/Olubebe)
 
 ```
 
