@@ -1766,16 +1766,18 @@ Absolutely-positioned elements act just like static-positioned elements when it 
 ```
 
 <div class="flex items-center justify-center ">
-<div class="relative w-150px h-100px border-3 border-red-500 overflow-auto"></div>
+<div class="relative w-150px h-100px border-3 border-red-500 overflow-auto">
 <div class="absolute top-24px left-24px w-150 h-200 bg-black"></div>
 </div>
+</div>
+
 ---
 
 ```css
 .wrapper {
-  overflow: hidden; /*overflow: hidden; */
-  width: 100px; /*width: 100px; */
-  height: 100px; /*height: 100px; */
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
   border: 3px solid red;
 }
 
@@ -1789,9 +1791,12 @@ Absolutely-positioned elements act just like static-positioned elements when it 
 }
 ```
 
+<div class="relative">
 <div class="w-120px h-120px border-3 border-red-500 overflow-hidden">
 <div class="absolute top-24px left-24px w-100px h-100px bg-black"></div>
 </div>
+</div>
+<br/>
 <kbd>.box</kbd> is not been contained by wrapper even with the <kbd>overflow: hidden;</kbd> passed into the <kbd>wrapper</kbd> CSS rule because the parent which is <kbd>wrapper</kbd> is not using positioned layout.
 
 ---
