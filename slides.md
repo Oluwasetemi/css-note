@@ -1729,7 +1729,6 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 
 ---
 
-
 # Grid Layout
 
 ---
@@ -1767,11 +1766,10 @@ Absolutely-positioned elements act just like static-positioned elements when it 
 ```
 
 <div class="flex items-center justify-center ">
-<div class="relative w-150px h-100px border-3 border-red-500 overflow-auto">
+<div class="relative w-150px h-100px border-3 border-red-500 overflow-auto"></div>
 <div class="absolute top-24px left-24px w-150 h-200 bg-black"></div>
-  
+</div>
 ---
-
 
 ```css
 .wrapper {
@@ -1790,7 +1788,6 @@ Absolutely-positioned elements act just like static-positioned elements when it 
   height: 200px;
 }
 ```
-
 
 <div class="w-120px h-120px border-3 border-red-500 overflow-hidden">
 <div class="absolute top-24px left-24px w-100px h-100px bg-black"></div>
@@ -1948,8 +1945,8 @@ dd {
 ---
 
 ## hideInToc: true
-  
-  # Grid Layout
+
+# Grid Layout
 
 Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
 
@@ -1979,8 +1976,6 @@ The grid container is the parent element that contains the grid items (child ele
  <div class="grid-item text-red-500">Item 1</div>
  <div class="grid-item text-blue-500">Item 2</div>
  <div class="grid-item ">Item 3</div>
-
-</div>
 </div>
 
 ---
@@ -2286,7 +2281,6 @@ However, z-index only works on positioned elements (elements whose position prop
 
 ## hide: true
 
-
 # Responsiveness
 
 ---
@@ -2324,4 +2318,3 @@ However, z-index only works on positioned elements (elements whose position prop
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
 - [Oluwibe Faith](https://github.com/Olubebe)
-
