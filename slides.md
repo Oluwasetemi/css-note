@@ -1731,6 +1731,223 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 
 # Grid Layout
 
+---
+
+# Positioned Layout
+
+Positioned Layout is another layout mode we'll explore in this section. Unlike the flow layout algorithm, which ensures that multiple elements never occupy the same pixels, positioned layout allows items to overlap and break out of the box.
+
+To style your layout, use the <strong><kbd>position</kbd></strong> property with one of the following values: <strong><kbd>relative</kbd></strong>, <strong><kbd>absolute</kbd></strong>, <strong><kbd>fixed</kbd></strong>, or <strong><kbd>sticky</kbd></strong>. Each of these positioning values works uniquely to place the element. Combine it with the <strong><kbd>top</kbd></strong>, <strong><kbd>right</kbd></strong>, <strong><kbd>bottom</kbd></strong>, and <strong><kbd>left</kbd></strong> properties to specify the exact location of the element within its containing block.
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Relative Positioning</h1>
+
+The element is positioned <kbd>position: relative;</kbd> based on the normal document flow and then adjusted relative to its original position using the top, right, bottom, and left values. This adjustment does not impact the layout or positioning of surrounding elements, so the space allocated for the element remains the same as if it were using static positioning.
+
+---
+
+ <h1 class="text-sm bg-orange p-4 text-center">Absolute Positioning</h1>
+
+Every element is contained by a block which is referred to containing block. When you absolutety positioned an element, it ignore their parents block to cause an overflow unless the parent use positioned layout.
+
+Absolutely-positioned elements act just like static-positioned elements when it comes to overflow. If the parent sets <kbd>overflow: auto;</kbd>, as long as that parent is the containing block, it will allow that child to be scrolled into view:
+
+```css
+.wrapper {
+  overflow: auto;
+  position: relative;
+  /* other styles here */
+}
+.box {
+  position: absolute;
+  /* other styles here */
+}
+```
+
+<div class="flex items-center justify-center ">
+<div class="relative w-150px h-100px border-3 border-red-500 overflow-auto"></div>
+<div class="absolute top-24px left-24px w-150 h-200 bg-black"></div>
+</div>
+---
+
+```css
+.wrapper {
+  overflow: hidden; /*overflow: hidden; */
+  width: 100px; /*width: 100px; */
+  height: 100px; /*height: 100px; */
+  border: 3px solid red;
+}
+
+.box {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: black;
+  width: 150px;
+  height: 200px;
+}
+```
+
+<div class="w-120px h-120px border-3 border-red-500 overflow-hidden">
+<div class="absolute top-24px left-24px w-100px h-100px bg-black"></div>
+</div>
+<kbd>.box</kbd> is not been contained by wrapper even with the <kbd>overflow: hidden;</kbd> passed into the <kbd>wrapper</kbd> CSS rule because the parent which is <kbd>wrapper</kbd> is not using positioned layout.
+
+---
+
+Error fixed by adding <kbd>position: relative;</kbd> to the parent.
+
+```css
+.wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+}
+
+.box {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: black;
+  width: 150px;
+  height: 200px;
+}
+```
+
+<div class="relative w-120px h-120px border-3 border-red-500 overflow-hidden">
+<div class="absolute top-24px left-24px w-150 h-200 bg-black"></div>
+</div>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Fixed Positioning</h1>
+
+To create a "floating" element that stays in the same position regardless of scrolling, you should use <kbd>position: fixed;</kbd> This is similar to absolute positioning, but there are key differences:
+
+Fixed Positioning: A fixed element is positioned relative to the viewport, meaning it stays in the same place on the screen even when you scroll. The element is contained by the "initial containing block," which is essentially the entire browser window or viewport.
+With position: fixed, the element will not move when the user scrolls the page.
+
+Absolute Positioning: An absolutely positioned element is positioned relative to its nearest positioned ancestor (an ancestor with position set to relative, absolute, or fixed). If no such ancestor exists, it will be positioned relative to the initial containing block, just like a fixed element.
+With <kbd>position: absolute;</kbd>, the element will move with its parent element if the parent is scrolled.
+
+---
+
+```css
+.scroll-container {
+  width: 100%;
+  height: 35px;
+  overflow: scroll;
+  border: 3px solid red;
+}
+
+.fixed-box {
+  position: fixed;
+  bottom: 30px;
+  left: 80px;
+  width: 80px;
+  height: 80px;
+  background: orange;
+}
+
+.scroll-content-box {
+  padding-left: 120px;
+}
+```
+
+<div class=" w-full h-35 overflow-scroll  border-3 border-red-500">
+<div class="fixed bottom-30px left-80px w-20 h-20 bg-orange "> Fixed
+</div>
+<div class= "pl-120px">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+</div>
+</div>
+
+---
+
+ <h1 class="text-sm bg-orange p-4 text-center">Sticky Positioning</h1>
+
+In this form of positioning <kbd>position: sticky;</kbd>, an element transitions from being relatively-positioned to being fixed-positioned and this happens when you scroll, the element get stuck to the edge. To pass <kbd>position: sticky;</kbd> to an element and work effectively, you must specify a threshold with at least one of to top, right, bottom, or left.
+
+While using <kbd>position: sticky;</kbd> note that the element will never follow the scroll outside of its parent container. The sticky elements only stick while their container is in view.
+
+---
+
+<h1>Code Example</h1>
+
+```css
+dt {
+  position: sticky;
+  top: -1px;
+  /* other styles */
+}
+
+dd {
+  margin: 0;
+  /* other styles */
+}
+```
+
+<dl class="space-y-6 overflow-scroll h-50 mt-10">
+  <div>
+    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
+      A
+    </dt>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Andrew W.K.
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Apparat
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Arcade Fire
+    </dd>
+  </div>
+  <div>
+    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
+      C
+    </dt>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Chromeo
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Common
+    </dd>
+  </div>
+  <div>
+    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
+      E
+    </dt>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Explosions In The Sky
+    </dd>
+  </div>
+  <div>
+    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
+      T
+    </dt>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Ted Leo &amp; The Pharmacists
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      T-Pain
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Thrice
+    </dd>
+  </div>
+</dl>
+
+---
+
+## hideInToc: true
+
+# Grid Layout
+
 Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
 
 ---
@@ -1762,8 +1979,6 @@ The grid container is the parent element that contains the grid items (child ele
 </div>
 
 ---
-
-## hideInToc: true
 
 # Defining Rows and Columns
 
