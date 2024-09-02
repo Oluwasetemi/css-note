@@ -75,17 +75,19 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 # Selectors
 
+<div />
 Before we move deeply into Selectors, let's dive into CSS rule which is a block of code, that has one or more selectors and one or more declarations.
 
 <img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
 
-<ins>Definition of selectors</ins>
+# Definition of selectors
 
+<div></div>
 Looking at the image in the previous slide we'll notice that CSS selector is the first part of a CSS rule. In order to choose or select HTML elements that's going to carry the CSS property values inside the rule we have to use CSS Selector. In summary, for us to add a style for a particular HTML element we need a selector.
 
-Types of selectors
+<h4 class="mt-3 font-bold underline">Types of selectors</h4>
 
 - Universal selector: This is also know as a wildcard, selects every single element in the document. It is represented by the asterisk character <kbd>\*</kbd>
 
@@ -208,7 +210,7 @@ Note: This method give you the access to style any element that has an attribute
 
 ---
 
-- Pseudo-classes: Pseudo-classes are keywords added to selectors using a single colon sign <kbd>:</kbd> just to specify a special state of the selected elements. They allow you to style elements based on their state, position, or user interactions, which cannot be targeted by regular CSS selectors alone.
+- `Pseudo-classes`: Pseudo-classes are keywords added to selectors using a single colon sign <kbd>:</kbd> just to specify a special state of the selected elements. They allow you to style elements based on their state, position, or user interactions, which cannot be targeted by regular CSS selectors alone.
   Here are some common pseudo-classes:
 
 ```
@@ -239,7 +241,7 @@ input:focus {
 
 ---
 
-- Pseudo-element: To style specific parts of an element we attached double colon to our selector <kbd>::</kbd> followed by keywords to select the portion we want to apply styling to. Unlike the pseudo-classes, which target the entire element, pseudo-elements target specific parts of an element using a conventional keywords.
+- `Pseudo-element`: To style specific parts of an element we attached double colon to our selector <kbd>::</kbd> followed by keywords to select the portion we want to apply styling to. Unlike the pseudo-classes, which target the entire element, pseudo-elements target specific parts of an element using a conventional keywords.
 
 Here are some common pseudo-elements:
 
@@ -330,8 +332,33 @@ h3 {
 
 ---
 
+- `Nesting Selectors &`: This is a way of writing CSS rules that are more specific and easier to read.They explicitly states the relationship between parent and child rules when using CSS nesting. It makes the nested child rule selectors relative to the parent element. Without the & nesting selector, the child rule selector selects child elements. The child rule selectors have the same specificity weight as if they were within `:is()`. Can be use with the Child Combinators.
+
+<ins>Code Example</ins>:
+
+```html
+<div class="container">
+  <h1 class="title">Hello, CSS</h1>
+</div>
+```
+
+```css
+.container {
+  padding: 20px;
+  .title {
+    color: red;
+  }
+  &:hover {
+    background-color: lightblue;
+  }
+}
+```
+
+## [Read more about CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Nesting_selector)
+
 # Specificity
 
+<div></div>
 Specificity is the key to understanding how CSS decides between competing rules. Let's take a brief at this code before we dive deep into specificity.
 
 ```html
@@ -436,13 +463,154 @@ selector {
 
 # Box Model
 
+<div></div>
+The CSS Box Model is a core concept in web design and layout. It describes how every element on a web page is rendered as a rectangular box.
+It’s basically a box that wraps around every HTML element. Understanding this model is crucial for creating precise layouts and solving common design challenges.
+
+<img class="mt-10 w-200 h-80 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-3.png"/>
+
+---
+
+# Components Of Box Model
+
+- a) Content:
+
+  - This is the innermost layer.
+  - It contains the actual content of the element (text, images, etc.).
+  - Dimensions are set using 'width' and 'height' properties.
+
+- b) Padding:
+
+  - Surrounds the content area.
+  - Creates space between the content and the border.
+  - Can be set using 'padding' property (or padding-top, padding-right, etc.).
+  - Is transparent, allowing the background of the element to show through.
+
+---
+
+- c) Border:
+
+  - Encircles the padding (or content if no padding is set).
+  - Can have different styles, colors, and widths.
+  - Set using the 'border' property or individual properties like 'border-width'.
+
+- d) Margin:
+
+  - The outermost layer.
+  - Creates space between the element and adjacent elements.
+  - Is always transparent.
+  - Set using the 'margin' property or individual properties (margin-top, etc.).
+
+  Popular margin concepts are: Hungry margin(auto margin which only works for horizontal margins with explicit width), Collapsed margin, Negative margin.
+
+---
+
+<div grid place-content-center>
+  <img class="mt-10 w-150 h-90 border-10" src="https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png"/>
+</div>
+
+---
+
+- 1. Calculating Total Element Size
+
+One of the most important aspects of the Box Model is understanding how the total size of an element is calculated:
+
+- Total Width = width + left padding + right padding + left border + right border
+- Total Height = height + top padding + bottom padding + top border + bottom border
+
+Note: Margins are not included in these calculations as they affect spacing between elements, not the element's size itself.
+
+- 2. Box-Sizing Property
+
+The default box model can sometimes lead to unexpected results. CSS3 introduced the 'box-sizing' property to address this:
+
+'content-box' (default): Width and height apply to content area only.
+'border-box': Width and height include content, padding, and border.
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+---
+
+# Example
+
+```css
+div {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  border: 10px solid black;
+  margin: 25px;
+}
+```
+
+### Understanding the Box Model is crucial for:
+
+- Centering elements
+- Creating consistent spacing
+- Implementing responsive designs
+- Debugging layout issues
+
+---
+
+# Using Block and Inline Axes in CSS
+
+<div></div>
+In CSS, the block and inline axes are used to determine how elements are laid out on a page. Understanding these axes is crucial for creating responsive layouts and designing web pages.
+
+- Block Axis: The block axis is the vertical axis that runs from top to bottom. Block-level elements stack on top of each other in the block axis.
+
+- Inline Axis: The inline axis is the horizontal axis that runs from left to right. Inline-level elements flow in the inline axis.
+
+Possible css properties with block and inline axes are: `padding-block`, `margin-block`, `border-block`, `padding-inline`, `margin-inline`, `border-inline`, `block-size`, `inline-size`, `min-block-size`, `max-block-size`, `min-inline-size`, `max-inline-size`. Padding and margin can have the start, end variant like `padding-inline-start`, `padding-inline-end`, `margin-block-start`, `margin-block-end`.
+
+The `block-size` and `inline-size` properties are used to set the width and height of an element, respectively. The `min-block-size` and `max-block-size` properties set the minimum and maximum width of an element, while the `min-inline-size` and `max-inline-size` properties set the minimum and maximum height of an element.
+
+---
+
+# Calculating Width and Height
+
+## Width Calculation
+
+- Width is calculated along the inline axis(left to right) and default is auto(using the content inside the element) but can be set using the `width` property. The `max-width` and `min-width` properties set the maximum and minimum width of an element. `max-width` is used to prevent an element from exceeding a certain width, while `min-width` ensures that an element is at least a certain width. `max-width` is useful for creating responsive designs that adapt to different screen sizes and should be used for containers/wrappers that need to be flexible. `min-width` is useful for ensuring that an element is at least a certain width, which can be helpful for maintaining the layout of a page and preventing elements from becoming too narrow. Width considers the parent element's width and the content inside the element. Avoid using fixed width and percentage width if you do not have a parent with an explicit width.
+
+---
+
+# Height Calculation
+
+- Height is calculated along the block axis(top to bottom) and default is auto(using the content inside the element) but can be set using the `height` property. The `max-height` and `min-height` properties set the maximum and minimum height of an element. `max-height` is used to prevent an element from exceeding a certain height, while `min-height` ensures that an element is at least a certain height. `min-height` is useful for creating responsive designs that adapt to different screen sizes and adjustable height. `max-height` is useful for ensuring that an element is at least a certain height, which can be helpful for maintaining the layout of a page and preventing elements from becoming too short. Height considers the content inside the element first before the parent element's height.
+
+---
+
+<div grid place-content-center>
+  <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-19.png"/>
+</div>
+
+---
+
+# CSS Reset and Normalize
+
+## CSS Reset
+
+A CSS reset is a set of CSS rules that reset the styling of all HTML elements to a consistent baseline. This ensures that all browsers start with the same default styles, making it easier to create a consistent design across different browsers.
+
+[Link to Josh Comeau CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/)
+
+## Normalize.css
+
+Normalize.css is a modern, HTML5-ready alternative to CSS resets. It makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
+
 ---
 
 # Inheritance
 
+<div></div>
 Inheritance, this is when a child element get a computed value which represents its parent's value. Inheritance cascade downwards and every property has a default value in CSS.
 
-<div class=" flex justify-center p-10 border border-gray-300 bg-blue overflow-auto animate-slide-in-left">
+<div class="mt-5 flex justify-center p-10 border border-gray-300 bg-blue overflow-auto animate-slide-in-left">
 ```mermaid
 graph TD;
     Types-Of-Inheritance-->Inherited-properties;
@@ -458,43 +626,43 @@ graph TD;
 
 Some inherited and non-inherited CSS properties:
 
-<table class="  p-4 border border-black overflow-scroll">
-<tr class="p-4 border border-black-400 bg-green">
-<th>Inherited Properties</th>
-<th>Non-Inherited Properties</th>
-</tr>
-<tr>
-<td class="bg-black text-white">list-style</td>
-<td class="bg-black text-white">border</td>
-</tr>
-<tr>
-<td>color</td>
-<td>margin</td>
-</tr>
-<tr>
-<td class="bg-black text-white">cursor</td>
-<td class="bg-black text-white">padding</td>
-</tr>
-<tr>
-<td>font-family</td>
-<td>width</td>
-</tr>
-<tr>
-<td class="bg-black text-white">font-size</td>
-<td class="bg-black text-white">height</td>
-</tr>
-<tr>
-<td>font-style</td>
-<td>position</td>
-</tr>
-<tr>
-<td class="bg-black text-white">font-weight</td>
-<td class="bg-black text-white">box-shadow</td>
-</tr>
-<tr>
-<td>text-align</td>
-<td>z-index</td>
-</tr>
+<table class="p-4 border border-black overflow-scroll">
+  <tr class="p-4 border border-black-400 bg-green">
+    <th>Inherited Properties</th>
+    <th>Non-Inherited Properties</th>
+  </tr>
+  <tr>
+    <td class="bg-black text-white">list-style</td>
+    <td class="bg-black text-white">border</td>
+  </tr>
+  <tr>
+    <td>color</td>
+    <td>margin</td>
+  </tr>
+  <tr>
+    <td class="bg-black text-white">cursor</td>
+    <td class="bg-black text-white">padding</td>
+  </tr>
+  <tr>
+    <td>font-family</td>
+    <td>width</td>
+  </tr>
+  <tr>
+    <td class="bg-black text-white">font-size</td>
+    <td class="bg-black text-white">height</td>
+  </tr>
+  <tr>
+    <td>font-style</td>
+    <td>position</td>
+  </tr>
+  <tr>
+    <td class="bg-black text-white">font-weight</td>
+    <td class="bg-black text-white">box-shadow</td>
+  </tr>
+  <tr>
+    <td>text-align</td>
+    <td>z-index</td>
+  </tr>
 </table>
 ---
 
@@ -502,7 +670,7 @@ Inherited property
 
 Code Example: The color property falls under the inherited properties, so the <kbd>em</kbd> element will inherit the color value from the parent element which is <kbd>p</kbd>
 
-<div class="p-8 bg-green">
+<div class="p-8 text-green bg-white light:bg-black">
 
 ```html
 <p>This paragraph has <em>emphasized text</em>in it.</p>
@@ -515,7 +683,7 @@ p {
 }
 ```
 
- <p class="color-red-500 font-large">This paragraph has <em>emphasized text</em> in it.</p>
+<p class="color-green-500 font-large">This paragraph has <em>emphasized text</em> in it.</p>
 </div>
 
 ---
@@ -524,7 +692,7 @@ Non-inherited property
 
 Code Example: The border property falls under the non-inherited properties so, the <kbd>em</kbd> element will not inherit the border value from the parent element which is <kbd>p</kbd>.
 
-<div class="p-8 bg-red">
+<div class="p-8 text-red bg-white light:bg-black">
 
 ```html
 <p>This paragraph has <em>emphasized text</em>in it.</p>
@@ -536,7 +704,7 @@ p {
 }
 ```
 
- <p class="border-3 border-solid border-black-500">This paragraph has <em>emphasized text</em> in it.</p>
+<p class="p-2 b-3 border-solid border-red-500">This paragraph has <em>emphasized text</em> in it.</p>
 
 </div>
 
@@ -544,13 +712,13 @@ p {
 
 ## Setting inheritance explicitly in CSS
 
-Using the inherit keyword
+Using the `inherit` keyword
 
 To keep everything under the developer's control, we have the inherit keyword that can make any property inherit its parent's computed value.
 
 Code Example:
 
-<div class="p-8 bg-red animate-slide-in-right">
+<div class="p-8 text-red bg-white light:bg-black animate-slide-in-right">
 
 ```html
 <p>This paragraph has <em>emphasized text</em>in it.</p>
@@ -565,7 +733,7 @@ em {
 }
 ```
 
- <p class="border-3 border-solid border-black-500">This paragraph has <em class="border border-inherit">emphasized text</em> in it.</p>
+<p class="p-2 b-3 border-solid border-red-500">This paragraph has <em p-2 style="border: inherit">emphasized text</em> in it.</p>
 </div>
 
 ---
@@ -576,7 +744,7 @@ Note: Inheritance is always from the parent element in the document tree, even w
 
 There are 5 major keywords in inheritance:
 
-<dl class="h-80 bg-yellow p-4 border border-rounded-4 overflow-y-scroll animate-slide-in-left">
+<dl class="h-80 light:bg-yellow dark:bg-yellow-600 p-4 border border-rounded-4 overflow-y-scroll animate-slide-in-left">
 <dt class="font-sans font-extrabold">
 inherit:
 </dt>
@@ -613,6 +781,14 @@ This keyword rolls back the value of a property in a cascade layer to the value 
 
 ---
 
+<iframe class="b-2" height="400" style="width: 100%;" scrolling="no" title="breadcrumbs and skip-navigation" src="https://codepen.io/setemiojo/embed/JjxNJVm?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/setemiojo/pen/JjxNJVm">
+  breadcrumbs and skip-navigation</a> by Ojo Oluwasetemi Stephen (<a href="https://codepen.io/setemiojo">@setemiojo</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+---
+
 The <kbd>all</kbd> CSS property
 
 This shorthand resets all properties (except unicode-bidi and direction) of an element to their initial, inherited, or unset state. This property can be particularly useful when you want to ensure that an element does not inherit any styles from its parents or previous rules and instead starts with a clean slate.
@@ -642,6 +818,434 @@ This shorthand resets all properties (except unicode-bidi and direction) of an e
 
 # Colors/Units/Gradients
 
+# <<<<<<< HEAD
+
+## CSS Color
+
+Colors in CSS can be defined in various ways, such as using color names, hexadecimal values, RGB, RGBA, HSL, HSLA, LCH, OKLCH, LAB, OKLAB, light-dark, color(), color-mix() and display-p3.
+
+keywords: currentColor and transparent are also used in CSS to define colors.
+
+## Color Names
+
+Definition: These are predefined color names in CSS, such as red, blue, green, black, white, etc. There are 140 named colors in CSS.
+
+Named colors are convenient for quick, common colors but lack precision for more specific color needs.
+
+```css
+p {
+  color: red;
+  background-color: lightblue;
+}
+```
+
+---
+
+## Hexadecimal Colors
+
+Hexadecimal colors are defined using a six-digit code consisting of letters and numbers, preceded by a "#".The first two digits represent the red component, the next two represent the green, and the last two represent the blue
+
+You can also use a three-digit shorthand (e.g., #f00 for #ff0000), which is equivalent to doubling each digit.
+
+```css
+p {
+  color: #ff5733; /* Bright orange */
+  color: #f53; /* Equivalent shorthand for #ff5533 */
+  color: #ff0000; /* Red */
+  color: #f00; /* Shorthand for Red*/
+  background-color: #c0c0c0; /* Silver */
+}
+```
+
+---
+
+## RGB and RGBA Colors
+
+RGB stands for Red, Green, Blue, with values ranging from 0 to 255. RGBA adds an alpha channel for transparency, with a value between 0 (completely transparent) and 1 (completely opaque).
+
+RGBA is particularly useful for overlay effects and blending colors.
+
+```css
+color: rgb(255, 87, 51); /* Bright orange */
+color: rgba(255, 87, 51, 0.5); /* 50% transparent */
+```
+
+<div class="p-5 border border-gray-300 bg-gray-100 font-sans text-base">
+  <p class="text-[rgb(255,87,51)]">This text is bright orange.</p>
+  <p class="text-[rgba(255,87,51,0.5)]">This text is 50% transparent orange.</p>
+</div>
+
+---
+
+## HSL & HSLA Colors
+
+HSL stands for Hue (0-360), Saturation (0%-100%), and Lightness (0%-100%). HSLA adds an alpha channel for transparency.
+
+HSL is intuitive for adjusting colors based on human perception, making it easier to create shades and tints.
+
+```css
+color: hsl(9, 100%, 60%); /* Bright orange */
+color: hsla(9, 100%, 60%, 0.5); /* 50% transparent */
+```
+
+## Opacity and Transparency
+
+Transparency: Besides RGBA and HSLA, you can control an element’s transparency using the opacity property, which affects the entire element, including its content.
+
+```css
+opacity: 0.5; /* Makes the element 50% transparent */
+```
+
+---
+
+# The Future of Colors
+
+## LCH, OKLCH, LAB, OKLAB, Light-Dark, Color(), Color-Mix(), Display-P3
+
+- LCH: Lightness, Chroma, Hue
+- OKLCH: Lightness, Chroma, Hue with an alpha channel
+- LAB: Lightness, A (green-red), B (blue-yellow)
+- OKLAB: Lightness, A (green-red), B (blue-yellow) with an alpha channel
+- Light-Dark: Adjusts the lightness of a color
+- Color(): Creates a color from a string
+- Color-Mix(): Mixes two colors
+- Display-P3: Wide-gamut color space for digital displays
+
+```css
+color: lch(60% 50 90); /* Lightness 60%, Chroma 50, Hue 90 */
+color: lab(60% 50 90); /* Lightness 60%, A 50, B 90 */
+color: light-dark(50%); /* Adjusts lightness to 50% */
+color: color(display-p3 0.7 0.5 0); /* Display-P3 color */
+color: color-mix(red blue 50%); /* Mixes red and blue 50% */
+```
+
+---
+
+hideInToc: true
+layout: two-cols
+
+---
+
+```html
+<p style="color: var(--red)">This text is red.</p>
+<p style="color: var(--dark-red)">This text is darker.</p>
+<p style="color: var(--transparent-red)">This text is transparent.</p>
+<p style="color: var(--soft-red)">This text is softer.</p>
+```
+
+::right::
+
+```css
+html {
+  --red-hue: 0deg;
+  --red-sat: 100%;
+  --red-lit: 50%;
+
+  --red: hsl(var(--red-hue) var(--red-sat) var(--red-lit));
+  --dark-red: hsl(var(--red-hue) var(--red-sat) calc(var(--red-lit) - 20%));
+  --transparent-red: hsl(var(--red-hue) var(--red-sat) var(--red-lit) / 0.5);
+  --soft-red: hsl(
+    var(--red-hue) calc(var(--red-sat) - 30%) calc(var(--red-lit) + 10%)
+  );
+}
+```
+
+---
+
+# CSS Units
+
+CSS units are vital for defining the size, spacing, and layout of elements. Here’s a more in-depth look at the types of units:
+
+1. Absolute Units
+
+- Fixed Units: These do not scale based on the viewport or parent elements.
+
+- Pixels (px): Most common; ideal for precise control.
+
+```css
+font-size: 14px; /* Fixed size */
+```
+
+2. Relative Units
+
+- Flexible Units: These scale based on the parent element or viewport, making designs more responsive.
+- em: Relative to the font size of the parent element. Useful for scalable spacing and typography.
+
+```css
+padding: 1em; /* Equal to the current font size */
+```
+
+---
+
+<div grid place-content-center>
+  <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image.png"/>
+</div>
+
+---
+
+## Contd (Relative Units)
+
+- <kbd>rem</kbd>: Relative to the root element's font size (<kbd>html</kbd>), offering consistency across the page.
+
+```css
+font-size: 1.2rem; /* 1.2 times the root font size */
+```
+
+- <kbd>%</kbd>: Relative to the parent element's size, commonly used in responsive design.
+
+```css
+width: 80%; /* 80% of the parent element's width */
+```
+
+- <kbd>vw</kbd>, <kbd>vh</kbd>: Relative to the viewport's width or height. Ideal for full-screen layouts and responsive elements.
+
+```css
+width: 100vw; /* Full width of the viewport */
+height: 100vh; /* Full height of the viewport */
+```
+
+---
+
+<div grid place-content-center>
+  <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-1.png"/>
+</div>
+
+---
+
+3. Viewport Units
+
+- Viewport-based units: Perfect for responsive design.
+
+- vw: 1% of the viewport width.
+- vh: 1% of the viewport height.
+- vmin and vmax: Relative to the smaller or larger of vw and vh.
+
+```css
+font-size: 5vw; /* Font size based on viewport width */
+```
+
+---
+
+<div grid place-content-center>
+  <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-2.png"/>
+</div>
+
+---
+
+# CSS Gradients
+
+Gradients are used to create smooth transitions between colors, adding depth and visual interest to designs. Here’s a deeper look:
+
+1. Linear Gradients
+   A gradient that transitions along a straight line. You can control the direction and color stops.
+
+`linear-gradient(direction, color-stop1, color-stop2, ...)`.
+
+Direction: Can be specified with angles (e.g., 45deg) or keywords (to right, to bottom).
+
+```css
+background: linear-gradient(45deg, red, yellow);
+```
+
+<div class="h-48 w-full" style="background: linear-gradient(45deg, red, yellow);">
+</div>
+
+---
+
+2. Radial Gradients
+   Radiates from a central point outward, either circular or elliptical.
+
+`radial-gradient(shape size at position, start-color, ..., end-color)`.
+
+Shapes and Sizes: You can control the shape (circle or ellipse) and size (closest-side, farthest-corner, etc.).
+
+```css
+background: radial-gradient(circle, red, yellow, green);
+```
+
+<div class="flex gap-3">
+  <div class="h-64 w-full" style="background: radial-gradient(circle, red, yellow, green);">
+  </div>
+  <div class="h-64 w-full" style="background: radial-gradient(ellipse, red, yellow, green);">
+  </div>
+</div>
+
+---
+
+3. Conic Gradients
+
+- A gradient that rotates around a central point, similar to slices of a pie.
+- Often used for visualizations like pie charts.
+
+`conic-gradient(from direction, color-stop1, color-stop2, ...)`
+
+```css
+background: conic-gradient(from 90deg, red, yellow, green);
+```
+
+<div class="h-64 w-full" style="background: conic-gradient(from 90deg, red, yellow, green);">
+</div>
+
+---
+
+4. Repeating Gradients
+
+- Repeats the linear gradient pattern indefinitely.
+
+```css
+background: repeating-linear-gradient(45deg, red, yellow 10%);
+```
+
+- Repeating Radial Gradients: Repeats the radial gradient pattern.
+
+```css
+background: repeating-radial-gradient(circle, red, yellow 10%);
+```
+
+<div class="flex text-black gap-3">
+<div class="h-64 w-full  text-center" style="background: repeating-linear-gradient(45deg, red, yellow 10%);">
+<p>Repeating Linear Gradient</p>
+</div>
+<div class="h-64 w-full text-center" style="background: repeating-radial-gradient(circle, red, yellow 10%);">
+<p>Repeating Radial Gradient</p>
+  </div>
+</div>
+
+---
+
+Practical Tips
+
+- Combine Units: Use relative units (em, rem) for typography to maintain scalability and consistent spacing.
+- Gradients with Transparency: Combine gradients with RGBA or HSLA colors for layered effects with transparency.
+- Viewport Units for Responsiveness: Use vw and vh for elements that need to adapt to screen size changes, such as full-screen sections or responsive text sizes.
+
+> > > > > > > c58c46ce68df443a4e852b036e70b696e0511adb
+
+---
+
+hideInToc: true
+layout: two-cols
+
+---
+
+# CSS Functions
+
+<div></div>
+Functions in CSS are used to manipulate values, perform calculations, and apply effects. Here are some common functions:
+
+- calc(): Performs calculations on property values.
+- var(): Defines custom properties (variables).
+- rgb(), rgba(), hsl(), hsla(): Define colors using RGB, RGBA, HSL, and HSLA values.
+- url(): Specifies the location of an external resource.
+- linear-gradient(), radial-gradient(), conic-gradient(): Create gradients with smooth color transitions.
+- clamp(): Restricts a value to a specified range.
+
+```css
+p {
+  font-size: calc(1rem + 1vw);
+  color: var(--primary-color);
+  background: linear-gradient(to right, red, blue);
+}
+```
+
+::right::
+
+### CSS @Rules
+
+@Rules are used to define special rules in CSS that control how styles are applied. Here are some common @Rules:
+
+- @media: Defines media queries for responsive design.
+- @keyframes: Creates animations with multiple keyframes.
+- @font-face: Embeds custom fonts in a web page.
+- @import: Imports external CSS files.
+- @supports: Checks if a browser supports a particular CSS feature.
+- @page: Defines the layout of printed pages.
+- @layer: Specifies the layering order of elements.
+- @counter-style: Defines custom counter styles for lists.
+- @property: Registers custom CSS properties.
+
+---
+
+# CSS Variables or Custom Properties
+
+<div></div>
+CSS variables (also known as custom properties) are used to store reusable values in CSS. They are defined using the `--` prefix and can be used throughout the stylesheet.
+
+```css
+:root {
+  --primary-color: #ff5733;
+  --secondary-color: #f0f0f0;
+}
+
+p {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+```
+
+Can be used to store colors, font sizes, spacing, and other values that are reused across the stylesheet. They are particularly useful for maintaining consistency and making global changes easier. The new `@property` rule in CSS allows you to define custom properties with specific types and values.
+
+```css
+@property --primary-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: black;
+}
+```
+
+---
+
+<PopOver />
+
+---
+
+## layout: two-cols
+
+# Typography in CSS
+
+<div></div>
+Typography is a crucial aspect of web design, as it affects readability, accessibility, and overall user experience. Here are some key CSS properties for typography: `font-style`, `font-weight`, `font-size`, `line-height`, `font-family`, `text-align`, `text-transform`, `text-decoration`, `letter-spacing`, `word-spacing`, `text-shadow`, `white-space`, `overflow-wrap`, `word-break`, `hyphens`, `text-overflow`, `vertical-align`, `text-orientation`,  `font-variant`.
+
+```css
+p {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+```
+
+::right::
+
+We can use Google Fonts(any other font hosting service) or custom fonts in CSS to enhance the typography of a web page. Google Fonts offers a wide range of free, open-source fonts that can be easily integrated into a website.
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+```
+
+The @font-face rule can be used embed custom fonts in a web page, allowing the use of font file format (e.g., .woff, .woff2, .ttf) and define font properties like font-weight and font-style.
+
+```css
+@font-face {
+  font-family: "CustomFont";
+  src: url("custom-font.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  font-family: "CustomFont", sans-serif;
+}
+```
+
 ---
 
 # Debugging in browser
@@ -664,10 +1268,10 @@ Note: When in doubt in CSS put a border on the element.
 ---
 
 <h1 class="p-4 bg-green text-center">Debugging in the browser</h1>
-
+<div></div>
 One of the fastest way to get your CSS debugged is to use the browser. Browser like Chrome, Firefox etc offer powerful developer tools for debugging and this is what we are referring to as debugging in the browser.
 
-<h2 class="p-2 bg-green text-center">How to access browser DevTools</h2>
+<h2 class="mt-2 p-2 bg-green text-center">How to access browser DevTools</h2>
 
 <p class="text font-700">This devtools live inside the browser and you can access it by:</p>
 <ol>
@@ -683,6 +1287,7 @@ On macOS:  <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
 ---
 
 <h1 class="p-4 bg-green text-center">DevTools</h1>
+<div></div>
 <p>
 In the developer tools, you can immediately modify the HTML and CSS, with the changes reflected live in the browser. This feature is valuable for previewing your intended modifications before implementing them locally.</p>
 
@@ -698,27 +1303,132 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 ---
 
- <h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
+<h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
+<div></div>
+To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.In the image below the developer is trying to check the CSS on the body element.
 
-To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.
-<br/>
-<br/>
-In the image below the developer is trying to check the CSS on the body element.
-
-<div class="h-80 overflow-scroll bg-grey">
+<div class="h-100 overflow-scroll bg-grey">
  <img src="https://developer.chrome.com/static/docs/devtools/css/reference/image/the-tooltip-specificity-e28a5e9a4b32.png" alt="Image of a devtools" />
 </div>
 
 ---
 
----
-
 # Inline, Internal and External CSS
 
+Inline CSS is used to apply a unique style to a single HTML element. It is done using the style attribute directly within the HTML tag
+
+```html
+<p style="color: blue; font-size: 20px;">
+  This is a paragraph with inline CSS.
+</p>
+```
+
+Advantages:
+
+- Quick and easy for small, specific changes.
+- Good for overriding styles in a pinch.
+
+Disadvantages:
+
+- Makes the HTML code harder to read and maintain.
+- Not suitable for styling multiple elements.
+
 ---
 
-# Flexible Box Layout Model(FlexBox)
+## Internal CSS
 
+Internal CSS is used to define styles for an entire HTML document. It is placed within the <kbd>style</kbd> tag in the <kbd>head</kbd> section of the HTML file.
+
+```html
+<head>
+  <style>
+    p {
+      color: red;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <p>This is a paragraph with internal CSS.</p>
+</body>
+```
+
+<div class="flex justify-between">
+
+<ul>
+<h3>Advantages</h3>
+<li>Keeps styles in one place within the document.</li>
+<li>Useful for applying styles to a single page.</li>
+<li>Easier to manage and maintain than inline CSS.</li>
+</ul>
+<ul>
+<h3>Disadvantages</h3>
+<li>Not efficient for styling across multiple pages.</li>
+</ul>
+</div>
+
+---
+
+## External CSS
+
+External CSS involves linking an external .css file to your HTML document. This file contains all the styles, which can be applied to multiple HTML documents.
+
+Syntax
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+```
+
+```css
+/* In styles.css */
+p {
+  color: green;
+  font-size: 16px;
+}
+```
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <p>This is a paragraph with external CSS.</p>
+</body>
+```
+
+---
+
+## External CSS
+
+<div class="flex justify-between">
+
+<ul>
+<h3>Advantages</h3>
+<li>Keeps HTML files clean and separates content from design..</li>
+<li>Efficient for applying the same styles across multiple pages.</li>
+<li>Easier to maintain and update, as changes in the external CSS file are reflected across all linked pages.</li>
+</ul>
+<ul>
+<h3>Disadvantages</h3>
+<li>Requires an additional HTTP request to load the CSS file.</li>
+<li>No styles will be visible if the CSS file fails to load.</li>
+</ul>
+</div>
+<div mt-5></div>
+
+## Summary
+
+- Inline CSS: Best for quick, single-use styles but not ideal for maintainability.
+- Internal CSS: Good for single-page styling, better than inline but still not ideal for multiple pages.
+- External CSS: Preferred method for styling, offering maintainability and scalability across multiple documents.
+
+---
+
+# FlexBox
+
+<div></div>
 <p>Flexbox is a one-dimensional layout method for arranging items vertically(columns) or horizontally(rows).<br/>
 <small>To implement a flexbox layout in CSS, you need to set <kbd>display: flex;</kbd> in your CSS rules.</small></p>
 
@@ -760,6 +1470,7 @@ The items inside the parent container will be laid out as flexible boxes which m
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Direction and Alignment</h1>
+<div></div>
 <p>To determine how flex items are arranged within a flex contaniner, direction and alignment are the key aspects.</p>
 
 <p>Flex Direction:
@@ -789,12 +1500,12 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 <h1 class="text-sm bg-orange p-4 text-center">Flex Direction Code Example:</h1>
 
 <h2 class="text-xl font-bold mb-4">Flex Direction: Row (Default)</h2>
-    <div class="flex flex-row border-2 border-gray-800 mb-8 w-fit">
-        <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-        <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-        <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-        <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-    </div>
+<div class="flex flex-row border-2 border-gray-800 mb-8 w-fit">
+  <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+  <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+  <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+  <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+</div>
 
 <section>
     <h2 class="text-xl font-bold mb-4">Flex Direction: Row-Reverse</h2>
@@ -832,6 +1543,7 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Alignment</h1>
+<div></div>
 <p>Absolutely! Flexbox is indeed powerful for aligning elements with precision. It excels in both horizontal and vertical alignment, making it easier to create responsive layouts that adapt to different screen sizes.</p>
 <p>Let's take a look at the flexbox properties that controls alignment and spacing</p>
 <ol>
@@ -844,8 +1556,9 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Justify Content(Main Axis Alignment)</h1>
-   The main axis is the natural way the flex items are laid out across the page in a row. With the <kbd>justify-content</kbd> flex property you can control how you want your items to be laid out.
-   Code Example:
+<div></div>
+The main axis is the natural way the flex items are laid out across the page in a row. With the <kbd>justify-content</kbd> flex property you can control how you want your items to be laid out.
+Code Example:
 
 <p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Items are aligned to the start of the container.</p>
 
@@ -867,6 +1580,8 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
        </div>
     </div>
 </section>
+---
+hideInToc: true
 ---
        
 <p class="text-xl mb-4"><strong><kbd>flex-end:</kbd></strong> Items are aligned to the end of the container.</p>
@@ -984,10 +1699,11 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 
 ---
 
-<h1 class="text-sm bg-orange p-4 text-center">Align Items (Cross Axis Alignment)</h1>  The cross axis runs perpendicular to the direction in which flex items are laid out.
-    The <kbd>align-items</kbd> property aligns the flex items along the cross axis (perpendicular to the main axis).
+<h1 class="text-sm bg-orange p-4 text-center">Align Items (Cross Axis Alignment)</h1>  
+The cross axis runs perpendicular to the direction in which flex items are laid out.
+The <kbd>align-items</kbd> property aligns the flex items along the cross axis (perpendicular to the main axis).
 
-<p class="text-xl mb-4"><strong><kbd>strech</kbd></strong> : Items stretch to fill the container (default).</p>
+<p class="text-xl mb-4"><strong><kbd>stretch</kbd></strong> : Items stretch to fill the container (default).</p>
 
 ```css
 .container {
@@ -999,11 +1715,11 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 <section>
     <div class="pt-4">
        <!-- <> -->
-       <div class="flex items-strech border-2 border-gray-800 mb-8 w-full">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
+       <div class="flex items-stretch border-2 border-gray-800 mb-8 w-full">
+           <div class="w-[25%] h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
+           <div class="w-[25%] h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
+           <div class="w-[25%] h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
+           <div class="w-[25%] h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
        </div>
     </div>
 </section>
@@ -1100,8 +1816,8 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
         <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
         <div class="w-24 h-40 m-2 bg-orange-500 text-white font-bold "></div>
         <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
-         <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
-          <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
+        <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
+        <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
     </div>
 </div>
  </section>
@@ -1109,7 +1825,7 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Content (Multi-line Cross Axis Alignment)</h1>
-   The <kbd>align-content</kbd> property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
+  The <kbd>align-content</kbd> property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
 
 ---
 
@@ -1126,7 +1842,7 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 <section>
     <div class="pt-4">
       <!-- <. -->
-       <div class="flex flex-wrap items-start border-2 border-gray-800 mb-8 w-70 h-72">
+       <div class="flex flex-wrap items-start border-2 border-gray-800 dark:border-white mb-8 w-70 h-72">
            <div class="w-18 h-18 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
            <div class="w-18 h-18 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
            <div class="w-18 h-18 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
@@ -1150,7 +1866,7 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 <section>
      <div class="pt-4">
        <!-- <> -->
-       <div class="flex flex-wrap items-end border-2 border-gray-800 mb-8 w-70 h-70">
+       <div class="flex flex-wrap items-end border-2 border-gray-800 dark:border-white mb-8 w-70 h-70">
            <div class="w-18 h-18 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
            <div class="w-18 h-18 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
            <div class="w-18 h-18 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
@@ -1158,6 +1874,8 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
        </div>
     </div>
 </section>
+---
+hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Self</h1> In a case where you want a specific child(ren) to have specific alignments instead of aligning all the children, flexbox gives you the <kbd>align-self</kbd> property to achieve this.
@@ -1191,16 +1909,17 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 
 ---
 
- <JustifyAlign/>
+<JustifyAlign/>
 
 ---
 
- <AlignContent/>
+<AlignContent/>
 
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Growing and Shrinking</h1>
-  There are two important sizes when dealing with Flexbox: the minimum content size, and the hypothetical size.
+<p></p>
+<p>There are two important sizes when dealing with Flexbox: the minimum content size, and the hypothetical size.</p>
 
 - The minimum content size is the smallest an item can get without its contents overflowing.
 
@@ -1209,17 +1928,19 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Grow</h1>
-
+<div></div>
 <p>The <strong><kbd>flex-grow</kbd></strong> CSS property specifies how much a flex item will grow relative to the other flex items inside the same container when there is positive free space available.</p>
 <p>The value of flex-grow is a unitless number that serves as a proportion, determining how much of the available space inside the flex container the item should take up compared to other items.</p>
 <small>Flex grow is about consuming additional space and it only does something when items are above their hypothetical size</small>
 <section class="pt-8">
- <FlexGrow/>
+  <FlexGrow/>
 </section>
+---
+hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Shrink</h1>
-
+<div></div>
 <p>The <strong><kbd>flex-shrink</kbd></strong> CSS property determines how much flex items will shrink relative to each other when the flex container is too small to accommodate their full size.
 </p>
 <p>Flex shrink only does something when the items are between their minimum size and hypothetical size <small>and you can disable the ability of an item to shrink by setting <kbd>flex-shrink: 0;</kbd>.</small></p>
@@ -1227,16 +1948,18 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
  <FlexShrink/>
 </section>
 ---
+hideInToc: true
+---
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Basis</h1>
-
+<div></div>
 <p>The <strong><kbd>flex-basis</kbd></strong> CSS property has the same effect as <kbd>width</kbd> in a flex row (height in a column). You can use them interchangeably, but flex-basis will win if there's a conflict.<kbd>flex-basis</kbd> can't scale an element below its minimum content size, but width can.
 </p>
 
 ---
 
- <h1 class="text-sm bg-orange p-4 text-center">The "flex" Shorthand</h1>
-
+<h1 class="text-sm bg-orange p-4 text-center">The "flex" Shorthand</h1>
+<div></div>
 <p>The <strong><kbd>flex</kbd></strong> CSS property takes 3 individual values:</p>
 <ol>
 <li><strong><kbd>flex-grow</kbd></strong></li>
@@ -1245,16 +1968,20 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 </ol>
 <p><strong><kbd>flex</kbd></strong> sets how a flex item will grow or shrink to fit the space available in its flex container. It does the basic management automatically.
 </p>
+
 It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead of separate <strong><kbd>flex-grow</kbd></strong> <strong><kbd>flex-shrink</kbd></strong>
 <strong><kbd>flex-basis</kbd></strong> declarations.
 
 ```css
-/*intead of this */
+/*instead of this */
 .container {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 0px;
 }
+```
+
+```css
 /*try this */
 .container {
   flex: 1;
@@ -1265,13 +1992,525 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 
 # Grid Layout
 
+<div></div>
+Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
+
 ---
 
-# Positioning
+## Grid Container
+
+The grid container is the parent element that contains the grid items (child elements). To create a grid container, you set the display property of the parent element to grid or inline-grid.
+
+```html
+<div class="grid-container">
+  <div class="grid-item">Item 1</div>
+  <div class="grid-item">Item 2</div>
+  <div class="grid-item">Item 3</div>
+</div>
+```
+
+```css
+.grid-container {
+  display: grid;
+}
+```
+
+<div class="grid">
+  <div class="grid-item text-red-500">Item 1</div>
+  <div class="grid-item text-blue-500">Item 2</div>
+  <div class="grid-item ">Item 3</div>
+</div>
 
 ---
 
-# Stacking Content/Z-index
+# Defining Rows and Columns
+
+<div></div>
+You can define the structure of the grid using the <b> grid-template-rows</b> and <b>grid-template-columns</b> properties. These properties determine the number of rows and columns in the grid and their respective sizes.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  grid-template-rows: 100px 200px;
+  grid-gap: 4;
+}
+```
+
+<div class="grid  text-center grid-cols-[200px_1fr_100px] grid-rows-[100px_200px] gap-4">
+ <div class="bg-blue-200">Item 1</div>
+ <div class="bg-green-200">Item 2</div>
+ <div class="bg-red-200">Item 3</div>
+ <div class="bg-yellow-200">Item 4</div>
+ <div class="bg-purple-200">Item 5</div>
+ <div class="bg-pink-200">Item 6</div>
+</div>
+
+---
+
+## Example
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  grid-template-rows: 100px 200px;
+  grid-gap: 4;
+}
+```
+
+In this example:
+
+- <b> grid-template-columns: 200px 1fr 100px;</b> creates three columns. The first column is 200px wide, the second column takes up the remaining space (<b>1fr</b>), and the third column is 100px wide.
+- <b> grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
+
+---
+
+## Placing Grid Items
+
+By default, grid items are placed in the grid based on the order they appear in the HTML. However, you can control their placement using the grid-column and grid-row properties.
+
+```css
+.grid-item:nth-child(1) {
+  grid-column: 1 / 3; /* Spans across the first and second columns */
+  grid-row: 1; /* Placed in the first row */
+}
+
+.grid-item:nth-child(2) {
+  grid-column: 3; /* Placed in the third column */
+  grid-row: 1 / 3; /* Spans across the first and second rows */
+}
+```
+
+<div class="grid grid-cols-3 grid-rows-2 gap-4">
+ <div class="col-span-2 row-start-1 bg-blue-200">Item 1</div>
+ <div class="col-start-3 row-span-2 bg-green-200">Item 2</div>
+ <div class="bg-red-200">Item 3</div>
+ <div class="bg-yellow-200">Item 4</div>
+</div>
+
+---
+
+## Grid Gaps
+
+To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap</b>, and <b>column-gap</b> properties.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; /* 20px space between all grid items */
+}
+```
+
+<div class="grid grid-cols-3 gap-5">
+  <div class="bg-blue-500 text-white p-5">Item 1</div>
+  <div class="bg-green-500 text-white p-5">Item 2</div>
+  <div class="bg-red-500 text-white p-5">Item 3</div>
+  <div class="bg-yellow-500 text-white p-5">Item 4</div>
+  <div class="bg-purple-500 text-white p-5">Item 5</div>
+  <div class="bg-pink-500 text-white p-5">Item 6</div>
+</div>
+
+---
+
+## Grid Areas
+
+Grid areas allow you to name specific sections of the grid, making it easier to define complex layouts. You can use grid-template-areas to define areas and grid-area to place grid items within those areas.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 150px 1fr 1fr;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+```
+
+---
+
+## Responsive Design with Grid
+
+CSS Grid makes it easy to create responsive designs. You can use functions like repeat() and minmax() to create grids that adjust based on the available space.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px;
+}
+```
+
+<div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2">
+ <div class="bg-blue-200 p-4">Item 1</div>
+ <div class="bg-green-200 p-4">Item 2</div>
+ <div class="bg-red-200 p-4">Item 3</div>
+ <div class="bg-yellow-200 p-4">Item 4</div>
+</div>
+
+- repeat(auto-fit, minmax(100px, 1fr)); automatically creates as many columns as will fit into the container, with each column being at least 100px wide and taking up a fraction of the remaining space.
+- This ensures that the grid adjusts dynamically as the viewport size changes.
+
+---
+
+## Example(CONTD)
+
+ <div class="grid grid-rows-[auto_1fr_auto] grid-cols-[150px_1fr_1fr] gap-5 h-100">
+   <!-- Header -->
+   <div class="bg-blue-500 text-white p-5 col-span-3">
+     Header
+   </div>
+   <div class="bg-green-500 text-white p-5">
+     Sidebar
+   </div>
+   <div class="bg-red-500 text-white p-5 col-span-2">
+     Main Content
+   </div>
+   <div class="bg-yellow-500 text-white p-5 col-span-3">
+     Footer
+   </div>
+ </div>
+
+---
+
+# SubGrid
+
+<iframe height="400" style="width: 100%;" scrolling="no" title="Subgrid Cards" src="https://codepen.io/setemiojo/embed/MWMXVjq?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/setemiojo/pen/MWMXVjq">
+  Subgrid Cards</a> by Ojo Oluwasetemi Stephen (<a href="https://codepen.io/setemiojo">@setemiojo</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+---
+
+# Positioned Layout
+
+<div></div>
+Positioned Layout is another layout mode we'll explore in this section. Unlike the flow layout algorithm, which ensures that multiple elements never occupy the same pixels, positioned layout allows items to overlap and break out of the box.
+
+To style your layout, use the <strong><kbd>position</kbd></strong> property with one of the following values: <strong><kbd>relative</kbd></strong>, <strong><kbd>absolute</kbd></strong>, <strong><kbd>fixed</kbd></strong>, or <strong><kbd>sticky</kbd></strong>. Each of these positioning values works uniquely to place the element. Combine it with the <strong><kbd>top</kbd></strong>, <strong><kbd>right</kbd></strong>, <strong><kbd>bottom</kbd></strong>, and <strong><kbd>left</kbd></strong> properties to specify the exact location of the element within its containing block.
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Relative Positioning</h1>
+
+The element is positioned <kbd>position: relative;</kbd> based on the normal document flow and then adjusted relative to its original position using the top, right, bottom, and left values. This adjustment does not impact the layout or positioning of surrounding elements, so the space allocated for the element remains the same as if it were using static positioning.
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Absolute Positioning</h1>
+
+Every element is contained by a block which is referred to containing block. When you absolutety positioned an element, it ignore their parents block to cause an overflow unless the parent use positioned layout.
+
+Absolutely-positioned elements act just like static-positioned elements when it comes to overflow. If the parent sets <kbd>overflow: auto;</kbd>, as long as that parent is the containing block, it will allow that child to be scrolled into view:
+
+```css
+.wrapper {
+  overflow: auto;
+  position: relative;
+  /* other styles here */
+}
+.box {
+  position: absolute;
+  /* other styles here */
+}
+```
+
+<div class="flex items-center justify-center ">
+<div class="relative w-150px h-100px border-3 border-red-500 overflow-auto">
+<div class="absolute top-24px left-24px w-150 h-200 bg-black"></div>
+</div>
+</div>
+
+---
+
+```css
+.wrapper {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+}
+.box {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: black;
+  width: 150px;
+  height: 200px;
+}
+```
+
+<div class="relative">
+<div class="w-120px h-120px border-3 border-red-500 overflow-hidden">
+<div class="absolute top-24px left-24px w-100px h-100px bg-black"></div>
+</div>
+</div>
+<br/>
+<kbd>.box</kbd> is not been contained by wrapper even with the <kbd>overflow: hidden;</kbd> passed into the <kbd>wrapper</kbd> CSS rule because the parent which is <kbd>wrapper</kbd> is not using positioned layout.
+
+---
+
+Error fixed by adding <kbd>position: relative;</kbd> to the parent.
+
+```css
+.wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+}
+
+.box {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: black;
+  width: 150px;
+  height: 200px;
+}
+```
+
+<div class="relative w-120px h-120px border-3 border-red-500 overflow-hidden">
+<div class="absolute top-24px left-24px w-150 h-200 bg-black"></div>
+</div>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Fixed Positioning</h1>
+
+To create a "floating" element that stays in the same position regardless of scrolling, you should use <kbd>position: fixed;</kbd> This is similar to absolute positioning, but there are key differences:
+
+Fixed Positioning: A fixed element is positioned relative to the viewport, meaning it stays in the same place on the screen even when you scroll. The element is contained by the "initial containing block," which is essentially the entire browser window or viewport.
+With position: fixed, the element will not move when the user scrolls the page.
+
+Absolute Positioning: An absolutely positioned element is positioned relative to its nearest positioned ancestor (an ancestor with position set to relative, absolute, or fixed). If no such ancestor exists, it will be positioned relative to the initial containing block, just like a fixed element.
+With <kbd>position: absolute;</kbd>, the element will move with its parent element if the parent is scrolled.
+
+---
+
+```css
+.scroll-container {
+  width: 100%;
+  height: 35px;
+  overflow: scroll;
+  border: 3px solid red;
+}
+
+.fixed-box {
+  position: fixed;
+  bottom: 30px;
+  left: 80px;
+  width: 80px;
+  height: 80px;
+  background: orange;
+}
+
+.scroll-content-box {
+  padding-left: 120px;
+}
+```
+
+<div class=" w-full h-35 overflow-scroll  border-3 border-red-500">
+<div class="fixed bottom-30px left-80px w-20 h-20 bg-orange ">Fixed</div>
+<div class= "pl-120px">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+</div>
+</div>
+
+---
+
+<h1 class="text-sm bg-orange p-4 text-center">Sticky Positioning</h1>
+<div>
+  In this form of positioning <kbd>position: sticky;</kbd>, an element transitions from being relatively-positioned to being fixed-positioned and this happens when you scroll, the element get stuck to the edge. To pass <kbd>position: sticky;</kbd> to an element and work effectively, you must specify a threshold with at least one of to top, right, bottom, or left.
+
+While using <kbd>position: sticky;</kbd> note that the element will never follow the scroll outside of its parent container. The sticky elements only stick while their container is in view.
+
+</div>
+
+---
+
+<h1>Code Example</h1>
+
+```css
+dt {
+  position: sticky;
+  top: -1px;
+  /* other styles */
+}
+
+dd {
+  margin: 0;
+  /* other styles */
+}
+```
+
+<dl class="space-y-6 overflow-scroll h-50 mt-10">
+  <div>
+    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
+      A
+    </dt>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Andrew W.K.
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Apparat
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Arcade Fire
+    </dd>
+  </div>
+  <div>
+    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
+      C
+    </dt>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Chromeo
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Common
+    </dd>
+  </div>
+  <div>
+    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
+      E
+    </dt>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Explosions In The Sky
+    </dd>
+  </div>
+  <div>
+    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
+      T
+    </dt>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Ted Leo &amp; The Pharmacists
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      T-Pain
+    </dd>
+    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
+      Thrice
+    </dd>
+  </div>
+</dl>
+
+---
+
+# Stacking Context/Z-index
+
+## What is a Stacking Context?
+
+A stacking context is a concept in CSS that determines how elements are stacked or layered on top of each other along the z-axis. This z-axis stacking controls the visual order of elements that overlap.
+
+Stacking contexts are created in the following scenarios:
+
+- The root HTML element (<kbd>html</kbd>) creates a stacking context.
+- Elements with a position of relative, absolute, or fixed that also have a z-index value other than auto.
+- Elements with a position of sticky (in some browsers).
+- Elements with certain properties like opacity less than 1, transform, filter, perspective, clip-path, etc.
+- When an element creates a new stacking context, all of its child elements are part of that context. This means their z-index is relative to the parent stacking context, not globally on the page.
+
+---
+
+## What is z-index?
+
+The z-index property in CSS specifies the stack order of an element within its stacking context. An element with a higher z-index is positioned above an element with a lower z-index.
+
+However, z-index only works on positioned elements (elements whose position property is set to relative, absolute, fixed, or sticky).
+<br/>
+
+## How Stacking Context Works with z-index
+
+- Default Stacking Order: Elements are stacked according to their order in the HTML. Later elements in the HTML are above earlier ones by default.
+- With z-index: When a z-index is applied to a positioned element, it is layered according to its stacking context.
+
+---
+
+## Example
+
+<div class="flex justify-between">
+<div>
+```css
+.parent {
+  position: relative; /* Creates a stacking context */
+  z-index: 0; /* This z-index is relative to the global stacking context */
+  background-color: #e5e7eb; 
+  padding: 1rem; 
+}
+.child {
+  position: absolute; /* Positioned element with z-index creates a new stacking context */
+  z-index: 10; /* Within its parent stacking context */
+  background-color: #f87171; 
+  padding: 1rem; 
+}
+.sibling {
+  position: relative; /* Positioned element in the global stacking context */
+  z-index: 5; /* Relative to the global stacking context */
+  background-color: #3b82f6; 
+  padding: 1rem;
+}
+```
+</div>
+<div class="relative z-0 bg-gray-200 p-4">
+  <!-- This container creates a new stacking context -->
+  Parent Stacking Context
+  <div class="absolute z-10 bg-red-500 p-4">
+    <!-- This div is within its own stacking context created by the parent -->
+    Child with z-10 within its own context
+  </div>
+</div>
+<div class="relative z-5 bg-blue-500 p-4">
+  <!-- This div is outside the parent stacki  ng context -->
+  Outside of parent stacking context, z-5
+</div>
+</div>
+
+---
+
+## Example II
+
+<div class="relative bg-yellow-300 p-4">
+  <!-- This container creates a new stacking context due to opacity -->
+  <div class="absolute top-0 left-0 w-20 h-20 bg-blue-500 opacity-50 z-30">
+    <!-- The blue box will have a lower z-index but still be on top due to stacking context -->
+    Semi-transparent blue box
+  </div>
+  <div class="absolute top-10 left-10 w-20 h-20 bg-red-500 z-20">
+    <!-- The red box will appear behind the blue box even though it has a higher z-index in the global context -->
+    Red box behind blue box
+  </div>
+</div>
+
+---
+
+## Key Takeways
+
+- z-index controls stacking order within the same stacking context.
+- Stacking contexts are isolated — a z-index in one context does not affect the stacking order in another context.
+- Some CSS properties (like opacity, transform, filter, etc.) can create new stacking contexts, changing how z-index is applied.
 
 ---
 
@@ -1527,15 +2766,104 @@ When you have inline elements that automatically wrap to the next line when they
 # Assignments
 
 <ul>
-  <li ><a @click="$slidev.nav.next()">Assignment 1</a></li>
-  <li ><a @click="$slidev.nav.go(113)">Assignment 2</a></li>
+  <li><a @click="$slidev.nav.next()">Assignment 1</a></li>
+  <li><a @click="$slidev.nav.go(123)">Assignment 2</a></li>
+  <li><a @click="$slidev.nav.go(124)">Assignment 3</a></li>
+  <li><a @click="$slidev.nav.go(125)">Assignment 4</a></li>
+  <li><a @click="$slidev.nav.go(126)">Assignment 5</a></li>
+  <li><a @click="$slidev.nav.go(127)">Assignment 6</a></li>
 </ul>
 
 ---
 
-<!-- hideInToc: true -->
+# Assignment 1
+
+<div></div>
+
+Convert the design in the image (without the arrow and heading peeks out) to HTML and CSS.
+
+<div grid place-content-center>
+  <img class="mt-10 w-150 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-5.png"/>
+</div>
+
+---
+
+# Assignment 2 (Huckleberry)
+
+<div></div>
+
+Convert the design in the image to HTML and CSS. [Check this figma file for pixel perfect design.](https://www.figma.com/file/asii3DqgmbEkAkEQDUPI6C/huckleberry?type=design&node-id=0%3A1&mode=design&t=VpzxbA50b3ezDqVk-1)
+
+<div grid place-content-center>
+  <img class="mt-10 w-150 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-8.png"/>
+</div>
+---
+hideInToc: true
+---
+
+# Assignment 3 (Novus Watch)
+
+<div></div>
+
+Convert the design in the image to HTML and CSS.
+
+<div grid place-content-center>
+  <img class="mt-10 w-150 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-7.png"/>
+</div>
+
+---
+
+# Assignment 4 (Web Development training)
+
+<div></div>
+
+Convert the design in the figma to HTML and CSS. [Check this figma file for pixel perfect design.](https://www.figma.com/file/URkPhPHkkWREdiIB21uvfE/Web-Development-Training?type=design&node-id=0%3A1&mode=design&t=KXSthmp0easnvUhR-1)
+
+<div grid place-content-center>
+  <iframe class="w-120 h-80" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/URkPhPHkkWREdiIB21uvfE/Web-Development-Training?type=design&node-id=0%3A1&mode=design&t=KXSthmp0easnvUhR-1" allowfullscreen></iframe>
+</div>
+---
+hideInToc: true
+---
+
+# Assignment 5 (WP Pusher)
+
+<div></div>
+
+Convert the design in the figma to HTML and CSS. [Check this figma file for pixel perfect design.](https://www.figma.com/file/OJMDeEi2fWlPBFrlJFEgFx/wp-pusher-checkout?type=design&mode=design&t=KXSthmp0easnvUhR-1)
+
+<div grid place-content-center>
+  <iframe class="w-90 h-80" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/OJMDeEi2fWlPBFrlJFEgFx/wp-pusher-checkout%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
+</div>
+
+---
+
+# Assignment 6 (Scissors)
+
+<div></div>
+
+Convert the design in the figma to HTML and CSS. [Check this figma file for pixel perfect design.](https://www.figma.com/file/Ug5dFpdPeyOy1NNAmZxfov/AltSchoolV2-Exam?type=design&mode=design&t=KXSthmp0easnvUhR-1)
+
+<div grid place-content-center>
+  <iframe class="w-150 h-80" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/Ug5dFpdPeyOy1NNAmZxfov/AltSchoolV2-Exam?type=design&mode=design&t=KXSthmp0easnvUhR-1" allowfullscreen></iframe>
+</div>
+
+---
+
+# Important Links
+
+- [CSS Tricks](https://css-tricks.com/)
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Selector Game](https://flukeout.github.io/)
+- [Selectors Explained](https://kittygiraudel.github.io/selectors-explained/)
+- [Variable Fonts](https://web.dev/articles/variable-fonts)
+- [CSS Cascade](https://2019.wattenberger.com/blog/css-cascade)
+- [Understanding % unit](https://2019.wattenberger.com/blog/css-percents)
+- [interactive guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
+
+---
 
 # Contributors
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
-- [Olubebe Faith](https://github.com/Olubebe)
+- # [Olubebe Faith](https://github.com/Olubebe)
