@@ -1019,6 +1019,10 @@ height: 100vh; /* Full height of the viewport */
 - vw: 1% of the viewport width.
 - vh: 1% of the viewport height.
 - vmin and vmax: Relative to the smaller or larger of vw and vh.
+- lvh and lvw
+- ch: Relative to the width of the "0" (zero) character.
+- svh and svw
+- dvh and dvw
 
 ```css
 font-size: 5vw; /* Font size based on viewport width */
@@ -1119,7 +1123,6 @@ Practical Tips
 - Gradients with Transparency: Combine gradients with RGBA or HSLA colors for layered effects with transparency.
 - Viewport Units for Responsiveness: Use vw and vh for elements that need to adapt to screen size changes, such as full-screen sections or responsive text sizes.
 
-> > > > > > > c58c46ce68df443a4e852b036e70b696e0511adb
 
 ---
 
