@@ -1277,6 +1277,235 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 
 # Overflow
 
+The <strong><kbd>overflow</kbd></strong> CSS property allows you to control how content is handled when it exceeds the boundaries of an element. It has a default value of <strong><kbd>visible</kbd></strong>.
+
+<p>This property is a shorthand for:</p>
+<ul>
+<li>
+<strong><kbd>overflow-x</kbd></strong>
+</li>
+<li>
+<strong><kbd>overflow-y</kbd></strong>
+</li>
+</ul>
+
+<h1 class="text-sm bg-black p-4 text-center">overflow keyword values</h1>
+<ul>
+<li>
+<strong><kbd>overflow: auto;</kbd></strong>
+</li>
+<li>
+<strong><kbd>overflow: hidden;</kbd></strong>
+</li>
+<li>
+<strong><kbd>overflow: scroll;</kbd></strong>
+</li>
+<li>
+<strong><kbd>overflow: visible;</kbd></strong>
+</li>
+<li>
+<strong><kbd>overflow: clip;</kbd></strong>
+</li>
+</ul>
+
+---
+
+<h1 class="text-sm bg-black p-4 text-center">overflow: auto;</h1>
+
+<strong><kbd>overflow: auto;</kbd></strong> property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
+
+```html
+<div class="content">
+  <strong><kbd>overflow: auto;</kbd></strong> property makes an element
+  scrollable when its content exceeds its bounds. Although the overflow content
+  is clipped at the element's padding box, it can still be scrolled into view.
+</div>
+```
+
+```css
+.content {
+  overflow: auto;
+  border: 3px solid black;
+  max-height: 100px;
+  width: 100px;
+}
+```
+
+<div class="flex justify-center items-center">
+<div class="overflow-auto border-3 border-black max-h-24 p-2 w-100 mt-4">
+  <strong>overflow: auto;</strong> property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
+</div>
+</div>
+---
+
+<h1 class="text-sm bg-black p-4 text-center">overflow: hidden;</h1>
+
+The <strong><kbd>overflow: hidden;</kbd></strong> property makes an element truncate its content when it overflows its boundaries. It behaves similarly to <strong><kbd>overflow: scroll;</kbd></strong>, but without displaying scrollbars. When <strong><kbd>overflow: hidden;</kbd></strong> is applied to an element, a scroll container is created without visible scrollbars.
+
+```css
+.content {
+  overflow: hidden;
+  /* other styles */
+}
+```
+
+<div class="flex justify-center items-center">
+<div class="overflow-hidden border-3 border-black max-h-57 p-2 w-60 mt-4">
+  <strong>overflow: hidden;</strong> property causes an element truncate its content  when it exceeds its boundaries, but the scroll container is still active so use the tab key to confirm.
+   <ul tabindex>
+    <li tabindex="1">Track 1</li>
+    <li tabindex="2">Track 2</li>
+    <li tabindex="3">Track 3</li>
+    <li tabindex="4">Track 4</li>
+    <li tabindex="5">Track 5</li>
+    <li tabindex="6">Track 6</li>
+  </ul>
+</div>
+</div>
+---
+
+<h1 class="text-sm bg-black p-4 text-center">overflow: scroll;</h1>
+
+<strong><kbd>overflow: scroll;</kbd></strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
+
+```html
+<div class="content">
+  <strong><kbd>overflow: scroll;</kbd></strong> property causes an element
+  overflow content to be scrolled into view using scroll bars.
+</div>
+```
+
+```css
+.content {
+  overflow: scroll;
+  border: 3px solid black;
+  max-height: 30px;
+  width: 50px;
+}
+```
+
+<div class="flex justify-center items-center">
+<div class="overflow-scroll border-3 border-black max-h-30 p-2 w-50 mt-4">
+  <strong>overflow: scroll;</strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
+</div>
+</div>
+---
+
+ <h1 class="text-sm bg-black p-4 text-center">overflow: visible;</h1>
+
+<strong><kbd>overflow: visible;</kbd></strong> property is the default setting for the <strong><kbd>overflow</kbd></strong> property. When overflow occurs outside the element's padding box, it will be displayed.
+
+```html
+<div class="content">
+  <strong><kbd>overflow: visible;</kbd></strong> property is the default setting
+  for the <strong><kbd>overflow</kbd></strong> property. When overflow occurs
+  outside the element's padding box, it will be displayed.
+</div>
+```
+
+```css
+.content {
+  overflow: visible;
+  border: 3px solid black;
+  max-height: 23px;
+  width: 50px;
+}
+```
+
+<div class="flex justify-center items-center">
+<div class="overflow-visible border-3 border-black max-h-23 p-2 w-50 mt-4">
+  <strong>overflow: visible;</strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
+</div>
+</div>
+
+---
+
+Before we move into the last value which is <strong><kbd>overflow: clip;</kbd></strong> let's learn about: <h1 class="mt-6 text-sm bg-black p-4 text-center">Scroll Containers</h1>
+Whenever we set <strong><kbd>overflow</kbd></strong> property to <strong><kbd>scroll</kbd></strong>, <strong><kbd>hidden</kbd></strong>, or <strong><kbd>auto</kbd></strong> we automatically create what we referred to as a scroll container which manages overflow in both directions(<strong><kbd>overflow-x</kbd></strong> <strong><kbd>overflow-y</kbd></strong>).
+
+A scroll container acts like a portal to a confined space. Any element within a scroll container is effectively trapped inside, ensuring it won't overflow beyond the boundaries of the container's four corners.
+
+You can think of a scroll container as a "magical big box" that is confined within a specific height. While the "box" itself has defined boundaries, the content inside it can move around (scroll) without ever spilling out beyond those boundaries.
+
+This metaphor helps illustrate how the scroll container behaves — it allows you to see different parts of its content by scrolling, but it keeps everything neatly contained within its fixed dimensions.
+
+---
+
+ <h1 class="text-sm bg-black p-4 text-center">overflow: clip;</h1>
+
+<strong><kbd>overflow: clip;</kbd></strong> property causes element's content to clipped at the element's overflow clip edge. The content outside the clipped region is not visible, and also no addition of scroll container. This work exactly the way most developers think <strong><kbd>overflow: hidden;</kbd></strong> should work.
+
+```css
+.content {
+  overflow: clip;
+  /* other styles */
+}
+```
+
+<div class="flex justify-center items-center">
+<div class="overflow-clip border-3 border-black max-h-50 p-2 w-60 mt-4">
+  The content outside the clipped region is not visible, and also no addition of scroll container. 
+   <ul tabindex>
+    <li tabindex="1">Track 1</li>
+    <li tabindex="2">Track 2</li>
+    <li tabindex="3">Track 3</li>
+    <li tabindex="4">Track 4</li>
+    <li tabindex="5">Track 5</li>
+    <li tabindex="6">Track 6</li>
+  </ul>
+</div>
+</div>
+
+---
+
+<h1 class="text-sm bg-black p-4 text-center">Horizontal Overflow</h1>
+
+When you have inline elements that automatically wrap to the next line when they can't all fit within the container's width, and you want them to scroll horizontally instead, simply using the <strong><kbd>overflow: auto;</kbd></strong> property won't be sufficient. This is where the <strong><kbd>white-space: nowrap;</kbd></strong> property becomes useful.
+
+<strong><kbd>white-space</kbd></strong> is a CSS property that allows developers to control how words and other inline or inline-block elements wrap.
+
+```css
+.img-wrapper {
+  overflow: auto;
+  white-space: nowrap;
+  /* other styles */
+}
+```
+
+<div class="flex items-center justify-center ">
+<div class="overflow-auto whitespace-nowrap flex  gap-4 p-4 border-4 w-60%">
+  <img
+    alt="A pile of oranges sitting next to each other"
+    src="https://images.unsplash.com/photo-1711063638201-153a1875a516?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    class="w-30 h-30 rounded-lg shadow-lg"
+  />
+  <img
+    alt="A colorful parrot sitting on a branch"
+    src="https://images.unsplash.com/photo-1725261353746-fdb0052adc46?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+   class="w-30 h-30 rounded-lg shadow-lg"
+  />
+  <img
+    alt="A pile of nuts that are brown in color"
+    src="https://images.unsplash.com/photo-1693545906698-1ee005c485b1?q=80&w=424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    class="w-30 h-30 rounded-lg shadow-lg"
+  />
+  <img
+    alt="A pile of oranges sitting next to each other"
+    src="https://images.unsplash.com/photo-1711063638201-153a1875a516?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    class="w-30 h-30 rounded-lg shadow-lg"
+  />
+   <img
+    alt="A colorful parrot sitting on a branch"
+    src="https://images.unsplash.com/photo-1725261353746-fdb0052adc46?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+   class="w-30 h-30 rounded-lg shadow-lg"
+  />
+  <img
+    alt="A pile of nuts that are brown in color"
+    src="https://images.unsplash.com/photo-1693545906698-1ee005c485b1?q=80&w=424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    class="w-30 h-30 rounded-lg shadow-lg"
+  />
+</div>
+</div>
 ---
 
 # Responsiveness
