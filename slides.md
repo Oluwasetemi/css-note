@@ -2770,11 +2770,11 @@ When you have inline elements that automatically wrap to the next line when they
 
 <ul>
   <li><a @click="$slidev.nav.next()">Assignment 1</a></li>
-  <li><a @click="$slidev.nav.go(123)">Assignment 2</a></li>
-  <li><a @click="$slidev.nav.go(124)">Assignment 3</a></li>
-  <li><a @click="$slidev.nav.go(125)">Assignment 4</a></li>
-  <li><a @click="$slidev.nav.go(126)">Assignment 5</a></li>
-  <li><a @click="$slidev.nav.go(127)">Assignment 6</a></li>
+  <li><a @click="$slidev.nav.go(133)">Assignment 2</a></li>
+  <li><a @click="$slidev.nav.go(134)">Assignment 3</a></li>
+  <li><a @click="$slidev.nav.go(135)">Assignment 4</a></li>
+  <li><a @click="$slidev.nav.go(136)">Assignment 5</a></li>
+  <li><a @click="$slidev.nav.go(137)">Assignment 6</a></li>
 </ul>
 
 ---
