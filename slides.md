@@ -2561,105 +2561,201 @@ dd {
 ---
 
 # Stacking Context/Z-index
+<div />
+In CSS, the stacking order of elements is a crucial aspect of layout and design. Two key concepts that control how elements stack on top of each other are stacking contexts and the z-index property. 
+Alright, imagine you're stacking a bunch of transparent sheets on top of each other. That's basically what's happening when you're building a webpage with CSS. But sometimes, you want to control which sheet goes on top, right? That's where z-index and stacking contexts come in. Let's break it down!
 
-## What is a Stacking Context?
 
-A stacking context is a concept in CSS that determines how elements are stacked or layered on top of each other along the z-axis. This z-axis stacking controls the visual order of elements that overlap.
+Natural Stacking Order
+First things first. When you're writing your HTML, the browser stacks elements in the order they appear. It's like if you're laying down those transparent sheets one by one. The last one you put down ends up on top. Check this out:
 
-Stacking contexts are created in the following scenarios:
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="150" height="100">
+  <rect x="10" y="10" width="100" height="100" fill="red" />
+  <rect x="60" y="60" width="100" height="100" fill="blue" />
+  <text x="20" y="40" fill="white">First</text>
+  <text x="70" y="90" fill="white">Second</text>
+  <text x="10" y="190" fill="black">Natural Stacking Order</text>
+</svg>
 
-- The root HTML element (<kbd>html</kbd>) creates a stacking context.
-- Elements with a position of relative, absolute, or fixed that also have a z-index value other than auto.
-- Elements with a position of sticky (in some browsers).
-- Elements with certain properties like opacity less than 1, transform, filter, perspective, clip-path, etc.
-- When an element creates a new stacking context, all of its child elements are part of that context. This means their z-index is relative to the parent stacking context, not globally on the page.
+```html
+<div style="background: red; width: 100px; height: 100px;"></div>
+<div style="background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"></div>
+```
+
+See how the blue box is on top of the red one? That's because in our HTML, it came after the red box. Simple, right?
+
+
+--- 
+hideInToc: true
+---
+
+# Z-index
+<div />
+The z-index property only works on positioned elements. If applied to a non-positioned element, it has no effect. However, there's an exception: flex children can use z-index even if they are non-positioned.
+
+Now, what if you want to flip that order? That's where z-index comes in. It's like giving each element a number, and the higher the number, the closer it gets to you (and the further it gets from the screen).
+Here's what it looks like:
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="150" height="100">
+  <rect x="10" y="10" width="100" height="100" fill="red" />
+  <rect x="60" y="60" width="100" height="100" fill="blue" />
+  <text x="20" y="40" fill="white">z-index: 2</text>
+  <text x="70" y="90" fill="white">z-index: 1</text>
+  <text x="10" y="190" fill="black">Z-Index Stacking</text>
+</svg>
+
+```html
+<div style="position: relative; z-index: 2; background: red; width: 100px; height: 100px;"></div>
+<div style="position: relative; z-index: 1; background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"></div>
+```
+
+Look at that! Now the red box is on top, even though it came first in our HTML. That's the power of z-index.
+But here's the catch: z-index only works on positioned elements. That means you need to set position to something other than static (like relative, absolute, or fixed) for z-index to do its thing.
 
 ---
 hideInToc: true
 ---
 
-## What is z-index?
+# Stacking Context
+<div />
+Okay, now here's where it gets a bit tricky. Sometimes, elements form what we call a "stacking context". It's like creating a new stack of transparent sheets that all move together.
 
-The z-index property in CSS specifies the stack order of an element within its stacking context. An element with a higher z-index is positioned above an element with a lower z-index.
+A stacking context is a three-dimensional conceptualization of HTML elements along an imaginary z-axis relative to the user. Within a stacking context, child elements are stacked according to the same rules, but the context as a whole is considered a unit in the parent stacking context.
 
-However, z-index only works on positioned elements (elements whose position property is set to relative, absolute, fixed, or sticky).
-<br/>
 
-## How Stacking Context Works with z-index
-
-- Default Stacking Order: Elements are stacked according to their order in the HTML. Later elements in the HTML are above earlier ones by default.
-- With z-index: When a z-index is applied to a positioned element, it is layered according to its stacking context.
-
----
-hideInToc: true
----
-
-## Example
-
-<div class="flex justify-between">
+<ul class="flex justfiy-center">
 <div>
-```css
-.parent {
-  position: relative; /* Creates a stacking context */
-  z-index: 0; /* This z-index is relative to the global stacking context */
-  background-color: #e5e7eb; 
-  padding: 1rem; 
-}
-.child {
-  position: absolute; /* Positioned element with z-index creates a new stacking context */
-  z-index: 10; /* Within its parent stacking context */
-  background-color: #f87171; 
-  padding: 1rem; 
-}
-.sibling {
-  position: relative; /* Positioned element in the global stacking context */
-  z-index: 5; /* Relative to the global stacking context */
-  background-color: #3b82f6; 
-  padding: 1rem;
-}
+
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="350" height="300">
+  <rect x="10" y="10" width="280" height="230" fill="#eee" stroke="#333" />
+  <text x="20" y="30" fill="black">Root Stacking Context</text>
+  
+  <rect x="30" y="50" width="120" height="160" fill="#fdd" stroke="#933" />
+  <text x="40" y="80" fill="#933">
+    <tspan x="40" dy="0">Context 1</tspan>
+    <tspan x="40" dy="15">(z-index: 1)</tspan>
+  </text>
+  <rect x="50" y="120" width="80" height="40" fill="#faa" />
+  <text class="mt-4" x="60" y="140" fill="white" font-size="3">z-index: 999</text>
+  
+  <rect x="150" y="50" width="120" height="160" fill="#dfd" stroke="#393" />
+  <text x="160" y="80" fill="#393">
+    <tspan x="160" dy="0">Context 2</tspan> 
+    <tspan x="160" dy="15">(z-index: 2)</tspan>
+  </text>
+  <rect x="170" y="150" width="80" height="40" fill="#afa" />
+  <text x="180" y="170" fill="black" font-size="3">z-index: 1</text>
+</svg>
+</div>
+<div>
+
+See those two big boxes? They're each a stacking context. And here's the kicker: z-index values only compete within the same context.
+
+Look at that red box inside the first context. It has a super high z-index of 999! But it's still behind the green box in the second context. Why? Because its whole context (the pink box) is behind the second context (the green box).
+
+It's like if you had two stacks of papers. No matter how you arrange the papers within each stack, if you put one whole stack on top of the other, all of its papers will be on top.
+</div>
+</ul>
+
+
+---
+hideInToc: true
+---
+
+# Creating Stacking Contexts
+<div />
+So, how do you create these stacking contexts? There are a bunch of ways, but here are the most common:
+
+- Give an element a z-index and any position value except static.
+- Set opacity to less than 1.
+- Use transforms, filters, or clip-path.
+- Use isolation: isolate (this one's handy if you don't want to mess with the element's position or appearance).
+
+<ul class="flex justify-center ">
+<div mt-2>
+```html
+<div id="parent1" style="position: relative; z-index: 1;">
+  Parent 1
+  <div id="child1" style="position: absolute; z-index: 999999;">Child 1</div>
+</div>
+<div id="parent2" style="position: relative; z-index: 2;">
+  Parent 2
+  <div id="child2" style="position: absolute; z-index: 1;">Child 2</div>
+</div>
 ```
 </div>
-<div class="relative z-0 bg-gray-200 p-4">
-  <!-- This container creates a new stacking context -->
-  Parent Stacking Context
-  <div class="absolute z-10 bg-red-500 p-4">
-    <!-- This div is within its own stacking context created by the parent -->
-    Child with z-10 within its own context
-  </div>
+<div ml-2>
+In this example:
+
+Both parent divs create their own stacking contexts due to having position: relative and a z-index.
+Child1 has a much higher z-index than Child2.
+However, Child1 will appear behind Parent2 and Child2, because its parent (Parent1) has a lower z-index than Parent2.
+
+This demonstrates that z-index values are only compared within the same stacking context. The z-index of Child1 is only relevant within the context of Parent1.
 </div>
-<div class="relative z-5 bg-blue-500 p-4">
-  <!-- This div is outside the parent stacki  ng context -->
-  Outside of parent stacking context, z-5
-</div>
-</div>
+</ul>
+
+
+
+
 
 ---
 hideInToc: true
 ---
 
-## Example II
+# Flex and Grid Exception
+<div />
+An interesting exception to the positioning rule for z-index is that children of flex and grid containers can use z-index without needing to be positioned:
 
-<div class="relative bg-yellow-300 p-4">
-  <!-- This container creates a new stacking context due to opacity -->
-  <div class="absolute top-0 left-0 w-20 h-20 bg-blue-500 opacity-50 z-30">
-    <!-- The blue box will have a lower z-index but still be on top due to stacking context -->
-    Semi-transparent blue box
-  </div>
-  <div class="absolute top-10 left-10 w-20 h-20 bg-red-500 z-20">
-    <!-- The red box will appear behind the blue box even though it has a higher z-index in the global context -->
-    Red box behind blue box
-  </div>
+```html
+<div style="display: flex;">
+  <div style="background: red; z-index: 1;">First</div>
+  <div style="background: blue; z-index: 2; margin-left: -20px;">Second</div>
 </div>
+```
+In this example, the blue div will appear on top of the red div due to its higher z-index, even though neither has a position set.
+---
+hideInToc: true
+---
+
+# Isolation
+<div />
+The isolation property provides a way to create a new stacking context without changing the element's position or z-index
+
+```css
+.new-context {
+  isolation: isolate;
+}
+This is particularly useful for creating self-contained components that don't 
+interfere with the stacking order of other elements on the page.
+```
 
 ---
 hideInToc: true
 ---
 
-## Key Takeways
+# Debugging Stacking Contexts
+<div />
+Debugging stacking context issues can be challenging. Here are some tools and techniques:
 
-- z-index controls stacking order within the same stacking context.
-- Stacking contexts are isolated — a z-index in one context does not affect the stacking order in another context.
-- Some CSS properties (like opacity, transform, filter, etc.) can create new stacking contexts, changing how z-index is applied.
+- Browser Dev Tools: Some browsers (like Microsoft Edge) offer 3D views of the stacking contexts.
+- offsetParent: This JavaScript property can sometimes help identify the nearest positioned ancestor.
+- VSCode extensions: Some extensions highlight when stacking contexts are created in CSS files.
+- Browser extensions: There are extensions available for Chrome and Firefox that add information about z-index and stacking contexts to the developer tools.
+
+---
+hideInToc: true
+---
+
+# Key Takeways
+<div />
+Understanding stacking contexts and z-index is crucial for creating complex layouts and resolving layout issues in CSS. Remember these key points:
+
+- By default, elements stack in the order they appear in your HTML.
+- z-index lets you control the stacking order, but only for positioned elements.
+- Stacking contexts group elements together in the stacking order.
+- z-index values only compete within the same stacking context.
 
 ---
 hide: true
