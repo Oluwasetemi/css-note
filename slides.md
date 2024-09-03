@@ -2671,6 +2671,8 @@ So, how do you create these stacking contexts? There are a bunch of ways, but he
 - Use transforms, filters, or clip-path.
 - Use isolation: isolate (this one's handy if you don't want to mess with the element's position or appearance).
 
+<ul class="flex justify-center ">
+<div>
 ```html
 <div id="parent1" style="position: relative; z-index: 1;">
   Parent 1
@@ -2681,6 +2683,8 @@ So, how do you create these stacking contexts? There are a bunch of ways, but he
   <div id="child2" style="position: absolute; z-index: 1;">Child 2</div>
 </div>
 ```
+</div>
+<div>
 In this example:
 
 Both parent divs create their own stacking contexts due to having position: relative and a z-index.
@@ -2688,12 +2692,19 @@ Child1 has a much higher z-index than Child2.
 However, Child1 will appear behind Parent2 and Child2, because its parent (Parent1) has a lower z-index than Parent2.
 
 This demonstrates that z-index values are only compared within the same stacking context. The z-index of Child1 is only relevant within the context of Parent1.
+</div>
+</ul>
+
+
+
+
 
 ---
 hideInToc: true
 ---
 
 Flex and Grid Exception
+
 An interesting exception to the positioning rule for z-index is that children of flex and grid containers can use z-index without needing to be positioned:
 
 ```html
@@ -2722,6 +2733,7 @@ hideInToc: true
 ---
 
 Debugging Stacking Contexts
+
 Debugging stacking context issues can be challenging. Here are some tools and techniques:
 
 - Browser Dev Tools: Some browsers (like Microsoft Edge) offer 3D views of the stacking contexts.
