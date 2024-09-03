@@ -1,10 +1,7 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
+
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
-# some information about your slides, markdown enabled
 title: CSS Class Note
 info: |
   ## AltSchool v4 CSS Class Notes
@@ -13,14 +10,10 @@ info: |
   join at [AltSchool Africa](https://altschoolafrica.com)
 # apply any unocss classes to the current slide
 class: text-center
-# https://sli.dev/custom/highlighters.html
 highlighter: shiki
-# https://sli.dev/guide/drawing
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations#slide-transitions
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/guide/syntax#mdc-syntax
 mdc: true
 hideInToc: true
 ---
@@ -73,6 +66,19 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 
+# [Previous Class Recording](https://www.youtube.com/watch?v=cW3Xm4LZkj8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=15)
+
+- [15](https://www.youtube.com/watch?v=cW3Xm4LZkj8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=15)
+- [16](https://www.youtube.com/watch?v=lvhi_YZELzY&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=16)
+- [17](https://www.youtube.com/watch?v=x6rcMevUjEQ&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=17)
+- [18](https://www.youtube.com/watch?v=_jKvpwTZ-P0&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=18)
+- [19](https://www.youtube.com/watch?v=jsOBRT-GHq4&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=19)
+- [20](https://www.youtube.com/watch?v=lYOeltZUojI&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=20)
+- [21](https://www.youtube.com/watch?v=Eik3R556Xg8&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=21)
+- [22](https://www.youtube.com/watch?v=87-WHDYRSic&list=PLTTmsZetDiwysk9jdsMlRF4u6XGurJFef&index=22)
+
+---
+
 # Selectors
 
 <div />
@@ -80,6 +86,8 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 
 <img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
+---
+hideInToc: true
 ---
 
 # Definition of selectors
@@ -103,6 +111,8 @@ Looking at the image in the previous slide we'll notice that CSS selector is the
 
 This rule is saying that remove any default margin and padding from all the elements in this document and also change the box-sizing value to border-box.
 
+---
+hideInToc: true
 ---
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
@@ -199,8 +209,7 @@ paragraph and also increase its font size to 36px.
 ```
 
 ```css
-[href="https://altschoolafrica.com"]
-{
+[href="https://altschoolafrica.com"]{
   color: red;
   font-size: 36px;
 }
@@ -329,7 +338,8 @@ h3 {
   margin-bottom: 10px;
 }
 ```
-
+---
+hideInToc: true
 ---
 
 - `Nesting Selectors &`: This is a way of writing CSS rules that are more specific and easier to read.They explicitly states the relationship between parent and child rules when using CSS nesting. It makes the nested child rule selectors relative to the parent element. Without the & nesting selector, the child rule selector selects child elements. The child rule selectors have the same specificity weight as if they were within `:is()`. Can be use with the Child Combinators.
@@ -378,15 +388,17 @@ h1 {
 In the code above, we are trying to style the h1 element but we have two CSS ruleset, so which stylesheet will override the other? This is where our knowledge on specificity algorithm comes in.
 <br/>
 <br/>
-Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be apllied on the element.
+Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be applied on the element.
 
 ## <!-- We will come back to this at the end of this topic. -->
 
 ---
+hideInToc: true
+---
 
-## Specificity Hierachy
+## Specificity Hierarchy
 
-CSS selectors are of different forms and each of them has its place in the specificity hierachy.
+CSS selectors are of different forms and each of them has its place in the specificity hierarchy.
 
 CSS Selectors decrease in specificity from top to bottom, meaning the selector at the top of the hierarchy has the highest specificity.
 
@@ -407,7 +419,7 @@ graph TD;
 ```
 </div>
 
-<div class="bg-red animate-slide-in-right" >
+<div class="bg-red animate-slide-in-right">
 ```mermaid
 graph TD;
     Selectors-->Specificity_Value;
@@ -439,6 +451,8 @@ Class Assessment: Calculate the specificity of these selectors:
 </div>
 
 ---
+hideInToc: true
+---
 
 ## !impotant rule
 
@@ -469,6 +483,8 @@ It’s basically a box that wraps around every HTML element. Understanding this 
 
 <img class="mt-10 w-200 h-80 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-3.png"/>
 
+---
+hideInToc: true
 ---
 
 # Components Of Box Model
@@ -504,11 +520,16 @@ It’s basically a box that wraps around every HTML element. Understanding this 
   Popular margin concepts are: Hungry margin(auto margin which only works for horizontal margins with explicit width), Collapsed margin, Negative margin.
 
 ---
+hideInToc: true
+---
+---
 
 <div grid place-content-center>
   <img class="mt-10 w-150 h-90 border-10" src="https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png"/>
 </div>
 
+---
+hideInToc: true
 ---
 
 - 1. Calculating Total Element Size
@@ -533,6 +554,8 @@ The default box model can sometimes lead to unexpected results. CSS3 introduced 
 }
 ```
 
+---
+hideInToc: true
 ---
 
 # Example
@@ -570,6 +593,8 @@ Possible css properties with block and inline axes are: `padding-block`, `margin
 The `block-size` and `inline-size` properties are used to set the width and height of an element, respectively. The `min-block-size` and `max-block-size` properties set the minimum and maximum width of an element, while the `min-inline-size` and `max-inline-size` properties set the minimum and maximum height of an element.
 
 ---
+hideInToc: true
+---
 
 # Calculating Width and Height
 
@@ -578,11 +603,15 @@ The `block-size` and `inline-size` properties are used to set the width and heig
 - Width is calculated along the inline axis(left to right) and default is auto(using the content inside the element) but can be set using the `width` property. The `max-width` and `min-width` properties set the maximum and minimum width of an element. `max-width` is used to prevent an element from exceeding a certain width, while `min-width` ensures that an element is at least a certain width. `max-width` is useful for creating responsive designs that adapt to different screen sizes and should be used for containers/wrappers that need to be flexible. `min-width` is useful for ensuring that an element is at least a certain width, which can be helpful for maintaining the layout of a page and preventing elements from becoming too narrow. Width considers the parent element's width and the content inside the element. Avoid using fixed width and percentage width if you do not have a parent with an explicit width.
 
 ---
+hideInToc: true
+---
 
 # Height Calculation
 
 - Height is calculated along the block axis(top to bottom) and default is auto(using the content inside the element) but can be set using the `height` property. The `max-height` and `min-height` properties set the maximum and minimum height of an element. `max-height` is used to prevent an element from exceeding a certain height, while `min-height` ensures that an element is at least a certain height. `min-height` is useful for creating responsive designs that adapt to different screen sizes and adjustable height. `max-height` is useful for ensuring that an element is at least a certain height, which can be helpful for maintaining the layout of a page and preventing elements from becoming too short. Height considers the content inside the element first before the parent element's height.
 
+---
+hideInToc: true
 ---
 
 <div grid place-content-center>
@@ -687,6 +716,8 @@ p {
 </div>
 
 ---
+hideInToc: true
+---
 
 Non-inherited property
 
@@ -708,6 +739,8 @@ p {
 
 </div>
 
+---
+hideInToc: true
 ---
 
 ## Setting inheritance explicitly in CSS
@@ -737,6 +770,8 @@ em {
 </div>
 
 ---
+hideInToc: true
+---
 
 ## Controlling Inheritance
 
@@ -749,7 +784,7 @@ There are 5 major keywords in inheritance:
 inherit:
 </dt>
 <dd>
-The inherit keyword causes element to take the computed value of the propety from its parent element.
+The inherit keyword causes element to take the computed value of the property from its parent element.
 
 </dd>
 <br/>
@@ -818,8 +853,6 @@ This shorthand resets all properties (except unicode-bidi and direction) of an e
 
 # Colors/Units/Gradients
 
-# <<<<<<< HEAD
-
 ## CSS Color
 
 Colors in CSS can be defined in various ways, such as using color names, hexadecimal values, RGB, RGBA, HSL, HSLA, LCH, OKLCH, LAB, OKLAB, light-dark, color(), color-mix() and display-p3.
@@ -840,6 +873,8 @@ p {
 ```
 
 ---
+hideInToc: true
+---
 
 ## Hexadecimal Colors
 
@@ -858,6 +893,8 @@ p {
 ```
 
 ---
+hideInToc: true
+---
 
 ## RGB and RGBA Colors
 
@@ -875,6 +912,8 @@ color: rgba(255, 87, 51, 0.5); /* 50% transparent */
   <p class="text-[rgba(255,87,51,0.5)]">This text is 50% transparent orange.</p>
 </div>
 
+---
+hideInToc: true
 ---
 
 ## HSL & HSLA Colors
@@ -896,6 +935,8 @@ Transparency: Besides RGBA and HSLA, you can control an element’s transparency
 opacity: 0.5; /* Makes the element 50% transparent */
 ```
 
+---
+hideInToc: true
 ---
 
 # The Future of Colors
@@ -941,15 +982,31 @@ html {
   --red-sat: 100%;
   --red-lit: 50%;
 
-  --red: hsl(var(--red-hue) var(--red-sat) var(--red-lit));
-  --dark-red: hsl(var(--red-hue) var(--red-sat) calc(var(--red-lit) - 20%));
-  --transparent-red: hsl(var(--red-hue) var(--red-sat) var(--red-lit) / 0.5);
+  --red: hsl(
+    var(--red-hue)
+    var(--red-sat)
+    var(--red-lit)
+  );
+  --dark-red: hsl(
+    var(--red-hue)
+    var(--red-sat)
+    calc(var(--red-lit) - 20%)
+  );
+  --transparent-red: hsl(
+    var(--red-hue)
+    var(--red-sat)
+    var(--red-lit) / 0.5
+  );
   --soft-red: hsl(
-    var(--red-hue) calc(var(--red-sat) - 30%) calc(var(--red-lit) + 10%)
+    var(--red-hue)
+    calc(var(--red-sat) - 30%)
+    calc(var(--red-lit) + 10%)
   );
 }
 ```
 
+---
+hideInToc: true
 ---
 
 # CSS Units
@@ -976,11 +1033,15 @@ padding: 1em; /* Equal to the current font size */
 ```
 
 ---
+hideInToc: true
+---
 
 <div grid place-content-center>
   <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image.png"/>
 </div>
 
+---
+hideInToc: true
 ---
 
 ## Contd (Relative Units)
@@ -1005,11 +1066,15 @@ height: 100vh; /* Full height of the viewport */
 ```
 
 ---
+hideInToc: true
+---
 
 <div grid place-content-center>
   <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-1.png"/>
 </div>
 
+---
+hideInToc: true
 ---
 
 3. Viewport Units
@@ -1029,11 +1094,15 @@ font-size: 5vw; /* Font size based on viewport width */
 ```
 
 ---
+hideInToc: true
+---
 
 <div grid place-content-center>
   <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-2.png"/>
 </div>
 
+---
+hideInToc: true
 ---
 
 # CSS Gradients
@@ -1055,6 +1124,8 @@ background: linear-gradient(45deg, red, yellow);
 </div>
 
 ---
+hideInToc: true
+---
 
 2. Radial Gradients
    Radiates from a central point outward, either circular or elliptical.
@@ -1075,6 +1146,8 @@ background: radial-gradient(circle, red, yellow, green);
 </div>
 
 ---
+hideInToc: true
+---
 
 3. Conic Gradients
 
@@ -1090,6 +1163,8 @@ background: conic-gradient(from 90deg, red, yellow, green);
 <div class="h-64 w-full" style="background: conic-gradient(from 90deg, red, yellow, green);">
 </div>
 
+---
+hideInToc: true
 ---
 
 4. Repeating Gradients
@@ -1116,6 +1191,8 @@ background: repeating-radial-gradient(circle, red, yellow 10%);
 </div>
 
 ---
+hideInToc: true
+---
 
 Practical Tips
 
@@ -1125,10 +1202,8 @@ Practical Tips
 
 
 ---
-
 hideInToc: true
 layout: two-cols
-
 ---
 
 # CSS Functions
@@ -1168,6 +1243,8 @@ p {
 - @property: Registers custom CSS properties.
 
 ---
+hideInToc: true
+---
 
 # CSS Variables or Custom Properties
 
@@ -1197,13 +1274,15 @@ Can be used to store colors, font sizes, spacing, and other values that are reus
 ```
 
 ---
+hideInToc: true
+---
 
 <PopOver />
 
 ---
-
-## layout: two-cols
-
+hideInToc: true
+layout: two-cols
+---
 # Typography in CSS
 
 <div></div>
@@ -1244,9 +1323,7 @@ The @font-face rule can be used embed custom fonts in a web page, allowing the u
   font-weight: 400;
   font-style: normal;
 }
-body {
-  font-family: "CustomFont", sans-serif;
-}
+body {font-family: "CustomFont", sans-serif;}
 ```
 
 ---
@@ -1371,6 +1448,8 @@ Internal CSS is used to define styles for an entire HTML document. It is placed 
 </div>
 
 ---
+hideInToc: true
+---
 
 ## External CSS
 
@@ -1401,6 +1480,8 @@ p {
 </body>
 ```
 
+---
+hideInToc: true
 ---
 
 ## External CSS
@@ -1458,6 +1539,8 @@ The items inside the parent container will be laid out as flexible boxes which m
 </div>
 
 ---
+hideInToc: true
+---
 
 <h1 class="text-sm bg-orange p-4 text-center">Why Flexbox?</h1>
 <ul>
@@ -1470,6 +1553,8 @@ The items inside the parent container will be laid out as flexible boxes which m
 <li>Make all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.</li>
 </ul>
 
+---
+hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Direction and Alignment</h1>
@@ -1498,6 +1583,8 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
   }
 ```
 
+---
+hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex Direction Code Example:</h1>
@@ -1544,6 +1631,8 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 </section>
 
 ---
+hideInToc: true
+---
 
 <h1 class="text-sm bg-orange p-4 text-center">Alignment</h1>
 <div></div>
@@ -1556,6 +1645,8 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 <li>Align Self </li>
 </ol>
 
+---
+hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Justify Content(Main Axis Alignment)</h1>
@@ -1609,6 +1700,8 @@ hideInToc: true
 </section>
 
 ---
+hideInToc: true
+---
 
 <p class="text-xl mb-4"><strong><kbd>center</kbd></strong> : Items are centered along the main axis.</p>
 
@@ -1631,6 +1724,8 @@ hideInToc: true
     </div>
 </section>
 
+---
+hideInToc: true
 ---
 
 <p class="text-xl  mb-4"><strong><kbd>space-between</kbd></strong> : Items are evenly distributed in the line; the first item is on the start line and the last item is on the end line.</p>
@@ -1655,6 +1750,8 @@ hideInToc: true
 </section>
 
 ---
+hideInToc: true
+---
 
 <p class="text-xl mb-4"><strong><kbd>space- around</kbd></strong> : Items are evenly distributed in the line with equal space around them.</p>
 
@@ -1678,6 +1775,8 @@ hideInToc: true
 </section>
 
 ---
+hideInToc: true
+---
 
 <p class="text-xl mb-4"><strong><kbd>space-evenly</kbd></strong> : Items are evenly distributed with equal space between them.</p>
 
@@ -1700,6 +1799,8 @@ hideInToc: true
     </div>
 </section>
 
+---
+hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Items (Cross Axis Alignment)</h1>  
@@ -1751,6 +1852,8 @@ The <kbd>align-items</kbd> property aligns the flex items along the cross axis (
 </section>
 
 ---
+hideInToc: true
+---
 
 <p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Items are aligned to the end of the cross axis.</p>
 
@@ -1773,6 +1876,8 @@ The <kbd>align-items</kbd> property aligns the flex items along the cross axis (
     </div>
 </section>
 
+---
+hideInToc: true
 ---
 
 <p class="text-xl mb-4"><strong><kbd>center</kbd></strong>: Items are centered along the cross axis.</p>
@@ -1800,6 +1905,8 @@ The <kbd>align-items</kbd> property aligns the flex items along the cross axis (
 </section>
 
 ---
+hideInToc: true
+---
 
 <p class="text-xl mb-4"><strong><kbd>baseline</kbd></strong>: Items are aligned along their baseline. If you want to make sure the bottoms of each character are aligned, as they would be if they were written on a page then <kbd>align-items: baseline;</kbd> is used instead of <kbd>align-items: center;</kbd>.</p>
 
@@ -1826,10 +1933,14 @@ The <kbd>align-items</kbd> property aligns the flex items along the cross axis (
  </section>
 
 ---
+hideInToc: true
+---
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Content (Multi-line Cross Axis Alignment)</h1>
   The <kbd>align-content</kbd> property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
 
+---
+hideInToc: true
 ---
 
 <p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Rows are packed to the start of the container.</p>
@@ -1854,6 +1965,8 @@ The <kbd>align-items</kbd> property aligns the flex items along the cross axis (
     </div>
 </section>
 
+---
+hideInToc: true
 ---
 
 <p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Rows are packed to the end of the container.</p>
@@ -1911,13 +2024,19 @@ hideInToc: true
 </section>
 
 ---
+hideInToc: true
+---
 
 <JustifyAlign/>
 
 ---
+hideInToc: true
+---
 
 <AlignContent/>
 
+---
+hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Growing and Shrinking</h1>
@@ -1928,6 +2047,8 @@ hideInToc: true
 
 - The hypothetical size refers to the size a flex item would take up if it were not subjected to the flex-grow, flex-shrink, or any other flex properties that might cause it to stretch or shrink. It’s the size that the item "wants" to be, based on its content and its initial settings like width, height, padding, and margin, before any flex-related adjustments are applied.
 
+---
+hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Grow</h1>
@@ -1975,6 +2096,9 @@ hideInToc: true
 It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead of separate <strong><kbd>flex-grow</kbd></strong> <strong><kbd>flex-shrink</kbd></strong>
 <strong><kbd>flex-basis</kbd></strong> declarations.
 
+<div class="grid grid-cols-2">
+
+
 ```css
 /*instead of this */
 .container {
@@ -1991,13 +2115,19 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 }
 ```
 
+
+</div>
+
 ---
+
 
 # Grid Layout
 
 <div></div>
 Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
 
+---
+hideInToc: true
 ---
 
 ## Grid Container
@@ -2025,6 +2155,8 @@ The grid container is the parent element that contains the grid items (child ele
 </div>
 
 ---
+hideInToc: true
+---
 
 # Defining Rows and Columns
 
@@ -2050,6 +2182,8 @@ You can define the structure of the grid using the <b> grid-template-rows</b> an
 </div>
 
 ---
+hideInToc: true
+---
 
 ## Example
 
@@ -2067,6 +2201,8 @@ In this example:
 - <b> grid-template-columns: 200px 1fr 100px;</b> creates three columns. The first column is 200px wide, the second column takes up the remaining space (<b>1fr</b>), and the third column is 100px wide.
 - <b> grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
 
+---
+hideInToc: true
 ---
 
 ## Placing Grid Items
@@ -2093,6 +2229,8 @@ By default, grid items are placed in the grid based on the order they appear in 
 </div>
 
 ---
+hideInToc: true
+---
 
 ## Grid Gaps
 
@@ -2116,6 +2254,8 @@ To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap<
 </div>
 
 ---
+hideInToc: true
+---
 
 ## Grid Areas
 
@@ -2132,23 +2272,17 @@ Grid areas allow you to name specific sections of the grid, making it easier to 
   grid-template-columns: 150px 1fr 1fr;
 }
 
-.header {
-  grid-area: header;
-}
+.header { grid-area: header; }
 
-.sidebar {
-  grid-area: sidebar;
-}
+.sidebar { grid-area: sidebar; }
 
-.main {
-  grid-area: main;
-}
+.main { grid-area: main; }
 
-.footer {
-  grid-area: footer;
-}
+.footer {grid-area: footer;}
 ```
 
+---
+hideInToc: true
 ---
 
 ## Responsive Design with Grid
@@ -2173,6 +2307,9 @@ CSS Grid makes it easy to create responsive designs. You can use functions like 
 - repeat(auto-fit, minmax(100px, 1fr)); automatically creates as many columns as will fit into the container, with each column being at least 100px wide and taking up a fraction of the remaining space.
 - This ensures that the grid adjusts dynamically as the viewport size changes.
 
+
+---
+hideInToc: true
 ---
 
 ## Example(CONTD)
@@ -2253,6 +2390,7 @@ Absolutely-positioned elements act just like static-positioned elements when it 
   height: 100px;
   border: 3px solid red;
 }
+
 .box {
   position: absolute;
   top: 24px;
@@ -2349,8 +2487,7 @@ With <kbd>position: absolute;</kbd>, the element will move with its parent eleme
 <div>
   In this form of positioning <kbd>position: sticky;</kbd>, an element transitions from being relatively-positioned to being fixed-positioned and this happens when you scroll, the element get stuck to the edge. To pass <kbd>position: sticky;</kbd> to an element and work effectively, you must specify a threshold with at least one of to top, right, bottom, or left.
 
-While using <kbd>position: sticky;</kbd> note that the element will never follow the scroll outside of its parent container. The sticky elements only stick while their container is in view.
-
+  While using <kbd>position: sticky;</kbd> note that the element will never follow the scroll outside of its parent container. The sticky elements only stick while their container is in view.
 </div>
 
 ---
@@ -2437,6 +2574,8 @@ Stacking contexts are created in the following scenarios:
 - When an element creates a new stacking context, all of its child elements are part of that context. This means their z-index is relative to the parent stacking context, not globally on the page.
 
 ---
+hideInToc: true
+---
 
 ## What is z-index?
 
@@ -2450,6 +2589,8 @@ However, z-index only works on positioned elements (elements whose position prop
 - Default Stacking Order: Elements are stacked according to their order in the HTML. Later elements in the HTML are above earlier ones by default.
 - With z-index: When a z-index is applied to a positioned element, it is layered according to its stacking context.
 
+---
+hideInToc: true
 ---
 
 ## Example
@@ -2492,6 +2633,8 @@ However, z-index only works on positioned elements (elements whose position prop
 </div>
 
 ---
+hideInToc: true
+---
 
 ## Example II
 
@@ -2508,6 +2651,8 @@ However, z-index only works on positioned elements (elements whose position prop
 </div>
 
 ---
+hideInToc: true
+---
 
 ## Key Takeways
 
@@ -2516,270 +2661,47 @@ However, z-index only works on positioned elements (elements whose position prop
 - Some CSS properties (like opacity, transform, filter, etc.) can create new stacking contexts, changing how z-index is applied.
 
 ---
+hide: true
+---
 
 # Overflow
 
-The <strong><kbd>overflow</kbd></strong> CSS property allows you to control how content is handled when it exceeds the boundaries of an element. It has a default value of <strong><kbd>visible</kbd></strong>.
-
-<p>This property is a shorthand for:</p>
-<ul>
-<li>
-<strong><kbd>overflow-x</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow-y</kbd></strong>
-</li>
-</ul>
-
-<h1 class="text-sm bg-black p-4 text-center">overflow keyword values</h1>
-<ul>
-<li>
-<strong><kbd>overflow: auto;</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow: hidden;</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow: scroll;</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow: visible;</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow: clip;</kbd></strong>
-</li>
-</ul>
-
 ---
-
-<h1 class="text-sm bg-black p-4 text-center">overflow: auto;</h1>
-
-<strong><kbd>overflow: auto;</kbd></strong> property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
-
-```html
-<div class="content">
-  <strong><kbd>overflow: auto;</kbd></strong> property makes an element
-  scrollable when its content exceeds its bounds. Although the overflow content
-  is clipped at the element's padding box, it can still be scrolled into view.
-</div>
-```
-
-```css
-.content {
-  overflow: auto;
-  border: 3px solid black;
-  max-height: 100px;
-  width: 100px;
-}
-```
-
-<div class="flex justify-center items-center">
-<div class="overflow-auto border-3 border-black max-h-24 p-2 w-100 mt-4">
-  <strong>overflow: auto;</strong> property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
-</div>
-</div>
----
-
-<h1 class="text-sm bg-black p-4 text-center">overflow: hidden;</h1>
-
-The <strong><kbd>overflow: hidden;</kbd></strong> property makes an element truncate its content when it overflows its boundaries. It behaves similarly to <strong><kbd>overflow: scroll;</kbd></strong>, but without displaying scrollbars. When <strong><kbd>overflow: hidden;</kbd></strong> is applied to an element, a scroll container is created without visible scrollbars.
-
-```css
-.content {
-  overflow: hidden;
-  /* other styles */
-}
-```
-
-<div class="flex justify-center items-center">
-<div class="overflow-hidden border-3 border-black max-h-57 p-2 w-60 mt-4">
-  <strong>overflow: hidden;</strong> property causes an element truncate its content  when it exceeds its boundaries, but the scroll container is still active so use the tab key to confirm.
-   <ul tabindex>
-    <li tabindex="1">Track 1</li>
-    <li tabindex="2">Track 2</li>
-    <li tabindex="3">Track 3</li>
-    <li tabindex="4">Track 4</li>
-    <li tabindex="5">Track 5</li>
-    <li tabindex="6">Track 6</li>
-  </ul>
-</div>
-</div>
----
-
-<h1 class="text-sm bg-black p-4 text-center">overflow: scroll;</h1>
-
-<strong><kbd>overflow: scroll;</kbd></strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
-
-```html
-<div class="content">
-  <strong><kbd>overflow: scroll;</kbd></strong> property causes an element
-  overflow content to be scrolled into view using scroll bars.
-</div>
-```
-
-```css
-.content {
-  overflow: scroll;
-  border: 3px solid black;
-  max-height: 30px;
-  width: 50px;
-}
-```
-
-<div class="flex justify-center items-center">
-<div class="overflow-scroll border-3 border-black max-h-30 p-2 w-50 mt-4">
-  <strong>overflow: scroll;</strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
-</div>
-</div>
----
-
- <h1 class="text-sm bg-black p-4 text-center">overflow: visible;</h1>
-
-<strong><kbd>overflow: visible;</kbd></strong> property is the default setting for the <strong><kbd>overflow</kbd></strong> property. When overflow occurs outside the element's padding box, it will be displayed.
-
-```html
-<div class="content">
-  <strong><kbd>overflow: visible;</kbd></strong> property is the default setting
-  for the <strong><kbd>overflow</kbd></strong> property. When overflow occurs
-  outside the element's padding box, it will be displayed.
-</div>
-```
-
-```css
-.content {
-  overflow: visible;
-  border: 3px solid black;
-  max-height: 23px;
-  width: 50px;
-}
-```
-
-<div class="flex justify-center items-center">
-<div class="overflow-visible border-3 border-black max-h-23 p-2 w-50 mt-4">
-  <strong>overflow: visible;</strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
-</div>
-</div>
-
----
-
-Before we move into the last value which is <strong><kbd>overflow: clip;</kbd></strong> let's learn about: <h1 class="mt-6 text-sm bg-black p-4 text-center">Scroll Containers</h1>
-Whenever we set <strong><kbd>overflow</kbd></strong> property to <strong><kbd>scroll</kbd></strong>, <strong><kbd>hidden</kbd></strong>, or <strong><kbd>auto</kbd></strong> we automatically create what we referred to as a scroll container which manages overflow in both directions(<strong><kbd>overflow-x</kbd></strong> <strong><kbd>overflow-y</kbd></strong>).
-
-A scroll container acts like a portal to a confined space. Any element within a scroll container is effectively trapped inside, ensuring it won't overflow beyond the boundaries of the container's four corners.
-
-You can think of a scroll container as a "magical big box" that is confined within a specific height. While the "box" itself has defined boundaries, the content inside it can move around (scroll) without ever spilling out beyond those boundaries.
-
-This metaphor helps illustrate how the scroll container behaves — it allows you to see different parts of its content by scrolling, but it keeps everything neatly contained within its fixed dimensions.
-
----
-
- <h1 class="text-sm bg-black p-4 text-center">overflow: clip;</h1>
-
-<strong><kbd>overflow: clip;</kbd></strong> property causes element's content to clipped at the element's overflow clip edge. The content outside the clipped region is not visible, and also no addition of scroll container. This work exactly the way most developers think <strong><kbd>overflow: hidden;</kbd></strong> should work.
-
-```css
-.content {
-  overflow: clip;
-  /* other styles */
-}
-```
-
-<div class="flex justify-center items-center">
-<div class="overflow-clip border-3 border-black max-h-50 p-2 w-60 mt-4">
-  The content outside the clipped region is not visible, and also no addition of scroll container. 
-   <ul tabindex>
-    <li tabindex="1">Track 1</li>
-    <li tabindex="2">Track 2</li>
-    <li tabindex="3">Track 3</li>
-    <li tabindex="4">Track 4</li>
-    <li tabindex="5">Track 5</li>
-    <li tabindex="6">Track 6</li>
-  </ul>
-</div>
-</div>
-
----
-
-<h1 class="text-sm bg-black p-4 text-center">Horizontal Overflow</h1>
-
-When you have inline elements that automatically wrap to the next line when they can't all fit within the container's width, and you want them to scroll horizontally instead, simply using the <strong><kbd>overflow: auto;</kbd></strong> property won't be sufficient. This is where the <strong><kbd>white-space: nowrap;</kbd></strong> property becomes useful.
-
-<strong><kbd>white-space</kbd></strong> is a CSS property that allows developers to control how words and other inline or inline-block elements wrap.
-
-```css
-.img-wrapper {
-  overflow: auto;
-  white-space: nowrap;
-  /* other styles */
-}
-```
-
-<div class="flex items-center justify-center ">
-<div class="overflow-auto whitespace-nowrap flex  gap-4 p-4 border-4 w-60%">
-  <img
-    alt="A pile of oranges sitting next to each other"
-    src="https://images.unsplash.com/photo-1711063638201-153a1875a516?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    class="w-30 h-30 rounded-lg shadow-lg"
-  />
-  <img
-    alt="A colorful parrot sitting on a branch"
-    src="https://images.unsplash.com/photo-1725261353746-fdb0052adc46?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-   class="w-30 h-30 rounded-lg shadow-lg"
-  />
-  <img
-    alt="A pile of nuts that are brown in color"
-    src="https://images.unsplash.com/photo-1693545906698-1ee005c485b1?q=80&w=424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    class="w-30 h-30 rounded-lg shadow-lg"
-  />
-  <img
-    alt="A pile of oranges sitting next to each other"
-    src="https://images.unsplash.com/photo-1711063638201-153a1875a516?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    class="w-30 h-30 rounded-lg shadow-lg"
-  />
-   <img
-    alt="A colorful parrot sitting on a branch"
-    src="https://images.unsplash.com/photo-1725261353746-fdb0052adc46?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-   class="w-30 h-30 rounded-lg shadow-lg"
-  />
-  <img
-    alt="A pile of nuts that are brown in color"
-    src="https://images.unsplash.com/photo-1693545906698-1ee005c485b1?q=80&w=424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    class="w-30 h-30 rounded-lg shadow-lg"
-  />
-</div>
-</div>
+hide: true
 ---
 
 # Responsiveness
 
 ---
+hide: true
+---
 
 # Animations
 
 ---
+hide: true
+---
 
 # CSS Frameworks
 
----
-
-<CounterReact />
 
 ---
+
 
 # Assignments
 
 <ul>
   <li><a @click="$slidev.nav.next()">Assignment 1</a></li>
-  <li><a @click="$slidev.nav.go(133)">Assignment 2</a></li>
-  <li><a @click="$slidev.nav.go(134)">Assignment 3</a></li>
-  <li><a @click="$slidev.nav.go(135)">Assignment 4</a></li>
-  <li><a @click="$slidev.nav.go(136)">Assignment 5</a></li>
-  <li><a @click="$slidev.nav.go(137)">Assignment 6</a></li>
+  <li><a @click="$slidev.nav.go(124)">Assignment 2</a></li>
+  <li><a @click="$slidev.nav.go(125)">Assignment 3</a></li>
+  <li><a @click="$slidev.nav.go(126)">Assignment 4</a></li>
+  <li><a @click="$slidev.nav.go(127)">Assignment 5</a></li>
+  <li><a @click="$slidev.nav.go(128)">Assignment 6</a></li>
 </ul>
 
 ---
 
-# Assignment 1
+# Assignment 1 
 
 <div></div>
 
@@ -2789,6 +2711,8 @@ Convert the design in the image (without the arrow and heading peeks out) to HTM
   <img class="mt-10 w-150 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-5.png"/>
 </div>
 
+---
+hideInToc: true
 ---
 
 # Assignment 2 (Huckleberry)
@@ -2815,6 +2739,8 @@ Convert the design in the image to HTML and CSS.
 </div>
 
 ---
+hideInToc: true
+---
 
 # Assignment 4 (Web Development training)
 
@@ -2838,7 +2764,8 @@ Convert the design in the figma to HTML and CSS. [Check this figma file for pixe
 <div grid place-content-center>
   <iframe class="w-90 h-80" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/OJMDeEi2fWlPBFrlJFEgFx/wp-pusher-checkout%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
 </div>
-
+---
+hideInToc: true
 ---
 
 # Assignment 6 (Scissors)
@@ -2865,8 +2792,10 @@ Convert the design in the figma to HTML and CSS. [Check this figma file for pixe
 - [interactive guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
 
 ---
+hideInToc: true
+---
 
 # Contributors
 
 - [Ridwan Adebosin](https://github.com/RidwanAdebosin)
-- # [Olubebe Faith](https://github.com/Olubebe)
+- [Oluwibe Faith](https://github.com/Olubebe)
