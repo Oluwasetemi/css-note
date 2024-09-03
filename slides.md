@@ -522,7 +522,6 @@ hideInToc: true
 ---
 hideInToc: true
 ---
----
 
 <div grid place-content-center>
   <img class="mt-10 w-150 h-90 border-10" src="https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png"/>
@@ -1413,6 +1412,8 @@ Disadvantages:
 - Makes the HTML code harder to read and maintain.
 - Not suitable for styling multiple elements.
 
+---
+hideInToc: true
 ---
 
 ## Internal CSS
@@ -2692,13 +2693,15 @@ hide: true
 
 <ul>
   <li><a @click="$slidev.nav.next()">Assignment 1</a></li>
-  <li><a @click="$slidev.nav.go(124)">Assignment 2</a></li>
-  <li><a @click="$slidev.nav.go(125)">Assignment 3</a></li>
-  <li><a @click="$slidev.nav.go(126)">Assignment 4</a></li>
-  <li><a @click="$slidev.nav.go(127)">Assignment 5</a></li>
-  <li><a @click="$slidev.nav.go(128)">Assignment 6</a></li>
+  <li><a @click="$slidev.nav.go($nav.currentPage + 2)">Assignment 2</a></li>
+  <li><a @click="$slidev.nav.go($nav.currentPage + 3)">Assignment 3</a></li>
+  <li><a @click="$slidev.nav.go($nav.currentPage + 4)">Assignment 4</a></li>
+  <li><a @click="$slidev.nav.go($nav.currentPage + 5)">Assignment 5</a></li>
+  <li><a @click="$slidev.nav.go($nav.currentPage + 6)">Assignment 6</a></li>
 </ul>
 
+---
+hideInToc: true
 ---
 
 # Assignment 1 
