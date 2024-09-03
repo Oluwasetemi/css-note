@@ -2566,7 +2566,7 @@ dd {
 ---
 
 # Stacking Context/Z-index
-
+<div />
 In CSS, the stacking order of elements is a crucial aspect of layout and design. Two key concepts that control how elements stack on top of each other are stacking contexts and the z-index property. 
 Alright, imagine you're stacking a bunch of transparent sheets on top of each other. That's basically what's happening when you're building a webpage with CSS. But sometimes, you want to control which sheet goes on top, right? That's where z-index and stacking contexts come in. Let's break it down!
 
@@ -2594,8 +2594,8 @@ See how the blue box is on top of the red one? That's because in our HTML, it ca
 hideInToc: true
 ---
 
-Z-index
-
+# Z-index
+<div />
 The z-index property only works on positioned elements. If applied to a non-positioned element, it has no effect. However, there's an exception: flex children can use z-index even if they are non-positioned.
 
 Now, what if you want to flip that order? That's where z-index comes in. It's like giving each element a number, and the higher the number, the closer it gets to you (and the further it gets from the screen).
@@ -2621,8 +2621,8 @@ But here's the catch: z-index only works on positioned elements. That means you 
 hideInToc: true
 ---
 
-Stacking Context
-
+# Stacking Context
+<div />
 Okay, now here's where it gets a bit tricky. Sometimes, elements form what we call a "stacking context". It's like creating a new stack of transparent sheets that all move together.
 
 A stacking context is a three-dimensional conceptualization of HTML elements along an imaginary z-axis relative to the user. Within a stacking context, child elements are stacked according to the same rules, but the context as a whole is considered a unit in the parent stacking context.
@@ -2637,12 +2637,18 @@ A stacking context is a three-dimensional conceptualization of HTML elements alo
   <text x="20" y="30" fill="black">Root Stacking Context</text>
   
   <rect x="30" y="50" width="120" height="160" fill="#fdd" stroke="#933" />
-  <text x="40" y="70" fill="#933">Context 1 (z-index: 1)</text>
-  <rect x="50" y="90" width="80" height="40" fill="#faa" />
-  <text x="60" y="110" fill="white" font-size="3">z-index: 999</text>
+  <text x="40" y="80" fill="#933">
+    <tspan x="40" dy="0">Context 1</tspan>
+    <tspan x="40" dy="15">(z-index: 1)</tspan>
+  </text>
+  <rect x="50" y="120" width="80" height="40" fill="#faa" />
+  <text class="mt-4" x="60" y="140" fill="white" font-size="3">z-index: 999</text>
   
   <rect x="150" y="50" width="120" height="160" fill="#dfd" stroke="#393" />
-  <text x="160" y="70" fill="#393">Context 2 (z-index: 2)</text>
+  <text x="160" y="80" fill="#393">
+    <tspan x="160" dy="0">Context 2</tspan> 
+    <tspan x="160" dy="15">(z-index: 2)</tspan>
+  </text>
   <rect x="170" y="150" width="80" height="40" fill="#afa" />
   <text x="180" y="170" fill="black" font-size="3">z-index: 1</text>
 </svg>
@@ -2662,8 +2668,8 @@ It's like if you had two stacks of papers. No matter how you arrange the papers 
 hideInToc: true
 ---
 
-Creating Stacking Contexts
-
+# Creating Stacking Contexts
+<div />
 So, how do you create these stacking contexts? There are a bunch of ways, but here are the most common:
 
 - Give an element a z-index and any position value except static.
@@ -2672,7 +2678,7 @@ So, how do you create these stacking contexts? There are a bunch of ways, but he
 - Use isolation: isolate (this one's handy if you don't want to mess with the element's position or appearance).
 
 <ul class="flex justify-center ">
-<div>
+<div mt-2>
 ```html
 <div id="parent1" style="position: relative; z-index: 1;">
   Parent 1
@@ -2684,7 +2690,7 @@ So, how do you create these stacking contexts? There are a bunch of ways, but he
 </div>
 ```
 </div>
-<div>
+<div ml-2>
 In this example:
 
 Both parent divs create their own stacking contexts due to having position: relative and a z-index.
@@ -2703,8 +2709,8 @@ This demonstrates that z-index values are only compared within the same stacking
 hideInToc: true
 ---
 
-Flex and Grid Exception
-
+# Flex and Grid Exception
+<div />
 An interesting exception to the positioning rule for z-index is that children of flex and grid containers can use z-index without needing to be positioned:
 
 ```html
@@ -2718,22 +2724,24 @@ In this example, the blue div will appear on top of the red div due to its highe
 hideInToc: true
 ---
 
-Isolation
+# Isolation
+<div />
 The isolation property provides a way to create a new stacking context without changing the element's position or z-index
 
 ```css
 .new-context {
   isolation: isolate;
 }
-This is particularly useful for creating self-contained components that don't interfere with the stacking order of other elements on the page.
+This is particularly useful for creating self-contained components that don't 
+interfere with the stacking order of other elements on the page.
 ```
 
 ---
 hideInToc: true
 ---
 
-Debugging Stacking Contexts
-
+# Debugging Stacking Contexts
+<div />
 Debugging stacking context issues can be challenging. Here are some tools and techniques:
 
 - Browser Dev Tools: Some browsers (like Microsoft Edge) offer 3D views of the stacking contexts.
@@ -2745,8 +2753,8 @@ Debugging stacking context issues can be challenging. Here are some tools and te
 hideInToc: true
 ---
 
-Key Takaways
-
+# Key Takeways
+<div />
 Understanding stacking contexts and z-index is crucial for creating complex layouts and resolving layout issues in CSS. Remember these key points:
 
 - By default, elements stack in the order they appear in your HTML.
