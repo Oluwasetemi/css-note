@@ -366,6 +366,33 @@ hideInToc: true
 
 ## [Read more about CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Nesting_selector)
 
+---
+hideInToc: true
+---
+
+# `:HAS()` PSEUDO SELECTOR
+
+The :has() selector allows you to conditionally select an element when elements deeper in the DOM tree of the original element match the selector you put inside `:has()`.
+
+```css
+figure:has(figcaption) {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+```
+
+# `:IS()` PSEUDO SELECTOR
+
+The :is() pseudo-class function takes a selector list as its argument and selects any element that can be selected by one of the selectors in that list.
+
+```css
+:is(h1, h2, h3) {
+  color: red;
+}
+```
+
+---
+
 # Specificity
 
 <div></div>
@@ -529,6 +556,13 @@ hideInToc: true
 <div grid place-content-center>
   <img class="mt-10 w-150 h-90 border-10" src="https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png"/>
 </div>
+
+---
+hideInToc: true
+transition: slide-up
+layout: iframe
+url: https://codepen.io/chriscoyier/embed/gONzpYb?default-tab=html%2Cresult
+---
 
 ---
 hideInToc: true
@@ -967,10 +1001,8 @@ color: color-mix(red blue 50%); /* Mixes red and blue 50% */
 ```
 
 ---
-
 hideInToc: true
 layout: two-cols
-
 ---
 
 ```html
@@ -1016,7 +1048,7 @@ hideInToc: true
 ---
 
 # CSS Units
-
+<div />
 CSS units are vital for defining the size, spacing, and layout of elements. Here’s a more in-depth look at the types of units:
 
 1. Absolute Units
@@ -1289,6 +1321,7 @@ hideInToc: true
 hideInToc: true
 layout: two-cols
 ---
+
 # Typography in CSS
 
 <div></div>
@@ -2573,6 +2606,28 @@ dd {
 </dl>
 
 ---
+hideInToc: true
+---
+
+# Anchor Positioning
+<div />
+Anchor positioning allows you to place items relative to where another element is. Seems pretty obvious when put like that, but that’s what it is. You declare an element an anchor and give it a name, then can position elements to the top/right/bottom/left (or center, or the logical equivalents) of the anchor.
+
+```css
+.el {
+  anchor-name: --my-anchor;
+}
+
+.tooltip-2 {
+  top: anchor(--my-anchor center);
+  left: anchor(--my-anchor right);
+  translate: 0 -50%;
+}
+```
+
+
+
+---
 
 # Stacking Context/Z-index
 <div />
@@ -3181,30 +3236,78 @@ Container queries are similar to media queries but apply to the container's size
 ```
 ---
 hideInToc: true
+layout: two-cols
 ---
 
 # Syntax
 <div />
 
-```css
-@container (min-width: 600px) {
-  .container {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-}
+```html
+<div class="element-wrap">
+  <div class="element">
+  </div>
+</div>
+```
 
-@container (max-width: 600px) {
-  .container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+::right::
+```css
+.element-wrap {
+  container: element / inline-size;
+}
+@container element (min-inline-size: 300px) {
+  .element {
+    display: flex;
+    gap: 1rem;
   }
 }
 ```
+
+
 
 ---
 hideInToc: true
 layout: iframe
 url: https://codepen.io/setemiojo/embed/oNrypbw?default-tab=html%2Cresult
 ---
+
+---
+hideInToc: true
+---
+
+# Container Queries (Style)
+<div />
+
+Container Style Queries allow you to apply styles when a given Custom Property has a given value.
+
+```css
+.container {
+  --variant: 1;
+
+  &.variant2 {
+    --variant: 2;
+  }
+}
+
+@container style(--variant: 1) {
+  button { } /* You can't style .container, but can select inside it */
+  .other-things { }
+}
+
+@container style(--variant: 2) {
+  button { }
+  .whatever { }
+}
+```
+
+---
+hideInToc: true
+---
+
+# Container Units
+<div />
+Container Units (literally units, like px, rem, or vw) allow you to set the size of things based on the current size of a container element. Similar to how with viewport units 1vw is 1% of the browser window width, 1cqw is 1% of the width of the container (although I’d recommend you use cqi instead, the “logical equivalent”, meaning the “inline direction”).
+
+The units are cqw (“container query width”), cqh (“container query height”), cqi (“container query inline”), cqb (“container query block”), cqmin (smaller of cqi and cqb), and cqmax (larger of cqi and cqb).
 
 
 
