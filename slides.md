@@ -2967,7 +2967,7 @@ The <strong><kbd>overflow: hidden;</kbd></strong> property makes an element trun
 
 ---
 
-Before we move into the last value which is <strong><kbd>overflow: clip;</kbd></strong> let's learn about: <h1 class="mt-6 text-sm bg-black p-4 text-center">Scroll Containers</h1>
+Before we move into the last value which is <strong><kbd>overflow: clip;</kbd></strong> let's learn about: <span class="mt-6 text-sm bg-black p-4 text-center">Scroll Containers</span>
 Whenever we set <strong><kbd>overflow</kbd></strong> property to <strong><kbd>scroll</kbd></strong>, <strong><kbd>hidden</kbd></strong>, or <strong><kbd>auto</kbd></strong> we automatically create what we referred to as a scroll container which manages overflow in both directions(<strong><kbd>overflow-x</kbd></strong> <strong><kbd>overflow-y</kbd></strong>).
 
 A scroll container acts like a portal to a confined space. Any element within a scroll container is effectively trapped inside, ensuring it won't overflow beyond the boundaries of the container's four corners.
