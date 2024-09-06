@@ -466,14 +466,14 @@ Looking up the tree if we are to calculate the specificity for IDs, it's going t
 Also, a universal selector (\*) has no specificity and gets 0 points. This means that any rule with 1 or more points will override it.
 <br/>
 
-<p class="bg-white p-4 animate-slide-in-bottom">
+<div class="bg-white p-4 animate-slide-in-bottom">
 Class Assessment: Calculate the specificity of these selectors:
 <ul>
 <li>#content .menu li:hover</li>
 <li>div p .note
 </li>
 </ul>
-</p>
+</div>
 </div>
 
 ---
@@ -692,6 +692,7 @@ graph TD;
 Some inherited and non-inherited CSS properties:
 
 <table class="p-4 border border-black overflow-scroll">
+<tbody>
   <tr class="p-4 border border-black-400 bg-green">
     <th>Inherited Properties</th>
     <th>Non-Inherited Properties</th>
@@ -728,6 +729,7 @@ Some inherited and non-inherited CSS properties:
     <td>text-align</td>
     <td>z-index</td>
   </tr>
+</tbody>
 </table>
 ---
 
@@ -856,11 +858,6 @@ layout: iframe
 url: https://codepen.io/setemiojo/embed/JjxNJVm?default-tab=html%2Cresult
 ---
 
-<iframe class="b-2" height="400" style="width: 100%;" scrolling="no" title="breadcrumbs and skip-navigation" src="https://codepen.io/setemiojo/embed/JjxNJVm?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/setemiojo/pen/JjxNJVm">
-  breadcrumbs and skip-navigation</a> by Ojo Oluwasetemi Stephen (<a href="https://codepen.io/setemiojo">@setemiojo</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
 
 ---
 
@@ -2379,14 +2376,10 @@ hideInToc: true
  </div>
 
 ---
-
-# SubGrid
-
-<iframe height="400" style="width: 100%;" scrolling="no" title="Subgrid Cards" src="https://codepen.io/setemiojo/embed/MWMXVjq?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/setemiojo/pen/MWMXVjq">
-  Subgrid Cards</a> by Ojo Oluwasetemi Stephen (<a href="https://codepen.io/setemiojo">@setemiojo</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+name: SubGrid
+layout: iframe
+url: https://codepen.io/setemiojo/embed/MWMXVjq?default-tab=html%2Cresult
+---
 
 ---
 
@@ -3081,14 +3074,20 @@ hideInToc: true
 Instead of using fixed pixel widths, we use relative units like percentages or ems. This allows our layout to flex and adapt.
 This means elements on your site will resize proportionally as the screen size changes.
 
-<iframe height="300" style="width: 100%;" scrolling="no" title="Fluid Grid" src="https://codepen.io/OluFaith/embed/WNqYORQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Fluid Grid" src="https://codepen.io/OluFaith/embed/WNqYORQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/OluFaith/pen/WNqYORQ">
   Fluid Grid</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
   on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+</iframe> -->
 
-The .container takes 80% of the screen width and centers itself with margin: auto.
+The `.container` takes 80% of the screen width and centers itself with margin: auto.
 As the screen size changes, the container's width adjusts proportionally.
+
+---
+hideInToc: true
+layout: iframe
+url: https://codepen.io/OluFaith/embed/WNqYORQ?default-tab=html%2Cresult
+---
 
 ---
 hideInToc: true
@@ -3102,11 +3101,16 @@ How Media Queries Work: Media queries are like <b> “if statements” </b> in C
 <br/>
  <b>Mobile-First Approach:</b> Start with styles for small screens, then add media queries for larger screens.
 
-<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/XWLygez?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/XWLygez?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/OluFaith/pen/XWLygez">
   Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
   on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+</iframe> -->
+---
+hideInToc: true
+layout: iframe
+url: https://codepen.io/OluFaith/embed/XWLygez?default-tab=html%2Cresult
+---
 
 
 ---
@@ -3115,13 +3119,19 @@ hideInToc: true
 
 ## Flexible Images
 Flexible images ensure that pictures and videos resize to fit their container without overflowing or getting distorted.
-<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/mdZQwQb?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/mdZQwQb?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/OluFaith/pen/mdZQwQb">
   Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
   on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+</iframe> -->
 <br/>
 The image scales to fit the width of its container without overflowing, maintaining its aspect ratio.
+
+---
+hideInToc: true
+layout: iframe
+url: https://codepen.io/OluFaith/embed/mdZQwQb?default-tab=html%2Cresult
+---
 
 ---
 hideInToc: true
@@ -3156,13 +3166,20 @@ hideInToc: true
 
 Flexbox is a CSS layout model that allows elements to align and distribute space within a container.
 
-<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/BagGZEK?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/BagGZEK?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/OluFaith/pen/BagGZEK">
   Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
   on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+</iframe> -->
 The .container is a flex container, and .item elements adjust their size to fill available space.
 On smaller screens, the items will stack or wrap as needed.
+
+---
+hideInToc: true
+layout: iframe
+url: https://codepen.io/OluFaith/embed/BagGZEK?default-tab=html%2Cresult
+---
+
 
 ---
 hideInToc: true
@@ -3171,11 +3188,11 @@ hideInToc: true
 2.  Grid
 
 CSS Grid is a layout system that divides a page into rows and columns, making it easy to create complex designs.
-<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/xxoQrNQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/xxoQrNQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/OluFaith/pen/xxoQrNQ">
   Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
   on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+</iframe> -->
 <br/>
 The .container creates a three-column grid.
 Each .item occupies a column, with the layout automatically adjusting based on screen size.
@@ -3183,16 +3200,22 @@ Each .item occupies a column, with the layout automatically adjusting based on s
 ---
 hideInToc: true
 layout: iframe
+url: https://codepen.io/OluFaith/embed/xxoQrNQ?default-tab=html%2Cresult
+---
+
+---
+hideInToc: true
+layout: iframe
 url: https://codepen.io/OluFaith/embed/JjQeyoz?default-tab=html%2Cresult
 ---
 
-Let's Create a Responsive Post Layout
+---
+hideInToc: true
+layout: iframe
+url: https://codepen.io/OluFaith/embed/JjQeyoz?default-tab=html%2Cresult
+name: Let's Create a Responsive Post Layout
+---
 
-<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/JjQeyoz?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/OluFaith/pen/JjQeyoz">
-  Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
 
 ---
 hideInToc: true
