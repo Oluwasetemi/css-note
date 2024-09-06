@@ -30,12 +30,18 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
-  data() {
+  setup() {
+    const shrink1 = ref(1);
+    const shrink2 = ref(1);
+    const shrink3 = ref(1);
+
     return {
-      shrink1: 1,
-      shrink2: 1,
-      shrink3: 1,
+      shrink1,
+      shrink2,
+      shrink3,
     };
   },
 };

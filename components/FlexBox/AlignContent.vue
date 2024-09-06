@@ -4,7 +4,7 @@
     <div class="controls">
       <label>
         flex-direction:
-        <select v-model="flexDirection">
+        <select v-model="state.flexDirection">
           <option value="row">row</option>
           <option value="row-reverse">row-reverse</option>
           <option value="column">column</option>
@@ -14,7 +14,7 @@
 
       <label>
         flex-wrap:
-        <select v-model="flexWrap">
+        <select v-model="state.flexWrap">
           <option value="nowrap">nowrap</option>
           <option value="wrap">wrap</option>
           <option value="wrap-reverse">wrap-reverse</option>
@@ -23,7 +23,7 @@
 
       <label>
         align-content:
-        <select v-model="alignContent">
+        <select v-model="state.alignContent">
           <option value="stretch">stretch</option>
           <option value="center">center</option>
           <option value="flex-start">flex-start</option>
@@ -38,9 +38,9 @@
     <section
       class="flexbox"
       :style="{
-        flexDirection,
-        flexWrap,
-        alignContent,
+        flexDirection: state.flexDirection,
+        flexWrap: state.flexWrap,
+        alignContent: state.alignContent,
       }"
     >
       <div class="box">1</div>
@@ -52,16 +52,22 @@
 </template>
 
 <script>
+import { reactive } from 'vue';
+
 export default {
-  data() {
-    return {
-      flexDirection: "row",
-      flexWrap: "nowrap",
-      alignContent: "stretch",
-    };
+  setup() {
+    const state = reactive({
+      flexDirection: 'row',
+      flexWrap: 'nowrap',
+      alignContent: 'stretch',
+    });
+
+    return { state };
   },
 };
+
 </script>
+
 
 <style scoped>
 .flexbox-container {
