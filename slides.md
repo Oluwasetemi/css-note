@@ -366,6 +366,33 @@ hideInToc: true
 
 ## [Read more about CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Nesting_selector)
 
+---
+hideInToc: true
+---
+
+# `:HAS()` PSEUDO SELECTOR
+
+The :has() selector allows you to conditionally select an element when elements deeper in the DOM tree of the original element match the selector you put inside `:has()`.
+
+```css
+figure:has(figcaption) {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+```
+
+# `:IS()` PSEUDO SELECTOR
+
+The :is() pseudo-class function takes a selector list as its argument and selects any element that can be selected by one of the selectors in that list.
+
+```css
+:is(h1, h2, h3) {
+  color: red;
+}
+```
+
+---
+
 # Specificity
 
 <div></div>
@@ -421,7 +448,7 @@ graph TD;
 
 <div class="bg-red animate-slide-in-right">
 ```mermaid
-graph TD;
+    graph TD;
     Selectors-->Specificity_Value;
     Inline_styles-->1000;
     IDS-->100;
@@ -430,7 +457,6 @@ graph TD;
     Attribute_selectors-->10;
     Elements-->1;
     Pseudo-elements-->1;
-    
 ```
 </div>
 
@@ -454,8 +480,8 @@ Class Assessment: Calculate the specificity of these selectors:
 hideInToc: true
 ---
 
-## !impotant rule
-
+# important rule
+<div />
 In CSS, there is one rule that has the highest specificity score of 10,000. This rule is used to give a property-value pair the highest priority, allowing it to override any other declarations.
 
 The only way to override inline styles which has specificity value of 1000 is by using this rule called !important, though this is considered as a bad practice and should be avoided.
@@ -472,6 +498,10 @@ selector {
   color: red !important;
 }
 ```
+
+<div class="border-l-10 border-2 border-l-red">
+  <p class="p-4">Importance should be used carefully and not always.</p>
+</div>
 
 ---
 
@@ -526,6 +556,13 @@ hideInToc: true
 <div grid place-content-center>
   <img class="mt-10 w-150 h-90 border-10" src="https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png"/>
 </div>
+
+---
+hideInToc: true
+transition: slide-up
+layout: iframe
+url: https://codepen.io/chriscoyier/embed/gONzpYb?default-tab=html%2Cresult
+---
 
 ---
 hideInToc: true
@@ -814,6 +851,10 @@ This keyword rolls back the value of a property in a cascade layer to the value 
 </dl>
 
 ---
+hideInToc: true
+layout: iframe
+url: https://codepen.io/setemiojo/embed/JjxNJVm?default-tab=html%2Cresult
+---
 
 <iframe class="b-2" height="400" style="width: 100%;" scrolling="no" title="breadcrumbs and skip-navigation" src="https://codepen.io/setemiojo/embed/JjxNJVm?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/setemiojo/pen/JjxNJVm">
@@ -960,10 +1001,8 @@ color: color-mix(red blue 50%); /* Mixes red and blue 50% */
 ```
 
 ---
-
 hideInToc: true
 layout: two-cols
-
 ---
 
 ```html
@@ -1009,7 +1048,7 @@ hideInToc: true
 ---
 
 # CSS Units
-
+<div />
 CSS units are vital for defining the size, spacing, and layout of elements. Here’s a more in-depth look at the types of units:
 
 1. Absolute Units
@@ -1282,6 +1321,7 @@ hideInToc: true
 hideInToc: true
 layout: two-cols
 ---
+
 # Typography in CSS
 
 <div></div>
@@ -1362,6 +1402,13 @@ Keyboard: On WIndows <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
 On macOS:  <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
 </li>
 </ol>
+
+```css
+* { border: 1px solid red; }
+```
+<div mt-2></div>
+
+> When in doubt in CSS put a border on all the elements to understand what is going on. 
 
 ---
 
@@ -2559,6 +2606,28 @@ dd {
 </dl>
 
 ---
+hideInToc: true
+---
+
+# Anchor Positioning
+<div />
+Anchor positioning allows you to place items relative to where another element is. Seems pretty obvious when put like that, but that’s what it is. You declare an element an anchor and give it a name, then can position elements to the top/right/bottom/left (or center, or the logical equivalents) of the anchor.
+
+```css
+.el {
+  anchor-name: --my-anchor;
+}
+
+.tooltip-2 {
+  top: anchor(--my-anchor center);
+  left: anchor(--my-anchor right);
+  translate: 0 -50%;
+}
+```
+
+
+
+---
 
 # Stacking Context/Z-index
 <div />
@@ -3113,6 +3182,8 @@ Each .item occupies a column, with the layout automatically adjusting based on s
 
 ---
 hideInToc: true
+layout: iframe
+url: https://codepen.io/OluFaith/embed/JjQeyoz?default-tab=html%2Cresult
 ---
 
 Let's Create a Responsive Post Layout
@@ -3135,6 +3206,111 @@ Tips for Responsive Design
 - Test on real devices: Simulators are good, but real devices are better!
 - Consider content: Make sure your content works well at all sizes.
 
+---
+hideInToc: true
+---
+
+# Container Queries
+<div />
+Container queries are a new CSS feature that allows you to apply styles based on the size of a container, rather than the viewport. This enables more granular control over responsive layouts and components.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+@media (min-width: 600px) {
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+```
+
+Container queries are similar to media queries but apply to the container's size rather than the viewport. They allow you to create responsive designs that adapt to the size of the container they are in, making it easier to create reusable components and layouts.
+
+```css
+.calendar-wrap {
+  container: Calendar / inline-size;
+}
+```
+---
+hideInToc: true
+layout: two-cols
+---
+
+# Syntax
+<div />
+
+```html
+<div class="element-wrap">
+  <div class="element">
+  </div>
+</div>
+```
+
+::right::
+```css
+.element-wrap {
+  container: element / inline-size;
+}
+@container element (min-inline-size: 300px) {
+  .element {
+    display: flex;
+    gap: 1rem;
+  }
+}
+```
+
+
+
+---
+hideInToc: true
+layout: iframe
+url: https://codepen.io/setemiojo/embed/oNrypbw?default-tab=html%2Cresult
+---
+
+---
+hideInToc: true
+---
+
+# Container Queries (Style)
+<div />
+
+Container Style Queries allow you to apply styles when a given Custom Property has a given value.
+
+```css
+.container {
+  --variant: 1;
+
+  &.variant2 {
+    --variant: 2;
+  }
+}
+
+@container style(--variant: 1) {
+  button { } /* You can't style .container, but can select inside it */
+  .other-things { }
+}
+
+@container style(--variant: 2) {
+  button { }
+  .whatever { }
+}
+```
+
+---
+hideInToc: true
+---
+
+# Container Units
+<div />
+Container Units (literally units, like px, rem, or vw) allow you to set the size of things based on the current size of a container element. Similar to how with viewport units 1vw is 1% of the browser window width, 1cqw is 1% of the width of the container (although I’d recommend you use cqi instead, the “logical equivalent”, meaning the “inline direction”).
+
+The units are cqw (“container query width”), cqh (“container query height”), cqi (“container query inline”), cqb (“container query block”), cqmin (smaller of cqi and cqb), and cqmax (larger of cqi and cqb).
+
+
+
 
 ---
 hide: true
@@ -3143,11 +3319,8 @@ hide: true
 # Animations
 
 ---
-hide: true
+src: ./pages/css-frameworks.md
 ---
-
-# CSS Frameworks
-
 
 ---
 

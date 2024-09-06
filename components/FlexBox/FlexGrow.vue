@@ -24,12 +24,18 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
-  data() {
+  setup() {
+    const grow1 = ref(1);
+    const grow2 = ref(1);
+    const grow3 = ref(1);
+
     return {
-      grow1: 1,
-      grow2: 1,
-      grow3: 1,
+      grow1,
+      grow2,
+      grow3,
     };
   },
 };
