@@ -10,20 +10,20 @@
     "export:pptx": "npm run export -- --timeout 60000 --with-clicks false --format pptx --output ./_export/soe_altschool_cssnote.pptx"
   },
   "dependencies": {
-    "@slidev/cli": "^0.49.16",
+    "@slidev/cli": "^0.49.29",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "vue": "^3.4.31"
+    "vue": "^3.5.3"
   },
   "devDependencies": {
-    "@iconify-json/logos": "^1.1.43",
-    "@iconify-json/mdi": "^1.1.67",
-    "@slidev/types": "^0.49.16",
-    "@vue/compiler-sfc": "^3.4.32",
+    "@iconify-json/logos": "^1.2.0",
+    "@iconify-json/mdi": "^1.2.0",
+    "@slidev/types": "^0.49.29",
+    "@vue/compiler-sfc": "^3.5.3",
     "nodemon": "^3.1.4",
-    "playwright-chromium": "^1.45.2",
+    "playwright-chromium": "^1.47.0",
     "prettier": "^3.3.3",
     "prettier-plugin-slidev": "^1.0.5"
   }
