@@ -87,8 +87,8 @@ Before we move deeply into Selectors, let's dive into CSS rule which is a block 
 <img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Definition of selectors
 
@@ -112,8 +112,8 @@ Looking at the image in the previous slide we'll notice that CSS selector is the
 This rule is saying that remove any default margin and padding from all the elements in this document and also change the box-sizing value to border-box.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
 
@@ -209,7 +209,8 @@ paragraph and also increase its font size to 36px.
 ```
 
 ```css
-[href="https://altschoolafrica.com"]{
+[href="https://altschoolafrica.com"]
+{
   color: red;
   font-size: 36px;
 }
@@ -338,9 +339,10 @@ h3 {
   margin-bottom: 10px;
 }
 ```
+
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 - `Nesting Selectors &`: This is a way of writing CSS rules that are more specific and easier to read.They explicitly states the relationship between parent and child rules when using CSS nesting. It makes the nested child rule selectors relative to the parent element. Without the & nesting selector, the child rule selector selects child elements. The child rule selectors have the same specificity weight as if they were within `:is()`. Can be use with the Child Combinators.
 
@@ -367,8 +369,8 @@ hideInToc: true
 ## [Read more about CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Nesting_selector)
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # `:HAS()` PSEUDO SELECTOR
 
@@ -420,8 +422,8 @@ Specificity is a score given to selectors, and whenever we have two or more CSS 
 ## <!-- We will come back to this at the end of this topic. -->
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Specificity Hierarchy
 
@@ -477,10 +479,11 @@ Class Assessment: Calculate the specificity of these selectors:
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # important rule
+
 <div />
 In CSS, there is one rule that has the highest specificity score of 10,000. This rule is used to give a property-value pair the highest priority, allowing it to override any other declarations.
 
@@ -514,8 +517,8 @@ It’s basically a box that wraps around every HTML element. Understanding this 
 <img class="mt-10 w-200 h-80 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-3.png"/>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Components Of Box Model
 
@@ -550,23 +553,25 @@ hideInToc: true
   Popular margin concepts are: Hungry margin(auto margin which only works for horizontal margins with explicit width), Collapsed margin, Negative margin.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <div grid place-content-center>
   <img class="mt-10 w-150 h-90 border-10" src="https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png"/>
 </div>
 
 ---
+
 hideInToc: true
 transition: slide-up
 layout: iframe
 url: https://codepen.io/chriscoyier/embed/gONzpYb?default-tab=html%2Cresult
+
 ---
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 - 1. Calculating Total Element Size
 
@@ -591,8 +596,8 @@ The default box model can sometimes lead to unexpected results. CSS3 introduced 
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Example
 
@@ -629,8 +634,8 @@ Possible css properties with block and inline axes are: `padding-block`, `margin
 The `block-size` and `inline-size` properties are used to set the width and height of an element, respectively. The `min-block-size` and `max-block-size` properties set the minimum and maximum width of an element, while the `min-inline-size` and `max-inline-size` properties set the minimum and maximum height of an element.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Calculating Width and Height
 
@@ -639,16 +644,16 @@ hideInToc: true
 - Width is calculated along the inline axis(left to right) and default is auto(using the content inside the element) but can be set using the `width` property. The `max-width` and `min-width` properties set the maximum and minimum width of an element. `max-width` is used to prevent an element from exceeding a certain width, while `min-width` ensures that an element is at least a certain width. `max-width` is useful for creating responsive designs that adapt to different screen sizes and should be used for containers/wrappers that need to be flexible. `min-width` is useful for ensuring that an element is at least a certain width, which can be helpful for maintaining the layout of a page and preventing elements from becoming too narrow. Width considers the parent element's width and the content inside the element. Avoid using fixed width and percentage width if you do not have a parent with an explicit width.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Height Calculation
 
 - Height is calculated along the block axis(top to bottom) and default is auto(using the content inside the element) but can be set using the `height` property. The `max-height` and `min-height` properties set the maximum and minimum height of an element. `max-height` is used to prevent an element from exceeding a certain height, while `min-height` ensures that an element is at least a certain height. `min-height` is useful for creating responsive designs that adapt to different screen sizes and adjustable height. `max-height` is useful for ensuring that an element is at least a certain height, which can be helpful for maintaining the layout of a page and preventing elements from becoming too short. Height considers the content inside the element first before the parent element's height.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <div grid place-content-center>
   <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-19.png"/>
@@ -754,8 +759,8 @@ p {
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 Non-inherited property
 
@@ -778,8 +783,8 @@ p {
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Setting inheritance explicitly in CSS
 
@@ -808,8 +813,8 @@ em {
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Controlling Inheritance
 
@@ -853,11 +858,12 @@ This keyword rolls back the value of a property in a cascade layer to the value 
 </dl>
 
 ---
+
 hideInToc: true
 layout: iframe
 url: https://codepen.io/setemiojo/embed/JjxNJVm?default-tab=html%2Cresult
----
 
+---
 
 ---
 
@@ -910,8 +916,8 @@ p {
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Hexadecimal Colors
 
@@ -930,8 +936,8 @@ p {
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## RGB and RGBA Colors
 
@@ -950,8 +956,8 @@ color: rgba(255, 87, 51, 0.5); /* 50% transparent */
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## HSL & HSLA Colors
 
@@ -973,8 +979,8 @@ opacity: 0.5; /* Makes the element 50% transparent */
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # The Future of Colors
 
@@ -998,8 +1004,10 @@ color: color-mix(red blue 50%); /* Mixes red and blue 50% */
 ```
 
 ---
+
 hideInToc: true
 layout: two-cols
+
 ---
 
 ```html
@@ -1017,34 +1025,21 @@ html {
   --red-sat: 100%;
   --red-lit: 50%;
 
-  --red: hsl(
-    var(--red-hue)
-    var(--red-sat)
-    var(--red-lit)
-  );
-  --dark-red: hsl(
-    var(--red-hue)
-    var(--red-sat)
-    calc(var(--red-lit) - 20%)
-  );
-  --transparent-red: hsl(
-    var(--red-hue)
-    var(--red-sat)
-    var(--red-lit) / 0.5
-  );
+  --red: hsl(var(--red-hue) var(--red-sat) var(--red-lit));
+  --dark-red: hsl(var(--red-hue) var(--red-sat) calc(var(--red-lit) - 20%));
+  --transparent-red: hsl(var(--red-hue) var(--red-sat) var(--red-lit) / 0.5);
   --soft-red: hsl(
-    var(--red-hue)
-    calc(var(--red-sat) - 30%)
-    calc(var(--red-lit) + 10%)
+    var(--red-hue) calc(var(--red-sat) - 30%) calc(var(--red-lit) + 10%)
   );
 }
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # CSS Units
+
 <div />
 CSS units are vital for defining the size, spacing, and layout of elements. Here’s a more in-depth look at the types of units:
 
@@ -1068,16 +1063,16 @@ padding: 1em; /* Equal to the current font size */
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <div grid place-content-center>
   <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image.png"/>
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Contd (Relative Units)
 
@@ -1101,16 +1096,16 @@ height: 100vh; /* Full height of the viewport */
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <div grid place-content-center>
   <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-1.png"/>
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 3. Viewport Units
 
@@ -1129,16 +1124,16 @@ font-size: 5vw; /* Font size based on viewport width */
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <div grid place-content-center>
   <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-2.png"/>
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # CSS Gradients
 
@@ -1159,8 +1154,8 @@ background: linear-gradient(45deg, red, yellow);
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 2. Radial Gradients
    Radiates from a central point outward, either circular or elliptical.
@@ -1181,8 +1176,8 @@ background: radial-gradient(circle, red, yellow, green);
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 3. Conic Gradients
 
@@ -1199,8 +1194,8 @@ background: conic-gradient(from 90deg, red, yellow, green);
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 4. Repeating Gradients
 
@@ -1226,8 +1221,8 @@ background: repeating-radial-gradient(circle, red, yellow 10%);
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 Practical Tips
 
@@ -1235,10 +1230,11 @@ Practical Tips
 - Gradients with Transparency: Combine gradients with RGBA or HSLA colors for layered effects with transparency.
 - Viewport Units for Responsiveness: Use vw and vh for elements that need to adapt to screen size changes, such as full-screen sections or responsive text sizes.
 
-
 ---
+
 hideInToc: true
 layout: two-cols
+
 ---
 
 # CSS Functions
@@ -1278,8 +1274,8 @@ p {
 - @property: Registers custom CSS properties.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # CSS Variables or Custom Properties
 
@@ -1309,14 +1305,16 @@ Can be used to store colors, font sizes, spacing, and other values that are reus
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <PopOver />
 
 ---
+
 hideInToc: true
 layout: two-cols
+
 ---
 
 # Typography in CSS
@@ -1359,7 +1357,9 @@ The @font-face rule can be used embed custom fonts in a web page, allowing the u
   font-weight: 400;
   font-style: normal;
 }
-body {font-family: "CustomFont", sans-serif;}
+body {
+  font-family: "CustomFont", sans-serif;
+}
 ```
 
 ---
@@ -1401,11 +1401,14 @@ On macOS:  <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
 </ol>
 
 ```css
-* { border: 1px solid red; }
+* {
+  border: 1px solid red;
+}
 ```
+
 <div mt-2></div>
 
-> When in doubt in CSS put a border on all the elements to understand what is going on. 
+> When in doubt in CSS put a border on all the elements to understand what is going on.
 
 ---
 
@@ -1457,8 +1460,8 @@ Disadvantages:
 - Not suitable for styling multiple elements.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Internal CSS
 
@@ -1493,8 +1496,8 @@ Internal CSS is used to define styles for an entire HTML document. It is placed 
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## External CSS
 
@@ -1526,8 +1529,8 @@ p {
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## External CSS
 
@@ -1584,8 +1587,8 @@ The items inside the parent container will be laid out as flexible boxes which m
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Why Flexbox?</h1>
 <ul>
@@ -1599,8 +1602,8 @@ hideInToc: true
 </ul>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Direction and Alignment</h1>
 <div></div>
@@ -1629,8 +1632,8 @@ The <kbd>flex-direction</kbd> property defines the direction in which the flex i
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex Direction Code Example:</h1>
 
@@ -1676,8 +1679,8 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Alignment</h1>
 <div></div>
@@ -1691,8 +1694,8 @@ hideInToc: true
 </ol>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Justify Content(Main Axis Alignment)</h1>
 <div></div>
@@ -1745,8 +1748,8 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>center</kbd></strong> : Items are centered along the main axis.</p>
 
@@ -1770,8 +1773,8 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <p class="text-xl  mb-4"><strong><kbd>space-between</kbd></strong> : Items are evenly distributed in the line; the first item is on the start line and the last item is on the end line.</p>
 
@@ -1795,8 +1798,8 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>space- around</kbd></strong> : Items are evenly distributed in the line with equal space around them.</p>
 
@@ -1820,8 +1823,8 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>space-evenly</kbd></strong> : Items are evenly distributed with equal space between them.</p>
 
@@ -1845,8 +1848,8 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Items (Cross Axis Alignment)</h1>  
 The cross axis runs perpendicular to the direction in which flex items are laid out.
@@ -1897,8 +1900,8 @@ The <kbd>align-items</kbd> property aligns the flex items along the cross axis (
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Items are aligned to the end of the cross axis.</p>
 
@@ -1922,8 +1925,8 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>center</kbd></strong>: Items are centered along the cross axis.</p>
 
@@ -1950,8 +1953,8 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>baseline</kbd></strong>: Items are aligned along their baseline. If you want to make sure the bottoms of each character are aligned, as they would be if they were written on a page then <kbd>align-items: baseline;</kbd> is used instead of <kbd>align-items: center;</kbd>.</p>
 
@@ -1978,15 +1981,15 @@ hideInToc: true
  </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Content (Multi-line Cross Axis Alignment)</h1>
   The <kbd>align-content</kbd> property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Rows are packed to the start of the container.</p>
 
@@ -2011,8 +2014,8 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Rows are packed to the end of the container.</p>
 
@@ -2069,20 +2072,20 @@ hideInToc: true
 </section>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <JustifyAlign/>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <AlignContent/>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Growing and Shrinking</h1>
 <p></p>
@@ -2093,8 +2096,8 @@ hideInToc: true
 - The hypothetical size refers to the size a flex item would take up if it were not subjected to the flex-grow, flex-shrink, or any other flex properties that might cause it to stretch or shrink. It’s the size that the item "wants" to be, based on its content and its initial settings like width, height, padding, and margin, before any flex-related adjustments are applied.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Grow</h1>
 <div></div>
@@ -2143,7 +2146,6 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 
 <div class="grid grid-cols-2">
 
-
 ```css
 /*instead of this */
 .container {
@@ -2160,11 +2162,9 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 }
 ```
 
-
 </div>
 
 ---
-
 
 # Grid Layout
 
@@ -2172,8 +2172,8 @@ It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead 
 Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Grid Container
 
@@ -2200,8 +2200,8 @@ The grid container is the parent element that contains the grid items (child ele
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Defining Rows and Columns
 
@@ -2227,8 +2227,8 @@ You can define the structure of the grid using the <b> grid-template-rows</b> an
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Example
 
@@ -2247,8 +2247,8 @@ In this example:
 - <b> grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Placing Grid Items
 
@@ -2274,8 +2274,8 @@ By default, grid items are placed in the grid based on the order they appear in 
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Grid Gaps
 
@@ -2299,8 +2299,8 @@ To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap<
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Grid Areas
 
@@ -2317,18 +2317,26 @@ Grid areas allow you to name specific sections of the grid, making it easier to 
   grid-template-columns: 150px 1fr 1fr;
 }
 
-.header { grid-area: header; }
+.header {
+  grid-area: header;
+}
 
-.sidebar { grid-area: sidebar; }
+.sidebar {
+  grid-area: sidebar;
+}
 
-.main { grid-area: main; }
+.main {
+  grid-area: main;
+}
 
-.footer {grid-area: footer;}
+.footer {
+  grid-area: footer;
+}
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Responsive Design with Grid
 
@@ -2352,10 +2360,9 @@ CSS Grid makes it easy to create responsive designs. You can use functions like 
 - repeat(auto-fit, minmax(100px, 1fr)); automatically creates as many columns as will fit into the container, with each column being at least 100px wide and taking up a fraction of the remaining space.
 - This ensures that the grid adjusts dynamically as the viewport size changes.
 
+---
 
----
-hideInToc: true
----
+## hideInToc: true
 
 ## Example(CONTD)
 
@@ -2376,9 +2383,11 @@ hideInToc: true
  </div>
 
 ---
+
 name: SubGrid
 layout: iframe
 url: https://codepen.io/setemiojo/embed/MWMXVjq?default-tab=html%2Cresult
+
 ---
 
 ---
@@ -2528,7 +2537,8 @@ With <kbd>position: absolute;</kbd>, the element will move with its parent eleme
 <div>
   In this form of positioning <kbd>position: sticky;</kbd>, an element transitions from being relatively-positioned to being fixed-positioned and this happens when you scroll, the element get stuck to the edge. To pass <kbd>position: sticky;</kbd> to an element and work effectively, you must specify a threshold with at least one of to top, right, bottom, or left.
 
-  While using <kbd>position: sticky;</kbd> note that the element will never follow the scroll outside of its parent container. The sticky elements only stick while their container is in view.
+While using <kbd>position: sticky;</kbd> note that the element will never follow the scroll outside of its parent container. The sticky elements only stick while their container is in view.
+
 </div>
 
 ---
@@ -2599,10 +2609,11 @@ dd {
 </dl>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Anchor Positioning
+
 <div />
 Anchor positioning allows you to place items relative to where another element is. Seems pretty obvious when put like that, but that’s what it is. You declare an element an anchor and give it a name, then can position elements to the top/right/bottom/left (or center, or the logical equivalents) of the anchor.
 
@@ -2618,15 +2629,13 @@ Anchor positioning allows you to place items relative to where another element i
 }
 ```
 
-
-
 ---
 
 # Stacking Context/Z-index
+
 <div />
 In CSS, the stacking order of elements is a crucial aspect of layout and design. Two key concepts that control how elements stack on top of each other are stacking contexts and the z-index property. 
 Alright, imagine you're stacking a bunch of transparent sheets on top of each other. That's basically what's happening when you're building a webpage with CSS. But sometimes, you want to control which sheet goes on top, right? That's where z-index and stacking contexts come in. Let's break it down!
-
 
 Natural Stacking Order
 First things first. When you're writing your HTML, the browser stacks elements in the order they appear. It's like if you're laying down those transparent sheets one by one. The last one you put down ends up on top. Check this out:
@@ -2641,17 +2650,19 @@ First things first. When you're writing your HTML, the browser stacks elements i
 
 ```html
 <div style="background: red; width: 100px; height: 100px;"></div>
-<div style="background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"></div>
+<div
+  style="background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"
+></div>
 ```
 
 See how the blue box is on top of the red one? That's because in our HTML, it came after the red box. Simple, right?
 
-
---- 
-hideInToc: true
 ---
 
+## hideInToc: true
+
 # Z-index
+
 <div />
 The z-index property only works on positioned elements. If applied to a non-positioned element, it has no effect. However, there's an exception: flex children can use z-index even if they are non-positioned.
 
@@ -2667,27 +2678,30 @@ Here's what it looks like:
 </svg>
 
 ```html
-<div style="position: relative; z-index: 2; background: red; width: 100px; height: 100px;"></div>
-<div style="position: relative; z-index: 1; background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"></div>
+<div
+  style="position: relative; z-index: 2; background: red; width: 100px; height: 100px;"
+></div>
+<div
+  style="position: relative; z-index: 1; background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"
+></div>
 ```
 
 Look at that! Now the red box is on top, even though it came first in our HTML. That's the power of z-index.
 But here's the catch: z-index only works on positioned elements. That means you need to set position to something other than static (like relative, absolute, or fixed) for z-index to do its thing.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Stacking Context
+
 <div />
 Okay, now here's where it gets a bit tricky. Sometimes, elements form what we call a "stacking context". It's like creating a new stack of transparent sheets that all move together.
 
 A stacking context is a three-dimensional conceptualization of HTML elements along an imaginary z-axis relative to the user. Within a stacking context, child elements are stacked according to the same rules, but the context as a whole is considered a unit in the parent stacking context.
 
-
 <ul class="flex justfiy-center">
 <div>
-
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="350" height="300">
   <rect x="10" y="10" width="280" height="230" fill="#eee" stroke="#333" />
@@ -2717,15 +2731,16 @@ See those two big boxes? They're each a stacking context. And here's the kicker:
 Look at that red box inside the first context. It has a super high z-index of 999! But it's still behind the green box in the second context. Why? Because its whole context (the pink box) is behind the second context (the green box).
 
 It's like if you had two stacks of papers. No matter how you arrange the papers within each stack, if you put one whole stack on top of the other, all of its papers will be on top.
+
 </div>
 </ul>
 
+---
 
----
-hideInToc: true
----
+## hideInToc: true
 
 # Creating Stacking Contexts
+
 <div />
 So, how do you create these stacking contexts? There are a bunch of ways, but here are the most common:
 
@@ -2755,18 +2770,16 @@ Child1 has a much higher z-index than Child2.
 However, Child1 will appear behind Parent2 and Child2, because its parent (Parent1) has a lower z-index than Parent2.
 
 This demonstrates that z-index values are only compared within the same stacking context. The z-index of Child1 is only relevant within the context of Parent1.
+
 </div>
 </ul>
 
-
-
-
-
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Flex and Grid Exception
+
 <div />
 An interesting exception to the positioning rule for z-index is that children of flex and grid containers can use z-index without needing to be positioned:
 
@@ -2776,12 +2789,13 @@ An interesting exception to the positioning rule for z-index is that children of
   <div style="background: blue; z-index: 2; margin-left: -20px;">Second</div>
 </div>
 ```
-In this example, the blue div will appear on top of the red div due to its higher z-index, even though neither has a position set.
----
-hideInToc: true
----
+
+## In this example, the blue div will appear on top of the red div due to its higher z-index, even though neither has a position set.
+
+## hideInToc: true
 
 # Isolation
+
 <div />
 The isolation property provides a way to create a new stacking context without changing the element's position or z-index
 
@@ -2789,15 +2803,16 @@ The isolation property provides a way to create a new stacking context without c
 .new-context {
   isolation: isolate;
 }
-This is particularly useful for creating self-contained components that don't 
+This is particularly useful for creating self-contained components that don't
 interfere with the stacking order of other elements on the page.
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Debugging Stacking Contexts
+
 <div />
 Debugging stacking context issues can be challenging. Here are some tools and techniques:
 
@@ -2807,10 +2822,11 @@ Debugging stacking context issues can be challenging. Here are some tools and te
 - Browser extensions: There are extensions available for Chrome and Firefox that add information about z-index and stacking contexts to the developer tools.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Key Takeways
+
 <div />
 Understanding stacking contexts and z-index is crucial for creating complex layouts and resolving layout issues in CSS. Remember these key points:
 
@@ -2821,8 +2837,8 @@ Understanding stacking contexts and z-index is crucial for creating complex layo
 
 ---
 
-
 # Overflow
+
 <div />
 The <strong><kbd>overflow</kbd></strong> CSS property allows you to control how content is handled when it exceeds the boundaries of an element. It has a default value of <strong><kbd>visible</kbd></strong>.
 
@@ -3056,18 +3072,19 @@ When you have inline elements that automatically wrap to the next line when they
 
 ---
 
-
 # Responsiveness
 
 ## What is CSS Responsiveness?
- CSS responsiveness is a web design approach that allows a website to adapt to different screen sizes and resolutions, providing a good user experience across various devices like phones, tablets, laptops, and desktops.Imagine you have a favorite t-shirt. When you wear it, it fits just right. Now imagine if that t-shirt could magically adjust its size to fit your little brother or your big sister perfectly too. That's kind of what CSS responsiveness does for websites!, Responsive design ensures that the website automatically adjusts to fit the screen, making it easy to navigate and read.
+
+CSS responsiveness is a web design approach that allows a website to adapt to different screen sizes and resolutions, providing a good user experience across various devices like phones, tablets, laptops, and desktops.Imagine you have a favorite t-shirt. When you wear it, it fits just right. Now imagine if that t-shirt could magically adjust its size to fit your little brother or your big sister perfectly too. That's kind of what CSS responsiveness does for websites!, Responsive design ensures that the website automatically adjusts to fit the screen, making it easy to navigate and read.
 
 ## The Problem It Solves
+
 Imagine you design a website that looks perfect on your computer screen. But when you open it on your phone, everything's tiny, and you have to zoom and scroll around to read anything. Not fun, right? That's the problem responsive design solves.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 ## Flexible Layout
 
@@ -3084,41 +3101,48 @@ The `.container` takes 80% of the screen width and centers itself with margin: a
 As the screen size changes, the container's width adjusts proportionally.
 
 ---
+
 hideInToc: true
 layout: iframe
 url: https://codepen.io/OluFaith/embed/WNqYORQ?default-tab=html%2Cresult
+
 ---
 
 ---
-hideInToc: true
----
 
-## Media Queries  
+## hideInToc: true
+
+## Media Queries
+
 Media queries allow you to apply different styles depending on the screen size or device type.
 Media queries are like magical glasses that let your CSS see what kind of device is being used. Based on that, you can apply different styles.
 <br/>
 How Media Queries Work: Media queries are like <b> “if statements” </b> in CSS. They check the conditions (like screen width) and apply the appropriate styles if the conditions are met.
 <br/>
- <b>Mobile-First Approach:</b> Start with styles for small screens, then add media queries for larger screens.
+<b>Mobile-First Approach:</b> Start with styles for small screens, then add media queries for larger screens.
 
 <!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/XWLygez?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/OluFaith/pen/XWLygez">
   Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe> -->
+
 ---
+
 hideInToc: true
 layout: iframe
 url: https://codepen.io/OluFaith/embed/XWLygez?default-tab=html%2Cresult
----
-
 
 ---
-hideInToc: true
+
 ---
+
+## hideInToc: true
 
 ## Flexible Images
+
 Flexible images ensure that pictures and videos resize to fit their container without overflowing or getting distorted.
+
 <!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/mdZQwQb?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/OluFaith/pen/mdZQwQb">
   Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
@@ -3128,14 +3152,16 @@ Flexible images ensure that pictures and videos resize to fit their container wi
 The image scales to fit the width of its container without overflowing, maintaining its aspect ratio.
 
 ---
+
 hideInToc: true
 layout: iframe
 url: https://codepen.io/OluFaith/embed/mdZQwQb?default-tab=html%2Cresult
+
 ---
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 Responsive Typography
 <br/>
@@ -3155,10 +3181,8 @@ body {
 ```
 
 ---
-hideInToc: true
----
 
-
+## hideInToc: true
 
 ## Responsive Layout Techniques
 
@@ -3171,23 +3195,26 @@ Flexbox is a CSS layout model that allows elements to align and distribute space
   Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe> -->
+
 The .container is a flex container, and .item elements adjust their size to fill available space.
 On smaller screens, the items will stack or wrap as needed.
 
 ---
+
 hideInToc: true
 layout: iframe
 url: https://codepen.io/OluFaith/embed/BagGZEK?default-tab=html%2Cresult
----
-
 
 ---
-hideInToc: true
+
 ---
+
+## hideInToc: true
 
 2.  Grid
 
 CSS Grid is a layout system that divides a page into rows and columns, making it easy to create complex designs.
+
 <!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/xxoQrNQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/OluFaith/pen/xxoQrNQ">
   Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
@@ -3198,28 +3225,33 @@ The .container creates a three-column grid.
 Each .item occupies a column, with the layout automatically adjusting based on screen size.
 
 ---
+
 hideInToc: true
 layout: iframe
 url: https://codepen.io/OluFaith/embed/xxoQrNQ?default-tab=html%2Cresult
+
 ---
 
 ---
+
 hideInToc: true
 layout: iframe
 url: https://codepen.io/OluFaith/embed/JjQeyoz?default-tab=html%2Cresult
+
 ---
 
 ---
+
 hideInToc: true
 layout: iframe
 url: https://codepen.io/OluFaith/embed/JjQeyoz?default-tab=html%2Cresult
 name: Let's Create a Responsive Post Layout
----
-
 
 ---
-hideInToc: true
+
 ---
+
+## hideInToc: true
 
 Tips for Responsive Design
 <br/>
@@ -3230,10 +3262,11 @@ Tips for Responsive Design
 - Consider content: Make sure your content works well at all sizes.
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Container Queries
+
 <div />
 Container queries are a new CSS feature that allows you to apply styles based on the size of a container, rather than the viewport. This enables more granular control over responsive layouts and components.
 
@@ -3257,22 +3290,26 @@ Container queries are similar to media queries but apply to the container's size
   container: Calendar / inline-size;
 }
 ```
+
 ---
+
 hideInToc: true
 layout: two-cols
+
 ---
 
 # Syntax
+
 <div />
 
 ```html
 <div class="element-wrap">
-  <div class="element">
-  </div>
+  <div class="element"></div>
 </div>
 ```
 
 ::right::
+
 ```css
 .element-wrap {
   container: element / inline-size;
@@ -3285,19 +3322,20 @@ layout: two-cols
 }
 ```
 
-
-
 ---
+
 hideInToc: true
 layout: iframe
 url: https://codepen.io/setemiojo/embed/oNrypbw?default-tab=html%2Cresult
+
 ---
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Container Queries (Style)
+
 <div />
 
 Container Style Queries allow you to apply styles when a given Custom Property has a given value.
@@ -3312,41 +3350,1051 @@ Container Style Queries allow you to apply styles when a given Custom Property h
 }
 
 @container style(--variant: 1) {
-  button { } /* You can't style .container, but can select inside it */
-  .other-things { }
+  button {
+  } /* You can't style .container, but can select inside it */
+  .other-things {
+  }
 }
 
 @container style(--variant: 2) {
-  button { }
-  .whatever { }
+  button {
+  }
+  .whatever {
+  }
 }
 ```
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Container Units
+
 <div />
 Container Units (literally units, like px, rem, or vw) allow you to set the size of things based on the current size of a container element. Similar to how with viewport units 1vw is 1% of the browser window width, 1cqw is 1% of the width of the container (although I’d recommend you use cqi instead, the “logical equivalent”, meaning the “inline direction”).
 
 The units are cqw (“container query width”), cqh (“container query height”), cqi (“container query inline”), cqb (“container query block”), cqmin (smaller of cqi and cqb), and cqmax (larger of cqi and cqb).
 
-
-
-
----
-hide: true
 ---
 
 # Animations
 
+When discussing the beautification of a website, CSS plays a key role. However, you don’t just want to build a visually appealing site — you also want it to be dynamic. To enhance user satisfaction, animations can be added to create a more interactive and engaging experience.
+
+All those small changes really matter in satisfying users and encouraging them to return to our website.
+
+The <kbd>animation</kbd> shorthand CSS property applies animation on element of your choice. It is shorthand for:
+
+<ul>
+  <li><kbd>animation-name</kbd></li>
+  <li><kbd>animation-duration</kbd></li>
+  <li><kbd>animation-timing-function</kbd></li>
+  <li><kbd>animation-delay</kbd></li>
+  <li><kbd>animation-iteration-count</kbd></li>
+  <li><kbd>animation-direction</kbd></li>
+  <li><kbd>animation-fill-mode</kbd></li>
+  <li><kbd>animation-play-state</kbd></li>
+  <li><kbd>animation-timeline</kbd></li>
+</ul>
+
 ---
+
+ <h1 class="text-sm bg-purple p-4 text-center">Transforms</h1>
+<p>The <kbd>transform</kbd> CSS property allows you to rotate, scale, skew, or translate an element. It plays a significant role in CSS animations, offering a variety of powerful transform functions for creating dynamic visual effects.</p>
+
+---
+
+<h2 class="text-sm bg-purple p-4 text-center animate-slide-in-down">Transform functions</h2>
+
+The <kbd>transform-function</kbd> in CSS is used to apply 2D or 3D transformations to elements, enabling you to modify their shape, size, and position without disrupting the document flow. This function is powerful for creating visual effects like scaling, rotating, skewing, or translating elements. The transformations occur within the element's own coordinate system.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4">Translation</h3>
+<p> <kbd>translate</kbd> is a transform function that allows you to move an element around the page. It accepts two arguments: <kbd>x</kbd>, which controls the horizontal (side-to-side) movement, and <kbd>y</kbd>, which controls the vertical (up-and-down) movement.</p>
+
+<p>When using the <kbd>translate</kbd> property, you can specify the units in percentages, which refer to the element's own size, rather than the available space in the parent container.</p>
+
+```css
+/*The first argument represents the X-axis, while the second represents the Y-axis, as seen in transform: translate(x, y);. */
+
+.content {
+  transform: translate(50px, 20px);
+}
+```
+
+---
+
+```html
+<div class="box-wrapper">
+  <div class="box"></div>
+</div>
+```
+
+```css
+.box-wrapper {
+  border: 2px dashed red;
+  height: 40px;
+  width: 40px;
+}
+
+.box {
+  background-color: blue;
+  transform: translate(100%, 20px);
+  height: 30px;
+  width: 30px;
+}
+```
+
+<div class="flex justify-center mt-4">
+<div class="border-2 border-dashed border-red-500 h-40 w-40">
+  <div class="bg-blue-500 transform translate-x-[100%] translate-y-[20px] h-30 w-30">
+  </div>
+</div>
+</div>
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Scale</h3>
+The <kbd>scale()</kbd> transform function allows you to resize an element by enlarging or shrinking it. It accepts one or two values, which determine the scaling applied in each direction. The <kbd>scale()</kbd> function is limited to 2D transformations; for 3D scaling, use the <kbd>scale3d()</kbd> function. Scale uses a unitless value.
+
+---
+
+<h2 class="mb-4">scale() transform function code example</h2>
+
+```css
+.box1 {
+  width: 20px;
+  height: 20px;
+}
+/* This means that element should be 2x as big as it would nomally be. */
+.box2 {
+  transform: scale(2);
+}
+/* This means that element should be 1/2 as small as it would nomally be. */
+.box3 {
+  transform: scale(0.5);
+}
+```
+
+<div class="flex justify-between mx-auto mt-20 w-50%">
+  <div class="bg-blue-500 transform h-20 w-20 color-white text-center ">
+  Original size
+  </div>
+
+  <div class="bg-green-500 transform scale-200 h-20 w-20 color-white text-center ">
+    transform: scale(2);
+  </div>
+
+  <div class="bg-red-500 transform scale-50 h-20 w-20 color-white text-center ">
+    scale(0.5);
+  </div>
+</div>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Rotate</h3>
+The <kbd>rotate()</kbd> transform function allows you to rotate an element around a fixed point. We use the following units for the rotate function.
+<ul>
+<li>deg</li>
+<li>turn</li>
+<li>skew</li>
+</ul>
+
+We use the <kbd>deg</kbd> unit for rotation, short for degrees.
+
+```css
+.box {
+  transform: rotate(230deg);
+}
+```
+
+<div class="flex justify-center mx-auto mt-10">
+  <div class="bg-red-500 h-20 w-20 text-white text-center animate-rotate" style="transform: rotate(230deg);">
+    Rotated Box
+  </div>
+</div>
+
+<style>
+  @keyframes rotate {
+    0% { transform: rotate(230deg); }
+    100% { transform: rotate(590deg); } 
+  }
+  .animate-rotate {
+    animation: rotate 2s infinite linear;
+  }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Turn</h3>
+The <kbd>turn</kbd> unit represents how many turns the element should make. 1 turn is equal to 360 degrees.
+
+```css
+.box {
+  transform: rotate(1turn);
+}
+```
+
+<section class="flex justify-center mx-auto mt-6">
+  <div class="bg-blue-500 h-60 w-60 text-white text-center animate-rotate flex justify-center items-center" style="transform: rotate(0turn);">
+    Rotate Box for 1 turn
+  </div>
+</section>
+
+<style>
+  @keyframes rotate {
+    0% { transform: rotate(0turn); }
+    100% { transform: rotate(1turn); } 
+  }
+  .animate-rotate {
+    animation: rotate 2s;
+  }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Skew</h3>
+<p>The <kbd>skew</kbd> is a seldom-used but pretty-neat transformation. It's most useful when you want to create diagonal decorative elements.</p>
+
+```css
+.container {
+  transform: skew(21deg);
+}
+```
+
+<div class="flex justify-center mx-auto mt-6">
+  <div class="bg-red-500 h-60 w-60 text-white text-center animate-skew flex justify-center items-center" style="transform:  skewX(21deg);">
+    Skewed Box
+  </div>
+</div>
+
+<style>
+  @keyframes skew {
+    0% { transform: skewX(0deg); }
+    100% { transform: skewX(21deg); }
+  }
+
+  .animate-skew {
+    animation: skew 2s;
+  }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Transform origin</h3>
+
+Every element has a transformation origin, which is the central point around which transformations are applied. The CSS property <kbd>transform-origin</kbd> allows you to set and control this origin for any element's transformations. This transform origin acts as a pivot point.
+
+```css
+.box {
+  transform: rotate(206deg);
+  transform-origin: left top;
+}
+```
+
+<div class="flex justify-center mx-auto mt-60">
+  <div class="flex justify-center items-center bg-purple-500 h-40 w-40 text-white text-center box  transition-transit">
+     Rotate from a transform origin
+  </div>
+</div>
+
+<style>
+  .box {
+    transform: rotate(206deg);
+    transform-origin: left top;
+    transition: transform 0.3s ease;
+  }
+
+  @keyframes transit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(206deg); }
+  }
+
+  .transition-transit {
+    animation: transit 2s;
+  }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Combining multiple operations</h3>
+To achieve animations using multiple transform functions in CSS, it’s important to understand that when you combine multiple transformations, they are applied in the order they are written. However, the visual effect is processed from right to left.
+
+Order of Transform Functions: If you have both rotate and translate functions in the same transform property, the effect will change depending on the order. For example, rotate affects the element first if it is written before translate.
+
+Right-to-Left Application: The transforms are applied sequentially but executed from right to left. This means that the rightmost transform (e.g., translate) is applied first, and then the next one (e.g., rotate).
+
+---
+
+```css
+/* Translate first, then rotate */
+.red-box {
+  transform: translateX(87px) rotate(141deg);
+}
+```
+
+<div class="border-3 rounded-3 pb-5 mt-10">
+<div class="relative flex justify-center mx-auto mt-6">
+  <!-- Yellow Box -->
+  <div class="bg-yellow-500 h-50 w-50 text-white text-center flex justify-center items-center">
+    Yellow Box
+  </div>
+  
+  <!-- Red Box (absolute) -->
+  <div class="absolute top-5 left-20 bg-red-500 h-40 w-40 text-white text-center flex justify-center items-center animate-spin-box">
+    Red box
+  </div>
+</div>
+
+<style>
+  /* Animation Keyframes */
+  @keyframes spin-box {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(87px) rotate(0deg);
+    }
+    100% {
+      transform: translateX(87px) rotate(141deg);
+    }
+  }
+
+  /* Apply animation */
+  .animate-spin-box {
+    animation: spin-box 2s ease-in-out infinite; 
+  }
+
+  /* Positioning */
+  .relative {
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+</style>
+</div>
+
+---
+
+```css
+/* Rotate first, then translate */
+.red-box {
+  transform: rotate(360deg) translate(187px);
+}
+```
+
+<div class="border-3 rounded-3 pb-5 mt-10 h-80 ">
+<div class="relative flex justify-center mx-auto mt-6">
+  <!-- Yellow Box -->
+  <div class=" bg-yellow-500 h-50 w-50 text-white text-center flex justify-center items-center">
+    Yellow Box
+  </div>
+  
+  <!-- Red Box  -->
+  <div class="absolute top-5 left-20 bg-red-500 h-40 w-40 text-white text-center flex justify-center items-center animate-spin-second-box">
+    Red box
+  </div>
+</div>
+
+<style>
+  /* Animation Keyframes */
+  @keyframes spin-second-box {
+    0% {
+      transform:  rotate(0deg) translate(0);
+    }
+    50% {
+      tranform : rotate(360deg) translate(0)
+    }
+    100% {
+      transform:  rotate(360deg) translateX(187px);
+    }
+  }
+
+  /* Apply animation */
+  .animate-spin-second-box {
+    animation: spin-second-box 2s ease-in-out infinite; 
+  }
+
+  /* Positioning */
+  .relative {
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+</style>
+</div>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Inline elements</h3>
+The <kbd>transform</kbd> property does not work with inline elements in a Flow layout because inline elements are designed to flow with the content and cause minimal disruption. To apply transformations, you can change the element's display to <kbd>inline-block</kbd>, or switch to a different layout mode such as Grid or Flexbox.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">CSS Transitions</h3>
+
+The CSS <kbd>transition</kbd> property is an essential tool when discussing CSS animations. When navigating through a website, you might notice that many elements change states. Instead of a sudden, jarring switch between an element's initial state and its target state, the <kbd>transition</kbd> property helps create smooth, gradual shifts. This enhances the user experience by making interactions feel more fluid and less abrupt.
+
+Hover over these two circles to notice the difference: the red circle has a transform effect on hover, while the blue circle doesn't.
+
+<div class="d-flex flex gap-40 justify-center items-center">
+<div class=" bg-blue-500 w-48 h-48 rounded-full border border-gray-400 text-center flex items-center justify-center mb-4 hover:translate-y-[-10px] cursor-pointer">
+  Hover (No transform)
+</div>
+
+<div class="circle bg-red w-48 h-48 rounded-full border border-gray-400 text-center flex items-center justify-center hover:transform-effect cursor-pointer">
+  Hover (With transform)
+</div>
+
+<style>
+  /* Basic Circle Styles */
+  .circle {
+    transition: transform 0.3s ease;
+  }
+
+/* Transform Effect on Hover for Red Circle */
+.hover\:transform-effect:hover {
+transform: translateY(-10px);
+}
+</style>
+</div>
+
+---
+
+The <kbd>transition</kbd> property accepted just two values and these are:
+
+<ol>
+<li>The name of the property we wish to animate</li>
+<li>The duration of the animation</li>
+</ol>
+
+Note: You can pass a comma to create animation on multiple properties.
+
+```css
+.btn {
+  transition:
+    transform 250ms,
+    opacity 400ms;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  opacity: 0;
+}
+```
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Timing functions</h3>
+
+The <kbd>transition-timing-function</kbd> CSS property is what handles "motion" on the web. It sets how intermediate values are calculated for CSS properties being affected by a transition effect.
+
+We have several timing functions available to us in CSS and we can specify which one we want to use.
+
+<ol>
+  <li><kbd>transition-timing-function: ease;</kbd></li>
+  <li><kbd>transition-timing-function: ease-in;</kbd></li>
+  <li><kbd>transition-timing-function: ease-out;</kbd></li>
+  <li><kbd>transition-timing-function: ease-in-out;</kbd></li>
+  <li><kbd>transition-timing-function: linear;</kbd></li>
+  <!-- <li><kbd>transition-timing-function: step-start;</kbd></li>
+  <li><kbd>transition-timing-function: step-end;</kbd></li> -->
+</ol>
+
+<div class="overflow-scroll h-45">
+It's either we use the <kbd>transition-timing-function</kbd> property:
+
+```css
+.btn {
+  transition-timing-function: linear;
+}
+```
+
+Or, we can pass it directly to the <kbd>transition</kbd> shorthand property:
+
+```css
+.btn {
+  transition: all 0.3s linear;
+}
+```
+
+</div>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Transition timing functions</h3>
+<ol>
+<li><kbd>linear</kbd> transitions at an even speed.</li>
+<li><kbd>ease-out</kbd> comes in quickly like a wild bull but later runs out of energy, making it slow down as the transition continues.</li>
+<li><kbd>ease-in</kbd> starts slow, like a lion stealthily approaching its prey, then picks up speed as it closes in for the chase. This is the opposite of <kbd>ease-out</kbd></li>
+<li><kbd>ease-in-out</kbd> starts slow, picks up speed in the middle, and then gently slows down again, like a bird taking off, soaring, and then gliding to a landing.</li>
+
+<li><kbd>ease</kbd> is similar to <kbd>ease-in-out</kbd> because it starts slowly, accelerates in the middle, and then decelerates towards the end, like a car smoothly adjusting its speed as it navigates through different road conditions. But it isn't symmetrical and also this is <kbd>ease</kbd> is the default value</li>
+ </ol>
+
+Note:
+<strong>Time is constant</strong>
+<i>
+An important note about all of these demos: time is constant. Timing functions describe how a value should get from 0 to 1 over a fixed time interval, not how quickly the animation should complete. Some timing functions may feel faster or slower, but in these examples, they all take exactly 1 second to complete.</i>
+
+```css
+.btn {
+  transition: transform 250ms cubic-bezier(0.1, 0.2, 0.3, 0.4);
+}
+```
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Custom curves</h3>
+
+All the <kbd>transition-timing-function</kbd> we've seen so far are really just presets for this <kbd>cubic-bezier</kbd>
+
+If the provided built-in options don't suit your needs, you can define your own custom easing curve, using the cubic bézier timing function!
+
+Using Josh Comeau's custom alternatives, these are his declarations
+
+```css
+.btn {
+  /* ease-out */
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  /* ease-in */
+  transition-timing-function: cubic-bezier(0.75, 0, 1, 1);
+
+  /* ease-in-out */
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  /* ease */
+  transition-timing-function: cubic-bezier(0.44, 0.21, 0, 1);
+}
+```
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Delays</h3>
+
+The <kbd>transition-delay</kbd> CSS property defines how long to wait before starting a transition effect when a property's value changes. This feature is particularly useful for delaying actions. For example, if you have a dropdown menu with nested options that close too quickly when you're navigating, you could use JavaScript to add a delay, but if CSS can handle it, it's best to avoid JavaScript.
+
+If you set <kbd>transition-delay: 500ms</kbd> on an element, what you're trying to achieve is that when you hover over the element, the transition will start only after a delay of 500 milliseconds. This means that there will be a slight pause before any transition effect, such as a change in color, size, or position, begins after the hover event is triggered.
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Keyframe Animations</h3>
+
+We've discussed various animation properties, but now it's time for the main event. To apply a transformation to an element, transitioning from one set of CSS declarations to another, we'll need the <kbd>@keyframes</kbd> rule.
+
+```css
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+```
+
+You'll notice that after <kbd>@keyframes</kbd> we have a name called <kbd>slide-in</kbd>; this is the name of the <kbd>@keyframes</kbd> animation. These names work like global variables, allowing you to reuse the animation across different elements. To apply the animation to specific selectors, you use the <kbd>animation</kbd> property.
+
+```css
+.container {
+  animation: slide-in 500ms;
+}
+```
+
+---
+
+```html
+<div class="container"></div>
+```
+
+```css
+@keyframes float-in {
+  from {
+    transform: rotate(-50deg) translate(-100%);
+    opacity: 1;
+  }
+}
+/* 
+the float-in is the @keyframes name while the 1000ms is the animation-duration */
+.container {
+  animation: float-in 1000ms;
+}
+```
+
+<div class="flex justify-center mt-6">
+<div class="h-40 w-40 bg-purple animate-float-in"></div>
+</div>
+
+<style>
+  @keyframes float-in {
+    from {
+      transform: rotate(-50deg) translate(-100%);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(0deg) translate(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-float-in {
+    animation: float-in 1000ms;
+ }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Looped animations</h3>
+
+The <kbd>animation-iteration-count</kbd> CSS property sets the number of times an animation sequence should be played before stopping but by default keyframe animations will only run once, yes just once. So, in cases where you want the animation to iterate you have the <kbd>animation-iteration-count</kbd> property. It has two values and these are:
+
+<ol>
+<li><kbd>infinite</kbd>: The animation will repeat forever</li>
+<li><kbd>number</kbd>: The number of times the animation will repeat</li>
+</ol>
+
+```css
+.container {
+  animation: float-in 1000ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 3;
+}
+```
+
+<div class="flex justify-center mt-4">
+<div class="h-35 w-40 bg-purple animate-float-in"></div>
+</div>
+
+<style>
+  @keyframes float-in {
+    from {
+      transform: rotate(-50deg) translate(-100%);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(0deg) translate(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-float-in {
+    animation: float-in 1000ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 3;
+ }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Multi-step animations</h3>
+
+In cases where the animation requires more than 2 steps, instead of using <kbd>from</kbd> and <kbd>to</kbd> keywords, you can use percentages.
+
+```css
+@keyframes fancy-spin {
+  0% {
+    transform: rotate(0turn) scale(1);
+  }
+  40% {
+    transform: rotate(1turn) scale(1.5);
+  }
+  80% {
+    transform: rotate(1turn) scale(1.5);
+  }
+  100% {
+    transform: rotate(0turn) scale(1);
+  }
+}
+
+.container {
+  animation: fancy-spin 2000ms;
+  animation-iteration-count: infinite;
+}
+```
+
+---
+
+<h2>Contd: Multi-step animations example</h2>
+
+<div class="flex justify-center my-10">
+<div class="w-24 h-24 bg-purple-500 animate-float-in"></div>
+</div>
+
+<style>
+  @keyframes float-in {
+    0% {
+      transform: rotate(0turn) scale(1);
+    }
+    40% {
+      transform: rotate(1turn) scale(1.5);
+    }
+    80% {
+      transform: rotate(1turn) scale(1.5);
+    }
+    100% {
+      transform: rotate(0turn) scale(1);
+    }
+  }
+
+.animate-float-in {
+animation: float-in 2000ms infinite;
+}
+</style>
+
+We used percentages for the animation above because it involves multiple stages. The percentages represent the progress through the animation. <kbd>0%</kbd> serves as a replacement for <kbd>from</kbd>, and we break the animation into various stages before reaching the final point, <kbd>100%</kbd>, which replaces <kbd>to</kbd>.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Alternating animations</h3>
+
+If you want your animations to go through three stages, such as creating a "breathing" effect with inflating and deflating, you can achieve this with a 3-step animation.
+
+```css
+@keyframes grow-and-shrink {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.box {
+  animation: grow-and-shrink 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+```
+
+---
+
+<h2> Contd: Alternating animations example</h2>
+<div class="flex justify-center my-5">
+<div class="w-20 h-20 bg-purple-500 animate-grow-and-shrink"></div>
+</div>
+
+<style>
+  @keyframes grow-and-shrink {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+
+  }
+
+.animate-grow-and-shrink {
+  animation: grow-and-shrink 2000ms infinite;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+</style>
+
+The box starts at its default size, grows to 1.5 times its default size, and then shrinks back to its original size.
+Alternatively, we can use the <kbd>animation-direction</kbd> property to achieve this effect
+
+```css
+@keyframes grow-and-shrink {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+.box {
+  animation: grow-and-shrink 2000ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+```
+
+---
+
+<h2> Contd: Alternating animations example</h2>
+
+When you set <kbd>animation-direction</kbd> to <kbd>alternate</kbd>, the animation alternates between <kbd>normal</kbd> and <kbd>reverse</kbd> on each iteration. The default value for <kbd>animation-direction</kbd> is <kbd>normal</kbd>, meaning the animation moves from <kbd>0%</kbd> to <kbd>100%</kbd> throughout the <kbd>animation-duration</kbd>. You can also set the value to <kbd>reverse</kbd>, which makes the animation run in reverse, going from <kbd>100%</kbd> to <kbd>0%</kbd>.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Shorthand values</h3>
+
+The <kbd>animation</kbd> shorthand CSS property applies an animation between styles and is a shorthand for <kbd>animation-name</kbd>, <kbd>animation-duration</kbd>, <kbd>animation-timing-function</kbd>, <kbd>animation-delay</kbd>, <kbd>animation-iteration-count</kbd>, <kbd>animation-direction</kbd>, <kbd>animation-fill-mode</kbd>, <kbd>animation-play-state</kbd>, and <kbd>animation-timeline</kbd>. We've covered many animation properties in this lesson, and fortunately, just like with transitions, we can use the <kbd>animation</kbd> shorthand to combine all these properties and save on typing.
+
+```css
+.box {
+  /*
+  From this:
+    animation: grow-and-shrink 2000ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+  ...to this:
+  */
+  animation: grow-and-shrink 2000ms ease-in-out infinite alternate;
+}
+```
+
+---
+
+<h2> Contd: Shorthand values</h2>
+I'm sure you're thinking what I am thinking as well, the good news is that <strong>the order doesn't matter</strong>.
+
+```css
+.box {
+  /* This works: */
+  animation: grow-and-shrink 2000ms ease-in-out infinite alternate;
+
+  /* This also works! */
+  animation: grow-and-shrink alternate infinite 2000ms ease-in-out;
+}
+```
+
+But, if you want to add <kbd>animation-delay</kbd> to the shorthand it has to come after the duration so its for best practice to exclude delay from the shothand:
+
+```css
+.box {
+  animation: grow-and-shrink 2000ms ease-in-out infinite alternate;
+  animation-delay: 500ms;
+}
+```
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Fill Modes</h3>
+
+The <kbd>animation-fill-mode</kbd> CSS property controls how an element should be styled before and after an animation runs.
+
+For instance, if you want the element to fade out smoothly after the animation completes, animation-fill-mode ensures the element doesn’t abruptly reappear or reset its styles once the animation ends.
+
+```css
+.container {
+  animation: fade-out 1000ms;
+}
+```
+
+<div class="flex justify-center mt-4">
+<div class="h-35 w-40 bg-purple animate-fade-out">See you soon</div>
+</div>
+
+<style>
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .animate-float-in {
+    animation: fade-out 1000ms;
+ }
+</style>
+
+---
+
+<h2>Contd:</h2> You will notice that the box reappears after the animation style passed on it has been executed, that's because there is no <kbd>opacity</kbd> property set on the container itself.
+To make the container not reappears you should add <kbd>opacity</kbd> declaration to the container.
+
+```css
+.container {
+  animation: fade-out 1000ms;
+  opacity: 0;
+}
+```
+
+<div class="flex justify-center mt-4">
+<div class="h-35 w-40 bg-purple animate-fade-out opacity-0">See you soon</div>
+</div>
+
+<style>
+@keyframes fade-out {
+  0% {
+    opacity: 1; /* Fully visible at the start */
+  }
+  100% {
+    opacity: 0; /* Fully transparent at the end */
+  }
+}
+
+.animate-fade-out {
+animation: fade-out 3s ease-in-out forwards;
+}
+</style>
+
+<hr/>
+
+There is a better way to do this and that's what we will be discussing in the next slide.
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">animation-fill-modes</h3>
+
+In a nutshell, this CSS property sets how a CSS animation applies styles to its target before and after its execution.
+
+We have the following values that can be applied on the property:
+
+<ul>
+  <li><kbd>animation-fill-mode: none;</kbd></li>
+  <li><kbd>animation-fill-mode: forwards;</kbd></li>
+  <li><kbd>animation-fill-mode: backwards;</kbd></li>
+  <li><kbd>animation-fill-mode: both;</kbd></li>
+</ul>
+
+---
+
+<h3>animation-fill-mode: none;</h3>
+
+```css
+.container {
+  animation-fill-mode: none;
+  animation-delay: 1s;
+}
+```
+
+<kbd>animation-fill-mode: none;</kbd> This will not apply any styles to the target when it's not executing. Also, this is a default value.
+
+<hr class="my-10"/>
+
+<h3>animation-fill-mode: forwards;</h3>
+
+```css
+.container {
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+```
+
+The <kbd>animation-fill-mode: forwards;</kbd> property ensures that after the animation completes, the target element retains the styles defined in the final keyframe, instead of reverting to its original state.
+
+---
+
+<h3>animation-fill-mode: backwards;</h3>
+
+```css
+.container {
+  animation-fill-mode: backwards;
+  animation-delay: 1s;
+}
+```
+
+<kbd>animation-fill-mode: backwards;</kbd>
+
+The <kbd>animation-fill-mode: backwards;</kbd> property makes the target element apply the styles from the first keyframe immediately, even during the animation's delay period, before the animation starts.
+
+<hr class="my-10"/>
+
+<h3>animation-fill-mode: both;</h3>
+
+The <kbd>animation-fill-mode: both;</kbd> property makes the target element apply the rules of both the <kbd>animation-fill-mode: forwards;</kbd> and <kbd>animation-fill-mode: backwards;</kbd> properties. This means that the element will retain the styles defined in the keyframes after the animation ends (as in forwards), and it will also apply the initial styles of the animation before the animation starts (as in backwards).
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Animations vs. Transitions</h3>
+
+You will agree with me that we can achieve the desired effects on our target element using <kbd>transition</kbd>, so why should I use <kbd>@keyframes</kbd>? There are certain effects that cannot be achieved using <kbd>transition</kbd>, such as:
+
+<ol>
+<li><kbd>@keyframes</kbd> for more complex animations</li> 
+<li><kbd>Multi-step animations</kbd> where the animation requires multiple stages</li> 
+<li><kbd>Pauseable animations</kbd> where the animation can be paused and resumed using JavaScript</li> 
+</ol>
+
+In cases where you just need a smooth hover effect or to change the CSS style when a particular action takes place, you should use <kbd>transition</kbd>.
+
+However, if you want an animation to run when the page loads or a component mounts, then you should go for <kbd>@keyframes</kbd> as it provides more control over the sequence, timing, and complexity of the animation.
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Scroll-driven Animations</h3>
+
+Scroll driven animations are a common UX pattern on the web. These are animations that are linked to the scroll position of a scroll container. We can say that its an animation that is driven by a scroll.
+
+To achieve this we have these CSS features:
+
+- <kbd>animation-timeline</kbd>: This property allows you to specify the timeline that controls the animation process.
+
+- <kbd>scroll()</kbd>: This function creates a new scroll timeline, automatically set up to track the nearest ancestor scroller in the block direction. If you want to rely on its default value which is <kbd>nearest</kbd> you can use the <kbd>scroll()</kbd> without any argument.
+
+```css
+#content {
+  animation: move-content linear forwards;
+  animation-timeline: scroll();
+}
+```
+
+Note: The animation property must come before the animation-timeline to avoid the shorthand reseting the animation-timeline property to its initial value.
+
+---
+
+<kbd>animation-timeline</kbd> can take two arguments which determines the function the scroller should find and which axis to track.
+
+```css
+.content {
+  animation-timeline: scroll(<axis> <scroller>);
+}
+```
+
+- The <kbd>axis</kbd> drives the progress of the timeline and the value it accepts are block(default), inline, y, or x.
+- The <kbd>scroller</kbd> container element whose scroll position drives the progess of the timeline and the value is either nearest(default), root or self.
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">How does scroll function works?</h3>
+
+For the scroll function to work correctly, it must know which element or column to track. To achieve this, the scroll function creates an anonymous scroll timeline that traverses up the ancestor tree from the target element to find the nearest scrollable ancestor. This ensures that the scroll behavior is linked to the correct scrollable container.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">view() and View Timeline</h3>
+
+View timeline tracks the element as it crosses the scrollport(the visible part of a scroll container is called the scrollport).
+
+When the viewport becomes scrollable, the element responsible for managing the scrolling is referred to as the root container or root scrolling element. This is usually either the <kbd>html</kbd> or <kbd>body</kbd> element, depending on the browser.
+
+```css
+.content {
+  animation: move-content linear forwards;
+  animation-timeline: view();
+}
+```
+
+---
+
+The <kbd>view()</kbd>function takes 2 argument which are:
+
+```css
+.content {
+  animation-timeline: view(<axis> <view-timeline-inset>);
+}
+```
+
+- The <kbd>axis</kbd> drives the progress of the timeline, and the value it accepts are block(default), inline, y, or x.
+- The <kbd>view-timeline-inset</kbd> gives adjustment of the view propgress visiblity range, and the value is either auto(default), <kbd>length-percentage</kbd>.
+
+Click to learn more about <a class="bg-purple px-4" href="https://scroll-driven-animations.style/">Scroll Driven Animation</a>
+
+---
+
 src: ./pages/css-frameworks.md
----
 
 ---
-
 
 # Assignments
 
@@ -3360,10 +4408,10 @@ src: ./pages/css-frameworks.md
 </ul>
 
 ---
-hideInToc: true
----
 
-# Assignment 1 
+## hideInToc: true
+
+# Assignment 1
 
 <div></div>
 
@@ -3374,8 +4422,8 @@ Convert the design in the image (without the arrow and heading peeks out) to HTM
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Assignment 2 (Huckleberry)
 
@@ -3401,8 +4449,8 @@ Convert the design in the image to HTML and CSS.
 </div>
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Assignment 4 (Web Development training)
 
@@ -3454,8 +4502,8 @@ Convert the design in the figma to HTML and CSS. [Check this figma file for pixe
 - [interactive guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
 
 ---
-hideInToc: true
----
+
+## hideInToc: true
 
 # Contributors
 
