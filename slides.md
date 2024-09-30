@@ -3294,7 +3294,7 @@ url: https://codepen.io/setemiojo/embed/oNrypbw?default-tab=html%2Cresult
 ---
 
 ---
-hideInToc: true
+# hideInToc: true
 ---
 
 # Container Queries (Style)
@@ -3336,10 +3336,1022 @@ The units are cqw (“container query width”), cqh (“container query height�
 
 
 ---
-hide: true
+# hide: true
 ---
 
 # Animations
+
+
+When discussing the beautification of a website, CSS plays a key role. However, you don’t just want to build a visually appealing site — you also want it to be dynamic. To enhance user satisfaction, animations can be added to create a more interactive and engaging experience.
+
+All those small changes really matter in satisfying users and encouraging them to return to our website.
+
+The <kbd>animation</kbd> shorthand CSS property applies animation on element of your choice. It is shorthand for:
+
+<ul>
+  <li><kbd>animation-name</kbd></li>
+  <li><kbd>animation-duration</kbd></li>
+  <li><kbd>animation-timing-function</kbd></li>
+  <li><kbd>animation-delay</kbd></li>
+  <li><kbd>animation-iteration-count</kbd></li>
+  <li><kbd>animation-direction</kbd></li>
+  <li><kbd>animation-fill-mode</kbd></li>
+  <li><kbd>animation-play-state</kbd></li>
+  <li><kbd>animation-timeline</kbd></li>
+</ul>
+
+---
+
+ <h1 class="text-sm bg-purple p-4 text-center">Transforms</h1>
+<p>The <kbd>transform</kbd> CSS property allows you to rotate, scale, skew, or translate an element. It plays a significant role in CSS animations, offering a variety of powerful transform functions for creating dynamic visual effects.</p>
+
+---
+
+<h2 class="text-sm bg-purple p-4 text-center animate-slide-in-down">Transform functions</h2>
+
+The <kbd>transform-function</kbd> in CSS is used to apply 2D or 3D transformations to elements, enabling you to modify their shape, size, and position without disrupting the document flow. This function is powerful for creating visual effects like scaling, rotating, skewing, or translating elements. The transformations occur within the element's own coordinate system.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4">Translation</h3>
+<p> <kbd>translate</kbd> is a transform function that allows you to move an element around the page. It accepts two arguments: <kbd>x</kbd>, which controls the horizontal (side-to-side) movement, and <kbd>y</kbd>, which controls the vertical (up-and-down) movement.</p>
+
+<p>When using the <kbd>translate</kbd> property, you can specify the units in percentages, which refer to the element's own size, rather than the available space in the parent container.</p>
+
+```css
+/*The first argument represents the X-axis, while the second represents the Y-axis, as seen in transform: translate(x, y);. */
+
+.content {
+  transform: translate(50px, 20px);
+}
+```
+
+---
+
+```html
+<div class="box-wrapper">
+  <div class="box"></div>
+</div>
+```
+
+```css
+.box-wrapper {
+  border: 2px dashed red;
+  height: 40px;
+  width: 40px;
+}
+
+.box {
+  background-color: blue;
+  transform: translate(100%, 20px);
+  height: 30px;
+  width: 30px;
+}
+```
+
+<div class="flex justify-center mt-4">
+<div class="border-2 border-dashed border-red-500 h-40 w-40">
+  <div class="bg-blue-500 transform translate-x-[100%] translate-y-[20px] h-30 w-30">
+  </div>
+</div>
+</div>
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Scale</h3>
+The <kbd>scale()</kbd> transform function allows you to resize an element by enlarging or shrinking it. It accepts one or two values, which determine the scaling applied in each direction. The <kbd>scale()</kbd> function is limited to 2D transformations; for 3D scaling, use the <kbd>scale3d()</kbd> function. Scale uses a unitless value.
+
+---
+
+<h2 class="mb-4">scale() transform function code example</h2>
+
+```css
+.box1 {
+  width: 20px;
+  height: 20px;
+}
+/* This means that element should be 2x as big as it would nomally be. */
+.box2 {
+  transform: scale(2);
+}
+/* This means that element should be 1/2 as small as it would nomally be. */
+.box3 {
+  transform: scale(0.5);
+}
+```
+
+<div class="flex justify-between mx-auto mt-20 w-50%">
+  <div class="bg-blue-500 transform h-20 w-20 color-white text-center ">
+  Original size
+  </div>
+
+  <div class="bg-green-500 transform scale-200 h-20 w-20 color-white text-center ">
+    transform: scale(2);
+  </div>
+
+  <div class="bg-red-500 transform scale-50 h-20 w-20 color-white text-center ">
+    scale(0.5);
+  </div>
+</div>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Rotate</h3>
+The <kbd>rotate()</kbd> transform function allows you to rotate an element around a fixed point. We use the following units for the rotate function.
+<ul>
+<li>deg</li>
+<li>turn</li>
+<li>skew</li>
+</ul>
+
+We use the <kbd>deg</kbd> unit for rotation, short for degrees.
+
+```css
+.box {
+  transform: rotate(230deg);
+}
+```
+
+<div class="flex justify-center mx-auto mt-10">
+  <div class="bg-red-500 h-20 w-20 text-white text-center animate-rotate" style="transform: rotate(230deg);">
+    Rotated Box
+  </div>
+</div>
+
+<style>
+  @keyframes rotate {
+    0% { transform: rotate(230deg); }
+    100% { transform: rotate(590deg); } 
+  }
+  .animate-rotate {
+    animation: rotate 2s infinite linear;
+  }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Turn</h3>
+The <kbd>turn</kbd> unit represents how many turns the element should make. 1 turn is equal to 360 degrees.
+
+```css
+.box {
+  transform: rotate(1turn);
+}
+```
+
+<section class="flex justify-center mx-auto mt-6">
+  <div class="bg-blue-500 h-60 w-60 text-white text-center animate-rotate flex justify-center items-center" style="transform: rotate(0turn);">
+    Rotate Box for 1 turn
+  </div>
+</section>
+
+<style>
+  @keyframes rotate {
+    0% { transform: rotate(0turn); }
+    100% { transform: rotate(1turn); } 
+  }
+  .animate-rotate {
+    animation: rotate 2s;
+  }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Skew</h3>
+<p>The <kbd>skew</kbd> is a seldom-used but pretty-neat transformation. It's most useful when you want to create diagonal decorative elements.</p>
+
+```css
+.container {
+  transform: skew(21deg);
+}
+```
+
+<div class="flex justify-center mx-auto mt-6">
+  <div class="bg-red-500 h-60 w-60 text-white text-center animate-skew flex justify-center items-center" style="transform:  skewX(21deg);">
+    Skewed Box
+  </div>
+</div>
+
+<style>
+  @keyframes skew {
+    0% { transform: skewX(0deg); }
+    100% { transform: skewX(21deg); }
+  }
+
+  .animate-skew {
+    animation: skew 2s;
+  }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Transform origin</h3>
+
+Every element has a transformation origin, which is the central point around which transformations are applied. The CSS property <kbd>transform-origin</kbd> allows you to set and control this origin for any element's transformations. This transform origin acts as a pivot point.
+
+```css
+.box {
+  transform: rotate(206deg);
+  transform-origin: left top;
+}
+```
+
+<div class="flex justify-center mx-auto mt-60">
+  <div class="flex justify-center items-center bg-purple-500 h-40 w-40 text-white text-center box  transition-transit">
+     Rotate from a transform origin
+  </div>
+</div>
+
+<style>
+  .box {
+    transform: rotate(206deg);
+    transform-origin: left top;
+    transition: transform 0.3s ease;
+  }
+
+  @keyframes transit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(206deg); }
+  }
+
+  .transition-transit {
+    animation: transit 2s;
+  }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Combining multiple operations</h3>
+To achieve animations using multiple transform functions in CSS, it’s important to understand that when you combine multiple transformations, they are applied in the order they are written. However, the visual effect is processed from right to left.
+
+Order of Transform Functions: If you have both rotate and translate functions in the same transform property, the effect will change depending on the order. For example, rotate affects the element first if it is written before translate.
+
+Right-to-Left Application: The transforms are applied sequentially but executed from right to left. This means that the rightmost transform (e.g., translate) is applied first, and then the next one (e.g., rotate).
+
+---
+
+```css
+/* Translate first, then rotate */
+.red-box {
+  transform: translateX(87px) rotate(141deg);
+}
+```
+
+<div class="border-3 rounded-3 pb-5 mt-10">
+<div class="relative flex justify-center mx-auto mt-6">
+  <!-- Yellow Box -->
+  <div class="bg-yellow-500 h-50 w-50 text-white text-center flex justify-center items-center">
+    Yellow Box
+  </div>
+  
+  <!-- Red Box (absolute) -->
+  <div class="absolute top-5 left-20 bg-red-500 h-40 w-40 text-white text-center flex justify-center items-center animate-spin-box">
+    Red box
+  </div>
+</div>
+
+<style>
+  /* Animation Keyframes */
+  @keyframes spin-box {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(87px) rotate(0deg);
+    }
+    100% {
+      transform: translateX(87px) rotate(141deg);
+    }
+  }
+
+  /* Apply animation */
+  .animate-spin-box {
+    animation: spin-box 2s ease-in-out infinite; 
+  }
+
+  /* Positioning */
+  .relative {
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+</style>
+</div>
+
+---
+
+```css
+/* Rotate first, then translate */
+.red-box {
+  transform: rotate(360deg) translate(187px);
+}
+```
+
+<div class="border-3 rounded-3 pb-5 mt-10 h-80 ">
+<div class="relative flex justify-center mx-auto mt-6">
+  <!-- Yellow Box -->
+  <div class=" bg-yellow-500 h-50 w-50 text-white text-center flex justify-center items-center">
+    Yellow Box
+  </div>
+  
+  <!-- Red Box  -->
+  <div class="absolute top-5 left-20 bg-red-500 h-40 w-40 text-white text-center flex justify-center items-center animate-spin-second-box">
+    Red box
+  </div>
+</div>
+
+<style>
+  /* Animation Keyframes */
+  @keyframes spin-second-box {
+    0% {
+      transform:  rotate(0deg) translate(0);
+    }
+    50% {
+      tranform : rotate(360deg) translate(0)
+    }
+    100% {
+      transform:  rotate(360deg) translateX(187px);
+    }
+  }
+
+  /* Apply animation */
+  .animate-spin-second-box {
+    animation: spin-second-box 2s ease-in-out infinite; 
+  }
+
+  /* Positioning */
+  .relative {
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+</style>
+</div>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Inline elements</h3>
+The <kbd>transform</kbd> property does not work with inline elements in a Flow layout because inline elements are designed to flow with the content and cause minimal disruption. To apply transformations, you can change the element's display to <kbd>inline-block</kbd>, or switch to a different layout mode such as Grid or Flexbox.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">CSS Transitions</h3>
+
+The CSS <kbd>transition</kbd> property is an essential tool when discussing CSS animations. When navigating through a website, you might notice that many elements change states. Instead of a sudden, jarring switch between an element's initial state and its target state, the <kbd>transition</kbd> property helps create smooth, gradual shifts. This enhances the user experience by making interactions feel more fluid and less abrupt.
+
+Hover over these two circles to notice the difference: the red circle has a transform effect on hover, while the blue circle doesn't.
+
+<div class="d-flex flex gap-40 justify-center items-center">
+<div class=" bg-blue-500 w-48 h-48 rounded-full border border-gray-400 text-center flex items-center justify-center mb-4 hover:translate-y-[-10px] cursor-pointer">
+  Hover (No transform)
+</div>
+
+<div class="circle bg-red w-48 h-48 rounded-full border border-gray-400 text-center flex items-center justify-center hover:transform-effect cursor-pointer">
+  Hover (With transform)
+</div>
+
+<style>
+  /* Basic Circle Styles */
+  .circle {
+    transition: transform 0.3s ease;
+  }
+
+/* Transform Effect on Hover for Red Circle */
+.hover\:transform-effect:hover {
+transform: translateY(-10px);
+}
+</style>
+</div>
+
+---
+
+The <kbd>transition</kbd> property accepted just two values and these are:
+
+<ol>
+<li>The name of the property we wish to animate</li>
+<li>The duration of the animation</li>
+</ol>
+
+Note: You can pass a comma to create animation on multiple properties.
+
+```css
+.btn {
+  transition:
+    transform 250ms,
+    opacity 400ms;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  opacity: 0;
+}
+```
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Timing functions</h3>
+
+The <kbd>transition-timing-function</kbd> CSS property is what handles "motion" on the web. It sets how intermediate values are calculated for CSS properties being affected by a transition effect.
+
+We have several timing functions available to us in CSS and we can specify which one we want to use.
+
+<ol>
+  <li><kbd>transition-timing-function: ease;</kbd></li>
+  <li><kbd>transition-timing-function: ease-in;</kbd></li>
+  <li><kbd>transition-timing-function: ease-out;</kbd></li>
+  <li><kbd>transition-timing-function: ease-in-out;</kbd></li>
+  <li><kbd>transition-timing-function: linear;</kbd></li>
+  <!-- <li><kbd>transition-timing-function: step-start;</kbd></li>
+  <li><kbd>transition-timing-function: step-end;</kbd></li> -->
+</ol>
+
+<div class="overflow-scroll h-45">
+It's either we use the <kbd>transition-timing-function</kbd> property:
+
+```css
+.btn {
+  transition-timing-function: linear;
+}
+```
+
+Or, we can pass it directly to the <kbd>transition</kbd> shorthand property:
+
+```css
+.btn {
+  transition: all 0.3s linear;
+}
+```
+
+</div>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Transition timing functions</h3>
+<ol>
+<li><kbd>linear</kbd> transitions at an even speed.</li>
+<li><kbd>ease-out</kbd> comes in quickly like a wild bull but later runs out of energy, making it slow down as the transition continues.</li>
+<li><kbd>ease-in</kbd> starts slow, like a lion stealthily approaching its prey, then picks up speed as it closes in for the chase. This is the opposite of <kbd>ease-out</kbd></li>
+<li><kbd>ease-in-out</kbd> starts slow, picks up speed in the middle, and then gently slows down again, like a bird taking off, soaring, and then gliding to a landing.</li>
+
+<li><kbd>ease</kbd> is similar to <kbd>ease-in-out</kbd> because it starts slowly, accelerates in the middle, and then decelerates towards the end, like a car smoothly adjusting its speed as it navigates through different road conditions. But it isn't symmetrical and also this is <kbd>ease</kbd> is the default value</li>
+ </ol>
+
+Note:
+<strong>Time is constant</strong>
+<i>
+An important note about all of these demos: time is constant. Timing functions describe how a value should get from 0 to 1 over a fixed time interval, not how quickly the animation should complete. Some timing functions may feel faster or slower, but in these examples, they all take exactly 1 second to complete.</i>
+
+```css
+.btn {
+  transition: transform 250ms cubic-bezier(0.1, 0.2, 0.3, 0.4);
+}
+```
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Custom curves</h3>
+
+All the <kbd>transition-timing-function</kbd> we've seen so far are really just presets for this <kbd>cubic-bezier</kbd>
+
+If the provided built-in options don't suit your needs, you can define your own custom easing curve, using the cubic bézier timing function!
+
+Using Josh Comeau's custom alternatives, these are his declarations
+
+```css
+.btn {
+  /* ease-out */
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  /* ease-in */
+  transition-timing-function: cubic-bezier(0.75, 0, 1, 1);
+
+  /* ease-in-out */
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  /* ease */
+  transition-timing-function: cubic-bezier(0.44, 0.21, 0, 1);
+}
+```
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Delays</h3>
+
+The <kbd>transition-delay</kbd> CSS property defines how long to wait before starting a transition effect when a property's value changes. This feature is particularly useful for delaying actions. For example, if you have a dropdown menu with nested options that close too quickly when you're navigating, you could use JavaScript to add a delay, but if CSS can handle it, it's best to avoid JavaScript.
+
+If you set <kbd>transition-delay: 500ms</kbd> on an element, what you're trying to achieve is that when you hover over the element, the transition will start only after a delay of 500 milliseconds. This means that there will be a slight pause before any transition effect, such as a change in color, size, or position, begins after the hover event is triggered.
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Keyframe Animations</h3>
+
+We've discussed various animation properties, but now it's time for the main event. To apply a transformation to an element, transitioning from one set of CSS declarations to another, we'll need the <kbd>@keyframes</kbd> rule.
+
+```css
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+```
+
+You'll notice that after <kbd>@keyframes</kbd> we have a name called <kbd>slide-in</kbd>; this is the name of the <kbd>@keyframes</kbd> animation. These names work like global variables, allowing you to reuse the animation across different elements. To apply the animation to specific selectors, you use the <kbd>animation</kbd> property.
+
+```css
+.container {
+  animation: slide-in 500ms;
+}
+```
+
+---
+
+```html
+<div class="container"></div>
+```
+
+```css
+@keyframes float-in {
+  from {
+    transform: rotate(-50deg) translate(-100%);
+    opacity: 1;
+  }
+}
+/* 
+the float-in is the @keyframes name while the 1000ms is the animation-duration */
+.container {
+  animation: float-in 1000ms;
+}
+```
+
+<div class="flex justify-center mt-6">
+<div class="h-40 w-40 bg-purple animate-float-in"></div>
+</div>
+
+<style>
+  @keyframes float-in {
+    from {
+      transform: rotate(-50deg) translate(-100%);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(0deg) translate(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-float-in {
+    animation: float-in 1000ms;
+ }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Looped animations</h3>
+
+The <kbd>animation-iteration-count</kbd> CSS property sets the number of times an animation sequence should be played before stopping but by default keyframe animations will only run once, yes just once. So, in cases where you want the animation to iterate you have the <kbd>animation-iteration-count</kbd> property. It has two values and these are:
+
+<ol>
+<li><kbd>infinite</kbd>: The animation will repeat forever</li>
+<li><kbd>number</kbd>: The number of times the animation will repeat</li>
+</ol>
+
+```css
+.container {
+  animation: float-in 1000ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 3;
+}
+```
+
+<div class="flex justify-center mt-4">
+<div class="h-35 w-40 bg-purple animate-float-in"></div>
+</div>
+
+<style>
+  @keyframes float-in {
+    from {
+      transform: rotate(-50deg) translate(-100%);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(0deg) translate(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-float-in {
+    animation: float-in 1000ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 3;
+ }
+</style>
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Multi-step animations</h3>
+
+In cases where the animation requires more than 2 steps, instead of using <kbd>from</kbd> and <kbd>to</kbd> keywords, you can use percentages.
+
+```css
+@keyframes fancy-spin {
+  0% {
+    transform: rotate(0turn) scale(1);
+  }
+  40% {
+    transform: rotate(1turn) scale(1.5);
+  }
+  80% {
+    transform: rotate(1turn) scale(1.5);
+  }
+  100% {
+    transform: rotate(0turn) scale(1);
+  }
+}
+
+.container {
+  animation: fancy-spin 2000ms;
+  animation-iteration-count: infinite;
+}
+```
+
+---
+
+<h2>Contd: Multi-step animations example</h2>
+
+<div class="flex justify-center my-10">
+<div class="w-24 h-24 bg-purple-500 animate-float-in"></div>
+</div>
+
+<style>
+  @keyframes float-in {
+    0% {
+      transform: rotate(0turn) scale(1);
+    }
+    40% {
+      transform: rotate(1turn) scale(1.5);
+    }
+    80% {
+      transform: rotate(1turn) scale(1.5);
+    }
+    100% {
+      transform: rotate(0turn) scale(1);
+    }
+  }
+
+.animate-float-in {
+animation: float-in 2000ms infinite;
+}
+</style>
+
+We used percentages for the animation above because it involves multiple stages. The percentages represent the progress through the animation. <kbd>0%</kbd> serves as a replacement for <kbd>from</kbd>, and we break the animation into various stages before reaching the final point, <kbd>100%</kbd>, which replaces <kbd>to</kbd>.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Alternating animations</h3>
+
+If you want your animations to go through three stages, such as creating a "breathing" effect with inflating and deflating, you can achieve this with a 3-step animation.
+
+```css
+@keyframes grow-and-shrink {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.box {
+  animation: grow-and-shrink 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+```
+
+---
+
+<h2> Contd: Alternating animations example</h2>
+<div class="flex justify-center my-5">
+<div class="w-20 h-20 bg-purple-500 animate-grow-and-shrink"></div>
+</div>
+
+<style>
+  @keyframes grow-and-shrink {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+
+  }
+
+.animate-grow-and-shrink {
+  animation: grow-and-shrink 2000ms infinite;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+</style>
+
+The box starts at its default size, grows to 1.5 times its default size, and then shrinks back to its original size.
+Alternatively, we can use the <kbd>animation-direction</kbd> property to achieve this effect
+
+```css
+@keyframes grow-and-shrink {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+.box {
+  animation: grow-and-shrink 2000ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+```
+
+---
+
+<h2> Contd: Alternating animations example</h2>
+
+When you set <kbd>animation-direction</kbd> to <kbd>alternate</kbd>, the animation alternates between <kbd>normal</kbd> and <kbd>reverse</kbd> on each iteration. The default value for <kbd>animation-direction</kbd> is <kbd>normal</kbd>, meaning the animation moves from <kbd>0%</kbd> to <kbd>100%</kbd> throughout the <kbd>animation-duration</kbd>. You can also set the value to <kbd>reverse</kbd>, which makes the animation run in reverse, going from <kbd>100%</kbd> to <kbd>0%</kbd>.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Shorthand values</h3>
+
+The <kbd>animation</kbd> shorthand CSS property applies an animation between styles and is a shorthand for <kbd>animation-name</kbd>, <kbd>animation-duration</kbd>, <kbd>animation-timing-function</kbd>, <kbd>animation-delay</kbd>, <kbd>animation-iteration-count</kbd>, <kbd>animation-direction</kbd>, <kbd>animation-fill-mode</kbd>, <kbd>animation-play-state</kbd>, and <kbd>animation-timeline</kbd>. We've covered many animation properties in this lesson, and fortunately, just like with transitions, we can use the <kbd>animation</kbd> shorthand to combine all these properties and save on typing.
+
+```css
+.box {
+  /*
+  From this:
+    animation: grow-and-shrink 2000ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+  ...to this:
+  */
+  animation: grow-and-shrink 2000ms ease-in-out infinite alternate;
+}
+```
+
+---
+
+<h2> Contd: Shorthand values</h2>
+I'm sure you're thinking what I am thinking as well, the good news is that <strong>the order doesn't matter</strong>.
+
+```css
+.box {
+  /* This works: */
+  animation: grow-and-shrink 2000ms ease-in-out infinite alternate;
+
+  /* This also works! */
+  animation: grow-and-shrink alternate infinite 2000ms ease-in-out;
+}
+```
+
+But, if you want to add <kbd>animation-delay</kbd> to the shorthand it has to come after the duration so its for best practice to exclude delay from the shothand:
+
+```css
+.box {
+  animation: grow-and-shrink 2000ms ease-in-out infinite alternate;
+  animation-delay: 500ms;
+}
+```
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Fill Modes</h3>
+
+The <kbd>animation-fill-mode</kbd> CSS property controls how an element should be styled before and after an animation runs.
+
+For instance, if you want the element to fade out smoothly after the animation completes, animation-fill-mode ensures the element doesn’t abruptly reappear or reset its styles once the animation ends.
+
+```css
+.container {
+  animation: fade-out 1000ms;
+}
+```
+
+<div class="flex justify-center mt-4">
+<div class="h-35 w-40 bg-purple animate-fade-out">See you soon</div>
+</div>
+
+<style>
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .animate-float-in {
+    animation: fade-out 1000ms;
+ }
+</style>
+
+---
+
+<h2>Contd:</h2> You will notice that the box reappears after the animation style passed on it has been executed, that's because there is no <kbd>opacity</kbd> property set on the container itself.
+To make the container not reappears you should add <kbd>opacity</kbd> declaration to the container.
+
+```css
+.container {
+  animation: fade-out 1000ms;
+  opacity: 0;
+}
+```
+
+<div class="flex justify-center mt-4">
+<div class="h-35 w-40 bg-purple animate-fade-out opacity-0">See you soon</div>
+</div>
+
+<style>
+@keyframes fade-out {
+  0% {
+    opacity: 1; /* Fully visible at the start */
+  }
+  100% {
+    opacity: 0; /* Fully transparent at the end */
+  }
+}
+
+.animate-fade-out {
+animation: fade-out 3s ease-in-out forwards;
+}
+</style>
+
+<hr/>
+
+There is a better way to do this and that's what we will be discussing in the next slide.
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">animation-fill-modes</h3>
+
+In a nutshell, this CSS property sets how a CSS animation applies styles to its target before and after its execution.
+
+We have the following values that can be applied on the property:
+
+<ul>
+  <li><kbd>animation-fill-mode: none;</kbd></li>
+  <li><kbd>animation-fill-mode: forwards;</kbd></li>
+  <li><kbd>animation-fill-mode: backwards;</kbd></li>
+  <li><kbd>animation-fill-mode: both;</kbd></li>
+</ul>
+
+---
+
+<h3>animation-fill-mode: none;</h3>
+
+```css
+.container {
+  animation-fill-mode: none;
+  animation-delay: 1s;
+}
+```
+
+<kbd>animation-fill-mode: none;</kbd> This will not apply any styles to the target when it's not executing. Also, this is a default value.
+
+<hr class="my-10"/>
+
+<h3>animation-fill-mode: forwards;</h3>
+
+```css
+.container {
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+```
+
+The <kbd>animation-fill-mode: forwards;</kbd> property ensures that after the animation completes, the target element retains the styles defined in the final keyframe, instead of reverting to its original state.
+
+---
+
+<h3>animation-fill-mode: backwards;</h3>
+
+```css
+.container {
+  animation-fill-mode: backwards;
+  animation-delay: 1s;
+}
+```
+
+<kbd>animation-fill-mode: backwards;</kbd>
+
+The <kbd>animation-fill-mode: backwards;</kbd> property makes the target element apply the styles from the first keyframe immediately, even during the animation's delay period, before the animation starts.
+
+<hr class="my-10"/>
+
+<h3>animation-fill-mode: both;</h3>
+
+The <kbd>animation-fill-mode: both;</kbd> property makes the target element apply the rules of both the <kbd>animation-fill-mode: forwards;</kbd> and <kbd>animation-fill-mode: backwards;</kbd> properties. This means that the element will retain the styles defined in the keyframes after the animation ends (as in forwards), and it will also apply the initial styles of the animation before the animation starts (as in backwards).
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Animations vs. Transitions</h3>
+
+You will agree with me that we can achieve the desired effects on our target element using <kbd>transition</kbd>, so why should I use <kbd>@keyframes</kbd>? There are certain effects that cannot be achieved using <kbd>transition</kbd>, such as:
+
+<ol>
+<li><kbd>@keyframes</kbd> for more complex animations</li> 
+<li><kbd>Multi-step animations</kbd> where the animation requires multiple stages</li> 
+<li><kbd>Pauseable animations</kbd> where the animation can be paused and resumed using JavaScript</li> 
+</ol>
+
+In cases where you just need a smooth hover effect or to change the CSS style when a particular action takes place, you should use <kbd>transition</kbd>.
+
+However, if you want an animation to run when the page loads or a component mounts, then you should go for <kbd>@keyframes</kbd> as it provides more control over the sequence, timing, and complexity of the animation.
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Scroll-driven Animations</h3>
+
+Scroll driven animations are a common UX pattern on the web. These are animations that are linked to the scroll position of a scroll container. We can say that its an animation that is driven by a scroll.
+
+To achieve this we have these CSS features:
+
+- <kbd>animation-timeline</kbd>: This property allows you to specify the timeline that controls the animation process.
+
+- <kbd>scroll()</kbd>: This function creates a new scroll timeline, automatically set up to track the nearest ancestor scroller in the block direction. If you want to rely on its default value which is <kbd>nearest</kbd> you can use the <kbd>scroll()</kbd> without any argument.
+
+```css
+#content {
+  animation: move-content linear forwards;
+  animation-timeline: scroll();
+}
+```
+
+Note: The animation property must come before the animation-timeline to avoid the shorthand reseting the animation-timeline property to its initial value.
+
+---
+
+<kbd>animation-timeline</kbd> can take two arguments which determines the function the scroller should find and which axis to track.
+
+```css
+.content {
+  animation-timeline: scroll(<axis> <scroller>);
+}
+```
+
+- The <kbd>axis</kbd> drives the progress of the timeline and the value it accepts are block(default), inline, y, or x.
+- The <kbd>scroller</kbd> container element whose scroll position drives the progess of the timeline and the value is either nearest(default), root or self.
+
+---
+
+ <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">How does scroll function works?</h3>
+
+For the scroll function to work correctly, it must know which element or column to track. To achieve this, the scroll function creates an anonymous scroll timeline that traverses up the ancestor tree from the target element to find the nearest scrollable ancestor. This ensures that the scroll behavior is linked to the correct scrollable container.
+
+---
+
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">view() and View Timeline</h3>
+
+View timeline tracks the element as it crosses the scrollport(the visible part of a scroll container is called the scrollport).
+
+When the viewport becomes scrollable, the element responsible for managing the scrolling is referred to as the root container or root scrolling element. This is usually either the <kbd>html</kbd> or <kbd>body</kbd> element, depending on the browser.
+
+```css
+.content {
+  animation: move-content linear forwards;
+  animation-timeline: view();
+}
+```
+
+---
+
+The <kbd>view()</kbd>function takes 2 argument which are:
+
+```css
+.content {
+  animation-timeline: view(<axis> <view-timeline-inset>);
+}
+```
+
+- The <kbd>axis</kbd> drives the progress of the timeline, and the value it accepts are block(default), inline, y, or x.
+- The <kbd>view-timeline-inset</kbd> gives adjustment of the view propgress visiblity range, and the value is either auto(default), <kbd>length-percentage</kbd>.
+
+Click to learn more about <a class="bg-purple px-4" href="https://scroll-driven-animations.style/">Scroll Driven Animation</a>
 
 ---
 src: ./pages/css-frameworks.md
