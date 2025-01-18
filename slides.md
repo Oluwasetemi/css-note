@@ -644,7 +644,7 @@ hideInToc: true
 
 # Height Calculation
 
-- Height is calculated along the block axis(top to bottom) and default is auto(using the content inside the element) but can be set using the `height` property. The `max-height` and `min-height` properties set the maximum and minimum height of an element. `max-height` is used to prevent an element from exceeding a certain height, while `min-height` ensures that an element is at least a certain height. `min-height` is useful for creating responsive designs that adapt to different screen sizes and adjustable height. `max-height` is useful for ensuring that an element is at least a certain height, which can be helpful for maintaining the layout of a page and preventing elements from becoming too short. Height considers the content inside the element first before the parent element's height.
+- Height is calculated along the block axis(top to bottom) and default is auto(using the content inside the element) but can be set using the `height` property. The `max-height` and `min-height` properties set the maximum and minimum height of an element. `max-height` is used to prevent an element from exceeding a certain height, which can be helpful for maintaining the layout of a page and preventing elements from becoming too large. `min-height` ensures that an element is at least a certain height, making it useful for creating responsive designs that adapt to different screen sizes and ensuring adjustable height. Height considers the content inside the element first before the parent element's height.
 
 ---
 hideInToc: true
