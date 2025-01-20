@@ -1681,7 +1681,7 @@ hideInToc: true
 <p>When elements are laid out as flex items, they are laid out along two axis:</p>
 
 <div class="w-full grid grid-cols-2  justify-center">
-  <img src="images/flex_terms.png" alt="Flexbox model"/>
+  <img src="/images/flex_terms.png" alt="Flexbox model"/>
   <div class= "h-70 overflow-scroll border rounded-lg border-gray-300 shadow-xl">
   <ul >
   <li>
