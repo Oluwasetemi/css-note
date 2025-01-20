@@ -1536,7 +1536,7 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 <div class="h-80 overflow-scroll  grid place-items-center animate-slide-in-left w-full ">
 
-<img src="/css_inspector.png" alt="image showing chrome developer tools" class="w-3/5" />
+<img src="./css_inspector.png" alt="image showing chrome developer tools" class="w-3/5" />
 
 <small>How the DevTools look like</small>
 </div>
