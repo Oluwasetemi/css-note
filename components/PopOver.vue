@@ -24,7 +24,8 @@
   <p>Click open the hamburger menu to see a demo of JavaScript-free interaction handling! By using the
     <code>popover</code> attribute, you can allow the browser to handle the keyboard management (including navigation
     via <code>esc</code>, <code>spacebar</code>, and <code>enter</code>), optional light-dismiss (clicking outside the
-    boundaries of the popover), and click handlers such as on the open and close buttons.</p>
+    boundaries of the popover), and click handlers such as on the open and close buttons.
+  </p>
 </template>
 
 <style scoped>

@@ -1,14 +1,22 @@
 ---
-theme: seriph
-
+# theme: seriph
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
 title: CSS Class Note
 info: |
-  ## AltSchool v4 CSS Class Notes
+  AltSchool v4 CSS Class Notes
   making of world class developers
-
   join at [AltSchool Africa](https://altschoolafrica.com)
-# apply any unocss classes to the current slide
+author: Oluwasetemi
+download: true
+exportFilename: soe_altschool_cssnote
+export:
+  format: pdf
+  timeout: 60000
+  dark: false
+  withClicks: false
+  withToc: false
+# TODO: add a svg favicon
+# favicon: https://oluwasetemi.dev/favicon-32x32.png
 class: text-center
 highlighter: shiki
 drawings:
@@ -16,6 +24,9 @@ drawings:
 transition: slide-left
 mdc: true
 hideInToc: true
+selectable: true
+lineNumbers: false
+overviewSnapshots: true
 ---
 
 # CSS Class Notes
@@ -219,20 +230,81 @@ Note: This method give you the access to style any element that has an attribute
 
 ---
 
-- `Pseudo-classes`: Pseudo-classes are keywords added to selectors using a single colon sign <kbd>:</kbd> just to specify a special state of the selected elements. They allow you to style elements based on their state, position, or user interactions, which cannot be targeted by regular CSS selectors alone.
+- [`Pseudo-classes`](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes): Pseudo-classes are keywords added to selectors using a single colon sign <kbd>:</kbd> just to specify a special state of the selected elements. They allow you to style elements based on their state, position, or user interactions, which cannot be targeted by regular CSS selectors alone.
   Here are some common pseudo-classes:
 
-```
-1 :link
-2 :visited
-3 :hover
-4 :active
-5 :focus
-6 :nth-child()
+<div grid="~ cols-8">
 
 ```
+:active
+:popover-open
+:auto-fill
+:blank
+:checked
+```
+
+```
+:current
+:default
+:defined
+:dir
+:disabled
+```
+
+```
+:empty
+:enabled
+:first
+:first-child
+:first-of-type
+```
+
+```
+:focus
+:required
+:root
+:fullscreen
+:valid
+```
+
+```
+:has
+:host
+:playing
+:hover
+:where
+```
+
+```
+:in-range
+:invalid
+:is
+:lang
+:last-child
+```
+
+```
+:left
+:link
+:modal
+:not
+:nth-child()
+```
+
+
+```
+:link
+:visited
+:hover
+:active
+:target
+```
+
+</div>
 
 <ins>Code Example</ins>
+
+<div grid="~ cols-2">
 
 ```css
 button:hover {
@@ -242,11 +314,20 @@ button:hover {
 li:nth-child(even) {
   text-transform: uppercase;
 }
+```
+
+```css
 
 input:focus {
   border: 2px solid red;
 }
+
+:popover-open {
+  translate: 0 0;
+}
 ```
+
+</div>
 
 ---
 
@@ -481,7 +562,9 @@ hideInToc: true
 ---
 
 # important rule
+
 <div />
+
 In CSS, there is one rule that has the highest specificity score of 10,000. This rule is used to give a property-value pair the highest priority, allowing it to override any other declarations.
 
 The only way to override inline styles which has specificity value of 1000 is by using this rule called !important, though this is considered as a bad practice and should be avoided.
@@ -499,9 +582,9 @@ selector {
 }
 ```
 
-<div class="border-l-10 border-2 border-l-red">
-  <p class="p-4">Importance should be used carefully and not always.</p>
-</div>
+<Tips type="danger" full-width>Importance should be used carefully and not always.</Tips>
+
+
 
 ---
 
@@ -519,13 +602,15 @@ hideInToc: true
 
 # Components Of Box Model
 
-- a) Content:
+<div />
+
+(a) Content:
 
   - This is the innermost layer.
   - It contains the actual content of the element (text, images, etc.).
   - Dimensions are set using 'width' and 'height' properties.
 
-- b) Padding:
+(b) Padding:
 
   - Surrounds the content area.
   - Creates space between the content and the border.
@@ -534,13 +619,13 @@ hideInToc: true
 
 ---
 
-- c) Border:
+\(c\) Border:
 
   - Encircles the padding (or content if no padding is set).
   - Can have different styles, colors, and widths.
   - Set using the 'border' property or individual properties like 'border-width'.
 
-- d) Margin:
+(d) Margin:
 
   - The outermost layer.
   - Creates space between the element and adjacent elements.
@@ -618,15 +703,15 @@ div {
 # Using Block and Inline Axes in CSS
 
 <div></div>
-In CSS, the block and inline axes are used to determine how elements are laid out on a page. Understanding these axes is crucial for creating responsive layouts and designing web pages.
+In CSS, the block and inline axes are used to determine how elements are laid out on a page. Understanding these axes is crucial for creating modern responsive websites with i18n(Internationalization) and localization.
 
-- Block Axis: The block axis is the vertical axis that runs from top to bottom. Block-level elements stack on top of each other in the block axis.
+- Block Axis: The block axis is the horizontal or vertical axes of an element's block depending on the writing-mode. Block-level elements stack on top of each other in the block axis and can corresponding to width or height depending on the writing-mode.
 
-- Inline Axis: The inline axis is the horizontal axis that runs from left to right. Inline-level elements flow in the inline axis.
+- Inline Axis: The inline axis is the horizontal or vertical axes of an element's block depending on the writing-mode. Inline-level elements flow in the inline axis and it corresponds to height or width based on the writing-mode.
 
-Possible css properties with block and inline axes are: `padding-block`, `margin-block`, `border-block`, `padding-inline`, `margin-inline`, `border-inline`, `block-size`, `inline-size`, `min-block-size`, `max-block-size`, `min-inline-size`, `max-inline-size`. Padding and margin can have the start, end variant like `padding-inline-start`, `padding-inline-end`, `margin-block-start`, `margin-block-end`.
+Possible css properties with block and inline axes are: `padding-block`, `margin-block`, `border-block`, `padding-inline`, `margin-inline`, `border-inline`. Padding and margin can have the start, end variant like `padding-inline-start`, `margin-block-end`.
 
-The `block-size` and `inline-size` properties are used to set the width and height of an element, respectively. The `min-block-size` and `max-block-size` properties set the minimum and maximum width of an element, while the `min-inline-size` and `max-inline-size` properties set the minimum and maximum height of an element.
+The `block-size` and `inline-size` properties are used to set the height and width of an element, respectively. The `min-block-size` and `max-block-size` properties set the minimum and maximum height of an element, while the `min-inline-size` and `max-inline-size` properties set the minimum and maximum width of an element. For positioning of elements, `inset-block` or `inset-inline` and can be a start or end variant.
 
 ---
 hideInToc: true
@@ -664,7 +749,7 @@ A CSS reset is a set of CSS rules that reset the styling of all HTML elements to
 
 [Link to Josh Comeau CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/)
 
-## Normalize.css
+## {@necolas/normalize.css}
 
 Normalize.css is a modern, HTML5-ready alternative to CSS resets. It makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
 
@@ -689,9 +774,9 @@ graph TD;
 
 ---
 
-Some inherited and non-inherited CSS properties:
+[Some inherited and non-inherited CSS properties:]{.font-bold}
 
-<table class="p-4 border border-black overflow-scroll">
+<table class="p-2 border border-black overflow-scroll">
 <tbody>
   <tr class="p-4 border border-black-400 bg-green">
     <th>Inherited Properties</th>
@@ -731,6 +816,14 @@ Some inherited and non-inherited CSS properties:
   </tr>
 </tbody>
 </table>
+
+<style>
+  p {
+    margin-bottom: 0;
+  }
+</style>
+
+
 ---
 
 Inherited property
@@ -1087,7 +1180,7 @@ hideInToc: true
 font-size: 1.2rem; /* 1.2 times the root font size */
 ```
 
-- <kbd>%</kbd>: Relative to the parent element's size, commonly used in responsive design.
+- <kbd>%</kbd>: Relative to the parent element's size, commonly used in responsive design. [Read More](https://2019.wattenberger.com/blog/css-percents)
 
 ```css
 width: 80%; /* 80% of the parent element's width */
@@ -1241,17 +1334,21 @@ hideInToc: true
 layout: two-cols
 ---
 
-# CSS Functions
+[CSS Functions](https://mdn.io/css/functions)
 
-<div></div>
-Functions in CSS are used to manipulate values, perform calculations, and apply effects. Here are some common functions:
+<div class="empty"></div>
 
-- calc(): Performs calculations on property values.
-- var(): Defines custom properties (variables).
-- rgb(), rgba(), hsl(), hsla(): Define colors using RGB, RGBA, HSL, and HSLA values.
-- url(): Specifies the location of an external resource.
-- linear-gradient(), radial-gradient(), conic-gradient(): Create gradients with smooth color transitions.
-- clamp(): Restricts a value to a specified range.
+Value functions in CSS are used to manipulate values, perform calculations, and apply effects. Here are some common functions:
+
+- `calc()`: Performs calculations on property values.
+- `var()`: Defines custom properties (variables).
+- `rgb()`, `rgba()`, `hsl()`, `hsla()`: Define colors using RGB, RGBA, HSL, and HSLA values.
+- `url()`: Specifies the location of an external resource.
+- `linear-gradient()`, `radial-gradient()`, `conic-gradient()`: Create gradients with smooth color transitions.
+- `clamp()`: Restricts a value to a specified range.
+- `light-dark()`, `color()`, `color-mix()`: Manipulate colors and create color schemes.
+- `attr()`: Retrieves the value of an attribute on an element.
+- transform functions - `translate()`, `rotate()`, `skew()`, `matrix()`, `scale()`, `perspective()`.
 
 ```css
 p {
@@ -1263,19 +1360,31 @@ p {
 
 ::right::
 
-### CSS @Rules
+[CSS @Rules](https://mdn.io/css/at-rule)
+
+<div class="empty"></div>
 
 @Rules are used to define special rules in CSS that control how styles are applied. Here are some common @Rules:
 
-- @media: Defines media queries for responsive design.
-- @keyframes: Creates animations with multiple keyframes.
-- @font-face: Embeds custom fonts in a web page.
-- @import: Imports external CSS files.
-- @supports: Checks if a browser supports a particular CSS feature.
-- @page: Defines the layout of printed pages.
-- @layer: Specifies the layering order of elements.
-- @counter-style: Defines custom counter styles for lists.
-- @property: Registers custom CSS properties.
+- `@media`: Defines media queries for responsive design.
+- `@keyframes`: Creates animations with multiple keyframes.
+- `@font-face`: Embeds custom fonts in a web page.
+- `@import`: Imports external CSS files.
+- `@supports`: Checks if a browser supports a particular CSS feature.
+- `@page`: Defines the layout of printed pages.
+- `@layer`: Specifies the layering order of elements.
+- `@counter-style`: Defines custom counter styles for lists.
+- `@property`: Registers custom CSS properties.
+- `@view-transition`: Opts the current document into a view transition, and the destination document as well in the case of cross-document navigation transitions.
+- `@scope`: Defines a scope in which to apply them to selected elements and the styles to apply to the elements in that scope.
+- `@container`: A conditional group rule that applies its content if the container meets the `container-conditions` (CSS containment).
+- `@starting-style`: Define the starting property values for an element to transition from when the element receives its first style update, such as when transitioning from display: none.
+
+<style>
+  p { @apply mt-0 mb-[6px]; }
+  li { @apply text-[12px]; }
+  div.empty + p { @apply text-[15px]; }
+</style>
 
 ---
 hideInToc: true
@@ -1316,13 +1425,20 @@ hideInToc: true
 
 ---
 hideInToc: true
+---
+
+<PopOverCode />
+
+---
+hideInToc: true
 layout: two-cols
 ---
 
 # Typography in CSS
 
 <div></div>
-Typography is a crucial aspect of web design, as it affects readability, accessibility, and overall user experience. Here are some key CSS properties for typography: `font-style`, `font-weight`, `font-size`, `line-height`, `font-family`, `text-align`, `text-transform`, `text-decoration`, `letter-spacing`, `word-spacing`, `text-shadow`, `white-space`, `overflow-wrap`, `word-break`, `hyphens`, `text-overflow`, `vertical-align`, `text-orientation`,  `font-variant`.
+
+Typography is a crucial aspect of web design, as it affects readability, accessibility, and overall user experience. Here are some key CSS properties for typography: `font-style`, `font-weight`, `font-size`, `line-height`, `font-family`, `text-align`, `text-transform`, `text-decoration`, `letter-spacing`, `word-spacing`, `text-shadow`, `white-space`, `overflow-wrap`, `word-break`, `hyphens`, `text-overflow`, `vertical-align`, `text-orientation`.
 
 ```css
 p {
@@ -1420,7 +1536,7 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 <div class="h-80 overflow-scroll  grid place-items-center animate-slide-in-left w-full ">
 
-<img src="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools/css_inspector.png" alt="image showing chrome developer tools" class="w-3/5" />
+<img src="/css_inspector.png" alt="image showing chrome developer tools" class="w-3/5" />
 <small>How the DevTools look like</small>
 </div>
 
@@ -1564,7 +1680,7 @@ hideInToc: true
 <p>When elements are laid out as flex items, they are laid out along two axis:</p>
 
 <div class="w-full grid grid-cols-2  justify-center">
-  <img src="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox/flex_terms.png" alt="Flexbox model"/>
+  <img src="/flex_terms.png" alt="Flexbox model"/>
   <div class= "h-70 overflow-scroll border rounded-lg border-gray-300 shadow-xl">
   <ul >
   <li>
@@ -1603,30 +1719,42 @@ hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Direction and Alignment</h1>
-<div></div>
-<p>To determine how flex items are arranged within a flex contaniner, direction and alignment are the key aspects.</p>
 
-<p>Flex Direction:
-The <kbd>flex-direction</kbd> property defines the direction in which the flex items are placed within the flex container. The direction can be either block (column) or inline (row).</p> <small>The following values can be assigned to it:</small>
+<div></div>
+
+<p>To determine how flex items are arranged within a flex container, direction and alignment are the key aspects.</p>
+
+<p>Flex Direction:The <kbd>flex-direction</kbd> property defines the direction in which the flex items are placed within the flex container. The direction can be either block (column) or inline (row).</p> <small>The following values can be assigned to it:</small>
+
+<div grid="~ cols-2" gap="1">
 
 ```css
-  .container {
-    display: flex;
-    flex-direction: row;
-  }
-  .container {
-    display: flex;
-    flex-direction: row-reverse; //row-reverse arranges items order from right to left
-  }
-  .container {
-   display: flex;
-   flex-direction: column;
-  }
-  .container {
-   display: flex;
-    flex-direction: column-reverse; //column-reverse arranges items order from bottom to top
-  }
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  display: flex;
+  flex-direction: row-reverse; 
+  /* row-reverse arranges items order from right to left */
+}
 ```
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column-reverse; 
+  /* column-reverse arranges items order from bottom to top */
+}
+```
+
+</div>
 
 ---
 hideInToc: true
@@ -2604,7 +2732,8 @@ hideInToc: true
 
 # Anchor Positioning
 <div />
-Anchor positioning allows you to place items relative to where another element is. Seems pretty obvious when put like that, but that’s what it is. You declare an element an anchor and give it a name, then can position elements to the top/right/bottom/left (or center, or the logical equivalents) of the anchor.
+
+Anchor positioning allows you to place items relative to where another element is. The beauty is the `anchor` attribute coming to html, you declare an element an anchor and give it a name, then can position elements to the top/right/bottom/left (or center, or the logical equivalents) of the anchor, it comes with a possible fallback if there is no room to anchor. Helps eliminate the need for things like [Float UI](https://floating-ui.com/)
 
 ```css
 .el {
@@ -2612,17 +2741,30 @@ Anchor positioning allows you to place items relative to where another element i
 }
 
 .tooltip-2 {
-  top: anchor(--my-anchor center);
-  left: anchor(--my-anchor right);
+  position-anchor: --my-anchor; 
+  top: anchor(center);
+  left: anchor(right);
   translate: 0 -50%;
+  /* declare a position-try variable */
+  position-try-fallbacks: --left;
 }
 ```
+
+---
+hideInToc: true
+layout: iframe
+url: https://codepen.io/kevinpowell/embed/preview/poMaLjR?default-tab=html%2Cresult&editable=true"
+
+---
+
+
 
 
 
 ---
 
 # Stacking Context/Z-index
+
 <div />
 In CSS, the stacking order of elements is a crucial aspect of layout and design. Two key concepts that control how elements stack on top of each other are stacking contexts and the z-index property. 
 Alright, imagine you're stacking a bunch of transparent sheets on top of each other. That's basically what's happening when you're building a webpage with CSS. But sometimes, you want to control which sheet goes on top, right? That's where z-index and stacking contexts come in. Let's break it down!
@@ -2652,7 +2794,9 @@ hideInToc: true
 ---
 
 # Z-index
+
 <div />
+
 The z-index property only works on positioned elements. If applied to a non-positioned element, it has no effect. However, there's an exception: flex children can use z-index even if they are non-positioned.
 
 Now, what if you want to flip that order? That's where z-index comes in. It's like giving each element a number, and the higher the number, the closer it gets to you (and the further it gets from the screen).
@@ -2679,13 +2823,15 @@ hideInToc: true
 ---
 
 # Stacking Context
+
 <div />
+
 Okay, now here's where it gets a bit tricky. Sometimes, elements form what we call a "stacking context". It's like creating a new stack of transparent sheets that all move together.
 
 A stacking context is a three-dimensional conceptualization of HTML elements along an imaginary z-axis relative to the user. Within a stacking context, child elements are stacked according to the same rules, but the context as a whole is considered a unit in the parent stacking context.
 
 
-<ul class="flex justfiy-center">
+<ul class="flex justify-center">
 <div>
 
 
@@ -2726,7 +2872,9 @@ hideInToc: true
 ---
 
 # Creating Stacking Contexts
+
 <div />
+
 So, how do you create these stacking contexts? There are a bunch of ways, but here are the most common:
 
 - Give an element a z-index and any position value except static.
@@ -2767,7 +2915,9 @@ hideInToc: true
 ---
 
 # Flex and Grid Exception
+
 <div />
+
 An interesting exception to the positioning rule for z-index is that children of flex and grid containers can use z-index without needing to be positioned:
 
 ```html
@@ -2776,29 +2926,35 @@ An interesting exception to the positioning rule for z-index is that children of
   <div style="background: blue; z-index: 2; margin-left: -20px;">Second</div>
 </div>
 ```
+
 In this example, the blue div will appear on top of the red div due to its higher z-index, even though neither has a position set.
 ---
 hideInToc: true
 ---
 
 # Isolation
+
 <div />
+
 The isolation property provides a way to create a new stacking context without changing the element's position or z-index
 
 ```css
 .new-context {
   isolation: isolate;
 }
+```
+
 This is particularly useful for creating self-contained components that don't 
 interfere with the stacking order of other elements on the page.
-```
 
 ---
 hideInToc: true
 ---
 
 # Debugging Stacking Contexts
+
 <div />
+
 Debugging stacking context issues can be challenging. Here are some tools and techniques:
 
 - Browser Dev Tools: Some browsers (like Microsoft Edge) offer 3D views of the stacking contexts.
@@ -2811,7 +2967,9 @@ hideInToc: true
 ---
 
 # Key Takeways
+
 <div />
+
 Understanding stacking contexts and z-index is crucial for creating complex layouts and resolving layout issues in CSS. Remember these key points:
 
 - By default, elements stack in the order they appear in your HTML.
@@ -2823,7 +2981,9 @@ Understanding stacking contexts and z-index is crucial for creating complex layo
 
 
 # Overflow
+
 <div />
+
 The <strong><kbd>overflow</kbd></strong> CSS property allows you to control how content is handled when it exceeds the boundaries of an element. It has a default value of <strong><kbd>visible</kbd></strong>.
 
 <p>This property is a shorthand for:</p>
@@ -2858,7 +3018,9 @@ The <strong><kbd>overflow</kbd></strong> CSS property allows you to control how 
 ---
 
 <h1 class="text-sm bg-black p-4 text-center">overflow: auto;</h1>
+
 <div />
+
 <strong><kbd>overflow: auto;</kbd></strong> property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
 
 ```html
@@ -3060,6 +3222,7 @@ When you have inline elements that automatically wrap to the next line when they
 # Responsiveness
 
 ## What is CSS Responsiveness?
+
  CSS responsiveness is a web design approach that allows a website to adapt to different screen sizes and resolutions, providing a good user experience across various devices like phones, tablets, laptops, and desktops.Imagine you have a favorite t-shirt. When you wear it, it fits just right. Now imagine if that t-shirt could magically adjust its size to fit your little brother or your big sister perfectly too. That's kind of what CSS responsiveness does for websites!, Responsive design ensures that the website automatically adjusts to fit the screen, making it easy to navigate and read.
 
 ## The Problem It Solves
@@ -3074,11 +3237,6 @@ hideInToc: true
 Instead of using fixed pixel widths, we use relative units like percentages or ems. This allows our layout to flex and adapt.
 This means elements on your site will resize proportionally as the screen size changes.
 
-<!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Fluid Grid" src="https://codepen.io/OluFaith/embed/WNqYORQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/OluFaith/pen/WNqYORQ">
-  Fluid Grid</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe> -->
 
 The `.container` takes 80% of the screen width and centers itself with margin: auto.
 As the screen size changes, the container's width adjusts proportionally.
@@ -3086,14 +3244,15 @@ As the screen size changes, the container's width adjusts proportionally.
 ---
 hideInToc: true
 layout: iframe
-url: https://codepen.io/OluFaith/embed/WNqYORQ?default-tab=html%2Cresult
+url: https://codepen.io/setemiojo/embed/preview/zxOJNOZ?default-tab=css%2Cresult&editable=true"
 ---
 
 ---
 hideInToc: true
 ---
 
-## Media Queries  
+## Media Queries
+
 Media queries allow you to apply different styles depending on the screen size or device type.
 Media queries are like magical glasses that let your CSS see what kind of device is being used. Based on that, you can apply different styles.
 <br/>
@@ -4471,5 +4630,5 @@ hideInToc: true
 
 # Contributors
 
-- [Ridwan Adebosin](https://github.com/RidwanAdebosin)
-- [Oluwibe Faith](https://github.com/Olubebe)
+- {@RidwanAdebosin}
+- {@Olubebe}
