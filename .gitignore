@@ -9,3 +9,4 @@ components.d.ts
 *.png
 *.pptx
 _export
+.slidev
