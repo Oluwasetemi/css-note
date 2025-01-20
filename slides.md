@@ -1537,6 +1537,7 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 <div class="h-80 overflow-scroll  grid place-items-center animate-slide-in-left w-full ">
 
 <img src="/css_inspector.png" alt="image showing chrome developer tools" class="w-3/5" />
+
 <small>How the DevTools look like</small>
 </div>
 
@@ -3827,7 +3828,7 @@ Right-to-Left Application: The transforms are applied sequentially but executed 
       transform:  rotate(0deg) translate(0);
     }
     50% {
-      tranform : rotate(360deg) translate(0)
+      transform : rotate(360deg) translate(0)
     }
     100% {
       transform:  rotate(360deg) translateX(187px);
