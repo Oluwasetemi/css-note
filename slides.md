@@ -1536,7 +1536,7 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 <div class="h-80 overflow-scroll  grid place-items-center animate-slide-in-left w-full ">
 
-<img src="./css_inspector.png" alt="image showing chrome developer tools" class="w-3/5" />
+<img src="/images/css_inspector.png" alt="image showing chrome developer tools" class="w-3/5" />
 
 <small>How the DevTools look like</small>
 </div>
@@ -1681,7 +1681,7 @@ hideInToc: true
 <p>When elements are laid out as flex items, they are laid out along two axis:</p>
 
 <div class="w-full grid grid-cols-2  justify-center">
-  <img src="/flex_terms.png" alt="Flexbox model"/>
+  <img src="images/flex_terms.png" alt="Flexbox model"/>
   <div class= "h-70 overflow-scroll border rounded-lg border-gray-300 shadow-xl">
   <ul >
   <li>
