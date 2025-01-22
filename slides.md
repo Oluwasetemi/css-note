@@ -9,6 +9,7 @@ info: |
 author: Oluwasetemi
 download: true
 exportFilename: soe_altschool_cssnote
+browserExporter: true
 export:
   format: pdf
   timeout: 60000
@@ -25,7 +26,7 @@ transition: slide-left
 mdc: true
 hideInToc: true
 selectable: true
-lineNumbers: false
+lineNumbers: true
 overviewSnapshots: true
 ---
 
