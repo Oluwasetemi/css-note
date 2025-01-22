@@ -1436,7 +1436,7 @@ layout: two-cols
 
 # Typography in CSS
 
-<div></div>
+<div class="empty"></div>
 
 Typography is a crucial aspect of web design, as it affects readability, accessibility, and overall user experience. Here are some key CSS properties for typography: `font-style`, `font-weight`, `font-size`, `line-height`, `font-family`, `text-align`, `text-transform`, `text-decoration`, `letter-spacing`, `word-spacing`, `text-shadow`, `white-space`, `overflow-wrap`, `word-break`, `hyphens`, `text-overflow`, `vertical-align`, `text-orientation`.
 
@@ -1456,6 +1456,8 @@ p {
 ```
 
 ::right::
+
+<div class="empty"></div>
 
 We can use Google Fonts(any other font hosting service) or custom fonts in CSS to enhance the typography of a web page. Google Fonts offers a wide range of free, open-source fonts that can be easily integrated into a website.
 
@@ -1477,6 +1479,12 @@ The @font-face rule can be used embed custom fonts in a web page, allowing the u
 }
 body {font-family: "CustomFont", sans-serif;}
 ```
+
+<style>
+  p { @apply mt-0 mb-[6px]; }
+  li { @apply text-[12px]; }
+  div.empty + p { @apply text-[15px]; }
+</style>
 
 ---
 
