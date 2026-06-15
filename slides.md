@@ -27,7 +27,8 @@ mdc: true
 hideInToc: true
 selectable: true
 lineNumbers: true
-overviewSnapshots: true
+overviewSnapshots: false
+monacoTypesIgnoreDefaults: true
 ---
 
 # CSS Class Notes
@@ -63,6 +64,13 @@ The last comment block of each slide will be treated as slide notes. It will be 
 ## Table of contents
 
 <Toc columns="2" minDepth="1" maxDepth="2"></Toc>
+
+<div class="flex gap-3 mt-6">
+  <button @click="$router.push('/routes')" class="px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm cursor-pointer hover:bg-blue-500/20 transition-colors flex items-center gap-1.5"><span class="i-mdi-format-list-bulleted inline-block" /> All Sections</button>
+  <button @click="$router.push('/html-playground')" class="px-4 py-2 rounded-lg bg-orange-500/10 border border-orange-500/30 text-orange-400 text-sm cursor-pointer hover:bg-orange-500/20 transition-colors flex items-center gap-1.5"><span class="i-mdi-web inline-block" /> HTML Playground</button>
+  <button @click="$router.push('/playground')" class="px-4 py-2 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-sm cursor-pointer hover:bg-green-500/20 transition-colors flex items-center gap-1.5"><span class="i-mdi-code-braces inline-block" /> JS/TS Playground</button>
+  <button @click="$router.push('/changelog')" class="px-4 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 text-sm cursor-pointer hover:bg-purple-500/20 transition-colors flex items-center gap-1.5"><span class="i-mdi-history inline-block" /> Changelog</button>
+</div>
 
 ---
 
@@ -131,15 +139,14 @@ hideInToc: true
 
 <ins>Code Example</ins>:
 
-```html
-<p>I am taking color red and increasing my font size.</p>
-```
-
-```css
+```html {monaco-run}
+<style>
 p {
   color: red;
   font-size: 36px;
 }
+</style>
+<p>I am taking color red and increasing my font size.</p>
 ```
 
 This CSS rule is saying that apply color of red to every <kbd>p</kbd> element and also increase its font size to 36px.
@@ -150,15 +157,14 @@ This CSS rule is saying that apply color of red to every <kbd>p</kbd> element an
 
 <ins>Code Example</ins>:
 
-```html
-<p class="paragraph">You can style me using my class name.</p>
-```
-
-```css
+```html {monaco-run}
+<style>
 .paragraph {
   color: red;
   font-size: 36px;
 }
+</style>
+<p class="paragraph">You can style me using my class name.</p>
 ```
 
 This CSS rule is saying that
@@ -178,17 +184,16 @@ paragraph and also increase its font size to 36px.
 
 <ins>Code Example</ins>:
 
-```html
-<span id="container-wrapper">
-  You can style me using my id value which is container-wrapper.
-</span>
-```
-
-```css
+```html {monaco-run}
+<style>
 #container-wrapper {
   color: red;
   font-size: 36px;
 }
+</style>
+<span id="container-wrapper">
+  You can style me using my id value which is container-wrapper.
+</span>
 ```
 
 ---
@@ -197,34 +202,32 @@ paragraph and also increase its font size to 36px.
 
 <ins>Code Example</ins>:
 
-```html
-<a href="https://altschoolafrica.com">
-  You can style me using my attribute which is href.
-</a>
-```
-
-```css
+```html {monaco-run}
+<style>
 [href] {
   color: red;
 }
+</style>
+<a href="https://altschoolafrica.com">
+  You can style me using my attribute which is href.
+</a>
 ```
 
 ---
 
 <ins>Code Example 2</ins>:
 
-```html
-<a href="https://altschoolafrica.com">
-  You can style me using my attribute and its value which is
-  href="https://altschoolafrica.com".
-</a>
-```
-
-```css
+```html {monaco-run}
+<style>
 [href="https://altschoolafrica.com"]{
   color: red;
   font-size: 36px;
 }
+</style>
+<a href="https://altschoolafrica.com">
+  You can style me using my attribute and its value which is
+  href="https://altschoolafrica.com".
+</a>
 ```
 
 Note: This method give you the access to style any element that has an attribute of data-type but with a specific value of href.
@@ -305,30 +308,31 @@ Note: This method give you the access to style any element that has an attribute
 
 <ins>Code Example</ins>
 
-<div grid="~ cols-2">
-
-```css
+```html {monaco-run}
+<style>
 button:hover {
   background-color: orange;
+  cursor: pointer;
 }
 
 li:nth-child(even) {
   text-transform: uppercase;
 }
-```
-
-```css
 
 input:focus {
   border: 2px solid red;
+  outline: none;
 }
-
-:popover-open {
-  translate: 0 0;
-}
+</style>
+<button>Hover me</button>
+<ul>
+  <li>Item one</li>
+  <li>Item two (even)</li>
+  <li>Item three</li>
+  <li>Item four (even)</li>
+</ul>
+<input type="text" placeholder="Click to focus" style="border: 1px solid #ccc; padding: 4px;" />
 ```
-
-</div>
 
 ---
 
@@ -342,7 +346,6 @@ Here are some common pseudo-elements:
 3 ::first-letter - Styles the first letter of an element.
 4 ::first-line - Styles the first line of an element.
 5 ::selection - Styles the portion of an element that is selected by the user.
-
 ```
 
 Note: Pseudo-elements are particularly useful for enhancing the design and readability of web content without the need for additional HTML elements.
@@ -367,13 +370,33 @@ In the code above, the parent element is the <kbd>p</kbd>, inside which we have 
 
 <ins>Code Example</ins>:
 
-```css
+```html {monaco-run}
+<style>
 p span {
   color: red;
 }
+</style>
+<p>
+  AltSchool Africa offers courses like
+  <span>Frontend engineering</span>, <span>Backend engineering</span> and
+  <span>Cybersecurity</span> online.
+</p>
 ```
 
 All the texts wrapped inside the span tag will take the CSS rule.
+
+<style>
+p {
+ --uno: text-sm; 
+  font-size: 12px;
+  margin: 0;
+}
+
+li {
+  margin: 0;
+  font-size: 12px
+}
+</style>
 
 ---
 
@@ -381,20 +404,36 @@ All the texts wrapped inside the span tag will take the CSS rule.
 
 <ins>Code Example</ins>:
 
-```css
+```html {monaco-run}
+<style>
 ul > li {
   list-style: none;
+  color: #3b82f6;
+  font-weight: bold;
 }
+</style>
+<ul>
+  <li>Direct child li — styled</li>
+  <li>Another direct child — styled</li>
+  <ol><li>Nested li — NOT a direct child of ul, not styled</li></ol>
+</ul>
 ```
 
 - Adjacent Sibling Selector (prev + next): This selects an element that is immediately preceded by a specified element.
 
 <ins>Code Example</ins>:
 
-```css
+```html {monaco-run}
+<style>
 h1 + p {
   margin-top: 0;
+  color: #ef4444;
+  font-weight: bold;
 }
+</style>
+<h1>Heading</h1>
+<p>Immediately after h1 — red and no top margin.</p>
+<p>Second paragraph — not adjacent to h1, default style.</p>
 ```
 
 ---
@@ -403,23 +442,38 @@ h1 + p {
 
 Code Example:
 
-```css
+```html {monaco-run}
+<style>
 h1 ~ p {
   color: blue;
 }
+</style>
+<h1>Heading</h1>
+<p>Sibling paragraph — blue.</p>
+<p>Another sibling paragraph — also blue.</p>
+<div>A div — not a p, not styled.</div>
+<p>Still a sibling p — blue.</p>
 ```
 
 - Grouping Selector: Applies the same styles to multiple selectors.
 
 Code Example:
 
-```css
-h1,
-h2,
-h3 {
+```html {monaco-run}
+<style>
+h1, h2, h3 {
   margin-bottom: 10px;
+  color: #8b5cf6;
+  border-left: 4px solid #8b5cf6;
+  padding-left: 8px;
 }
+</style>
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<p>Paragraph — not in the group, default style.</p>
 ```
+
 ---
 hideInToc: true
 ---
@@ -428,13 +482,8 @@ hideInToc: true
 
 <ins>Code Example</ins>:
 
-```html
-<div class="container">
-  <h1 class="title">Hello, CSS</h1>
-</div>
-```
-
-```css
+```html {monaco-run}
+<style>
 .container {
   padding: 20px;
   .title {
@@ -444,6 +493,10 @@ hideInToc: true
     background-color: lightblue;
   }
 }
+</style>
+<div class="container">
+  <h1 class="title">Hello, CSS</h1>
+</div>
 ```
 
 ## [Read more about CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Nesting_selector)
@@ -456,21 +509,37 @@ hideInToc: true
 
 The :has() selector allows you to conditionally select an element when elements deeper in the DOM tree of the original element match the selector you put inside `:has()`.
 
-```css
+```html {monaco-run}
+<style>
 figure:has(figcaption) {
   border: 1px solid black;
   padding: 0.5rem;
+  display: inline-block;
 }
+</style>
+<figure>
+  <img src="https://picsum.photos/seed/css/120/80" alt="demo" />
+  <figcaption>This figure has a caption — border appears.</figcaption>
+</figure>
+<figure>
+  <img src="https://picsum.photos/seed/css2/120/80" alt="demo" />
+</figure>
 ```
 
 # `:IS()` PSEUDO SELECTOR
 
 The :is() pseudo-class function takes a selector list as its argument and selects any element that can be selected by one of the selectors in that list.
 
-```css
+```html {monaco-run}
+<style>
 :is(h1, h2, h3) {
   color: red;
 }
+</style>
+<h1>Heading 1 — red via :is()</h1>
+<h2>Heading 2 — also red</h2>
+<h3>Heading 3 — also red</h3>
+<p>Paragraph — not matched, stays default</p>
 ```
 
 ---
@@ -480,11 +549,8 @@ The :is() pseudo-class function takes a selector list as its argument and select
 <div></div>
 Specificity is the key to understanding how CSS decides between competing rules. Let's take a brief at this code before we dive deep into specificity.
 
-```html
-<h1 class="title">Hi, Specificity</h1>
-```
-
-```css
+```html {monaco-run}
+<style>
 h1 {
   color: blue;
 }
@@ -492,6 +558,8 @@ h1 {
 .title {
   color: yellow;
 }
+</style>
+<h1 class="title">Hi, Specificity</h1>
 ```
 
 In the code above, we are trying to style the h1 element but we have two CSS ruleset, so which stylesheet will override the other? This is where our knowledge on specificity algorithm comes in.
@@ -513,6 +581,7 @@ CSS Selectors decrease in specificity from top to bottom, meaning the selector a
 
 <div class="grid grid-col-2 gap-4    h-85 p-4 border border-gray-300 bg-blue overflow-auto ">
   <div class=" flex justify-center animate-slide-in-left">
+
 ```mermaid
 graph TD;
     Inline_styles-->IDs;
@@ -526,9 +595,11 @@ graph TD;
     pseudo-classes-->pseudo-elements;
     attribute_selectors-->pseudo-elements;
 ```
+
 </div>
 
 <div class="bg-red animate-slide-in-right">
+
 ```mermaid
     graph TD;
     Selectors-->Specificity_Value;
@@ -540,6 +611,7 @@ graph TD;
     Elements-->1;
     Pseudo-elements-->1;
 ```
+
 </div>
 
 Note:
@@ -573,14 +645,25 @@ The only way to override inline styles which has specificity value of 1000 is by
 
 Code Example
 
-```css
-selector {
-  property: value !important;
+```html {monaco-run}
+<style>
+h1 {
+  color: blue;           /* normal rule */
 }
-
-.h1 {
-  color: red !important;
+.override {
+  color: green;          /* higher specificity, but loses to !important */
 }
+.important-wins {
+  color: red !important; /* wins over everything */
+}
+</style>
+<h1 class="override important-wins">
+  Should be red — !important beats class + type selector
+</h1>
+<h1 class="override">
+  Should be green — class beats type selector
+</h1>
+<h1>Should be blue — type selector only</h1>
 ```
 
 <Tips type="danger" full-width>Importance should be used carefully and not always.</Tips>
@@ -599,41 +682,60 @@ It’s basically a box that wraps around every HTML element. Understanding this 
 
 ---
 hideInToc: true
+class: text-sm
 ---
 
 # Components Of Box Model
 
-<div />
+<div grid="~ cols-2" gap="2">
+
+<div>
 
 (a) Content:
 
-  - This is the innermost layer.
-  - It contains the actual content of the element (text, images, etc.).
-  - Dimensions are set using 'width' and 'height' properties.
+- This is the innermost layer.
+- It contains the actual content of the element (text, images, etc.).
+- Dimensions are set using 'width' and 'height' properties.
+
+</div>
+
+<div>
 
 (b) Padding:
 
-  - Surrounds the content area.
-  - Creates space between the content and the border.
-  - Can be set using 'padding' property (or padding-top, padding-right, etc.).
-  - Is transparent, allowing the background of the element to show through.
+- Surrounds the content area.
+- Creates space between the content and the border.
+- Can be set using 'padding' property (or padding-top, padding-right, etc.).
+- Is transparent, allowing the background of the element to show through.
 
----
+</div>
 
-\(c\) Border:
+<div mt--5>
 
-  - Encircles the padding (or content if no padding is set).
-  - Can have different styles, colors, and widths.
-  - Set using the 'border' property or individual properties like 'border-width'.
+\(c\) Margin:
 
-(d) Margin:
+- The outermost layer.
+- Creates space between the element and adjacent elements.
+- Is always transparent.
+- Set using the 'margin' property or individual properties (margin-top, etc.).
 
-  - The outermost layer.
-  - Creates space between the element and adjacent elements.
-  - Is always transparent.
-  - Set using the 'margin' property or individual properties (margin-top, etc.).
+Popular margin concepts are: Hungry margin(auto margin which only works for horizontal margins with explicit width), Collapsed margin, Negative margin.
 
-  Popular margin concepts are: Hungry margin(auto margin which only works for horizontal margins with explicit width), Collapsed margin, Negative margin.
+
+</div>
+
+<div>
+
+(d) Border:
+
+- Encircles the padding (or content if no padding is set).
+- Can have different styles, colors, and widths.
+- Set using the 'border' property or individual properties like 'border-width'.
+
+</div>
+
+</div>
+
 
 ---
 hideInToc: true
@@ -682,14 +784,28 @@ hideInToc: true
 
 # Example
 
-```css
-div {
+```html {monaco-run}
+<style>
+.content-box {
+  box-sizing: content-box; /* default */
+  width: 200px;
+  padding: 20px;
+  border: 10px solid blue;
+  background: #bfdbfe;
+  margin-bottom: 12px;
+}
+.border-box {
   box-sizing: border-box;
-  width: 300px;
+  width: 200px;
   padding: 20px;
   border: 10px solid black;
-  margin: 25px;
+  background: #bbf7d0;
 }
+</style>
+<p style="font-size:13px"><strong>content-box</strong> (total width = 200 + 40 + 20 = 260px):</p>
+<div class="content-box">I am 200px wide (content only)</div>
+<p style="font-size:13px"><strong>border-box</strong> (total width = 200px including padding & border):</p>
+<div class="border-box">I am 200px wide (includes padding & border)</div>
 ```
 
 ### Understanding the Box Model is crucial for:
@@ -762,11 +878,13 @@ Normalize.css is a modern, HTML5-ready alternative to CSS resets. It makes brows
 Inheritance, this is when a child element get a computed value which represents its parent's value. Inheritance cascade downwards and every property has a default value in CSS.
 
 <div class="mt-5 flex justify-center p-10 border border-gray-300 bg-blue overflow-auto animate-slide-in-left">
+
 ```mermaid
 graph TD;
     Types-Of-Inheritance-->Inherited-properties;
     Types-Of-Inheritance-->Non-Inherited-properties;
 ```
+
 </div>
 
 - Inherited-properties: These are properties that by default passed down from a parent element to its children.
@@ -831,21 +949,17 @@ Inherited property
 
 Code Example: The color property falls under the inherited properties, so the <kbd>em</kbd> element will inherit the color value from the parent element which is <kbd>p</kbd>
 
-<div class="p-8 text-green bg-white light:bg-black">
-
-```html
-<p>This paragraph has <em>emphasized text</em>in it.</p>
-```
-
-```css
+```html {monaco-run}
+<style>
 p {
   color: green;
-  font-weight-500;
+  font-weight: 500;
 }
+</style>
+<p>This paragraph has <em>emphasized text</em> in it.</p>
 ```
 
-<p class="color-green-500 font-large">This paragraph has <em>emphasized text</em> in it.</p>
-</div>
+> **Try it:** Add `em { color: initial; }` to stop the `em` from inheriting green. Note: `unset` and `revert` won't work here — for inherited properties like `color`, they both fall back to `inherit`, so the color stays green.
 
 ---
 hideInToc: true
@@ -855,21 +969,19 @@ Non-inherited property
 
 Code Example: The border property falls under the non-inherited properties so, the <kbd>em</kbd> element will not inherit the border value from the parent element which is <kbd>p</kbd>.
 
-<div class="p-8 text-red bg-white light:bg-black">
-
-```html
-<p>This paragraph has <em>emphasized text</em>in it.</p>
-```
-
-```css
+```html {monaco-run}
+<style>
 p {
   border: 3px solid red;
 }
+em {
+  border: inherit; /* try: initial, unset, or revert — all remove the border */
+}
+</style>
+<p>This paragraph has <em>emphasized text</em> in it.</p>
 ```
 
-<p class="p-2 b-3 border-solid border-red-500">This paragraph has <em>emphasized text</em> in it.</p>
-
-</div>
+> **Try it:** Change `inherit` on `em` to `initial`, `unset`, or `revert` — all three remove the border. Unlike `color`, `border` is non-inherited, so `unset` and `revert` reset it to `none` instead of pulling from the parent.
 
 ---
 hideInToc: true
@@ -883,23 +995,17 @@ To keep everything under the developer's control, we have the inherit keyword th
 
 Code Example:
 
-<div class="p-8 text-red bg-white light:bg-black animate-slide-in-right">
-
-```html
-<p>This paragraph has <em>emphasized text</em>in it.</p>
-```
-
-```css
+```html {monaco-run}
+<style>
 p {
   border: 3px solid red;
 }
 em {
-  border: inherit; //using the inherit keyword to make the em tag inherit the border style from its parent.
+  border: inherit; /* em inherits the border from its parent p */
 }
+</style>
+<p>This paragraph has <em>emphasized text</em> in it.</p>
 ```
-
-<p class="p-2 b-3 border-solid border-red-500">This paragraph has <em p-2 style="border: inherit">emphasized text</em> in it.</p>
-</div>
 
 ---
 hideInToc: true
@@ -936,7 +1042,6 @@ revert:
 <dd>
 This keyword reverts the cascaded value of the property from its current value to the value the property would have had if no changes had been made by the current style origin to the current element.
 </dd>
-<!-- </dl> -->
 <br/>
 <dt class="font-sans font-extrabold">
 revert-layer:
@@ -957,29 +1062,46 @@ url: https://codepen.io/setemiojo/embed/JjxNJVm?default-tab=html%2Cresult
 
 The <kbd>all</kbd> CSS property
 
-This shorthand resets all properties (except unicode-bidi and direction) of an element to their initial, inherited, or unset state. This property can be particularly useful when you want to ensure that an element does not inherit any styles from its parents or previous rules and instead starts with a clean slate.
+`all` is a shorthand that sets **every CSS property at once** (except `unicode-bidi` and `direction`). It accepts the same five inheritance keywords from the previous slide — giving you a single line to fully reset or fully inherit a component's styles.
 
-```html
+<div class="grid grid-cols-2 gap-4 items-start">
+
+<div class="text-sm">
+
+| Value | What it does |
+|---|---|
+| `inherit` | Child takes every property from its parent |
+| `initial` | Every property resets to the CSS spec default |
+| `unset` | Inherited props → `inherit`, non-inherited → `initial` |
+| `revert` | Rolls back to the browser's built-in stylesheet |
+| `revert-layer` | Rolls back to the previous cascade layer |
+
+> **Try it:** Change `all: inherit` on `.child` to `initial`, `unset`, or `revert` and run to see the difference.
+
+</div>
+
+```html {monaco-run}
+<style>
+.parent {
+  color: red;
+  font-size: 24px;
+  background-color: lightgray;
+  font-weight: bold;
+  padding: 16px;
+  border: 2px solid navy;
+}
+
+.child {
+  all: inherit; /* try: initial | unset | revert | revert-layer */
+}
+</style>
 <div class="parent">
   Parent Text
-  <div class="child-inherit">Child Text with all: inherit</div>
+  <div class="child">Child Text — watch how all: inherit changes me</div>
 </div>
 ```
 
-```css
-.parent {
-  color: red;
-  font-size: 10px;
-  background-color: lightgray;
-}
-
-.child-inherit {
-  all: inherit;
-}
-```
-
-<div class="text-red-500 text-xl bg-gray-300">Parent Text</div>
-<div class="text-red-500 text-xl bg-gray-300">Child Text with all: inherit</div>
+</div>
 ---
 
 # Colors/Units/Gradients
@@ -1093,45 +1215,25 @@ color: color-mix(red blue 50%); /* Mixes red and blue 50% */
 
 ---
 hideInToc: true
-layout: two-cols
 ---
 
-```html
-<p style="color: var(--red)">This text is red.</p>
-<p style="color: var(--dark-red)">This text is darker.</p>
-<p style="color: var(--transparent-red)">This text is transparent.</p>
-<p style="color: var(--soft-red)">This text is softer.</p>
-```
-
-::right::
-
-```css
+```html {monaco-run}
+<style>
 html {
   --red-hue: 0deg;
   --red-sat: 100%;
   --red-lit: 50%;
 
-  --red: hsl(
-    var(--red-hue)
-    var(--red-sat)
-    var(--red-lit)
-  );
-  --dark-red: hsl(
-    var(--red-hue)
-    var(--red-sat)
-    calc(var(--red-lit) - 20%)
-  );
-  --transparent-red: hsl(
-    var(--red-hue)
-    var(--red-sat)
-    var(--red-lit) / 0.5
-  );
-  --soft-red: hsl(
-    var(--red-hue)
-    calc(var(--red-sat) - 30%)
-    calc(var(--red-lit) + 10%)
-  );
+  --red: hsl(var(--red-hue) var(--red-sat) var(--red-lit));
+  --dark-red: hsl(var(--red-hue) var(--red-sat) calc(var(--red-lit) - 20%));
+  --transparent-red: hsl(var(--red-hue) var(--red-sat) var(--red-lit) / 0.5);
+  --soft-red: hsl(var(--red-hue) calc(var(--red-sat) - 30%) calc(var(--red-lit) + 10%));
 }
+</style>
+<p style="color: var(--red)">This text is red.</p>
+<p style="color: var(--dark-red)">This text is darker.</p>
+<p style="color: var(--transparent-red)">This text is transparent.</p>
+<p style="color: var(--soft-red)">This text is softer.</p>
 ```
 
 ---
@@ -1245,12 +1347,16 @@ Gradients are used to create smooth transitions between colors, adding depth and
 
 Direction: Can be specified with angles (e.g., 45deg) or keywords (to right, to bottom).
 
-```css
-background: linear-gradient(45deg, red, yellow);
+```html {monaco-run}
+<style>
+.grad {
+  height: 120px;
+  width: 100%;
+  background: linear-gradient(45deg, red, yellow);
+}
+</style>
+<div class="grad"></div>
 ```
-
-<div class="h-48 w-full" style="background: linear-gradient(45deg, red, yellow);">
-</div>
 
 ---
 hideInToc: true
@@ -1263,16 +1369,18 @@ hideInToc: true
 
 Shapes and Sizes: You can control the shape (circle or ellipse) and size (closest-side, farthest-corner, etc.).
 
-```css
-background: radial-gradient(circle, red, yellow, green);
-```
-
-<div class="flex gap-3">
-  <div class="h-64 w-full" style="background: radial-gradient(circle, red, yellow, green);">
-  </div>
-  <div class="h-64 w-full" style="background: radial-gradient(ellipse, red, yellow, green);">
-  </div>
+```html {monaco-run}
+<style>
+.wrap { display: flex; gap: 12px; }
+.grad { height: 160px; flex: 1; }
+.circle   { background: radial-gradient(circle,  red, yellow, green); }
+.ellipse  { background: radial-gradient(ellipse, red, yellow, green); }
+</style>
+<div class="wrap">
+  <div class="grad circle"></div>
+  <div class="grad ellipse"></div>
 </div>
+```
 
 ---
 hideInToc: true
@@ -1285,12 +1393,17 @@ hideInToc: true
 
 `conic-gradient(from direction, color-stop1, color-stop2, ...)`
 
-```css
-background: conic-gradient(from 90deg, red, yellow, green);
+```html {monaco-run}
+<style>
+.grad {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  background: conic-gradient(from 90deg, red, yellow, green);
+}
+</style>
+<div class="grad"></div>
 ```
-
-<div class="h-64 w-full" style="background: conic-gradient(from 90deg, red, yellow, green);">
-</div>
 
 ---
 hideInToc: true
@@ -1299,25 +1412,20 @@ hideInToc: true
 4. Repeating Gradients
 
 - Repeats the linear gradient pattern indefinitely.
-
-```css
-background: repeating-linear-gradient(45deg, red, yellow 10%);
-```
-
 - Repeating Radial Gradients: Repeats the radial gradient pattern.
 
-```css
-background: repeating-radial-gradient(circle, red, yellow 10%);
+```html {monaco-run}
+<style>
+.wrap { display: flex; gap: 12px; color: black; }
+.grad { height: 160px; flex: 1; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.linear { background: repeating-linear-gradient(45deg, red, yellow 10%); }
+.radial  { background: repeating-radial-gradient(circle, red, yellow 10%); }
+</style>
+<div class="wrap">
+  <div class="grad linear">Repeating Linear</div>
+  <div class="grad radial">Repeating Radial</div>
+</div>
 ```
-
-<div class="flex text-black gap-3">
-<div class="h-64 w-full  text-center" style="background: repeating-linear-gradient(45deg, red, yellow 10%);">
-<p>Repeating Linear Gradient</p>
-</div>
-<div class="h-64 w-full text-center" style="background: repeating-radial-gradient(circle, red, yellow 10%);">
-<p>Repeating Radial Gradient</p>
-  </div>
-</div>
 
 ---
 hideInToc: true
@@ -1396,16 +1504,20 @@ hideInToc: true
 <div></div>
 CSS variables (also known as custom properties) are used to store reusable values in CSS. They are defined using the `--` prefix and can be used throughout the stylesheet.
 
-```css
+```html {monaco-run}
+<style>
 :root {
   --primary-color: #ff5733;
   --secondary-color: #f0f0f0;
 }
-
 p {
   color: var(--primary-color);
   background-color: var(--secondary-color);
+  padding: 8px;
 }
+</style>
+<p>This paragraph uses CSS custom properties for color and background.</p>
+<p>Change <code>--primary-color</code> in :root to update both paragraphs at once.</p>
 ```
 
 Can be used to store colors, font sizes, spacing, and other values that are reused across the stylesheet. They are particularly useful for maintaining consistency and making global changes easier. The new `@property` rule in CSS allows you to define custom properties with specific types and values.
@@ -1441,7 +1553,8 @@ layout: two-cols
 
 Typography is a crucial aspect of web design, as it affects readability, accessibility, and overall user experience. Here are some key CSS properties for typography: `font-style`, `font-weight`, `font-size`, `line-height`, `font-family`, `text-align`, `text-transform`, `text-decoration`, `letter-spacing`, `word-spacing`, `text-shadow`, `white-space`, `overflow-wrap`, `word-break`, `hyphens`, `text-overflow`, `vertical-align`, `text-orientation`.
 
-```css
+```html {monaco-run}
+<style>
 p {
   font-family: "Arial", sans-serif;
   font-size: 16px;
@@ -1454,6 +1567,8 @@ p {
   word-spacing: 2px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
+</style>
+<p>Typography shapes how text looks and feels on the web.</p>
 ```
 
 ::right::
@@ -1520,17 +1635,29 @@ One of the fastest way to get your CSS debugged is to use the browser. Browser l
 Press-and-hold/right-click an item on a webpage and choose inspect from the context menu that appears. This will show all the code that made up the UI but highlighted the code of the element you right-clicked. Click on Elements to see how the HTML looks like on runtime and their respective CSS applied.
 </li>
 <li>
-Keyboard: On WIndows <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
+Keyboard: On Windows <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
 On macOS:  <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
 </li>
 </ol>
 
-```css
+```html {monaco-run}
+<style>
 * { border: 1px solid red; }
+</style>
+<div>
+  <p>Paragraph inside a div</p>
+  <ul><li>List item</li><li>Another item</li></ul>
+  <span>Inline span</span>
+</div>
 ```
-<div mt-2></div>
 
 > When in doubt in CSS put a border on all the elements to understand what is going on. 
+
+<style>
+  p, blockquotes, li, code {
+    --uno: text-sm;
+  }
+</style>
 
 ---
 
@@ -1572,15 +1699,25 @@ Inline CSS is used to apply a unique style to a single HTML element. It is done 
 </p>
 ```
 
+<div grid="~ cols-2" gap="2" text-sm>
+
+<div>
+
 Advantages:
 
 - Quick and easy for small, specific changes.
 - Good for overriding styles in a pinch.
 
+</div>
+<div>
+
 Disadvantages:
 
 - Makes the HTML code harder to read and maintain.
 - Not suitable for styling multiple elements.
+
+</div>
+</div>
 
 ---
 hideInToc: true
@@ -1590,18 +1727,14 @@ hideInToc: true
 
 Internal CSS is used to define styles for an entire HTML document. It is placed within the <kbd>style</kbd> tag in the <kbd>head</kbd> section of the HTML file.
 
-```html
-<head>
-  <style>
-    p {
-      color: red;
-      font-size: 18px;
-    }
-  </style>
-</head>
-<body>
-  <p>This is a paragraph with internal CSS.</p>
-</body>
+```html {monaco-run}
+<style>
+p {
+  color: red;
+  font-size: 18px;
+}
+</style>
+<p>This is a paragraph with internal CSS.</p>
 ```
 
 <div class="flex justify-between">
@@ -1736,35 +1869,39 @@ hideInToc: true
 
 <p>Flex Direction:The <kbd>flex-direction</kbd> property defines the direction in which the flex items are placed within the flex container. The direction can be either block (column) or inline (row).</p> <small>The following values can be assigned to it:</small>
 
-<div grid="~ cols-2" gap="1">
-
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* try: row-reverse | column | column-reverse */
+  border: 2px solid #374151;
+  background: #f9fafb;
+  gap: 8px;
+  padding: 8px;
+  height: 120px;
 }
-
-.container {
+.item {
+  width: 80px;
+  height: 80px;
   display: flex;
-  flex-direction: row-reverse; 
-  /* row-reverse arranges items order from right to left */
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
 }
-```
-
-```css
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
-  display: flex;
-  flex-direction: column-reverse; 
-  /* column-reverse arranges items order from bottom to top */
-}
-```
-
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
 </div>
+```
 
 ---
 hideInToc: true
@@ -1839,48 +1976,78 @@ Code Example:
 
 <p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Items are aligned to the start of the container.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   justify-content: flex-start;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 120px;
 }
+.item {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-       <!-- < -->
-       <div class="flex justify-start border-2 border-gray-800 mb-8 w-full">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 ---
 hideInToc: true
 ---
        
 <p class="text-xl mb-4"><strong><kbd>flex-end:</kbd></strong> Items are aligned to the end of the container.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   justify-content: flex-end;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 120px;
 }
+.item {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-      <!-- <> -->
-       <div class="flex justify-end border-2 border-gray-800 mb-8 w-full">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -1888,24 +2055,39 @@ hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>center</kbd></strong> : Items are centered along the main axis.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   justify-content: center;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 120px;
 }
+.item {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-      <!-- <> -->
-       <div class="flex justify-center border-2 border-gray-800 mb-8 w-full">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -1913,24 +2095,38 @@ hideInToc: true
 
 <p class="text-xl  mb-4"><strong><kbd>space-between</kbd></strong> : Items are evenly distributed in the line; the first item is on the start line and the last item is on the end line.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   justify-content: space-between;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 120px;
 }
+.item {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-       <!-- <> -->
-       <div class="flex justify-between border-2 border-gray-800 mb-8 w-full">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -1938,24 +2134,38 @@ hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>space- around</kbd></strong> : Items are evenly distributed in the line with equal space around them.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   justify-content: space-around;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 120px;
 }
+.item {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-      <!-- <> -->
-       <div class="flex justify-around border-2 border-gray-800 mb-8 w-full">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -1963,24 +2173,38 @@ hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>space-evenly</kbd></strong> : Items are evenly distributed with equal space between them.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   justify-content: space-evenly;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 120px;
 }
+.item {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-       <!-- <> -->
-       <div class="flex justify-evenly border-2 border-gray-800 mb-8 w-full">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -1992,47 +2216,76 @@ The <kbd>align-items</kbd> property aligns the flex items along the cross axis (
 
 <p class="text-xl mb-4"><strong><kbd>stretch</kbd></strong> : Items stretch to fill the container (default).</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   align-items: stretch;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 160px;
 }
+.item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-       <!-- <> -->
-       <div class="flex items-stretch border-2 border-gray-800 mb-8 w-full">
-           <div class="w-[25%] h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-[25%] h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-[25%] h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-[25%] h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 
 ---
 
 <p class="text-xl  mb-4"><strong><kbd>flex-start</kbd></strong> : Items are aligned to the start of the cross axis.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   align-items: flex-start;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 160px;
 }
+.item {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-       <!-- <> -->
-       <div class="flex items-start border-2 border-gray-800 mb-8 w-full h-70">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -2040,24 +2293,39 @@ hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Items are aligned to the end of the cross axis.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   align-items: flex-end;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 160px;
 }
+.item {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-     <!-- <> -->
-       <div class="flex items-end border-2 border-gray-800 mb-8 w-full h-70">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -2065,27 +2333,44 @@ hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>center</kbd></strong>: Items are centered along the cross axis.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   align-items: center;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 180px;
 }
+.item {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; height: 60px; }
+.item:nth-child(2) { background: #22c55e; height: 90px; }
+.item:nth-child(3) { background: #3b82f6; height: 120px; }
+.item:nth-child(4) { background: #f97316; height: 150px; }
+.item:nth-child(5) { background: #3b82f6; height: 120px; }
+.item:nth-child(6) { background: #22c55e; height: 90px; }
+.item:nth-child(7) { background: #ef4444; height: 60px; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-       <!-- <> -->
-       <div class="flex items-center border-2 border-gray-800 mb-8 w-full h-70">
-               <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
-        <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
-        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
-        <div class="w-24 h-40 m-2 bg-orange-500 text-white font-bold "></div>
-        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
-         <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
-          <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -2093,27 +2378,43 @@ hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>baseline</kbd></strong>: Items are aligned along their baseline. If you want to make sure the bottoms of each character are aligned, as they would be if they were written on a page then <kbd>align-items: baseline;</kbd> is used instead of <kbd>align-items: center;</kbd>.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   align-items: baseline;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 16px;
+  height: 180px;
 }
-```
-
-<section>
-    <div class="pt-4">
-      <!-- <? -->
-      <div class="flex items-baseline border-2 border-gray-800 mb-8 p-10 w-full h-60">
-        <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
-        <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
-        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
-        <div class="w-24 h-40 m-2 bg-orange-500 text-white font-bold "></div>
-        <div class="w-24 h-36 m-2 bg-blue-500 text-white font-bold "></div>
-        <div class="w-24 h-32 m-2 bg-green-500 text-white font-bold "></div>
-        <div class="w-24 h-28 m-2 bg-red-500 text-white font-bold "></div>
-    </div>
+.item {
+  width: 70px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; height: 60px;  font-size: 12px; }
+.item:nth-child(2) { background: #22c55e; height: 90px;  font-size: 20px; }
+.item:nth-child(3) { background: #3b82f6; height: 120px; font-size: 32px; }
+.item:nth-child(4) { background: #f97316; height: 150px; font-size: 48px; }
+.item:nth-child(5) { background: #3b82f6; height: 120px; font-size: 32px; }
+.item:nth-child(6) { background: #22c55e; height: 90px;  font-size: 20px; }
+.item:nth-child(7) { background: #ef4444; height: 60px;  font-size: 12px; }
+</style>
+<div class="container">
+  <div class="item">A</div>
+  <div class="item">B</div>
+  <div class="item">C</div>
+  <div class="item">D</div>
+  <div class="item">E</div>
+  <div class="item">F</div>
+  <div class="item">G</div>
 </div>
- </section>
+```
 
 ---
 hideInToc: true
@@ -2128,25 +2429,41 @@ hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Rows are packed to the start of the container.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  width: 220px;
+  height: 220px;
 }
+.item {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-      <!-- <. -->
-       <div class="flex flex-wrap items-start border-2 border-gray-800 dark:border-white mb-8 w-70 h-72">
-           <div class="w-18 h-18 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-18 h-18 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-18 h-18 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-18 h-18 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -2154,57 +2471,89 @@ hideInToc: true
 
 <p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Rows are packed to the end of the container.</p>
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-end;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  width: 220px;
+  height: 220px;
 }
+.item {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 4px;
+}
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
 ```
-
-<section>
-     <div class="pt-4">
-       <!-- <> -->
-       <div class="flex flex-wrap items-end border-2 border-gray-800 dark:border-white mb-8 w-70 h-70">
-           <div class="w-18 h-18 m-2 flex items-center justify-center bg-red-500 text-white font-bold">1</div>
-           <div class="w-18 h-18 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-18 h-18 m-2 flex items-center justify-center bg-blue-500 text-white font-bold">3</div>
-           <div class="w-18 h-18 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-       </div>
-    </div>
-</section>
 ---
 hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Self</h1> In a case where you want a specific child(ren) to have specific alignments instead of aligning all the children, flexbox gives you the <kbd>align-self</kbd> property to achieve this.
 
-```css
+```html {monaco-run}
+<style>
 .container {
   display: flex;
   justify-content: flex-start;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  height: 160px;
 }
-
-.container:nth-child(odd) {
-  align-self: flex-end;
+.item {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 4px;
 }
+.item:nth-child(odd) { align-self: flex-end; }
+.item:nth-child(1) { background: #ef4444; }
+.item:nth-child(2) { background: #22c55e; }
+.item:nth-child(3) { background: #3b82f6; }
+.item:nth-child(4) { background: #f97316; }
+.item:nth-child(5) { background: #111827; }
+.item:nth-child(6) { background: #6b7280; }
+.item:nth-child(7) { background: #eab308; }
+.item:nth-child(8) { background: #a855f7; }
+</style>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+  <div class="item">8</div>
+</div>
 ```
-
-<section>
-    <div class="pt-4">
-      <!-- <> -->
-       <div class="flex justify-start border-2 border-gray-800 mb-8 w-full h-40">
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-red-500 text-white font-bold self-end">1</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-green-500 text-white font-bold">2</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-blue-500 text-white font-bold self-end">3</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-orange-500 text-white font-bold">4</div>
-            <div class="w-24 h-24 m-2 flex items-center justify-center bg-black text-white font-bold self-end">5</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-gray-500 text-white font-bold">6</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-yellow-500 text-white font-bold self-end">7</div>
-           <div class="w-24 h-24 m-2 flex items-center justify-center bg-purple-500 text-white font-bold">8</div>
-       </div>
-    </div>
-</section>
 
 ---
 hideInToc: true
@@ -2317,25 +2666,31 @@ hideInToc: true
 
 The grid container is the parent element that contains the grid items (child elements). To create a grid container, you set the display property of the parent element to grid or inline-grid.
 
-```html
+```html {monaco-run}
+<style>
+.grid-container {
+  display: grid;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
+  gap: 8px;
+}
+.grid-item {
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.grid-item:nth-child(1) { background: #ef4444; }
+.grid-item:nth-child(2) { background: #3b82f6; }
+.grid-item:nth-child(3) { background: #22c55e; }
+</style>
 <div class="grid-container">
   <div class="grid-item">Item 1</div>
   <div class="grid-item">Item 2</div>
   <div class="grid-item">Item 3</div>
 </div>
 ```
-
-```css
-.grid-container {
-  display: grid;
-}
-```
-
-<div class="grid">
-  <div class="grid-item text-red-500">Item 1</div>
-  <div class="grid-item text-blue-500">Item 2</div>
-  <div class="grid-item ">Item 3</div>
-</div>
 
 ---
 hideInToc: true
@@ -2346,23 +2701,34 @@ hideInToc: true
 <div></div>
 You can define the structure of the grid using the <b> grid-template-rows</b> and <b>grid-template-columns</b> properties. These properties determine the number of rows and columns in the grid and their respective sizes.
 
-```css
+```html {monaco-run}
+<style>
 .grid-container {
   display: grid;
   grid-template-columns: 200px 1fr 100px;
   grid-template-rows: 100px 200px;
-  grid-gap: 4;
+  gap: 4px;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
 }
-```
-
-<div class="grid  text-center grid-cols-[200px_1fr_100px] grid-rows-[100px_200px] gap-4">
- <div class="bg-blue-200">Item 1</div>
- <div class="bg-green-200">Item 2</div>
- <div class="bg-red-200">Item 3</div>
- <div class="bg-yellow-200">Item 4</div>
- <div class="bg-purple-200">Item 5</div>
- <div class="bg-pink-200">Item 6</div>
+.grid-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #374151;
+}
+</style>
+<div class="grid-container">
+  <div style="background:#bfdbfe">Item 1<br><small>200px</small></div>
+  <div style="background:#bbf7d0">Item 2<br><small>1fr</small></div>
+  <div style="background:#fecaca">Item 3<br><small>100px</small></div>
+  <div style="background:#fef08a">Item 4</div>
+  <div style="background:#e9d5ff">Item 5</div>
+  <div style="background:#fbcfe8">Item 6</div>
 </div>
+```
 
 ---
 hideInToc: true
@@ -2370,19 +2736,35 @@ hideInToc: true
 
 ## Example
 
-```css
+In this example:
+
+- <b>grid-template-columns: 200px 1fr 100px;</b> creates three columns. The first column is 200px wide, the second column takes up the remaining space (<b>1fr</b>), and the third column is 100px wide.
+- <b>grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
+
+```html {monaco-run}
+<style>
 .grid-container {
   display: grid;
   grid-template-columns: 200px 1fr 100px;
   grid-template-rows: 100px 200px;
-  grid-gap: 4;
+  gap: 4px;
 }
+.grid-container > div {
+  background: #a78bfa;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.grid-container > div:nth-child(even) { background: #7c3aed; }
+</style>
+<div class="grid-container">
+  <div>200px</div><div>1fr</div><div>100px</div>
+  <div>row 2</div><div>row 2</div><div>row 2</div>
+</div>
 ```
-
-In this example:
-
-- <b> grid-template-columns: 200px 1fr 100px;</b> creates three columns. The first column is 200px wide, the second column takes up the remaining space (<b>1fr</b>), and the third column is 100px wide.
-- <b> grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
 
 ---
 hideInToc: true
@@ -2392,24 +2774,43 @@ hideInToc: true
 
 By default, grid items are placed in the grid based on the order they appear in the HTML. However, you can control their placement using the grid-column and grid-row properties.
 
-```css
-.grid-item:nth-child(1) {
-  grid-column: 1 / 3; /* Spans across the first and second columns */
-  grid-row: 1; /* Placed in the first row */
+```html {monaco-run}
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 100px);
+  gap: 8px;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
 }
-
-.grid-item:nth-child(2) {
-  grid-column: 3; /* Placed in the third column */
-  grid-row: 1 / 3; /* Spans across the first and second rows */
+.grid-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #374151;
+  padding: 8px;
 }
-```
-
-<div class="grid grid-cols-3 grid-rows-2 gap-4">
- <div class="col-span-2 row-start-1 bg-blue-200">Item 1</div>
- <div class="col-start-3 row-span-2 bg-green-200">Item 2</div>
- <div class="bg-red-200">Item 3</div>
- <div class="bg-yellow-200">Item 4</div>
+.grid-item-1 {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  background: #bfdbfe;
+}
+.grid-item-2 {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  background: #bbf7d0;
+}
+</style>
+<div class="grid-container">
+  <div class="grid-item-1">Item 1 — col 1/3, row 1</div>
+  <div class="grid-item-2">Item 2 — col 3, row 1/3</div>
+  <div style="background:#fecaca">Item 3</div>
+  <div style="background:#fef08a">Item 4</div>
 </div>
+```
 
 ---
 hideInToc: true
@@ -2419,22 +2820,32 @@ hideInToc: true
 
 To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap</b>, and <b>column-gap</b> properties.
 
-```css
+```html {monaco-run}
+<style>
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px; /* 20px space between all grid items */
+  gap: 20px; /* try row-gap / column-gap separately */
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
 }
-```
-
-<div class="grid grid-cols-3 gap-5">
-  <div class="bg-blue-500 text-white p-5">Item 1</div>
-  <div class="bg-green-500 text-white p-5">Item 2</div>
-  <div class="bg-red-500 text-white p-5">Item 3</div>
-  <div class="bg-yellow-500 text-white p-5">Item 4</div>
-  <div class="bg-purple-500 text-white p-5">Item 5</div>
-  <div class="bg-pink-500 text-white p-5">Item 6</div>
+.grid-container > div {
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+<div class="grid-container">
+  <div style="background:#3b82f6">Item 1</div>
+  <div style="background:#22c55e">Item 2</div>
+  <div style="background:#ef4444">Item 3</div>
+  <div style="background:#eab308">Item 4</div>
+  <div style="background:#a855f7">Item 5</div>
+  <div style="background:#ec4899">Item 6</div>
 </div>
+```
 
 ---
 hideInToc: true
@@ -2444,7 +2855,8 @@ hideInToc: true
 
 Grid areas allow you to name specific sections of the grid, making it easier to define complex layouts. You can use grid-template-areas to define areas and grid-area to place grid items within those areas.
 
-```css
+```html {monaco-run}
+<style>
 .grid-container {
   display: grid;
   grid-template-areas:
@@ -2453,15 +2865,31 @@ Grid areas allow you to name specific sections of the grid, making it easier to 
     "footer footer footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 150px 1fr 1fr;
+  gap: 8px;
+  height: 220px;
+  padding: 8px;
+  background: #f9fafb;
+  border: 2px solid #374151;
 }
-
-.header { grid-area: header; }
-
-.sidebar { grid-area: sidebar; }
-
-.main { grid-area: main; }
-
-.footer {grid-area: footer;}
+.grid-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  padding: 8px;
+}
+.header  { grid-area: header;  background: #3b82f6; }
+.sidebar { grid-area: sidebar; background: #22c55e; }
+.main    { grid-area: main;    background: #ef4444; }
+.footer  { grid-area: footer;  background: #eab308; color: #374151; }
+</style>
+<div class="grid-container">
+  <div class="header">Header</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="main">Main</div>
+  <div class="footer">Footer</div>
+</div>
 ```
 
 ---
@@ -2472,20 +2900,30 @@ hideInToc: true
 
 CSS Grid makes it easy to create responsive designs. You can use functions like repeat() and minmax() to create grids that adjust based on the available space.
 
-```css
+```html {monaco-run}
+<style>
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-gap: 10px;
+  gap: 10px;
+  border: 2px solid #374151;
+  background: #f9fafb;
+  padding: 8px;
 }
-```
-
-<div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2">
- <div class="bg-blue-200 p-4">Item 1</div>
- <div class="bg-green-200 p-4">Item 2</div>
- <div class="bg-red-200 p-4">Item 3</div>
- <div class="bg-yellow-200 p-4">Item 4</div>
+.grid-container > div {
+  padding: 16px;
+  text-align: center;
+  font-weight: bold;
+  color: #374151;
+}
+</style>
+<div class="grid-container">
+  <div style="background:#bfdbfe">Item 1</div>
+  <div style="background:#bbf7d0">Item 2</div>
+  <div style="background:#fecaca">Item 3</div>
+  <div style="background:#fef08a">Item 4</div>
 </div>
+```
 
 - repeat(auto-fit, minmax(100px, 1fr)); automatically creates as many columns as will fit into the container, with each column being at least 100px wide and taking up a fraction of the remaining space.
 - This ensures that the grid adjusts dynamically as the viewport size changes.
@@ -2497,21 +2935,76 @@ hideInToc: true
 
 ## Example(CONTD)
 
- <div class="grid grid-rows-[auto_1fr_auto] grid-cols-[150px_1fr_1fr] gap-5 h-100">
-   <!-- Header -->
-   <div class="bg-blue-500 text-white p-5 col-span-3">
-     Header
-   </div>
-   <div class="bg-green-500 text-white p-5">
-     Sidebar
-   </div>
-   <div class="bg-red-500 text-white p-5 col-span-2">
-     Main Content
-   </div>
-   <div class="bg-yellow-500 text-white p-5 col-span-3">
-     Footer
-   </div>
- </div>
+```html {monaco-run}
+<style>
+.page {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  height: 300px;
+}
+.page > * { padding: 16px; color: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+.header  { grid-column: 1 / -1; background: #3b82f6; }
+.sidebar { background: #22c55e; }
+.main    { grid-column: span 2; background: #ef4444; }
+.footer  { grid-column: 1 / -1; background: #eab308; color: #1f2937; }
+</style>
+<div class="page">
+  <div class="header">Header</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="main">Main Content</div>
+  <div class="footer">Footer</div>
+</div>
+```
+
+---
+hideInToc: true
+---
+
+## Subgrid
+
+Without subgrid, a nested grid creates its own independent track sizes — so items inside different cards can never line up with each other. `subgrid` lets a nested grid **inherit its parent's track definitions**, so rows or columns stay perfectly aligned across siblings.
+
+```html {monaco-run}
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.card {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid; /* inherits parent row tracks */
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card-img    { background: #bfdbfe; height: 80px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #1e40af; }
+.card-body   { padding: 12px; font-size: 14px; }
+.card-footer { padding: 8px 12px; background: #f3f4f6; font-size: 12px; color: #6b7280; }
+</style>
+<div class="grid">
+  <div class="card">
+    <div class="card-img">Image</div>
+    <div class="card-body">Short title</div>
+    <div class="card-footer">Footer always aligned</div>
+  </div>
+  <div class="card">
+    <div class="card-img">Image</div>
+    <div class="card-body">A much longer title that wraps across multiple lines in the card body</div>
+    <div class="card-footer">Footer always aligned</div>
+  </div>
+  <div class="card">
+    <div class="card-img">Image</div>
+    <div class="card-body">Medium length title here</div>
+    <div class="card-footer">Footer always aligned</div>
+  </div>
+</div>
+```
+
+> **Try it:** Remove `grid-template-rows: subgrid` from `.card` and run again — the footers will no longer align across cards.
 
 ---
 name: SubGrid
@@ -2534,6 +3027,24 @@ To style your layout, use the <strong><kbd>position</kbd></strong> property with
 
 The element is positioned <kbd>position: relative;</kbd> based on the normal document flow and then adjusted relative to its original position using the top, right, bottom, and left values. This adjustment does not impact the layout or positioning of surrounding elements, so the space allocated for the element remains the same as if it were using static positioning.
 
+```html {monaco-run}
+<style>
+.flow  { background: #bfdbfe; width: 80px; height: 80px; display: inline-block; }
+.moved {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  background: #fca5a5;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
+</style>
+<div class="flow">static</div>
+<div class="moved">relative: top 20px, left 30px</div>
+<div class="flow">static (gap still reserved)</div>
+```
+
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Absolute Positioning</h1>
@@ -2542,34 +3053,15 @@ Every element is contained by a block which is referred to containing block. Whe
 
 Absolutely-positioned elements act just like static-positioned elements when it comes to overflow. If the parent sets <kbd>overflow: auto;</kbd>, as long as that parent is the containing block, it will allow that child to be scrolled into view:
 
-```css
+```html {monaco-run}
+<style>
 .wrapper {
   overflow: auto;
   position: relative;
-  /* other styles here */
-}
-.box {
-  position: absolute;
-  /* other styles here */
-}
-```
-
-<div class="flex items-center justify-center ">
-<div class="relative w-150px h-100px border-3 border-red-500 overflow-auto">
-<div class="absolute top-24px left-24px w-150 h-200 bg-black"></div>
-</div>
-</div>
-
----
-
-```css
-.wrapper {
-  overflow: hidden;
-  width: 100px;
+  width: 150px;
   height: 100px;
   border: 3px solid red;
 }
-
 .box {
   position: absolute;
   top: 24px;
@@ -2578,29 +3070,50 @@ Absolutely-positioned elements act just like static-positioned elements when it 
   width: 150px;
   height: 200px;
 }
+</style>
+<div class="wrapper">
+  <div class="box"></div>
+</div>
 ```
 
-<div class="relative">
-<div class="w-120px h-120px border-3 border-red-500 overflow-hidden">
-<div class="absolute top-24px left-24px w-100px h-100px bg-black"></div>
+---
+
+```html {monaco-run}
+<style>
+.wrapper {
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  border: 3px solid red;
+}
+.box {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: black;
+  width: 150px;
+  height: 200px;
+}
+</style>
+<div class="wrapper">
+  <div class="box"></div>
 </div>
-</div>
-<br/>
+```
 <kbd>.box</kbd> is not been contained by wrapper even with the <kbd>overflow: hidden;</kbd> passed into the <kbd>wrapper</kbd> CSS rule because the parent which is <kbd>wrapper</kbd> is not using positioned layout.
 
 ---
 
 Error fixed by adding <kbd>position: relative;</kbd> to the parent.
 
-```css
+```html {monaco-run}
+<style>
 .wrapper {
   overflow: hidden;
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border: 3px solid red;
 }
-
 .box {
   position: absolute;
   top: 24px;
@@ -2609,11 +3122,11 @@ Error fixed by adding <kbd>position: relative;</kbd> to the parent.
   width: 150px;
   height: 200px;
 }
-```
-
-<div class="relative w-120px h-120px border-3 border-red-500 overflow-hidden">
-<div class="absolute top-24px left-24px w-150 h-200 bg-black"></div>
+</style>
+<div class="wrapper">
+  <div class="box"></div>
 </div>
+```
 
 ---
 
@@ -2673,68 +3186,55 @@ With <kbd>position: absolute;</kbd>, the element will move with its parent eleme
 
 <h1>Code Example</h1>
 
-```css
+```html {monaco-run}
+<style>
+dl { overflow-y: scroll; height: 200px; margin: 0; }
 dt {
   position: sticky;
   top: -1px;
-  /* other styles */
+  background: #b8c1c8;
+  border-top: 1px solid #717d85;
+  border-bottom: 1px solid #989ea4;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 8px 12px;
 }
-
 dd {
   margin: 0;
-  /* other styles */
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 45px;
+  padding-left: 12px;
+  white-space: nowrap;
+  border-top: 1px solid #ccc;
 }
-```
-
-<dl class="space-y-6 overflow-scroll h-50 mt-10">
+</style>
+<dl>
   <div>
-    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
-      A
-    </dt>
-    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
-      Andrew W.K.
-    </dd>
-    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
-      Apparat
-    </dd>
-    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
-      Arcade Fire
-    </dd>
+    <dt>A</dt>
+    <dd>Andrew W.K.</dd>
+    <dd>Apparat</dd>
+    <dd>Arcade Fire</dd>
   </div>
   <div>
-    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
-      C
-    </dt>
-    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
-      Chromeo
-    </dd>
-    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
-      Common
-    </dd>
+    <dt>C</dt>
+    <dd>Chromeo</dd>
+    <dd>Common</dd>
   </div>
   <div>
-    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
-      E
-    </dt>
-    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
-      Explosions In The Sky
-    </dd>
+    <dt>E</dt>
+    <dd>Explosions In The Sky</dd>
   </div>
   <div>
-    <dt class="bg-[#b8c1c8] border-t border-[#717d85] border-b border-[#989ea4] text-white font-bold text-[18px] leading-[21px] px-3 py-2 sticky top-[-1px]">
-      T
-    </dt>
-    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
-      Ted Leo &amp; The Pharmacists
-    </dd>
-    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
-      T-Pain
-    </dd>
-    <dd class="font-bold text-[20px] leading-[45px] pl-3 whitespace-nowrap border-t border-[#ccc]">
-      Thrice
-    </dd>
+    <dt>T</dt>
+    <dd>Ted Leo &amp; The Pharmacists</dd>
+    <dd>T-Pain</dd>
+    <dd>Thrice</dd>
   </div>
 </dl>
+```
 
 ---
 hideInToc: true
@@ -2791,7 +3291,7 @@ First things first. When you're writing your HTML, the browser stacks elements i
   <text x="10" y="190" fill="black">Natural Stacking Order</text>
 </svg>
 
-```html
+```html {monaco-run}
 <div style="background: red; width: 100px; height: 100px;"></div>
 <div style="background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"></div>
 ```
@@ -2820,7 +3320,7 @@ Here's what it looks like:
   <text x="10" y="190" fill="black">Z-Index Stacking</text>
 </svg>
 
-```html
+```html {monaco-run}
 <div style="position: relative; z-index: 2; background: red; width: 100px; height: 100px;"></div>
 <div style="position: relative; z-index: 1; background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"></div>
 ```
@@ -2892,29 +3392,26 @@ So, how do you create these stacking contexts? There are a bunch of ways, but he
 - Use transforms, filters, or clip-path.
 - Use isolation: isolate (this one's handy if you don't want to mess with the element's position or appearance).
 
-<ul class="flex justify-center ">
-<div mt-2>
-```html
-<div id="parent1" style="position: relative; z-index: 1;">
-  Parent 1
-  <div id="child1" style="position: absolute; z-index: 999999;">Child 1</div>
+```html {monaco-run}
+<style>
+[id^="parent"] { position: relative; padding: 40px 16px 16px; margin-bottom: 8px; font-weight: bold; }
+[id^="child"]  { position: absolute; top: 4px; right: 4px; padding: 4px 8px; font-size: 12px; }
+#parent1 { background: #fecaca; z-index: 1; }
+#child1  { background: #ef4444; color: white; z-index: 999999; }
+#parent2 { background: #bbf7d0; z-index: 2; }
+#child2  { background: #22c55e; color: white; z-index: 1; }
+</style>
+<div id="parent1">
+  Parent 1 (z-index: 1)
+  <div id="child1">Child 1 (z-index: 999999)</div>
 </div>
-<div id="parent2" style="position: relative; z-index: 2;">
-  Parent 2
-  <div id="child2" style="position: absolute; z-index: 1;">Child 2</div>
+<div id="parent2">
+  Parent 2 (z-index: 2) — child1 is behind this whole context
+  <div id="child2">Child 2 (z-index: 1)</div>
 </div>
 ```
-</div>
-<div ml-2>
-In this example:
 
-Both parent divs create their own stacking contexts due to having position: relative and a z-index.
-Child1 has a much higher z-index than Child2.
-However, Child1 will appear behind Parent2 and Child2, because its parent (Parent1) has a lower z-index than Parent2.
-
-This demonstrates that z-index values are only compared within the same stacking context. The z-index of Child1 is only relevant within the context of Parent1.
-</div>
-</ul>
+In this example: Child1 has a much higher z-index than Child2 but is still behind Parent2 and Child2 — because its parent (Parent1) has a lower z-index than Parent2.
 
 
 
@@ -2930,8 +3427,12 @@ hideInToc: true
 
 An interesting exception to the positioning rule for z-index is that children of flex and grid containers can use z-index without needing to be positioned:
 
-```html
-<div style="display: flex;">
+```html {monaco-run}
+<style>
+.wrap { display: flex; padding: 20px; }
+.wrap div { width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+</style>
+<div class="wrap">
   <div style="background: red; z-index: 1;">First</div>
   <div style="background: blue; z-index: 2; margin-left: -20px;">Second</div>
 </div>
@@ -3033,45 +3534,44 @@ The <strong><kbd>overflow</kbd></strong> CSS property allows you to control how 
 
 <strong><kbd>overflow: auto;</kbd></strong> property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
 
-```html
-<div class="content">
-  <strong><kbd>overflow: auto;</kbd></strong> property makes an element
-  scrollable when its content exceeds its bounds. Although the overflow content
-  is clipped at the element's padding box, it can still be scrolled into view.
-</div>
-```
-
-```css
+```html {monaco-run}
+<style>
 .content {
   overflow: auto;
   border: 3px solid black;
-  max-height: 100px;
-  width: 100px;
+  max-height: 80px;
+  width: 240px;
+  padding: 8px;
 }
+</style>
+<div class="content">
+  <strong>overflow: auto</strong> makes an element scrollable when its content
+  exceeds its bounds. The overflow content is clipped at the padding box but
+  can be scrolled into view. Scroll down to see more of this text.
+  More text here. Even more text to demonstrate scrolling behaviour.
+</div>
 ```
-
-<div class="flex justify-center items-center">
-<div class="overflow-auto border-3 border-black max-h-24 p-2 w-100 mt-4">
-  <strong>overflow: auto;</strong> property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
-</div>
-</div>
 ---
 
 <h1 class="text-sm bg-black p-4 text-center">overflow: hidden;</h1>
 <div />
 The <strong><kbd>overflow: hidden;</kbd></strong> property makes an element truncate its content when it overflows its boundaries. It behaves similarly to <strong><kbd>overflow: scroll;</kbd></strong>, but without displaying scrollbars. When <strong><kbd>overflow: hidden;</kbd></strong> is applied to an element, a scroll container is created without visible scrollbars.
 
-```css
+```html {monaco-run}
+<style>
 .content {
   overflow: hidden;
-  /* other styles */
+  border: 3px solid black;
+  max-height: 80px;
+  width: 240px;
+  padding: 8px;
 }
-```
-
-<div class="flex justify-center items-center">
-<div class="overflow-hidden border-3 border-black max-h-57 p-2 w-60 mt-4">
-  <strong>overflow: hidden;</strong> property causes an element truncate its content  when it exceeds its boundaries, but the scroll container is still active so use the tab key to confirm.
-   <ul tabindex>
+</style>
+<div class="content">
+  <strong>overflow: hidden</strong> truncates content that exceeds the
+  boundaries — no scrollbars shown, but the scroll container still exists
+  (press Tab to confirm focus moves through the list).
+  <ul>
     <li tabindex="1">Track 1</li>
     <li tabindex="2">Track 2</li>
     <li tabindex="3">Track 3</li>
@@ -3080,62 +3580,50 @@ The <strong><kbd>overflow: hidden;</kbd></strong> property makes an element trun
     <li tabindex="6">Track 6</li>
   </ul>
 </div>
-</div>
+```
 ---
 
 <h1 class="text-sm bg-black p-4 text-center">overflow: scroll;</h1>
 <div />
 <strong><kbd>overflow: scroll;</kbd></strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
 
-```html
-<div class="content">
-  <strong><kbd>overflow: scroll;</kbd></strong> property causes an element
-  overflow content to be scrolled into view using scroll bars.
-</div>
-```
-
-```css
+```html {monaco-run}
+<style>
 .content {
   overflow: scroll;
   border: 3px solid black;
-  max-height: 30px;
-  width: 50px;
+  max-height: 60px;
+  width: 200px;
+  padding: 8px;
 }
+</style>
+<div class="content">
+  <strong>overflow: scroll</strong> — scrollbars appear even when content fits.
+  Scroll bars show whether content will overflow. More text here to demonstrate
+  the scrollable behaviour in both axes.
+</div>
 ```
-
-<div class="flex justify-center items-center">
-<div class="overflow-scroll border-3 border-black max-h-30 p-2 w-50 mt-4">
-  <strong>overflow: scroll;</strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
-</div>
-</div>
 ---
 
  <h1 class="text-sm bg-black p-4 text-center">overflow: visible;</h1>
 <div />
 <strong><kbd>overflow: visible;</kbd></strong> property is the default setting for the <strong><kbd>overflow</kbd></strong> property. When overflow occurs outside the element's padding box, it will be displayed.
 
-```html
-<div class="content">
-  <strong><kbd>overflow: visible;</kbd></strong> property is the default setting
-  for the <strong><kbd>overflow</kbd></strong> property. When overflow occurs
-  outside the element's padding box, it will be displayed.
-</div>
-```
-
-```css
+```html {monaco-run}
+<style>
 .content {
   overflow: visible;
   border: 3px solid black;
-  max-height: 23px;
-  width: 50px;
+  max-height: 30px;
+  width: 120px;
+  padding: 4px;
 }
+</style>
+<div class="content">
+  <strong>overflow: visible</strong> — content spills outside the box (default).
+  Notice the text overflows below the border.
+</div>
 ```
-
-<div class="flex justify-center items-center">
-<div class="overflow-visible border-3 border-black max-h-23 p-2 w-50 mt-4">
-  <strong>overflow: visible;</strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
-</div>
-</div>
 
 ---
 
@@ -3154,17 +3642,20 @@ This metaphor helps illustrate how the scroll container behaves — it allows yo
 <div />
 <strong><kbd>overflow: clip;</kbd></strong> property causes element's content to clipped at the element's overflow clip edge. The content outside the clipped region is not visible, and also no addition of scroll container. This work exactly the way most developers think <strong><kbd>overflow: hidden;</kbd></strong> should work.
 
-```css
+```html {monaco-run}
+<style>
 .content {
   overflow: clip;
-  /* other styles */
+  border: 3px solid black;
+  max-height: 80px;
+  width: 240px;
+  padding: 8px;
 }
-```
-
-<div class="flex justify-center items-center">
-<div class="overflow-clip border-3 border-black max-h-50 p-2 w-60 mt-4">
-  The content outside the clipped region is not visible, and also no addition of scroll container. 
-   <ul tabindex>
+</style>
+<div class="content">
+  <strong>overflow: clip</strong> — content is clipped, no scroll container
+  created (pressing Tab will NOT move focus to hidden list items).
+  <ul>
     <li tabindex="1">Track 1</li>
     <li tabindex="2">Track 2</li>
     <li tabindex="3">Track 3</li>
@@ -3173,7 +3664,7 @@ This metaphor helps illustrate how the scroll container behaves — it allows yo
     <li tabindex="6">Track 6</li>
   </ul>
 </div>
-</div>
+```
 
 ---
 
@@ -3183,48 +3674,34 @@ When you have inline elements that automatically wrap to the next line when they
 
 <strong><kbd>white-space</kbd></strong> is a CSS property that allows developers to control how words and other inline or inline-block elements wrap.
 
-```css
+```html {monaco-run}
+<style>
 .img-wrapper {
   overflow: auto;
   white-space: nowrap;
-  /* other styles */
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border: 4px solid #333;
+  width: 100%;
 }
+.img-wrapper img {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+</style>
+<div class="img-wrapper">
+  <img src="https://picsum.photos/seed/a/120/120" alt="photo 1" />
+  <img src="https://picsum.photos/seed/b/120/120" alt="photo 2" />
+  <img src="https://picsum.photos/seed/c/120/120" alt="photo 3" />
+  <img src="https://picsum.photos/seed/d/120/120" alt="photo 4" />
+  <img src="https://picsum.photos/seed/e/120/120" alt="photo 5" />
+  <img src="https://picsum.photos/seed/f/120/120" alt="photo 6" />
+</div>
 ```
-
-<div class="flex items-center justify-center ">
-<div class="overflow-auto whitespace-nowrap flex  gap-4 p-4 border-4 w-60%">
-  <img
-    alt="A pile of oranges sitting next to each other"
-    src="https://images.unsplash.com/photo-1711063638201-153a1875a516?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    class="w-30 h-30 rounded-lg shadow-lg"
-  />
-  <img
-    alt="A colorful parrot sitting on a branch"
-    src="https://images.unsplash.com/photo-1725261353746-fdb0052adc46?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-   class="w-30 h-30 rounded-lg shadow-lg"
-  />
-  <img
-    alt="A pile of nuts that are brown in color"
-    src="https://images.unsplash.com/photo-1693545906698-1ee005c485b1?q=80&w=424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    class="w-30 h-30 rounded-lg shadow-lg"
-  />
-  <img
-    alt="A pile of oranges sitting next to each other"
-    src="https://images.unsplash.com/photo-1711063638201-153a1875a516?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    class="w-30 h-30 rounded-lg shadow-lg"
-  />
-   <img
-    alt="A colorful parrot sitting on a branch"
-    src="https://images.unsplash.com/photo-1725261353746-fdb0052adc46?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-   class="w-30 h-30 rounded-lg shadow-lg"
-  />
-  <img
-    alt="A pile of nuts that are brown in color"
-    src="https://images.unsplash.com/photo-1693545906698-1ee005c485b1?q=80&w=424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    class="w-30 h-30 rounded-lg shadow-lg"
-  />
-</div>
-</div>
 
 ---
 
@@ -3247,9 +3724,35 @@ hideInToc: true
 Instead of using fixed pixel widths, we use relative units like percentages or ems. This allows our layout to flex and adapt.
 This means elements on your site will resize proportionally as the screen size changes.
 
-
 The `.container` takes 80% of the screen width and centers itself with margin: auto.
 As the screen size changes, the container's width adjusts proportionally.
+
+```html {monaco-run}
+<style>
+.container {
+  width: 80%;
+  margin: 0 auto;
+  background: #ddd6fe;
+  padding: 16px;
+  text-align: center;
+  border-radius: 6px;
+}
+.columns {
+  display: flex;
+  gap: 2%;
+  margin-top: 12px;
+}
+.col { flex: 1; background: #a78bfa; color: white; padding: 12px; border-radius: 4px; }
+</style>
+<div class="container">
+  <p>80% wide container — resize the preview to see it flex</p>
+  <div class="columns">
+    <div class="col">33%</div>
+    <div class="col">33%</div>
+    <div class="col">33%</div>
+  </div>
+</div>
+```
 
 ---
 hideInToc: true
@@ -3288,13 +3791,30 @@ hideInToc: true
 
 ## Flexible Images
 Flexible images ensure that pictures and videos resize to fit their container without overflowing or getting distorted.
-<!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/OluFaith/embed/mdZQwQb?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/OluFaith/pen/mdZQwQb">
-  Untitled</a> by Oluwibe Faith (<a href="https://codepen.io/OluFaith">@OluFaith</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe> -->
 <br/>
 The image scales to fit the width of its container without overflowing, maintaining its aspect ratio.
+
+```html {monaco-run}
+<style>
+.img-wrap {
+  width: 60%;
+  border: 2px dashed #a78bfa;
+  padding: 8px;
+  resize: horizontal;
+  overflow: hidden;
+  min-width: 80px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+</style>
+<p style="font-size:12px;color:#6b7280">Resize the dashed box to see the image flex</p>
+<div class="img-wrap">
+  <img src="https://picsum.photos/seed/css/600/300" alt="flexible image demo" />
+</div>
+```
 
 ---
 hideInToc: true
@@ -3428,33 +3948,47 @@ Container queries are similar to media queries but apply to the container's size
 ```
 ---
 hideInToc: true
-layout: two-cols
 ---
 
 # Syntax
-<div />
 
-```html
-<div class="element-wrap">
-  <div class="element">
-  </div>
-</div>
-```
+First **name the container** with `container`, then write `@container` rules that fire when the container hits a size threshold — not the viewport.
 
-::right::
-```css
+```html {monaco-run}
+<style>
 .element-wrap {
   container: element / inline-size;
+  border: 2px dashed #94a3b8;
+  resize: horizontal;      /* drag the edge to see the query fire */
+  overflow: auto;
+  padding: 8px;
+  max-width: 100%;
+  min-width: 80px;
+}
+.element {
+  background: #fecaca;
+  color: #991b1b;
+  padding: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
 @container element (min-inline-size: 300px) {
   .element {
     display: flex;
     gap: 1rem;
+    background: #bbf7d0;
+    color: #166534;
   }
 }
+</style>
+<div class="element-wrap">
+  <div class="element">
+    <span>Item A</span>
+    <span>Item B — drag the dashed box wider than 300px</span>
+  </div>
+</div>
 ```
-
-
 
 ---
 hideInToc: true
@@ -3501,6 +4035,30 @@ Container Units (literally units, like px, rem, or vw) allow you to set the size
 
 The units are cqw (“container query width”), cqh (“container query height”), cqi (“container query inline”), cqb (“container query block”), cqmin (smaller of cqi and cqb), and cqmax (larger of cqi and cqb).
 
+```html {monaco-run}
+<style>
+.outer {
+  container-type: inline-size;
+  border: 2px dashed #a78bfa;
+  padding: 16px;
+  resize: horizontal;
+  overflow: hidden;
+  width: 60%;
+  min-width: 150px;
+}
+.card {
+  background: #ede9fe;
+  padding: 1cqi;
+  font-size: 4cqi;
+  border-radius: 1cqi;
+}
+</style>
+<p style=”font-size:12px;color:#6b7280”>Resize the dashed box → text and padding scale with the container</p>
+<div class=”outer”>
+  <div class=”card”>Container-relative text</div>
+</div>
+```
+
 
 
 
@@ -3534,11 +4092,42 @@ The <kbd>animation</kbd> shorthand CSS property applies animation on element of 
  <h1 class="text-sm bg-purple p-4 text-center">Transforms</h1>
 <p>The <kbd>transform</kbd> CSS property allows you to rotate, scale, skew, or translate an element. It plays a significant role in CSS animations, offering a variety of powerful transform functions for creating dynamic visual effects.</p>
 
+```html {monaco-run}
+<style>
+.box { width: 80px; height: 80px; background: #a78bfa; display: inline-block; margin: 20px; }
+.rotated  { transform: rotate(45deg); }
+.scaled   { transform: scale(1.5); }
+.skewed   { transform: skewX(20deg); }
+.translated { transform: translate(30px, 10px); }
+</style>
+<div class="box rotated">rotate</div>
+<div class="box scaled">scale</div>
+<div class="box skewed">skew</div>
+<div class="box translated">translate</div>
+```
+
 ---
 
 <h2 class="text-sm bg-purple p-4 text-center animate-slide-in-down">Transform functions</h2>
 
 The <kbd>transform-function</kbd> in CSS is used to apply 2D or 3D transformations to elements, enabling you to modify their shape, size, and position without disrupting the document flow. This function is powerful for creating visual effects like scaling, rotating, skewing, or translating elements. The transformations occur within the element's own coordinate system.
+
+```html {monaco-run}
+<style>
+.demo { display: flex; gap: 30px; flex-wrap: wrap; padding: 20px; }
+.box { width: 80px; height: 80px; background: #6d28d9; color: white; font-size: 11px; display: flex; align-items: center; justify-content: center; text-align: center; }
+.t1 { transform: rotate(30deg); }
+.t2 { transform: scale(1.4, 0.8); }
+.t3 { transform: skewY(15deg); }
+.t4 { transform: translateX(20px) rotate(20deg); }
+</style>
+<div class="demo">
+  <div class="box t1">rotate(30deg)</div>
+  <div class="box t2">scale(1.4, 0.8)</div>
+  <div class="box t3">skewY(15deg)</div>
+  <div class="box t4">translate + rotate</div>
+</div>
+```
 
 ---
 
@@ -3557,33 +4146,24 @@ The <kbd>transform-function</kbd> in CSS is used to apply 2D or 3D transformatio
 
 ---
 
-```html
+```html {monaco-run}
+<style>
+.box-wrapper {
+  border: 2px dashed red;
+  height: 80px;
+  width: 80px;
+}
+.box {
+  background-color: blue;
+  transform: translate(100%, 20px);
+  height: 60px;
+  width: 60px;
+}
+</style>
 <div class="box-wrapper">
   <div class="box"></div>
 </div>
 ```
-
-```css
-.box-wrapper {
-  border: 2px dashed red;
-  height: 40px;
-  width: 40px;
-}
-
-.box {
-  background-color: blue;
-  transform: translate(100%, 20px);
-  height: 30px;
-  width: 30px;
-}
-```
-
-<div class="flex justify-center mt-4">
-<div class="border-2 border-dashed border-red-500 h-40 w-40">
-  <div class="bg-blue-500 transform translate-x-[100%] translate-y-[20px] h-30 w-30">
-  </div>
-</div>
-</div>
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Scale</h3>
@@ -3593,34 +4173,20 @@ The <kbd>scale()</kbd> transform function allows you to resize an element by enl
 
 <h2 class="mb-4">scale() transform function code example</h2>
 
-```css
-.box1 {
-  width: 20px;
-  height: 20px;
-}
-/* This means that element should be 2x as big as it would nomally be. */
-.box2 {
-  transform: scale(2);
-}
-/* This means that element should be 1/2 as small as it would nomally be. */
-.box3 {
-  transform: scale(0.5);
-}
-```
-
-<div class="flex justify-between mx-auto mt-20 w-50%">
-  <div class="bg-blue-500 transform h-20 w-20 color-white text-center ">
-  Original size
-  </div>
-
-  <div class="bg-green-500 transform scale-200 h-20 w-20 color-white text-center ">
-    transform: scale(2);
-  </div>
-
-  <div class="bg-red-500 transform scale-50 h-20 w-20 color-white text-center ">
-    scale(0.5);
-  </div>
+```html {monaco-run}
+<style>
+.wrap { display: flex; justify-content: space-around; align-items: center; height: 160px; }
+.box { width: 60px; height: 60px; color: white; display: flex; align-items: center; justify-content: center; font-size: 11px; text-align: center; }
+.box1 { background: #3b82f6; }
+.box2 { background: #22c55e; transform: scale(2); }
+.box3 { background: #ef4444; transform: scale(0.5); }
+</style>
+<div class="wrap">
+  <div class="box box1">Original</div>
+  <div class="box box2">scale(2)</div>
+  <div class="box box3">scale(0.5)</div>
 </div>
+```
 
 ---
 
@@ -3634,82 +4200,75 @@ The <kbd>rotate()</kbd> transform function allows you to rotate an element aroun
 
 We use the <kbd>deg</kbd> unit for rotation, short for degrees.
 
-```css
-.box {
-  transform: rotate(230deg);
-}
-```
-
-<div class="flex justify-center mx-auto mt-10">
-  <div class="bg-red-500 h-20 w-20 text-white text-center animate-rotate" style="transform: rotate(230deg);">
-    Rotated Box
-  </div>
-</div>
-
+```html {monaco-run}
 <style>
-  @keyframes rotate {
-    0% { transform: rotate(230deg); }
-    100% { transform: rotate(590deg); } 
-  }
-  .animate-rotate {
-    animation: rotate 2s infinite linear;
-  }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.box {
+  width: 80px;
+  height: 80px;
+  background: #ef4444;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 2s linear infinite;
+}
 </style>
+<div class="box">Rotating</div>
+```
 
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Turn</h3>
 The <kbd>turn</kbd> unit represents how many turns the element should make. 1 turn is equal to 360 degrees.
 
-```css
-.box {
-  transform: rotate(1turn);
-}
-```
-
-<section class="flex justify-center mx-auto mt-6">
-  <div class="bg-blue-500 h-60 w-60 text-white text-center animate-rotate flex justify-center items-center" style="transform: rotate(0turn);">
-    Rotate Box for 1 turn
-  </div>
-</section>
-
+```html {monaco-run}
 <style>
-  @keyframes rotate {
-    0% { transform: rotate(0turn); }
-    100% { transform: rotate(1turn); } 
-  }
-  .animate-rotate {
-    animation: rotate 2s;
-  }
+@keyframes one-turn {
+  from { transform: rotate(0turn); }
+  to   { transform: rotate(1turn); }
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background: #3b82f6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: one-turn 2s ease-in-out forwards;
+}
 </style>
+<div class="box">1 turn = 360°</div>
+```
 
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Skew</h3>
 <p>The <kbd>skew</kbd> is a seldom-used but pretty-neat transformation. It's most useful when you want to create diagonal decorative elements.</p>
 
-```css
-.container {
-  transform: skew(21deg);
-}
-```
-
-<div class="flex justify-center mx-auto mt-6">
-  <div class="bg-red-500 h-60 w-60 text-white text-center animate-skew flex justify-center items-center" style="transform:  skewX(21deg);">
-    Skewed Box
-  </div>
-</div>
-
+```html {monaco-run}
 <style>
-  @keyframes skew {
-    0% { transform: skewX(0deg); }
-    100% { transform: skewX(21deg); }
-  }
-
-  .animate-skew {
-    animation: skew 2s;
-  }
+@keyframes do-skew {
+  from { transform: skewX(0deg); }
+  to   { transform: skewX(21deg); }
+}
+.box {
+  width: 120px;
+  height: 80px;
+  background: #ef4444;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: do-skew 2s ease-in-out forwards;
+}
 </style>
+<div class="box">Skewed Box</div>
+```
 
 ---
 
@@ -3717,35 +4276,28 @@ The <kbd>turn</kbd> unit represents how many turns the element should make. 1 tu
 
 Every element has a transformation origin, which is the central point around which transformations are applied. The CSS property <kbd>transform-origin</kbd> allows you to set and control this origin for any element's transformations. This transform origin acts as a pivot point.
 
-```css
-.box {
-  transform: rotate(206deg);
-  transform-origin: left top;
-}
-```
-
-<div class="flex justify-center mx-auto mt-60">
-  <div class="flex justify-center items-center bg-purple-500 h-40 w-40 text-white text-center box  transition-transit">
-     Rotate from a transform origin
-  </div>
-</div>
-
+```html {monaco-run}
 <style>
-  .box {
-    transform: rotate(206deg);
-    transform-origin: left top;
-    transition: transform 0.3s ease;
-  }
-
-  @keyframes transit {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(206deg); }
-  }
-
-  .transition-transit {
-    animation: transit 2s;
-  }
+@keyframes pivot {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(206deg); }
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background: #a855f7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  text-align: center;
+  transform-origin: left top; /* try: center | right bottom */
+  animation: pivot 2s ease-in-out forwards;
+}
 </style>
+<div class="box">Pivot: left top</div>
+```
 
 ---
 
@@ -3758,112 +4310,70 @@ Right-to-Left Application: The transforms are applied sequentially but executed 
 
 ---
 
-```css
-/* Translate first, then rotate */
-.red-box {
-  transform: translateX(87px) rotate(141deg);
-}
-```
-
-<div class="border-3 rounded-3 pb-5 mt-10">
-<div class="relative flex justify-center mx-auto mt-6">
-  <!-- Yellow Box -->
-  <div class="bg-yellow-500 h-50 w-50 text-white text-center flex justify-center items-center">
-    Yellow Box
-  </div>
-  
-  <!-- Red Box (absolute) -->
-  <div class="absolute top-5 left-20 bg-red-500 h-40 w-40 text-white text-center flex justify-center items-center animate-spin-box">
-    Red box
-  </div>
-</div>
-
+```html {monaco-run}
 <style>
-  /* Animation Keyframes */
-  @keyframes spin-box {
-    0% {
-      transform: translateX(0) rotate(0deg);
-    }
-    50% {
-      transform: translateX(87px) rotate(0deg);
-    }
-    100% {
-      transform: translateX(87px) rotate(141deg);
-    }
-  }
-
-  /* Apply animation */
-  .animate-spin-box {
-    animation: spin-box 2s ease-in-out infinite; 
-  }
-
-  /* Positioning */
-  .relative {
-    position: relative;
-  }
-
-  .absolute {
-    position: absolute;
-  }
+@keyframes spin-box {
+  0%   { transform: translateX(0)    rotate(0deg); }
+  50%  { transform: translateX(87px) rotate(0deg); }
+  100% { transform: translateX(87px) rotate(141deg); }
+}
+.scene { position: relative; height: 160px; display: flex; justify-content: center; align-items: center; }
+.yellow { width: 100px; height: 100px; background: #eab308; color: white; display: flex; align-items: center; justify-content: center; }
+.red { position: absolute; top: 20px; left: 60px; width: 80px; height: 80px; background: #ef4444; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px; animation: spin-box 2s ease-in-out infinite; }
 </style>
+<p style="font-size:13px">Translate first, then rotate: <code>translateX(87px) rotate(141deg)</code></p>
+<div class="scene">
+  <div class="yellow">Yellow</div>
+  <div class="red">Red box</div>
 </div>
+```
 
 ---
 
-```css
-/* Rotate first, then translate */
-.red-box {
-  transform: rotate(360deg) translate(187px);
-}
-```
-
-<div class="border-3 rounded-3 pb-5 mt-10 h-80 ">
-<div class="relative flex justify-center mx-auto mt-6">
-  <!-- Yellow Box -->
-  <div class=" bg-yellow-500 h-50 w-50 text-white text-center flex justify-center items-center">
-    Yellow Box
-  </div>
-  
-  <!-- Red Box  -->
-  <div class="absolute top-5 left-20 bg-red-500 h-40 w-40 text-white text-center flex justify-center items-center animate-spin-second-box">
-    Red box
-  </div>
-</div>
-
+```html {monaco-run}
 <style>
-  /* Animation Keyframes */
-  @keyframes spin-second-box {
-    0% {
-      transform:  rotate(0deg) translate(0);
-    }
-    50% {
-      transform : rotate(360deg) translate(0)
-    }
-    100% {
-      transform:  rotate(360deg) translateX(187px);
-    }
-  }
-
-  /* Apply animation */
-  .animate-spin-second-box {
-    animation: spin-second-box 2s ease-in-out infinite; 
-  }
-
-  /* Positioning */
-  .relative {
-    position: relative;
-  }
-
-  .absolute {
-    position: absolute;
-  }
+@keyframes spin-second-box {
+  0%   { transform: rotate(0deg)   translate(0); }
+  50%  { transform: rotate(360deg) translate(0); }
+  100% { transform: rotate(360deg) translateX(187px); }
+}
+.scene { position: relative; height: 160px; display: flex; justify-content: center; align-items: center; }
+.yellow { width: 100px; height: 100px; background: #eab308; color: white; display: flex; align-items: center; justify-content: center; }
+.red { position: absolute; top: 20px; left: 60px; width: 80px; height: 80px; background: #ef4444; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px; animation: spin-second-box 2s ease-in-out infinite; }
 </style>
+<p style="font-size:13px">Rotate first, then translate: <code>rotate(360deg) translate(187px)</code></p>
+<div class="scene">
+  <div class="yellow">Yellow</div>
+  <div class="red">Red box</div>
 </div>
+```
 
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Inline elements</h3>
 The <kbd>transform</kbd> property does not work with inline elements in a Flow layout because inline elements are designed to flow with the content and cause minimal disruption. To apply transformations, you can change the element's display to <kbd>inline-block</kbd>, or switch to a different layout mode such as Grid or Flexbox.
+
+```html {monaco-run}
+<style>
+.wrap { display: flex; flex-direction: column; gap: 16px; padding: 20px; }
+.row  { display: flex; align-items: center; gap: 20px; }
+/* inline — transform is ignored */
+.inline-el { display: inline; background: #fca5a5; padding: 4px 8px; transform: rotate(15deg); }
+/* inline-block — transform works */
+.inline-block-el { display: inline-block; background: #86efac; padding: 4px 8px; transform: rotate(15deg); }
+label { font-size: 13px; color: #6b7280; min-width: 120px; }
+</style>
+<div class="wrap">
+  <div class="row">
+    <label>inline (no effect):</label>
+    <span class="inline-el">rotate(15deg)</span>
+  </div>
+  <div class="row">
+    <label>inline-block (works):</label>
+    <span class="inline-block-el">rotate(15deg)</span>
+  </div>
+</div>
+```
 
 ---
 
@@ -3873,27 +4383,32 @@ The CSS <kbd>transition</kbd> property is an essential tool when discussing CSS 
 
 Hover over these two circles to notice the difference: the red circle has a transform effect on hover, while the blue circle doesn't.
 
-<div class="d-flex flex gap-40 justify-center items-center">
-<div class=" bg-blue-500 w-48 h-48 rounded-full border border-gray-400 text-center flex items-center justify-center mb-4 hover:translate-y-[-10px] cursor-pointer">
-  Hover (No transform)
-</div>
-
-<div class="circle bg-red w-48 h-48 rounded-full border border-gray-400 text-center flex items-center justify-center hover:transform-effect cursor-pointer">
-  Hover (With transform)
-</div>
-
+```html {monaco-run}
 <style>
-  /* Basic Circle Styles */
-  .circle {
-    transition: transform 0.3s ease;
-  }
-
-/* Transform Effect on Hover for Red Circle */
-.hover\:transform-effect:hover {
-transform: translateY(-10px);
+.wrap { display: flex; gap: 80px; justify-content: center; align-items: center; padding: 40px; }
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
 }
+.no-transition { background: #3b82f6; }
+.no-transition:hover { transform: translateY(-10px); }
+.with-transition { background: #ef4444; transition: transform 0.3s ease; }
+.with-transition:hover { transform: translateY(-10px); }
 </style>
+<div class="wrap">
+  <div class="circle no-transition">No transition</div>
+  <div class="circle with-transition">With transition</div>
 </div>
+```
 
 ---
 
@@ -3906,17 +4421,26 @@ The <kbd>transition</kbd> property accepted just two values and these are:
 
 Note: You can pass a comma to create animation on multiple properties.
 
-```css
+```html {monaco-run}
+<style>
 .btn {
+  padding: 12px 24px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
   transition:
     transform 250ms,
     opacity 400ms;
 }
-
 .btn:hover {
   transform: scale(1.2);
-  opacity: 0;
+  opacity: 0.3;
 }
+</style>
+<button class="btn">Hover me — scale + fade</button>
 ```
 
 ---
@@ -4044,40 +4568,27 @@ You'll notice that after <kbd>@keyframes</kbd> we have a name called <kbd>slide-
 <div class="container"></div>
 ```
 
-```css
+```html {monaco-run}
+<style>
 @keyframes float-in {
   from {
     transform: rotate(-50deg) translate(-100%);
     opacity: 1;
   }
+  to {
+    transform: rotate(0deg) translate(0);
+    opacity: 1;
+  }
 }
-/* 
-the float-in is the @keyframes name while the 1000ms is the animation-duration */
 .container {
+  width: 100px;
+  height: 100px;
+  background: #a855f7;
   animation: float-in 1000ms;
 }
-```
-
-<div class="flex justify-center mt-6">
-<div class="h-40 w-40 bg-purple animate-float-in"></div>
-</div>
-
-<style>
-  @keyframes float-in {
-    from {
-      transform: rotate(-50deg) translate(-100%);
-      opacity: 1;
-    }
-    to {
-      transform: rotate(0deg) translate(0);
-      opacity: 1;
-    }
-  }
-
-  .animate-float-in {
-    animation: float-in 1000ms;
- }
 </style>
+<div class="container"></div>
+```
 
 ---
 
@@ -4090,36 +4601,29 @@ The <kbd>animation-iteration-count</kbd> CSS property sets the number of times a
 <li><kbd>number</kbd>: The number of times the animation will repeat</li>
 </ol>
 
-```css
+```html {monaco-run}
+<style>
+@keyframes float-in {
+  from {
+    transform: rotate(-50deg) translate(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(0deg) translate(0);
+    opacity: 1;
+  }
+}
 .container {
+  width: 100px;
+  height: 100px;
+  background: #a855f7;
   animation: float-in 1000ms;
   animation-timing-function: ease-in;
   animation-iteration-count: 3;
 }
-```
-
-<div class="flex justify-center mt-4">
-<div class="h-35 w-40 bg-purple animate-float-in"></div>
-</div>
-
-<style>
-  @keyframes float-in {
-    from {
-      transform: rotate(-50deg) translate(-100%);
-      opacity: 1;
-    }
-    to {
-      transform: rotate(0deg) translate(0);
-      opacity: 1;
-    }
-  }
-
-  .animate-float-in {
-    animation: float-in 1000ms;
-    animation-timing-function: ease-in;
-    animation-iteration-count: 3;
- }
 </style>
+<div class="container"></div>
+```
 
 ---
 
@@ -4153,30 +4657,23 @@ In cases where the animation requires more than 2 steps, instead of using <kbd>f
 
 <h2>Contd: Multi-step animations example</h2>
 
-<div class="flex justify-center my-10">
-<div class="w-24 h-24 bg-purple-500 animate-float-in"></div>
-</div>
-
+```html {monaco-run}
 <style>
-  @keyframes float-in {
-    0% {
-      transform: rotate(0turn) scale(1);
-    }
-    40% {
-      transform: rotate(1turn) scale(1.5);
-    }
-    80% {
-      transform: rotate(1turn) scale(1.5);
-    }
-    100% {
-      transform: rotate(0turn) scale(1);
-    }
-  }
-
-.animate-float-in {
-animation: float-in 2000ms infinite;
+@keyframes fancy-spin {
+  0%   { transform: rotate(0turn) scale(1); }
+  40%  { transform: rotate(1turn) scale(1.5); }
+  80%  { transform: rotate(1turn) scale(1.5); }
+  100% { transform: rotate(0turn) scale(1); }
+}
+.box {
+  width: 80px;
+  height: 80px;
+  background: #a855f7;
+  animation: fancy-spin 2000ms infinite;
 }
 </style>
+<div class="box"></div>
+```
 
 We used percentages for the animation above because it involves multiple stages. The percentages represent the progress through the animation. <kbd>0%</kbd> serves as a replacement for <kbd>from</kbd>, and we break the animation into various stages before reaching the final point, <kbd>100%</kbd>, which replaces <kbd>to</kbd>.
 
@@ -4209,50 +4706,41 @@ If you want your animations to go through three stages, such as creating a "brea
 ---
 
 <h2> Contd: Alternating animations example</h2>
-<div class="flex justify-center my-5">
-<div class="w-20 h-20 bg-purple-500 animate-grow-and-shrink"></div>
-</div>
 
+```html {monaco-run}
 <style>
-  @keyframes grow-and-shrink {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.5);
-    }
-    100% {
-      transform: scale(1);
-    }
-
-  }
-
-.animate-grow-and-shrink {
-  animation: grow-and-shrink 2000ms infinite;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+@keyframes grow-and-shrink {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+.box {
+  width: 80px;
+  height: 80px;
+  background: #a855f7;
+  animation: grow-and-shrink 2000ms ease-in-out infinite;
 }
 </style>
+<div class="box"></div>
+```
 
 The box starts at its default size, grows to 1.5 times its default size, and then shrinks back to its original size.
 Alternatively, we can use the <kbd>animation-direction</kbd> property to achieve this effect
 
-```css
-@keyframes grow-and-shrink {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.5);
-  }
+```html {monaco-run}
+<style>
+@keyframes grow-and-shrink-alt {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.5); }
 }
-
 .box {
-  animation: grow-and-shrink 2000ms;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  width: 80px;
+  height: 80px;
+  background: #6366f1;
+  animation: grow-and-shrink-alt 2000ms ease-in-out infinite alternate;
 }
+</style>
+<div class="box"></div>
 ```
 
 ---
@@ -4314,61 +4802,52 @@ The <kbd>animation-fill-mode</kbd> CSS property controls how an element should b
 
 For instance, if you want the element to fade out smoothly after the animation completes, animation-fill-mode ensures the element doesn’t abruptly reappear or reset its styles once the animation ends.
 
-```css
-.container {
-  animation: fade-out 1000ms;
-}
-```
-
-<div class="flex justify-center mt-4">
-<div class="h-35 w-40 bg-purple animate-fade-out">See you soon</div>
-</div>
-
+```html {monaco-run}
 <style>
-  @keyframes fade-out {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-
-  .animate-float-in {
-    animation: fade-out 1000ms;
- }
+@keyframes fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+.container {
+  width: 120px;
+  height: 80px;
+  background: #a855f7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-out 1000ms;
+  /* element snaps back after — no fill-mode set */
+}
 </style>
+<div class="container">See you soon</div>
+```
 
 ---
 
 <h2>Contd:</h2> You will notice that the box reappears after the animation style passed on it has been executed, that's because there is no <kbd>opacity</kbd> property set on the container itself.
 To make the container not reappears you should add <kbd>opacity</kbd> declaration to the container.
 
-```css
-.container {
-  animation: fade-out 1000ms;
-  opacity: 0;
-}
-```
-
-<div class="flex justify-center mt-4">
-<div class="h-35 w-40 bg-purple animate-fade-out opacity-0">See you soon</div>
-</div>
-
+```html {monaco-run}
 <style>
 @keyframes fade-out {
-  0% {
-    opacity: 1; /* Fully visible at the start */
-  }
-  100% {
-    opacity: 0; /* Fully transparent at the end */
-  }
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
 }
-
-.animate-fade-out {
-animation: fade-out 3s ease-in-out forwards;
+.container {
+  width: 120px;
+  height: 80px;
+  background: #a855f7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* forwards keeps the final opacity: 0 state */
+  animation: fade-out 3s ease-in-out forwards;
 }
 </style>
+<div class="container">See you soon</div>
+```
 
 <hr/>
 
@@ -4434,6 +4913,13 @@ The <kbd>animation-fill-mode: backwards;</kbd> property makes the target element
 
 <h3>animation-fill-mode: both;</h3>
 
+```css
+.container {
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+```
+
 The <kbd>animation-fill-mode: both;</kbd> property makes the target element apply the rules of both the <kbd>animation-fill-mode: forwards;</kbd> and <kbd>animation-fill-mode: backwards;</kbd> properties. This means that the element will retain the styles defined in the keyframes after the animation ends (as in forwards), and it will also apply the initial styles of the animation before the animation starts (as in backwards).
 
 ---
@@ -4491,6 +4977,40 @@ Note: The animation property must come before the animation-timeline to avoid th
  <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">How does scroll function works?</h3>
 
 For the scroll function to work correctly, it must know which element or column to track. To achieve this, the scroll function creates an anonymous scroll timeline that traverses up the ancestor tree from the target element to find the nearest scrollable ancestor. This ensures that the scroll behavior is linked to the correct scrollable container.
+
+```html {monaco-run}
+<style>
+@keyframes grow-bar { from { width: 0 } }
+
+.scroller {
+  height: 200px;
+  overflow-y: scroll;
+  border: 2px dashed #a78bfa;
+  padding: 12px;
+  position: relative;
+}
+.progress {
+  position: sticky;
+  top: 0;
+  height: 6px;
+  background: #7c3aed;
+  border-radius: 3px;
+  animation: grow-bar linear;
+  animation-timeline: scroll(self);
+}
+.content { padding: 8px 0; color: #374151; line-height: 2; }
+</style>
+<div class="scroller">
+  <div class="progress"></div>
+  <div class="content">
+    <p>Scroll down inside this box ↓</p>
+    <p>The purple bar above tracks <kbd>scroll(self)</kbd> — the nearest scrollable ancestor.</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
+    <p>More content...</p><p>More content...</p>
+    <p>You reached the bottom!</p>
+  </div>
+</div>
+```
 
 ---
 
@@ -4641,4 +5161,266 @@ hideInToc: true
 # Contributors
 
 - {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+--
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+e for pixel perfect design.](https://www.figma.com/file/Ug5dFpdPeyOy1NNAmZxfov/AltSchoolV2-Exam?type=design&mode=design&t=KXSthmp0easnvUhR-1)
+
+<div grid place-content-center>
+  <iframe class="w-150 h-80" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/Ug5dFpdPeyOy1NNAmZxfov/AltSchoolV2-Exam?type=design&mode=design&t=KXSthmp0easnvUhR-1" allowfullscreen></iframe>
+</div>
+
+---
+
+# Important Links
+
+- [CSS Tricks](https://css-tricks.com/)
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Selector Game](https://flukeout.github.io/)
+- [Selectors Explained](https://kittygiraudel.github.io/selectors-explained/)
+- [Variable Fonts](https://web.dev/articles/variable-fonts)
+- [CSS Cascade](https://2019.wattenberger.com/blog/css-cascade)
+- [Understanding % unit](https://2019.wattenberger.com/blog/css-percents)
+- [interactive guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
+
+---
+hideInToc: true
+---
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+--
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+s
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+--
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+be}
+- {@Olubebe}
+ubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+--
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+be}
+- {@Olubebe}
+osin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+be}
+- {@Olubebe}
+ubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+--
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+be}
+- {@Olubebe}
+c: true
+---
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+--
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+s
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+--
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+be}
+- {@Olubebe}
+ubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+--
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+be}
+- {@Olubebe}
+osin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+be}
+- {@Olubebe}
+ubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+--
+
+# Contributors
+
+- {@RidwanAdebosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+debosin}
+- {@Olubebe}
+- {@Olubebe}
+Adebosin}
+- {@Olubebe}
+- {@Olubebe}
+be}
 - {@Olubebe}
