@@ -5111,9 +5111,12 @@ hideInToc: true
 
 Convert the design in the figma to HTML and CSS. [Check this figma file for pixel perfect design.](https://www.figma.com/file/URkPhPHkkWREdiIB21uvfE/Web-Development-Training?type=design&node-id=0%3A1&mode=design&t=KXSthmp0easnvUhR-1)
 
-<div grid place-content-center>
-  <iframe class="w-120 h-80" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/URkPhPHkkWREdiIB21uvfE/Web-Development-Training?type=design&node-id=0%3A1&mode=design&t=KXSthmp0easnvUhR-1" allowfullscreen></iframe>
-</div>
+---
+hideInToc: true
+layout: iframe-lazy
+url: https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/URkPhPHkkWREdiIB21uvfE/Web-Development-Training?type=design&node-id=0%3A1&mode=design&t=KXSthmp0easnvUhR-1
+---
+
 ---
 hideInToc: true
 ---
@@ -5124,9 +5127,12 @@ hideInToc: true
 
 Convert the design in the figma to HTML and CSS. [Check this figma file for pixel perfect design.](https://www.figma.com/file/OJMDeEi2fWlPBFrlJFEgFx/wp-pusher-checkout?type=design&mode=design&t=KXSthmp0easnvUhR-1)
 
-<div grid place-content-center>
-  <iframe class="w-90 h-80" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/OJMDeEi2fWlPBFrlJFEgFx/wp-pusher-checkout%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
-</div>
+---
+hideInToc: true
+layout: iframe-lazy
+url: https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/OJMDeEi2fWlPBFrlJFEgFx/wp-pusher-checkout%3Fnode-id%3D0%253A1
+---
+
 ---
 hideInToc: true
 ---
@@ -5137,9 +5143,11 @@ hideInToc: true
 
 Convert the design in the figma to HTML and CSS. [Check this figma file for pixel perfect design.](https://www.figma.com/file/Ug5dFpdPeyOy1NNAmZxfov/AltSchoolV2-Exam?type=design&mode=design&t=KXSthmp0easnvUhR-1)
 
-<div grid place-content-center>
-  <iframe class="w-150 h-80" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/Ug5dFpdPeyOy1NNAmZxfov/AltSchoolV2-Exam?type=design&mode=design&t=KXSthmp0easnvUhR-1" allowfullscreen></iframe>
-</div>
+---
+hideInToc: true
+layout: iframe-lazy
+url: https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/Ug5dFpdPeyOy1NNAmZxfov/AltSchoolV2-Exam?type=design&mode=design&t=KXSthmp0easnvUhR-1
+---
 
 ---
 
@@ -5154,52 +5162,6 @@ Convert the design in the figma to HTML and CSS. [Check this figma file for pixe
 - [Understanding % unit](https://2019.wattenberger.com/blog/css-percents)
 - [interactive guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
 
----
-hideInToc: true
----
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
---
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-e for pixel perfect design.](https://www.figma.com/file/Ug5dFpdPeyOy1NNAmZxfov/AltSchoolV2-Exam?type=design&mode=design&t=KXSthmp0easnvUhR-1)
-
-<div grid place-content-center>
-  <iframe class="w-150 h-80" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/Ug5dFpdPeyOy1NNAmZxfov/AltSchoolV2-Exam?type=design&mode=design&t=KXSthmp0easnvUhR-1" allowfullscreen></iframe>
-</div>
-
----
-
-# Important Links
-
-- [CSS Tricks](https://css-tricks.com/)
-- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [Selector Game](https://flukeout.github.io/)
-- [Selectors Explained](https://kittygiraudel.github.io/selectors-explained/)
-- [Variable Fonts](https://web.dev/articles/variable-fonts)
-- [CSS Cascade](https://2019.wattenberger.com/blog/css-cascade)
-- [Understanding % unit](https://2019.wattenberger.com/blog/css-percents)
-- [interactive guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
 
 ---
 hideInToc: true
@@ -5208,219 +5170,4 @@ hideInToc: true
 # Contributors
 
 - {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
---
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-s
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
---
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-be}
-- {@Olubebe}
-ubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
---
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-be}
-- {@Olubebe}
-osin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-be}
-- {@Olubebe}
-ubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
---
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-be}
-- {@Olubebe}
-c: true
----
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
---
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-s
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
---
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-be}
-- {@Olubebe}
-ubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
---
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-be}
-- {@Olubebe}
-osin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-be}
-- {@Olubebe}
-ubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
---
-
-# Contributors
-
-- {@RidwanAdebosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-debosin}
-- {@Olubebe}
-- {@Olubebe}
-Adebosin}
-- {@Olubebe}
-- {@Olubebe}
-be}
 - {@Olubebe}
