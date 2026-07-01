@@ -37,7 +37,7 @@ CSS Class notes for the 1st Semester
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Are you ready to well designed UI with your HTML skills? Press <kbd>space</kbd> on your keyboard <carbon:arrow-right class="inline"/>
+    Are you ready to well designed UI with your HTML skills? Press `space` on your keyboard <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
@@ -113,13 +113,12 @@ hideInToc: true
 # Definition of selectors
 
 <div></div>
+
 Looking at the image in the previous slide we'll notice that CSS selector is the first part of a CSS rule. In order to choose or select HTML elements that's going to carry the CSS property values inside the rule we have to use CSS Selector. In summary, for us to add a style for a particular HTML element we need a selector.
 
 <h4 class="mt-3 font-bold underline">Types of selectors</h4>
 
-- Universal selector: This is also know as a wildcard, selects every single element in the document. It is represented by the asterisk character <kbd>\*</kbd>
-
-<ins>Code Example</ins>:
+- Universal selector: This is also know as a wildcard, selects every single element in the document. It is represented by the asterisk character `*`
 
 ```css
 * {
@@ -137,7 +136,6 @@ hideInToc: true
 
 - Type selector: The CSS type selector matches elements by node/HTML name.
 
-<ins>Code Example</ins>:
 
 ```html {monaco-run}
 <style>
@@ -149,13 +147,12 @@ p {
 <p>I am taking color red and increasing my font size.</p>
 ```
 
-This CSS rule is saying that apply color of red to every <kbd>p</kbd> element and also increase its font size to 36px.
+This CSS rule is saying that apply color of red to every `p` element and also increase its font size to 36px.
 
 ---
 
-- Class selector: There is a class attribute associated to all HTML elements, this allows us to target a specific HTML element for its class name. To style an element using the class name we make use of the dot notation <kbd>.</kbd> before the class name when writing our selector in the CSS rule <kbd>.paragraph</kbd>
+- Class selector: There is a class attribute associated to all HTML elements, this allows us to target a specific HTML element for its class name. To style an element using the class name we make use of the dot notation `.` before the class name when writing our selector in the CSS rule `.paragraph`
 
-<ins>Code Example</ins>:
 
 ```html {monaco-run}
 <style>
@@ -168,21 +165,15 @@ This CSS rule is saying that apply color of red to every <kbd>p</kbd> element an
 ```
 
 This CSS rule is saying that
-apply color of red to the <kbd>p</kbd> element that has the class name of
+apply color of red to the `p` element that has the class name of
 paragraph and also increase its font size to 36px.
 
 ---
 
-- ID selector: The id
-  selector uses the id attribute of an HTML element to select a specific element.
-  Id value of an element must be unique which means you can only have a specific
-  id value to an HTML element, unlike class where you can give 10 HTML elements
-  same class name. <br />
-  To style an element using the id value we make use of the hash notation <kbd>#</kbd> before
-  the id value when writing our selector in the CSS rule
-  <kbd>#container-wrapper</kbd>
+- ID selector: The id selector uses the id attribute of an HTML element to select a specific element. Id value of an element must be unique which means you can only have a specific id value to an HTML element, unlike class where you can give 10 HTML elements same class name. <br />
+  To style an element using the id value we make use of the hash notation `#` before the id value when writing our selector in the CSS rule
+  `#container-wrapper`
 
-<ins>Code Example</ins>:
 
 ```html {monaco-run}
 <style>
@@ -198,9 +189,8 @@ paragraph and also increase its font size to 36px.
 
 ---
 
-- Attribute selector: This gives you the power to select elements based on the presence of a certain HTML attribute or the value of an HTML attribute. To write the CSS rule for this you have to wrap the selector with square brackets.
+- [Attribute selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors): This gives you the power to select elements based on the presence of a certain HTML attribute or the value of an HTML attribute. To write the CSS rule for this you have to wrap the selector with square brackets.
 
-<ins>Code Example</ins>:
 
 ```html {monaco-run}
 <style>
@@ -215,7 +205,9 @@ paragraph and also increase its font size to 36px.
 
 ---
 
-<ins>Code Example 2</ins>:
+Attribute selectors can exist in several various version from `[attr]`, `[attr="value"]`, `[attr~=value]`, `[attr|=value]`, `[attr^=value]`, `[attr$=value]`, `[attr*=value]`, `[attr operator value i]`, `[attr operator value s]`
+
+Examples: `a[href^="#"]`, `a[href*="insensitive" i]`, `a[href*="example"]`, `a[href*="cAsE" s]`, `a[href$=".org"]`, `a[href^="https://"][href$=".org"]`, `div[lang]`, `div:not([lang])`, `div[lang~="en-us"]`, `div[lang="pt"]`, `div[lang|="zh"]`, `div[data-lang="zh-Hant-TW"]`, `ol[type="a"]:first-child`, `ol[type="i" s]`, `ol[type="I" s]`, `ol[type="a" i]`
 
 ```html {monaco-run}
 <style>
@@ -234,10 +226,10 @@ Note: This method give you the access to style any element that has an attribute
 
 ---
 
-- [`Pseudo-classes`](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes): Pseudo-classes are keywords added to selectors using a single colon sign <kbd>:</kbd> just to specify a special state of the selected elements. They allow you to style elements based on their state, position, or user interactions, which cannot be targeted by regular CSS selectors alone.
+- [`Pseudo-classes`](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes): Pseudo-classes are keywords added to selectors using a single colon sign `:` just to specify a special state of the selected elements. They allow you to style elements based on their state, position, or user interactions, which cannot be targeted by regular CSS selectors alone.
   Here are some common pseudo-classes:
 
-<div grid="~ cols-8">
+<div grid="~ cols-8" class="list-none">
 
 ```
 :active
@@ -306,75 +298,64 @@ Note: This method give you the access to style any element that has an attribute
 
 </div>
 
-<ins>Code Example</ins>
-
 ```html {monaco-run}
 <style>
-button:hover {
-  background-color: orange;
-  cursor: pointer;
-}
-
-li:nth-child(even) {
-  text-transform: uppercase;
-}
-
-input:focus {
-  border: 2px solid red;
-  outline: none;
+button:hover { background-color: orange; cursor: pointer; }
+li:nth-child(even) { text-transform: uppercase; }
+input {
+    padding: 4px;
+    &:focus {
+        border: 2px solid red;
+        outline: none;
+    }
 }
 </style>
-<button>Hover me</button>
-<ul>
-  <li>Item one</li>
-  <li>Item two (even)</li>
-  <li>Item three</li>
-  <li>Item four (even)</li>
-</ul>
-<input type="text" placeholder="Click to focus" style="border: 1px solid #ccc; padding: 4px;" />
+<div>
+    <button>Hover me</button>
+    <ul>
+    <li>Item one</li>
+    <li>Item two (even)</li>
+    <li>Item three</li>
+    <li>Item four (even)</li>
+    </ul>
+    <input type="text" placeholder="Click to focus" />
+</div>
 ```
 
 ---
 
-- `Pseudo-element`: To style specific parts of an element we attached double colon to our selector <kbd>::</kbd> followed by keywords to select the portion we want to apply styling to. Unlike the pseudo-classes, which target the entire element, pseudo-elements target specific parts of an element using a conventional keywords.
+- `Pseudo-element`: To style specific parts of an element we attached double colon to our selector `::` followed by keywords to select the portion we want to apply styling to. Unlike the pseudo-classes, which target the entire element, pseudo-elements target specific parts of an element using a conventional keywords.
 
 Here are some common pseudo-elements:
 
 ```
-1 ::before - Inserts content before the content of an element.
-2 ::after - Inserts content after the content of an element.
-3 ::first-letter - Styles the first letter of an element.
-4 ::first-line - Styles the first line of an element.
-5 ::selection - Styles the portion of an element that is selected by the user.
+::before - Inserts content before the content of an element.
+::after - Inserts content after the content of an element.
+::first-letter - Styles the first letter of an element.
+::first-line - Styles the first line of an element.
+::selection - Styles the portion of an element that is selected by the user.
 ```
 
 Note: Pseudo-elements are particularly useful for enhancing the design and readability of web content without the need for additional HTML elements.
 
 ---
 
-<ins>Complex selectors</ins>
+Complex selectors
 
-To have more power in accessing elements in the DOM we have some selectors which we will brief through but let's quickly look at parents and child elements using this code below:
+To have more power in accessing elements in the DOM we have some selectors which we will brief go through but let's quickly look at parents and child elements using this code below:
 
 ```html
-<p>
-  AltSchool Africa is a tech school that offers varieties of tech courses like
-  <span>Frontend engineering</span>, <span>Backend engineering</span> and newly
-  added <span>Cybersecurity</span> online.
-</p>
+<p> AltSchool Africa is a tech school that offers varieties of tech courses like <span>Frontend engineering</span>, <span>Backend engineering</span> and newly added <span>Cybersecurity</span> online. </p>
 ```
 
-In the code above, the parent element is the <kbd>p</kbd>, inside which we have 3 span elements, since all these 3 span elements are inside the <kbd>p</kbd> we call them the child elements of <kbd>p</kbd>.
+In the code above, the parent element is the `p`, inside which we have 3 span elements, since all these 3 span elements are inside the `p` we call them the child elements of `p`.
 
-- Descendant Selector: This selects all elements that are descendants and we achieve this by giving space<kbd>( )</kbd> to instruct the browser to look for child elements.
+- Descendant Selector: This selects all elements that are descendants and we achieve this by giving space`( )` to instruct the browser to look for child elements.
 
-<ins>Code Example</ins>:
 
 ```html {monaco-run}
 <style>
-p span {
-  color: red;
-}
+p span { color: red; }
 </style>
 <p>
   AltSchool Africa offers courses like
@@ -399,10 +380,11 @@ li {
 </style>
 
 ---
+class: 'text-sm'
+---
 
 - Child selector (parent > child): This selects all elements that are direct children of a specified element.
 
-<ins>Code Example</ins>:
 
 ```html {monaco-run}
 <style>
@@ -421,7 +403,6 @@ ul > li {
 
 - Adjacent Sibling Selector (prev + next): This selects an element that is immediately preceded by a specified element.
 
-<ins>Code Example</ins>:
 
 ```html {monaco-run}
 <style>
@@ -437,10 +418,10 @@ h1 + p {
 ```
 
 ---
+class: 'text-sm'
+---
 
 - General Sibling Selector (prev ~ siblings): This selects all elements that are siblings of a specified element.
-
-Code Example:
 
 ```html {monaco-run}
 <style>
@@ -456,8 +437,6 @@ h1 ~ p {
 ```
 
 - Grouping Selector: Applies the same styles to multiple selectors.
-
-Code Example:
 
 ```html {monaco-run}
 <style>
@@ -480,18 +459,13 @@ hideInToc: true
 
 - `Nesting Selectors &`: This is a way of writing CSS rules that are more specific and easier to read.They explicitly states the relationship between parent and child rules when using CSS nesting. It makes the nested child rule selectors relative to the parent element. Without the & nesting selector, the child rule selector selects child elements. The child rule selectors have the same specificity weight as if they were within `:is()`. Can be use with the Child Combinators.
 
-<ins>Code Example</ins>:
 
 ```html {monaco-run}
 <style>
 .container {
   padding: 20px;
-  .title {
-    color: red;
-  }
-  &:hover {
-    background-color: lightblue;
-  }
+  .title { color: red; }
+  &:hover { background-color: lightblue; }
 }
 </style>
 <div class="container">
@@ -526,6 +500,8 @@ figure:has(figcaption) {
 </figure>
 ```
 
+---
+
 # `:IS()` PSEUDO SELECTOR
 
 The :is() pseudo-class function takes a selector list as its argument and selects any element that can be selected by one of the selectors in that list.
@@ -547,6 +523,7 @@ The :is() pseudo-class function takes a selector list as its argument and select
 # Specificity
 
 <div></div>
+
 Specificity is the key to understanding how CSS decides between competing rules. Let's take a brief at this code before we dive deep into specificity.
 
 ```html {monaco-run}
@@ -563,8 +540,7 @@ h1 {
 ```
 
 In the code above, we are trying to style the h1 element but we have two CSS ruleset, so which stylesheet will override the other? This is where our knowledge on specificity algorithm comes in.
-<br/>
-<br/>
+
 Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be applied on the element.
 
 ## <!-- We will come back to this at the end of this topic. -->
@@ -621,48 +597,38 @@ Also, a universal selector (\*) has no specificity and gets 0 points. This means
 <br/>
 
 <div class="bg-white p-4 animate-slide-in-bottom">
+
 Class Assessment: Calculate the specificity of these selectors:
+
 <ul>
-<li>#content .menu li:hover</li>
-<li>div p .note
-</li>
+    <li>#content .menu li:hover</li>
+    <li>div p .note </li>
 </ul>
+
 </div>
 </div>
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
-# important rule
+important rule
 
 <div />
 
-In CSS, there is one rule that has the highest specificity score of 10,000. This rule is used to give a property-value pair the highest priority, allowing it to override any other declarations.
+In CSS, there is one rule that has the highest specificity score of 10,000. This rule is used to give a property-value pair the highest priority, allowing it to override any other declarations.The only way to override inline styles which has specificity value of 1000 is by using this rule called !important, though this is considered as a bad practice and should be avoided.
 
-The only way to override inline styles which has specificity value of 1000 is by using this rule called !important, though this is considered as a bad practice and should be avoided.
 <a class="bg-red color-black no-underline rounded-sm hover:font-bold hover:text-black" href="https://developer.mozilla.org/en-US/docs/Web/CSS/important" target="_blank">Read more</a>
-
-Code Example
 
 ```html {monaco-run}
 <style>
-h1 {
-  color: blue;           /* normal rule */
-}
-.override {
-  color: green;          /* higher specificity, but loses to !important */
-}
-.important-wins {
-  color: red !important; /* wins over everything */
-}
+h1 { color: blue; }   /* normal rule */
+.override { color: green; } /* higher specificity, but loses to !important */
+.important-wins { color: red !important;  } /* wins over everything */
 </style>
-<h1 class="override important-wins">
-  Should be red — !important beats class + type selector
-</h1>
-<h1 class="override">
-  Should be green — class beats type selector
-</h1>
+<h1 class="override important-wins"> Should be red — !important beats class + type selector </h1>
+<h1 class="override"> Should be green — class beats type selector </h1>
 <h1>Should be blue — type selector only</h1>
 ```
 
@@ -675,6 +641,7 @@ h1 {
 # Box Model
 
 <div></div>
+
 The CSS Box Model is a core concept in web design and layout. It describes how every element on a web page is rendered as a rectangular box.
 It’s basically a box that wraps around every HTML element. Understanding this model is crucial for creating precise layouts and solving common design challenges.
 
@@ -710,7 +677,7 @@ class: text-sm
 
 </div>
 
-<div mt--5>
+<div mt--15>
 
 \(c\) Margin:
 
@@ -780,6 +747,7 @@ The default box model can sometimes lead to unexpected results. CSS3 introduced 
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 # Example
@@ -808,18 +776,14 @@ hideInToc: true
 <div class="border-box">I am 200px wide (includes padding & border)</div>
 ```
 
-### Understanding the Box Model is crucial for:
-
-- Centering elements
-- Creating consistent spacing
-- Implementing responsive designs
-- Debugging layout issues
+Understanding the Box Model is crucial for: Centering elements, Creating consistent spacing, Implementing responsive designs, Debugging layout issues
 
 ---
 
 # Using Block and Inline Axes in CSS
 
 <div></div>
+
 In CSS, the block and inline axes are used to determine how elements are laid out on a page. Understanding these axes is crucial for creating modern responsive websites with i18n(Internationalization) and localization.
 
 - Block Axis: The block axis is the horizontal or vertical axes of an element's block depending on the writing-mode. Block-level elements stack on top of each other in the block axis and can corresponding to width or height depending on the writing-mode.
@@ -875,6 +839,7 @@ Normalize.css is a modern, HTML5-ready alternative to CSS resets. It makes brows
 # Inheritance
 
 <div></div>
+
 Inheritance, this is when a child element get a computed value which represents its parent's value. Inheritance cascade downwards and every property has a default value in CSS.
 
 <div class="mt-5 flex justify-center p-10 border border-gray-300 bg-blue overflow-auto animate-slide-in-left">
@@ -947,7 +912,7 @@ graph TD;
 
 Inherited property
 
-Code Example: The color property falls under the inherited properties, so the <kbd>em</kbd> element will inherit the color value from the parent element which is <kbd>p</kbd>
+Code Example: The color property falls under the inherited properties, so the `em` element will inherit the color value from the parent element which is `p`
 
 ```html {monaco-run}
 <style>
@@ -967,7 +932,7 @@ hideInToc: true
 
 Non-inherited property
 
-Code Example: The border property falls under the non-inherited properties so, the <kbd>em</kbd> element will not inherit the border value from the parent element which is <kbd>p</kbd>.
+Code Example: The border property falls under the non-inherited properties so, the `em` element will not inherit the border value from the parent element which is `p`.
 
 ```html {monaco-run}
 <style>
@@ -1060,7 +1025,7 @@ url: https://codepen.io/setemiojo/embed/JjxNJVm?default-tab=html%2Cresult
 
 ---
 
-The <kbd>all</kbd> CSS property
+The `all` CSS property
 
 `all` is a shorthand that sets **every CSS property at once** (except `unicode-bidi` and `direction`). It accepts the same five inheritance keywords from the previous slide — giving you a single line to fully reset or fully inherit a component's styles.
 
@@ -1277,19 +1242,19 @@ hideInToc: true
 
 ## Contd (Relative Units)
 
-- <kbd>rem</kbd>: Relative to the root element's font size (<kbd>html</kbd>), offering consistency across the page.
+- `rem`: Relative to the root element's font size (`html`), offering consistency across the page.
 
 ```css
 font-size: 1.2rem; /* 1.2 times the root font size */
 ```
 
-- <kbd>%</kbd>: Relative to the parent element's size, commonly used in responsive design. [Read More](https://2019.wattenberger.com/blog/css-percents)
+- `%`: Relative to the parent element's size, commonly used in responsive design. [Read More](https://2019.wattenberger.com/blog/css-percents)
 
 ```css
 width: 80%; /* 80% of the parent element's width */
 ```
 
-- <kbd>vw</kbd>, <kbd>vh</kbd>: Relative to the viewport's width or height. Ideal for full-screen layouts and responsive elements.
+- `vw`, `vh`: Relative to the viewport's width or height. Ideal for full-screen layouts and responsive elements.
 
 ```css
 width: 100vw; /* Full width of the viewport */
@@ -1502,6 +1467,7 @@ hideInToc: true
 # CSS Variables or Custom Properties
 
 <div></div>
+
 CSS variables (also known as custom properties) are used to store reusable values in CSS. They are defined using the `--` prefix and can be used throughout the stylesheet.
 
 ```html {monaco-run}
@@ -1545,9 +1511,10 @@ hideInToc: true
 ---
 hideInToc: true
 layout: two-cols
+class: 'text-sm'
 ---
 
-# Typography in CSS
+Typography in CSS
 
 <div class="empty"></div>
 
@@ -1624,7 +1591,9 @@ Note: When in doubt in CSS put a border on the element.
 ---
 
 <h1 class="p-4 bg-green text-center">Debugging in the browser</h1>
+
 <div></div>
+
 One of the fastest way to get your CSS debugged is to use the browser. Browser like Chrome, Firefox etc offer powerful developer tools for debugging and this is what we are referring to as debugging in the browser.
 
 <h2 class="mt-2 p-2 bg-green text-center">How to access browser DevTools</h2>
@@ -1635,8 +1604,8 @@ One of the fastest way to get your CSS debugged is to use the browser. Browser l
 Press-and-hold/right-click an item on a webpage and choose inspect from the context menu that appears. This will show all the code that made up the UI but highlighted the code of the element you right-clicked. Click on Elements to see how the HTML looks like on runtime and their respective CSS applied.
 </li>
 <li>
-Keyboard: On Windows <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
-On macOS:  <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
+Keyboard: On Windows `Ctrl` + `Shift` + `I`
+On macOS:  `Command` + `Shift` + `I`
 </li>
 </ol>
 
@@ -1662,15 +1631,16 @@ On macOS:  <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
 ---
 
 <h1 class="p-4 bg-green text-center">DevTools</h1>
+
 <div></div>
-<p>
-In the developer tools, you can immediately modify the HTML and CSS, with the changes reflected live in the browser. This feature is valuable for previewing your intended modifications before implementing them locally.</p>
+
+In the developer tools, you can immediately modify the HTML and CSS, with the changes reflected live in the browser. This feature is valuable for previewing your intended modifications before implementing them locally.
 
 <p>Also, you can toggle CSS rules by unchecking the corresponding checkboxes in the devTools, allowing you to experiment with different styles on the fly.</p>
 
 <p>Additionally, we have talked about the Box Model in the previous lesson, the devTools layout view shows you the box model on a selected elements and gives you proper insight on the element box property like border, margin, padding, height and width.</p>
 
-<div class="h-80 overflow-scroll  grid place-items-center animate-slide-in-left w-full ">
+<div class="h-80 overflow-scroll  grid place-items-center animate-slide-in-left w-full">
 
 <img src="https://res.cloudinary.com/drnqdd87d/image/upload/v1737394240/css_inspector_kg1eas.png" alt="image showing chrome developer tools" class="w-3/5" />
 
@@ -1680,7 +1650,9 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 ---
 
 <h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
+
 <div></div>
+
 To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.In the image below the developer is trying to check the CSS on the body element.
 
 <div class="h-100 overflow-scroll bg-grey">
@@ -1725,7 +1697,7 @@ hideInToc: true
 
 ## Internal CSS
 
-Internal CSS is used to define styles for an entire HTML document. It is placed within the <kbd>style</kbd> tag in the <kbd>head</kbd> section of the HTML file.
+Internal CSS is used to define styles for an entire HTML document. It is placed within the `style` tag in the `head` section of the HTML file.
 
 ```html {monaco-run}
 <style>
@@ -1818,7 +1790,7 @@ hideInToc: true
 
 <div></div>
 <p>Flexbox is a one-dimensional layout method for arranging items vertically(columns) or horizontally(rows).<br/>
-<small>To implement a flexbox layout in CSS, you need to set <kbd>display: flex;</kbd> in your CSS rules.</small></p>
+<small>To implement a flexbox layout in CSS, you need to set `display: flex;` in your CSS rules.</small></p>
 
 <p>When elements are laid out as flex items, they are laid out along two axis:</p>
 
@@ -1833,7 +1805,7 @@ hideInToc: true
 The cross axis runs perpendicular to the direction in which flex items are laid out. The start and end points of this axis are called the cross start and cross end. The distance between the cross start and cross end is known as the cross size
   </li>
   <li>
-  The parents element must have the <kbd>display:flex;</kbd> set on it, and this makes it the parent container
+  The parents element must have the `display:flex;` set on it, and this makes it the parent container
   </li>
   <li>
 The items inside the parent container will be laid out as flexible boxes which makes them the flex items.
@@ -1867,7 +1839,7 @@ hideInToc: true
 
 <p>To determine how flex items are arranged within a flex container, direction and alignment are the key aspects.</p>
 
-<p>Flex Direction:The <kbd>flex-direction</kbd> property defines the direction in which the flex items are placed within the flex container. The direction can be either block (column) or inline (row).</p> <small>The following values can be assigned to it:</small>
+<p>Flex Direction:The `flex-direction` property defines the direction in which the flex items are placed within the flex container. The direction can be either block (column) or inline (row).</p> <small>The following values can be assigned to it:</small>
 
 ```html {monaco-run}
 <style>
@@ -1971,10 +1943,10 @@ hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Justify Content(Main Axis Alignment)</h1>
 <div></div>
-The main axis is the natural way the flex items are laid out across the page in a row. With the <kbd>justify-content</kbd> flex property you can control how you want your items to be laid out.
+The main axis is the natural way the flex items are laid out across the page in a row. With the `justify-content` flex property you can control how you want your items to be laid out.
 Code Example:
 
-<p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Items are aligned to the start of the container.</p>
+<p class="text-xl mb-4"><strong>`flex-start`</strong> : Items are aligned to the start of the container.</p>
 
 ```html {monaco-run}
 <style>
@@ -2013,7 +1985,7 @@ Code Example:
 hideInToc: true
 ---
        
-<p class="text-xl mb-4"><strong><kbd>flex-end:</kbd></strong> Items are aligned to the end of the container.</p>
+<p class="text-xl mb-4"><strong>`flex-end:`</strong> Items are aligned to the end of the container.</p>
 
 ```html {monaco-run}
 <style>
@@ -2053,7 +2025,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong><kbd>center</kbd></strong> : Items are centered along the main axis.</p>
+<p class="text-xl mb-4"><strong>`center`</strong> : Items are centered along the main axis.</p>
 
 ```html {monaco-run}
 <style>
@@ -2093,7 +2065,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl  mb-4"><strong><kbd>space-between</kbd></strong> : Items are evenly distributed in the line; the first item is on the start line and the last item is on the end line.</p>
+<p class="text-xl  mb-4"><strong>`space-between`</strong> : Items are evenly distributed in the line; the first item is on the start line and the last item is on the end line.</p>
 
 ```html {monaco-run}
 <style>
@@ -2132,7 +2104,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong><kbd>space- around</kbd></strong> : Items are evenly distributed in the line with equal space around them.</p>
+<p class="text-xl mb-4"><strong>`space- around`</strong> : Items are evenly distributed in the line with equal space around them.</p>
 
 ```html {monaco-run}
 <style>
@@ -2171,7 +2143,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong><kbd>space-evenly</kbd></strong> : Items are evenly distributed with equal space between them.</p>
+<p class="text-xl mb-4"><strong>`space-evenly`</strong> : Items are evenly distributed with equal space between them.</p>
 
 ```html {monaco-run}
 <style>
@@ -2212,9 +2184,9 @@ hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Items (Cross Axis Alignment)</h1>  
 The cross axis runs perpendicular to the direction in which flex items are laid out.
-The <kbd>align-items</kbd> property aligns the flex items along the cross axis (perpendicular to the main axis).
+The `align-items` property aligns the flex items along the cross axis (perpendicular to the main axis).
 
-<p class="text-xl mb-4"><strong><kbd>stretch</kbd></strong> : Items stretch to fill the container (default).</p>
+<p class="text-xl mb-4"><strong>`stretch`</strong> : Items stretch to fill the container (default).</p>
 
 ```html {monaco-run}
 <style>
@@ -2251,7 +2223,7 @@ The <kbd>align-items</kbd> property aligns the flex items along the cross axis (
 
 ---
 
-<p class="text-xl  mb-4"><strong><kbd>flex-start</kbd></strong> : Items are aligned to the start of the cross axis.</p>
+<p class="text-xl  mb-4"><strong>`flex-start`</strong> : Items are aligned to the start of the cross axis.</p>
 
 ```html {monaco-run}
 <style>
@@ -2291,7 +2263,7 @@ The <kbd>align-items</kbd> property aligns the flex items along the cross axis (
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Items are aligned to the end of the cross axis.</p>
+<p class="text-xl mb-4"><strong>`flex-end`</strong> : Items are aligned to the end of the cross axis.</p>
 
 ```html {monaco-run}
 <style>
@@ -2331,7 +2303,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong><kbd>center</kbd></strong>: Items are centered along the cross axis.</p>
+<p class="text-xl mb-4"><strong>`center`</strong>: Items are centered along the cross axis.</p>
 
 ```html {monaco-run}
 <style>
@@ -2376,7 +2348,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong><kbd>baseline</kbd></strong>: Items are aligned along their baseline. If you want to make sure the bottoms of each character are aligned, as they would be if they were written on a page then <kbd>align-items: baseline;</kbd> is used instead of <kbd>align-items: center;</kbd>.</p>
+<p class="text-xl mb-4"><strong>`baseline`</strong>: Items are aligned along their baseline. If you want to make sure the bottoms of each character are aligned, as they would be if they were written on a page then `align-items: baseline;` is used instead of `align-items: center;`.</p>
 
 ```html {monaco-run}
 <style>
@@ -2421,13 +2393,13 @@ hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Content (Multi-line Cross Axis Alignment)</h1>
-  The <kbd>align-content</kbd> property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
+  The `align-content` property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
 
 ---
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong><kbd>flex-start</kbd></strong> : Rows are packed to the start of the container.</p>
+<p class="text-xl mb-4"><strong>`flex-start`</strong> : Rows are packed to the start of the container.</p>
 
 ```html {monaco-run}
 <style>
@@ -2469,7 +2441,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong><kbd>flex-end</kbd></strong> : Rows are packed to the end of the container.</p>
+<p class="text-xl mb-4"><strong>`flex-end`</strong> : Rows are packed to the end of the container.</p>
 
 ```html {monaco-run}
 <style>
@@ -2510,7 +2482,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-<h1 class="text-sm bg-orange p-4 text-center">Align Self</h1> In a case where you want a specific child(ren) to have specific alignments instead of aligning all the children, flexbox gives you the <kbd>align-self</kbd> property to achieve this.
+<h1 class="text-sm bg-orange p-4 text-center">Align Self</h1> In a case where you want a specific child(ren) to have specific alignments instead of aligning all the children, flexbox gives you the `align-self` property to achieve this.
 
 ```html {monaco-run}
 <style>
@@ -2585,7 +2557,7 @@ hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Grow</h1>
 <div></div>
-<p>The <strong><kbd>flex-grow</kbd></strong> CSS property specifies how much a flex item will grow relative to the other flex items inside the same container when there is positive free space available.</p>
+<p>The <strong>`flex-grow`</strong> CSS property specifies how much a flex item will grow relative to the other flex items inside the same container when there is positive free space available.</p>
 <p>The value of flex-grow is a unitless number that serves as a proportion, determining how much of the available space inside the flex container the item should take up compared to other items.</p>
 <small>Flex grow is about consuming additional space and it only does something when items are above their hypothetical size</small>
 <section class="pt-8">
@@ -2597,9 +2569,9 @@ hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Shrink</h1>
 <div></div>
-<p>The <strong><kbd>flex-shrink</kbd></strong> CSS property determines how much flex items will shrink relative to each other when the flex container is too small to accommodate their full size.
+<p>The <strong>`flex-shrink`</strong> CSS property determines how much flex items will shrink relative to each other when the flex container is too small to accommodate their full size.
 </p>
-<p>Flex shrink only does something when the items are between their minimum size and hypothetical size <small>and you can disable the ability of an item to shrink by setting <kbd>flex-shrink: 0;</kbd>.</small></p>
+<p>Flex shrink only does something when the items are between their minimum size and hypothetical size <small>and you can disable the ability of an item to shrink by setting `flex-shrink: 0;`.</small></p>
 <section class="pt-10">
  <FlexShrink/>
 </section>
@@ -2609,24 +2581,22 @@ hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Basis</h1>
 <div></div>
-<p>The <strong><kbd>flex-basis</kbd></strong> CSS property has the same effect as <kbd>width</kbd> in a flex row (height in a column). You can use them interchangeably, but flex-basis will win if there's a conflict.<kbd>flex-basis</kbd> can't scale an element below its minimum content size, but width can.
+<p>The <strong>`flex-basis`</strong> CSS property has the same effect as `width` in a flex row (height in a column). You can use them interchangeably, but flex-basis will win if there's a conflict.`flex-basis` can't scale an element below its minimum content size, but width can.
 </p>
 
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">The "flex" Shorthand</h1>
 <div></div>
-<p>The <strong><kbd>flex</kbd></strong> CSS property takes 3 individual values:</p>
-<ol>
-<li><strong><kbd>flex-grow</kbd></strong></li>
-<li><strong><kbd>flex-shrink</kbd></strong></li>
-<li><strong><kbd>flex-basis</kbd></strong></li>
-</ol>
-<p><strong><kbd>flex</kbd></strong> sets how a flex item will grow or shrink to fit the space available in its flex container. It does the basic management automatically.
-</p>
+<p>The <strong>flex</strong> CSS property takes 3 individual values:</p>
 
-It is recommended to use the <strong><kbd>flex</kbd></strong> shorthand instead of separate <strong><kbd>flex-grow</kbd></strong> <strong><kbd>flex-shrink</kbd></strong>
-<strong><kbd>flex-basis</kbd></strong> declarations.
+`flex-grow`
+`flex-shrink`
+`flex-basis`
+
+`flex` sets how a flex item will grow or shrink to fit the space available in its flex container. It does the basic management automatically.
+
+It is recommended to use the `flex` shorthand instead of separate `flex-grow` `flex-shrink` `flex-basis` declarations.
 
 <div class="grid grid-cols-2">
 
@@ -3019,13 +2989,13 @@ url: https://codepen.io/setemiojo/embed/MWMXVjq?default-tab=html%2Cresult
 <div></div>
 Positioned Layout is another layout mode we'll explore in this section. Unlike the flow layout algorithm, which ensures that multiple elements never occupy the same pixels, positioned layout allows items to overlap and break out of the box.
 
-To style your layout, use the <strong><kbd>position</kbd></strong> property with one of the following values: <strong><kbd>relative</kbd></strong>, <strong><kbd>absolute</kbd></strong>, <strong><kbd>fixed</kbd></strong>, or <strong><kbd>sticky</kbd></strong>. Each of these positioning values works uniquely to place the element. Combine it with the <strong><kbd>top</kbd></strong>, <strong><kbd>right</kbd></strong>, <strong><kbd>bottom</kbd></strong>, and <strong><kbd>left</kbd></strong> properties to specify the exact location of the element within its containing block.
+To style your layout, use the <strong>`position`</strong> property with one of the following values: <strong>`relative`</strong>, <strong>`absolute`</strong>, <strong>`fixed`</strong>, or <strong>`sticky`</strong>. Each of these positioning values works uniquely to place the element. Combine it with the <strong>`top`</strong>, <strong>`right`</strong>, <strong>`bottom`</strong>, and <strong>`left`</strong> properties to specify the exact location of the element within its containing block.
 
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Relative Positioning</h1>
 
-The element is positioned <kbd>position: relative;</kbd> based on the normal document flow and then adjusted relative to its original position using the top, right, bottom, and left values. This adjustment does not impact the layout or positioning of surrounding elements, so the space allocated for the element remains the same as if it were using static positioning.
+The element is positioned `position: relative;` based on the normal document flow and then adjusted relative to its original position using the top, right, bottom, and left values. This adjustment does not impact the layout or positioning of surrounding elements, so the space allocated for the element remains the same as if it were using static positioning.
 
 ```html {monaco-run}
 <style>
@@ -3051,7 +3021,7 @@ The element is positioned <kbd>position: relative;</kbd> based on the normal doc
 
 Every element is contained by a block which is referred to containing block. When you absolutety positioned an element, it ignore their parents block to cause an overflow unless the parent use positioned layout.
 
-Absolutely-positioned elements act just like static-positioned elements when it comes to overflow. If the parent sets <kbd>overflow: auto;</kbd>, as long as that parent is the containing block, it will allow that child to be scrolled into view:
+Absolutely-positioned elements act just like static-positioned elements when it comes to overflow. If the parent sets `overflow: auto;`, as long as that parent is the containing block, it will allow that child to be scrolled into view:
 
 ```html {monaco-run}
 <style>
@@ -3099,11 +3069,11 @@ Absolutely-positioned elements act just like static-positioned elements when it 
   <div class="box"></div>
 </div>
 ```
-<kbd>.box</kbd> is not been contained by wrapper even with the <kbd>overflow: hidden;</kbd> passed into the <kbd>wrapper</kbd> CSS rule because the parent which is <kbd>wrapper</kbd> is not using positioned layout.
+`.box` is not been contained by wrapper even with the `overflow: hidden;` passed into the `wrapper` CSS rule because the parent which is `wrapper` is not using positioned layout.
 
 ---
 
-Error fixed by adding <kbd>position: relative;</kbd> to the parent.
+Error fixed by adding `position: relative;` to the parent.
 
 ```html {monaco-run}
 <style>
@@ -3132,13 +3102,13 @@ Error fixed by adding <kbd>position: relative;</kbd> to the parent.
 
 <h1 class="text-sm bg-orange p-4 text-center">Fixed Positioning</h1>
 
-To create a "floating" element that stays in the same position regardless of scrolling, you should use <kbd>position: fixed;</kbd> This is similar to absolute positioning, but there are key differences:
+To create a "floating" element that stays in the same position regardless of scrolling, you should use `position: fixed;` This is similar to absolute positioning, but there are key differences:
 
 Fixed Positioning: A fixed element is positioned relative to the viewport, meaning it stays in the same place on the screen even when you scroll. The element is contained by the "initial containing block," which is essentially the entire browser window or viewport.
 With position: fixed, the element will not move when the user scrolls the page.
 
 Absolute Positioning: An absolutely positioned element is positioned relative to its nearest positioned ancestor (an ancestor with position set to relative, absolute, or fixed). If no such ancestor exists, it will be positioned relative to the initial containing block, just like a fixed element.
-With <kbd>position: absolute;</kbd>, the element will move with its parent element if the parent is scrolled.
+With `position: absolute;`, the element will move with its parent element if the parent is scrolled.
 
 ---
 
@@ -3177,14 +3147,13 @@ With <kbd>position: absolute;</kbd>, the element will move with its parent eleme
 
 <h1 class="text-sm bg-orange p-4 text-center">Sticky Positioning</h1>
 <div>
-  In this form of positioning <kbd>position: sticky;</kbd>, an element transitions from being relatively-positioned to being fixed-positioned and this happens when you scroll, the element get stuck to the edge. To pass <kbd>position: sticky;</kbd> to an element and work effectively, you must specify a threshold with at least one of to top, right, bottom, or left.
+  In this form of positioning `position: sticky;`, an element transitions from being relatively-positioned to being fixed-positioned and this happens when you scroll, the element get stuck to the edge. To pass `position: sticky;` to an element and work effectively, you must specify a threshold with at least one of to top, right, bottom, or left.
 
-  While using <kbd>position: sticky;</kbd> note that the element will never follow the scroll outside of its parent container. The sticky elements only stick while their container is in view.
+  While using `position: sticky;` note that the element will never follow the scroll outside of its parent container. The sticky elements only stick while their container is in view.
 </div>
 
 ---
 
-<h1>Code Example</h1>
 
 ```html {monaco-run}
 <style>
@@ -3264,7 +3233,6 @@ Anchor positioning allows you to place items relative to where another element i
 hideInToc: true
 layout: iframe
 url: https://codepen.io/kevinpowell/embed/preview/poMaLjR?default-tab=html%2Cresult&editable=true"
-
 ---
 
 
@@ -3495,44 +3463,22 @@ Understanding stacking contexts and z-index is crucial for creating complex layo
 
 <div />
 
-The <strong><kbd>overflow</kbd></strong> CSS property allows you to control how content is handled when it exceeds the boundaries of an element. It has a default value of <strong><kbd>visible</kbd></strong>.
+The `overflow` CSS property allows you to control how content is handled when it exceeds the boundaries of an element. It has a default value of `visible`.
+This property is a shorthand for:
 
-<p>This property is a shorthand for:</p>
-<ul>
-<li>
-<strong><kbd>overflow-x</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow-y</kbd></strong>
-</li>
-</ul>
+`overflow-x`, `overflow-y`
 
-<h1 class="text-sm bg-black p-4 text-center">overflow keyword values</h1>
-<ul>
-<li>
-<strong><kbd>overflow: auto;</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow: hidden;</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow: scroll;</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow: visible;</kbd></strong>
-</li>
-<li>
-<strong><kbd>overflow: clip;</kbd></strong>
-</li>
-</ul>
+<h2 class="text-sm bg-black p-4 text-center">overflow keyword values</h2>
+
+`overflow: auto;`, `overflow: hidden;`, `overflow: scroll;`, `overflow: visible;`, `overflow: clip;`
 
 ---
 
-<h1 class="text-sm bg-black p-4 text-center">overflow: auto;</h1>
+<h2 class="text-sm bg-black p-4 text-center">overflow: auto;</h2>
 
 <div />
 
-<strong><kbd>overflow: auto;</kbd></strong> property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
+`overflow: auto;` property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
 
 ```html {monaco-run}
 <style>
@@ -3553,9 +3499,9 @@ The <strong><kbd>overflow</kbd></strong> CSS property allows you to control how 
 ```
 ---
 
-<h1 class="text-sm bg-black p-4 text-center">overflow: hidden;</h1>
-<div />
-The <strong><kbd>overflow: hidden;</kbd></strong> property makes an element truncate its content when it overflows its boundaries. It behaves similarly to <strong><kbd>overflow: scroll;</kbd></strong>, but without displaying scrollbars. When <strong><kbd>overflow: hidden;</kbd></strong> is applied to an element, a scroll container is created without visible scrollbars.
+<h2 class="text-sm bg-black p-4 text-center">overflow: hidden;</h2>
+
+The `overflow: hidden;` property makes an element truncate its content when it overflows its boundaries. It behaves similarly to `overflow: scroll;`, but without displaying scrollbars. When `overflow: hidden;` is applied to an element, a scroll container is created without visible scrollbars.
 
 ```html {monaco-run}
 <style>
@@ -3583,9 +3529,9 @@ The <strong><kbd>overflow: hidden;</kbd></strong> property makes an element trun
 ```
 ---
 
-<h1 class="text-sm bg-black p-4 text-center">overflow: scroll;</h1>
-<div />
-<strong><kbd>overflow: scroll;</kbd></strong> property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
+<h2 class="text-sm bg-black p-4 text-center">overflow: scroll;</h2>
+
+`overflow: scroll;` property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
 
 ```html {monaco-run}
 <style>
@@ -3605,9 +3551,9 @@ The <strong><kbd>overflow: hidden;</kbd></strong> property makes an element trun
 ```
 ---
 
- <h1 class="text-sm bg-black p-4 text-center">overflow: visible;</h1>
-<div />
-<strong><kbd>overflow: visible;</kbd></strong> property is the default setting for the <strong><kbd>overflow</kbd></strong> property. When overflow occurs outside the element's padding box, it will be displayed.
+<h2 class="text-sm bg-black p-4 text-center">overflow: visible;</h2>
+
+`overflow: visible;` property is the default setting for the `overflow` property. When overflow occurs outside the element's padding box, it will be displayed.
 
 ```html {monaco-run}
 <style>
@@ -3627,8 +3573,8 @@ The <strong><kbd>overflow: hidden;</kbd></strong> property makes an element trun
 
 ---
 
-Before we move into the last value which is <strong><kbd>overflow: clip;</kbd></strong> let's learn about: <span class="mt-6 text-sm bg-black p-4 text-center">Scroll Containers</span>
-Whenever we set <strong><kbd>overflow</kbd></strong> property to <strong><kbd>scroll</kbd></strong>, <strong><kbd>hidden</kbd></strong>, or <strong><kbd>auto</kbd></strong> we automatically create what we referred to as a scroll container which manages overflow in both directions(<strong><kbd>overflow-x</kbd></strong> <strong><kbd>overflow-y</kbd></strong>).
+Before we move into the last value which is `overflow: clip;` let's learn about: <span class="mt-6 text-sm bg-black p-4 text-center">Scroll Containers</span>
+Whenever we set `overflow` property to `scroll`, `hidden`, or `auto` we automatically create what we referred to as a scroll container which manages overflow in both directions(`overflow-x`, `overflow-y`).
 
 A scroll container acts like a portal to a confined space. Any element within a scroll container is effectively trapped inside, ensuring it won't overflow beyond the boundaries of the container's four corners.
 
@@ -3638,9 +3584,9 @@ This metaphor helps illustrate how the scroll container behaves — it allows yo
 
 ---
 
- <h1 class="text-sm bg-black p-4 text-center">overflow: clip;</h1>
-<div />
-<strong><kbd>overflow: clip;</kbd></strong> property causes element's content to clipped at the element's overflow clip edge. The content outside the clipped region is not visible, and also no addition of scroll container. This work exactly the way most developers think <strong><kbd>overflow: hidden;</kbd></strong> should work.
+<h2 class="text-sm bg-black p-4 text-center">overflow: clip;</h2>
+ 
+`overflow: clip;` property causes element's content to clipped at the element's overflow clip edge. The content outside the clipped region is not visible, and also no addition of scroll container. This work exactly the way most developers think `overflow: hidden;` should work.
 
 ```html {monaco-run}
 <style>
@@ -3668,11 +3614,11 @@ This metaphor helps illustrate how the scroll container behaves — it allows yo
 
 ---
 
-<h1 class="text-sm bg-black p-4 text-center">Horizontal Overflow</h1>
-<div />
-When you have inline elements that automatically wrap to the next line when they can't all fit within the container's width, and you want them to scroll horizontally instead, simply using the <strong><kbd>overflow: auto;</kbd></strong> property won't be sufficient. This is where the <strong><kbd>white-space: nowrap;</kbd></strong> property becomes useful.
+<h2 class="text-sm bg-black p-4 text-center">Horizontal Overflow</h2>
 
-<strong><kbd>white-space</kbd></strong> is a CSS property that allows developers to control how words and other inline or inline-block elements wrap.
+When you have inline elements that automatically wrap to the next line when they can't all fit within the container's width, and you want them to scroll horizontally instead, simply using the `overflow: auto;` property won't be sufficient. This is where the `white-space: nowrap;` property becomes useful.
+
+`white-space` is a CSS property that allows developers to control how words and other inline or inline-block elements wrap.
 
 ```html {monaco-run}
 <style>
@@ -3713,6 +3659,7 @@ When you have inline elements that automatically wrap to the next line when they
  CSS responsiveness is a web design approach that allows a website to adapt to different screen sizes and resolutions, providing a good user experience across various devices like phones, tablets, laptops, and desktops.Imagine you have a favorite t-shirt. When you wear it, it fits just right. Now imagine if that t-shirt could magically adjust its size to fit your little brother or your big sister perfectly too. That's kind of what CSS responsiveness does for websites!, Responsive design ensures that the website automatically adjusts to fit the screen, making it easy to navigate and read.
 
 ## The Problem It Solves
+
 Imagine you design a website that looks perfect on your computer screen. But when you open it on your phone, everything's tiny, and you have to zoom and scroll around to read anything. Not fun, right? That's the problem responsive design solves.
 
 ---
@@ -4073,24 +4020,24 @@ When discussing the beautification of a website, CSS plays a key role. However, 
 
 All those small changes really matter in satisfying users and encouraging them to return to our website.
 
-The <kbd>animation</kbd> shorthand CSS property applies animation on element of your choice. It is shorthand for:
+The `animation` shorthand CSS property applies animation on element of your choice. It is shorthand for:
 
 <ul>
-  <li><kbd>animation-name</kbd></li>
-  <li><kbd>animation-duration</kbd></li>
-  <li><kbd>animation-timing-function</kbd></li>
-  <li><kbd>animation-delay</kbd></li>
-  <li><kbd>animation-iteration-count</kbd></li>
-  <li><kbd>animation-direction</kbd></li>
-  <li><kbd>animation-fill-mode</kbd></li>
-  <li><kbd>animation-play-state</kbd></li>
-  <li><kbd>animation-timeline</kbd></li>
+  <li>`animation-name`</li>
+  <li>`animation-duration`</li>
+  <li>`animation-timing-function`</li>
+  <li>`animation-delay`</li>
+  <li>`animation-iteration-count`</li>
+  <li>`animation-direction`</li>
+  <li>`animation-fill-mode`</li>
+  <li>`animation-play-state`</li>
+  <li>`animation-timeline`</li>
 </ul>
 
 ---
 
  <h1 class="text-sm bg-purple p-4 text-center">Transforms</h1>
-<p>The <kbd>transform</kbd> CSS property allows you to rotate, scale, skew, or translate an element. It plays a significant role in CSS animations, offering a variety of powerful transform functions for creating dynamic visual effects.</p>
+<p>The `transform` CSS property allows you to rotate, scale, skew, or translate an element. It plays a significant role in CSS animations, offering a variety of powerful transform functions for creating dynamic visual effects.</p>
 
 ```html {monaco-run}
 <style>
@@ -4110,7 +4057,7 @@ The <kbd>animation</kbd> shorthand CSS property applies animation on element of 
 
 <h2 class="text-sm bg-purple p-4 text-center animate-slide-in-down">Transform functions</h2>
 
-The <kbd>transform-function</kbd> in CSS is used to apply 2D or 3D transformations to elements, enabling you to modify their shape, size, and position without disrupting the document flow. This function is powerful for creating visual effects like scaling, rotating, skewing, or translating elements. The transformations occur within the element's own coordinate system.
+The `transform-function` in CSS is used to apply 2D or 3D transformations to elements, enabling you to modify their shape, size, and position without disrupting the document flow. This function is powerful for creating visual effects like scaling, rotating, skewing, or translating elements. The transformations occur within the element's own coordinate system.
 
 ```html {monaco-run}
 <style>
@@ -4132,13 +4079,13 @@ The <kbd>transform-function</kbd> in CSS is used to apply 2D or 3D transformatio
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4">Translation</h3>
-<p> <kbd>translate</kbd> is a transform function that allows you to move an element around the page. It accepts two arguments: <kbd>x</kbd>, which controls the horizontal (side-to-side) movement, and <kbd>y</kbd>, which controls the vertical (up-and-down) movement.</p>
 
-<p>When using the <kbd>translate</kbd> property, you can specify the units in percentages, which refer to the element's own size, rather than the available space in the parent container.</p>
+<p> `translate` is a transform function that allows you to move an element around the page. It accepts two arguments: `x`, which controls the horizontal (side-to-side) movement, and `y`, which controls the vertical (up-and-down) movement.</p>
+
+<p>When using the `translate` property, you can specify the units in percentages, which refer to the element's own size, rather than the available space in the parent container.</p>
 
 ```css
 /*The first argument represents the X-axis, while the second represents the Y-axis, as seen in transform: translate(x, y);. */
-
 .content {
   transform: translate(50px, 20px);
 }
@@ -4167,7 +4114,7 @@ The <kbd>transform-function</kbd> in CSS is used to apply 2D or 3D transformatio
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Scale</h3>
-The <kbd>scale()</kbd> transform function allows you to resize an element by enlarging or shrinking it. It accepts one or two values, which determine the scaling applied in each direction. The <kbd>scale()</kbd> function is limited to 2D transformations; for 3D scaling, use the <kbd>scale3d()</kbd> function. Scale uses a unitless value.
+The `scale()` transform function allows you to resize an element by enlarging or shrinking it. It accepts one or two values, which determine the scaling applied in each direction. The `scale()` function is limited to 2D transformations; for 3D scaling, use the `scale3d()` function. Scale uses a unitless value.
 
 ---
 
@@ -4191,14 +4138,15 @@ The <kbd>scale()</kbd> transform function allows you to resize an element by enl
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Rotate</h3>
-The <kbd>rotate()</kbd> transform function allows you to rotate an element around a fixed point. We use the following units for the rotate function.
+
+The `rotate()` transform function allows you to rotate an element around a fixed point. We use the following units for the rotate function.
 <ul>
 <li>deg</li>
 <li>turn</li>
 <li>skew</li>
 </ul>
 
-We use the <kbd>deg</kbd> unit for rotation, short for degrees.
+We use the `deg` unit for rotation, short for degrees.
 
 ```html {monaco-run}
 <style>
@@ -4223,7 +4171,7 @@ We use the <kbd>deg</kbd> unit for rotation, short for degrees.
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Turn</h3>
-The <kbd>turn</kbd> unit represents how many turns the element should make. 1 turn is equal to 360 degrees.
+The `turn` unit represents how many turns the element should make. 1 turn is equal to 360 degrees.
 
 ```html {monaco-run}
 <style>
@@ -4248,7 +4196,7 @@ The <kbd>turn</kbd> unit represents how many turns the element should make. 1 tu
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Skew</h3>
-<p>The <kbd>skew</kbd> is a seldom-used but pretty-neat transformation. It's most useful when you want to create diagonal decorative elements.</p>
+<p>The `skew` is a seldom-used but pretty-neat transformation. It's most useful when you want to create diagonal decorative elements.</p>
 
 ```html {monaco-run}
 <style>
@@ -4274,7 +4222,7 @@ The <kbd>turn</kbd> unit represents how many turns the element should make. 1 tu
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Transform origin</h3>
 
-Every element has a transformation origin, which is the central point around which transformations are applied. The CSS property <kbd>transform-origin</kbd> allows you to set and control this origin for any element's transformations. This transform origin acts as a pivot point.
+Every element has a transformation origin, which is the central point around which transformations are applied. The CSS property `transform-origin` allows you to set and control this origin for any element's transformations. This transform origin acts as a pivot point.
 
 ```html {monaco-run}
 <style>
@@ -4351,7 +4299,8 @@ Right-to-Left Application: The transforms are applied sequentially but executed 
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Inline elements</h3>
-The <kbd>transform</kbd> property does not work with inline elements in a Flow layout because inline elements are designed to flow with the content and cause minimal disruption. To apply transformations, you can change the element's display to <kbd>inline-block</kbd>, or switch to a different layout mode such as Grid or Flexbox.
+
+The `transform` property does not work with inline elements in a Flow layout because inline elements are designed to flow with the content and cause minimal disruption. To apply transformations, you can change the element's display to `inline-block`, or switch to a different layout mode such as Grid or Flexbox.
 
 ```html {monaco-run}
 <style>
@@ -4379,7 +4328,7 @@ label { font-size: 13px; color: #6b7280; min-width: 120px; }
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">CSS Transitions</h3>
 
-The CSS <kbd>transition</kbd> property is an essential tool when discussing CSS animations. When navigating through a website, you might notice that many elements change states. Instead of a sudden, jarring switch between an element's initial state and its target state, the <kbd>transition</kbd> property helps create smooth, gradual shifts. This enhances the user experience by making interactions feel more fluid and less abrupt.
+The CSS `transition` property is an essential tool when discussing CSS animations. When navigating through a website, you might notice that many elements change states. Instead of a sudden, jarring switch between an element's initial state and its target state, the `transition` property helps create smooth, gradual shifts. This enhances the user experience by making interactions feel more fluid and less abrupt.
 
 Hover over these two circles to notice the difference: the red circle has a transform effect on hover, while the blue circle doesn't.
 
@@ -4412,7 +4361,7 @@ Hover over these two circles to notice the difference: the red circle has a tran
 
 ---
 
-The <kbd>transition</kbd> property accepted just two values and these are:
+The `transition` property accepted just two values and these are:
 
 <ol>
 <li>The name of the property we wish to animate</li>
@@ -4447,22 +4396,22 @@ Note: You can pass a comma to create animation on multiple properties.
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Timing functions</h3>
 
-The <kbd>transition-timing-function</kbd> CSS property is what handles "motion" on the web. It sets how intermediate values are calculated for CSS properties being affected by a transition effect.
+The `transition-timing-function` CSS property is what handles "motion" on the web. It sets how intermediate values are calculated for CSS properties being affected by a transition effect.
 
 We have several timing functions available to us in CSS and we can specify which one we want to use.
 
 <ol>
-  <li><kbd>transition-timing-function: ease;</kbd></li>
-  <li><kbd>transition-timing-function: ease-in;</kbd></li>
-  <li><kbd>transition-timing-function: ease-out;</kbd></li>
-  <li><kbd>transition-timing-function: ease-in-out;</kbd></li>
-  <li><kbd>transition-timing-function: linear;</kbd></li>
-  <!-- <li><kbd>transition-timing-function: step-start;</kbd></li>
-  <li><kbd>transition-timing-function: step-end;</kbd></li> -->
+  <li>`transition-timing-function: ease;`</li>
+  <li>`transition-timing-function: ease-in;`</li>
+  <li>`transition-timing-function: ease-out;`</li>
+  <li>`transition-timing-function: ease-in-out;`</li>
+  <li>`transition-timing-function: linear;`</li>
+  <!-- <li>`transition-timing-function: step-start;`</li>
+  <li>`transition-timing-function: step-end;`</li> -->
 </ol>
 
 <div class="overflow-scroll h-45">
-It's either we use the <kbd>transition-timing-function</kbd> property:
+It's either we use the `transition-timing-function` property:
 
 ```css
 .btn {
@@ -4470,7 +4419,7 @@ It's either we use the <kbd>transition-timing-function</kbd> property:
 }
 ```
 
-Or, we can pass it directly to the <kbd>transition</kbd> shorthand property:
+Or, we can pass it directly to the `transition` shorthand property:
 
 ```css
 .btn {
@@ -4483,19 +4432,17 @@ Or, we can pass it directly to the <kbd>transition</kbd> shorthand property:
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Transition timing functions</h3>
-<ol>
-<li><kbd>linear</kbd> transitions at an even speed.</li>
-<li><kbd>ease-out</kbd> comes in quickly like a wild bull but later runs out of energy, making it slow down as the transition continues.</li>
-<li><kbd>ease-in</kbd> starts slow, like a lion stealthily approaching its prey, then picks up speed as it closes in for the chase. This is the opposite of <kbd>ease-out</kbd></li>
-<li><kbd>ease-in-out</kbd> starts slow, picks up speed in the middle, and then gently slows down again, like a bird taking off, soaring, and then gliding to a landing.</li>
 
-<li><kbd>ease</kbd> is similar to <kbd>ease-in-out</kbd> because it starts slowly, accelerates in the middle, and then decelerates towards the end, like a car smoothly adjusting its speed as it navigates through different road conditions. But it isn't symmetrical and also this is <kbd>ease</kbd> is the default value</li>
- </ol>
+- `linear` transitions at an even speed.
+- `ease-out` comes in quickly like a wild bull but later runs out of energy, making it slow down as the transition continues.
+- `ease-in` starts slow, like a lion stealthily approaching its prey, then picks up speed as it closes in for the chase. This is the opposite of `ease-out`
+- `ease-in-out` starts slow, picks up speed in the middle, and then gently slows down again, like a bird taking off, soaring, and then gliding to a landing.
 
-Note:
-<strong>Time is constant</strong>
-<i>
-An important note about all of these demos: time is constant. Timing functions describe how a value should get from 0 to 1 over a fixed time interval, not how quickly the animation should complete. Some timing functions may feel faster or slower, but in these examples, they all take exactly 1 second to complete.</i>
+- `ease` is similar to `ease-in-out` because it starts slowly, accelerates in the middle, and then decelerates towards the end, like a car smoothly adjusting its speed as it navigates through different road conditions. But it isn't symmetrical and also this is `ease` is the default value
+
+Note: Time is constant
+
+An important note about all of these demos: time is constant. Timing functions describe how a value should get from 0 to 1 over a fixed time interval, not how quickly the animation should complete. Some timing functions may feel faster or slower, but in these examples, they all take exactly 1 second to complete.
 
 ```css
 .btn {
@@ -4507,7 +4454,7 @@ An important note about all of these demos: time is constant. Timing functions d
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Custom curves</h3>
 
-All the <kbd>transition-timing-function</kbd> we've seen so far are really just presets for this <kbd>cubic-bezier</kbd>
+All the `transition-timing-function` we've seen so far are really just presets for this `cubic-bezier`
 
 If the provided built-in options don't suit your needs, you can define your own custom easing curve, using the cubic bézier timing function!
 
@@ -4533,15 +4480,15 @@ Using Josh Comeau's custom alternatives, these are his declarations
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Delays</h3>
 
-The <kbd>transition-delay</kbd> CSS property defines how long to wait before starting a transition effect when a property's value changes. This feature is particularly useful for delaying actions. For example, if you have a dropdown menu with nested options that close too quickly when you're navigating, you could use JavaScript to add a delay, but if CSS can handle it, it's best to avoid JavaScript.
+The `transition-delay` CSS property defines how long to wait before starting a transition effect when a property's value changes. This feature is particularly useful for delaying actions. For example, if you have a dropdown menu with nested options that close too quickly when you're navigating, you could use JavaScript to add a delay, but if CSS can handle it, it's best to avoid JavaScript.
 
-If you set <kbd>transition-delay: 500ms</kbd> on an element, what you're trying to achieve is that when you hover over the element, the transition will start only after a delay of 500 milliseconds. This means that there will be a slight pause before any transition effect, such as a change in color, size, or position, begins after the hover event is triggered.
+If you set `transition-delay: 500ms` on an element, what you're trying to achieve is that when you hover over the element, the transition will start only after a delay of 500 milliseconds. This means that there will be a slight pause before any transition effect, such as a change in color, size, or position, begins after the hover event is triggered.
 
 ---
 
- <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Keyframe Animations</h3>
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Keyframe Animations</h3>
 
-We've discussed various animation properties, but now it's time for the main event. To apply a transformation to an element, transitioning from one set of CSS declarations to another, we'll need the <kbd>@keyframes</kbd> rule.
+We've discussed various animation properties, but now it's time for the main event. To apply a transformation to an element, transitioning from one set of CSS declarations to another, we'll need the `@keyframes` rule.
 
 ```css
 @keyframes slide-in {
@@ -4554,7 +4501,7 @@ We've discussed various animation properties, but now it's time for the main eve
 }
 ```
 
-You'll notice that after <kbd>@keyframes</kbd> we have a name called <kbd>slide-in</kbd>; this is the name of the <kbd>@keyframes</kbd> animation. These names work like global variables, allowing you to reuse the animation across different elements. To apply the animation to specific selectors, you use the <kbd>animation</kbd> property.
+You'll notice that after `@keyframes` we have a name called `slide-in`; this is the name of the `@keyframes` animation. These names work like global variables, allowing you to reuse the animation across different elements. To apply the animation to specific selectors, you use the `animation` property.
 
 ```css
 .container {
@@ -4594,12 +4541,11 @@ You'll notice that after <kbd>@keyframes</kbd> we have a name called <kbd>slide-
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Looped animations</h3>
 
-The <kbd>animation-iteration-count</kbd> CSS property sets the number of times an animation sequence should be played before stopping but by default keyframe animations will only run once, yes just once. So, in cases where you want the animation to iterate you have the <kbd>animation-iteration-count</kbd> property. It has two values and these are:
+The `animation-iteration-count` CSS property sets the number of times an animation sequence should be played before stopping but by default keyframe animations will only run once, yes just once. So, in cases where you want the animation to iterate you have the `animation-iteration-count` property. It has two values and these are:
 
-<ol>
-<li><kbd>infinite</kbd>: The animation will repeat forever</li>
-<li><kbd>number</kbd>: The number of times the animation will repeat</li>
-</ol>
+
+- `infinite`: The animation will repeat forever
+- `number`: The number of times the animation will repeat
 
 ```html {monaco-run}
 <style>
@@ -4629,7 +4575,7 @@ The <kbd>animation-iteration-count</kbd> CSS property sets the number of times a
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Multi-step animations</h3>
 
-In cases where the animation requires more than 2 steps, instead of using <kbd>from</kbd> and <kbd>to</kbd> keywords, you can use percentages.
+In cases where the animation requires more than 2 steps, instead of using `from` and `to` keywords, you can use percentages.
 
 ```css
 @keyframes fancy-spin {
@@ -4675,7 +4621,7 @@ In cases where the animation requires more than 2 steps, instead of using <kbd>f
 <div class="box"></div>
 ```
 
-We used percentages for the animation above because it involves multiple stages. The percentages represent the progress through the animation. <kbd>0%</kbd> serves as a replacement for <kbd>from</kbd>, and we break the animation into various stages before reaching the final point, <kbd>100%</kbd>, which replaces <kbd>to</kbd>.
+We used percentages for the animation above because it involves multiple stages. The percentages represent the progress through the animation. `0%` serves as a replacement for `from`, and we break the animation into various stages before reaching the final point, `100%`, which replaces `to`.
 
 ---
 
@@ -4725,7 +4671,7 @@ If you want your animations to go through three stages, such as creating a "brea
 ```
 
 The box starts at its default size, grows to 1.5 times its default size, and then shrinks back to its original size.
-Alternatively, we can use the <kbd>animation-direction</kbd> property to achieve this effect
+Alternatively, we can use the `animation-direction` property to achieve this effect
 
 ```html {monaco-run}
 <style>
@@ -4747,13 +4693,13 @@ Alternatively, we can use the <kbd>animation-direction</kbd> property to achieve
 
 <h2> Contd: Alternating animations example</h2>
 
-When you set <kbd>animation-direction</kbd> to <kbd>alternate</kbd>, the animation alternates between <kbd>normal</kbd> and <kbd>reverse</kbd> on each iteration. The default value for <kbd>animation-direction</kbd> is <kbd>normal</kbd>, meaning the animation moves from <kbd>0%</kbd> to <kbd>100%</kbd> throughout the <kbd>animation-duration</kbd>. You can also set the value to <kbd>reverse</kbd>, which makes the animation run in reverse, going from <kbd>100%</kbd> to <kbd>0%</kbd>.
+When you set `animation-direction` to `alternate`, the animation alternates between `normal` and `reverse` on each iteration. The default value for `animation-direction` is `normal`, meaning the animation moves from `0%` to `100%` throughout the `animation-duration`. You can also set the value to `reverse`, which makes the animation run in reverse, going from `100%` to `0%`.
 
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Shorthand values</h3>
 
-The <kbd>animation</kbd> shorthand CSS property applies an animation between styles and is a shorthand for <kbd>animation-name</kbd>, <kbd>animation-duration</kbd>, <kbd>animation-timing-function</kbd>, <kbd>animation-delay</kbd>, <kbd>animation-iteration-count</kbd>, <kbd>animation-direction</kbd>, <kbd>animation-fill-mode</kbd>, <kbd>animation-play-state</kbd>, and <kbd>animation-timeline</kbd>. We've covered many animation properties in this lesson, and fortunately, just like with transitions, we can use the <kbd>animation</kbd> shorthand to combine all these properties and save on typing.
+The `animation` shorthand CSS property applies an animation between styles and is a shorthand for `animation-name`, `animation-duration`, `animation-timing-function`, `animation-delay`, `animation-iteration-count`, `animation-direction`, `animation-fill-mode`, `animation-play-state`, and `animation-timeline`. We've covered many animation properties in this lesson, and fortunately, just like with transitions, we can use the `animation` shorthand to combine all these properties and save on typing.
 
 ```css
 .box {
@@ -4785,7 +4731,7 @@ I'm sure you're thinking what I am thinking as well, the good news is that <stro
 }
 ```
 
-But, if you want to add <kbd>animation-delay</kbd> to the shorthand it has to come after the duration so its for best practice to exclude delay from the shothand:
+But, if you want to add `animation-delay` to the shorthand it has to come after the duration so its for best practice to exclude delay from the shothand:
 
 ```css
 .box {
@@ -4798,7 +4744,7 @@ But, if you want to add <kbd>animation-delay</kbd> to the shorthand it has to co
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Fill Modes</h3>
 
-The <kbd>animation-fill-mode</kbd> CSS property controls how an element should be styled before and after an animation runs.
+The `animation-fill-mode` CSS property controls how an element should be styled before and after an animation runs.
 
 For instance, if you want the element to fade out smoothly after the animation completes, animation-fill-mode ensures the element doesn’t abruptly reappear or reset its styles once the animation ends.
 
@@ -4825,8 +4771,8 @@ For instance, if you want the element to fade out smoothly after the animation c
 
 ---
 
-<h2>Contd:</h2> You will notice that the box reappears after the animation style passed on it has been executed, that's because there is no <kbd>opacity</kbd> property set on the container itself.
-To make the container not reappears you should add <kbd>opacity</kbd> declaration to the container.
+Contd: You will notice that the box reappears after the animation style passed on it has been executed, that's because there is no `opacity` property set on the container itself.
+To make the container not reappears you should add `opacity` declaration to the container.
 
 ```html {monaco-run}
 <style>
@@ -4855,18 +4801,16 @@ There is a better way to do this and that's what we will be discussing in the ne
 
 ---
 
- <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">animation-fill-modes</h3>
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">animation-fill-modes</h3>
 
 In a nutshell, this CSS property sets how a CSS animation applies styles to its target before and after its execution.
 
 We have the following values that can be applied on the property:
 
-<ul>
-  <li><kbd>animation-fill-mode: none;</kbd></li>
-  <li><kbd>animation-fill-mode: forwards;</kbd></li>
-  <li><kbd>animation-fill-mode: backwards;</kbd></li>
-  <li><kbd>animation-fill-mode: both;</kbd></li>
-</ul>
+- `animation-fill-mode: none;`
+- `animation-fill-mode: forwards;`
+- `animation-fill-mode: backwards;`
+- `animation-fill-mode: both;`
 
 ---
 
@@ -4879,7 +4823,7 @@ We have the following values that can be applied on the property:
 }
 ```
 
-<kbd>animation-fill-mode: none;</kbd> This will not apply any styles to the target when it's not executing. Also, this is a default value.
+`animation-fill-mode: none;` This will not apply any styles to the target when it's not executing. Also, this is a default value.
 
 <hr class="my-10"/>
 
@@ -4892,7 +4836,7 @@ We have the following values that can be applied on the property:
 }
 ```
 
-The <kbd>animation-fill-mode: forwards;</kbd> property ensures that after the animation completes, the target element retains the styles defined in the final keyframe, instead of reverting to its original state.
+The `animation-fill-mode: forwards;` property ensures that after the animation completes, the target element retains the styles defined in the final keyframe, instead of reverting to its original state.
 
 ---
 
@@ -4905,9 +4849,9 @@ The <kbd>animation-fill-mode: forwards;</kbd> property ensures that after the an
 }
 ```
 
-<kbd>animation-fill-mode: backwards;</kbd>
+`animation-fill-mode: backwards;`
 
-The <kbd>animation-fill-mode: backwards;</kbd> property makes the target element apply the styles from the first keyframe immediately, even during the animation's delay period, before the animation starts.
+The `animation-fill-mode: backwards;` property makes the target element apply the styles from the first keyframe immediately, even during the animation's delay period, before the animation starts.
 
 <hr class="my-10"/>
 
@@ -4920,35 +4864,33 @@ The <kbd>animation-fill-mode: backwards;</kbd> property makes the target element
 }
 ```
 
-The <kbd>animation-fill-mode: both;</kbd> property makes the target element apply the rules of both the <kbd>animation-fill-mode: forwards;</kbd> and <kbd>animation-fill-mode: backwards;</kbd> properties. This means that the element will retain the styles defined in the keyframes after the animation ends (as in forwards), and it will also apply the initial styles of the animation before the animation starts (as in backwards).
+The `animation-fill-mode: both;` property makes the target element apply the rules of both the `animation-fill-mode: forwards;` and `animation-fill-mode: backwards;` properties. This means that the element will retain the styles defined in the keyframes after the animation ends (as in forwards), and it will also apply the initial styles of the animation before the animation starts (as in backwards).
 
 ---
 
- <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Animations vs. Transitions</h3>
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Animations vs. Transitions</h3>
 
-You will agree with me that we can achieve the desired effects on our target element using <kbd>transition</kbd>, so why should I use <kbd>@keyframes</kbd>? There are certain effects that cannot be achieved using <kbd>transition</kbd>, such as:
+You will agree with me that we can achieve the desired effects on our target element using `transition`, so why should I use `@keyframes`? There are certain effects that cannot be achieved using `transition`, such as:
 
-<ol>
-<li><kbd>@keyframes</kbd> for more complex animations</li> 
-<li><kbd>Multi-step animations</kbd> where the animation requires multiple stages</li> 
-<li><kbd>Pauseable animations</kbd> where the animation can be paused and resumed using JavaScript</li> 
-</ol>
+- `@keyframes` for more complex animations
+- `Multi-step animations` where the animation requires multiple stages
+- `Pauseable animations` where the animation can be paused and resumed using JavaScript
 
-In cases where you just need a smooth hover effect or to change the CSS style when a particular action takes place, you should use <kbd>transition</kbd>.
+In cases where you just need a smooth hover effect or to change the CSS style when a particular action takes place, you should use `transition`.
 
-However, if you want an animation to run when the page loads or a component mounts, then you should go for <kbd>@keyframes</kbd> as it provides more control over the sequence, timing, and complexity of the animation.
+However, if you want an animation to run when the page loads or a component mounts, then you should go for `@keyframes` as it provides more control over the sequence, timing, and complexity of the animation.
 
 ---
 
- <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Scroll-driven Animations</h3>
+<h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Scroll-driven Animations</h3>
 
 Scroll driven animations are a common UX pattern on the web. These are animations that are linked to the scroll position of a scroll container. We can say that its an animation that is driven by a scroll.
 
 To achieve this we have these CSS features:
 
-- <kbd>animation-timeline</kbd>: This property allows you to specify the timeline that controls the animation process.
+- `animation-timeline`: This property allows you to specify the timeline that controls the animation process.
 
-- <kbd>scroll()</kbd>: This function creates a new scroll timeline, automatically set up to track the nearest ancestor scroller in the block direction. If you want to rely on its default value which is <kbd>nearest</kbd> you can use the <kbd>scroll()</kbd> without any argument.
+- `scroll()`: This function creates a new scroll timeline, automatically set up to track the nearest ancestor scroller in the block direction. If you want to rely on its default value which is `nearest` you can use the `scroll()` without any argument.
 
 ```css
 #content {
@@ -4961,7 +4903,7 @@ Note: The animation property must come before the animation-timeline to avoid th
 
 ---
 
-<kbd>animation-timeline</kbd> can take two arguments which determines the function the scroller should find and which axis to track.
+`animation-timeline` can take two arguments which determines the function the scroller should find and which axis to track.
 
 ```css
 .content {
@@ -4969,8 +4911,8 @@ Note: The animation property must come before the animation-timeline to avoid th
 }
 ```
 
-- The <kbd>axis</kbd> drives the progress of the timeline and the value it accepts are block(default), inline, y, or x.
-- The <kbd>scroller</kbd> container element whose scroll position drives the progess of the timeline and the value is either nearest(default), root or self.
+- The `axis` drives the progress of the timeline and the value it accepts are block(default), inline, y, or x.
+- The `scroller` container element whose scroll position drives the progess of the timeline and the value is either nearest(default), root or self.
 
 ---
 
@@ -5004,7 +4946,7 @@ For the scroll function to work correctly, it must know which element or column 
   <div class="progress"></div>
   <div class="content">
     <p>Scroll down inside this box ↓</p>
-    <p>The purple bar above tracks <kbd>scroll(self)</kbd> — the nearest scrollable ancestor.</p>
+    <p>The purple bar above tracks `scroll(self)` — the nearest scrollable ancestor.</p>
     <p>More content...</p><p>More content...</p><p>More content...</p>
     <p>More content...</p><p>More content...</p>
     <p>You reached the bottom!</p>
@@ -5018,7 +4960,7 @@ For the scroll function to work correctly, it must know which element or column 
 
 View timeline tracks the element as it crosses the scrollport(the visible part of a scroll container is called the scrollport).
 
-When the viewport becomes scrollable, the element responsible for managing the scrolling is referred to as the root container or root scrolling element. This is usually either the <kbd>html</kbd> or <kbd>body</kbd> element, depending on the browser.
+When the viewport becomes scrollable, the element responsible for managing the scrolling is referred to as the root container or root scrolling element. This is usually either the `html` or `body` element, depending on the browser.
 
 ```css
 .content {
@@ -5029,7 +4971,7 @@ When the viewport becomes scrollable, the element responsible for managing the s
 
 ---
 
-The <kbd>view()</kbd>function takes 2 argument which are:
+The `view()`function takes 2 argument which are:
 
 ```css
 .content {
@@ -5037,8 +4979,8 @@ The <kbd>view()</kbd>function takes 2 argument which are:
 }
 ```
 
-- The <kbd>axis</kbd> drives the progress of the timeline, and the value it accepts are block(default), inline, y, or x.
-- The <kbd>view-timeline-inset</kbd> gives adjustment of the view propgress visiblity range, and the value is either auto(default), <kbd>length-percentage</kbd>.
+- The `axis` drives the progress of the timeline, and the value it accepts are block(default), inline, y, or x.
+- The `view-timeline-inset` gives adjustment of the view propgress visiblity range, and the value is either auto(default), `length-percentage`.
 
 Click to learn more about <a class="bg-purple px-4" href="https://scroll-driven-animations.style/">Scroll Driven Animation</a>
 
