@@ -12,7 +12,7 @@
 }
 
 a:has(> code) {
-  underline: none;
+  text-decoration-line: none;
   border: 0px !important;
 }
 
