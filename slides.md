@@ -1,9 +1,10 @@
 ---
 # theme: seriph
-background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
-title: CSS Class Note
+# background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
+background: 	https://source.unsplash.com/collection/94734566/1920x1080
+title: CSS Class Learning Notes
 info: |
-  AltSchool v4 CSS Class Notes
+  CSS Class Notes
   making of world class developers
   join at [AltSchool Africa](https://altschoolafrica.com)
 author: Oluwasetemi
@@ -37,7 +38,7 @@ CSS Class notes for the 1st Semester
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Are you ready to well designed UI with your HTML skills? Press `space` on your keyboard <carbon:arrow-right class="inline"/>
+    Are you ready to well designed UI with your HTML skills? Press <kbd>space</kbd> on your keyboard <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
@@ -102,9 +103,10 @@ The last comment block of each slide will be treated as slide notes. It will be 
 # Selectors
 
 <div />
+
 Before we move deeply into Selectors, let's dive into CSS rule which is a block of code, that has one or more selectors and one or more declarations.
 
-<img class="w-200 h-100 border-10 rounded-full" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
+<img class="w-200 h-100 border-4 rounded" src="https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg"/>
 
 ---
 hideInToc: true
@@ -170,9 +172,7 @@ paragraph and also increase its font size to 36px.
 
 ---
 
-- ID selector: The id selector uses the id attribute of an HTML element to select a specific element. Id value of an element must be unique which means you can only have a specific id value to an HTML element, unlike class where you can give 10 HTML elements same class name. <br />
-  To style an element using the id value we make use of the hash notation `#` before the id value when writing our selector in the CSS rule
-  `#container-wrapper`
+- ID selector: The id selector uses the id attribute of an HTML element to select a specific element. Id value of an element must be unique which means you can only have a specific id value to an HTML element, unlike class where you can give 10 HTML elements same class name. To style an element using the id value we make use of the hash notation `#` before the id value when writing our selector in the CSS rule `#container-wrapper`
 
 
 ```html {monaco-run}
@@ -226,8 +226,7 @@ Note: This method give you the access to style any element that has an attribute
 
 ---
 
-- [`Pseudo-classes`](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes): Pseudo-classes are keywords added to selectors using a single colon sign `:` just to specify a special state of the selected elements. They allow you to style elements based on their state, position, or user interactions, which cannot be targeted by regular CSS selectors alone.
-  Here are some common pseudo-classes:
+- [`Pseudo-classes`](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes): Pseudo-classes are keywords added to selectors using a single colon sign `:` just to specify a special state of the selected elements. They allow you to style elements based on their state, position, or user interactions, which cannot be targeted by regular CSS selectors alone. Here are some common pseudo-classes:
 
 <div grid="~ cols-8" class="list-none">
 
@@ -337,6 +336,73 @@ Here are some common pseudo-elements:
 ```
 
 Note: Pseudo-elements are particularly useful for enhancing the design and readability of web content without the need for additional HTML elements.
+
+---
+hideInToc: true
+---
+
+```html {monaco-run}
+<style>
+:root {
+    --color: #2563eb;
+    --mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+}
+a {
+    color: var(--color);
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: : 4px;
+    text-decoration-thickness: 2px;
+    transition: text-decoration-color 0.3s ease-in-out, text-decoration-line 0.3s ease-in-out;
+    :visited {
+    }
+    &:hover {
+        color: #1d4ed8;
+        text-decoration-color: currentColor;
+
+        &::after {
+            transform: translate(0.15em, -0.15em);
+            transition: transform 0.2s ease-in-out;
+        }
+    }
+    &:focus-visible {
+        outline: 2px solid var(--color);
+        outline-offset: 4px;
+        border-radius: 4px;
+        text-decoration-color: currentColor;
+    }
+    &:active {
+        color: #1e3a8a;
+        transform: translateY(1px);
+    }
+}
+</style>
+<style>
+a[target="_blank"]::after {
+    /*content: " ↗";*/
+    content: "";
+    display: inline-block;
+    width: .875em;
+    height: .875em;
+    vertical-align: baseline;
+
+    background-color: currentColor;
+    --webkit-mask-image: var(--mask-image);
+    mask-image: var(--mask-image);
+
+    --webkit-mask-size: contain;
+    mask-size: contain;
+    --webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    transition: background-color .2s ease-in-out;
+}
+</style>
+<div>
+    <a href="https://oluwasetemi.dev" target="_blank" rel="noopener noreferrer">Visit my website</a>
+</div>
+```
+
 
 ---
 
@@ -479,9 +545,9 @@ hideInToc: true
 hideInToc: true
 ---
 
-# `:HAS()` PSEUDO SELECTOR
+# `:HAS()`, `:IS()`, `:NOT()` and `:WHERE()` PSEUDO SELECTOR
 
-The :has() selector allows you to conditionally select an element when elements deeper in the DOM tree of the original element match the selector you put inside `:has()`.
+The `:has()` selector allows you to conditionally select an element when elements deeper in the DOM tree of the original element match the selector you put inside `:has()`.
 
 ```html {monaco-run}
 <style>
@@ -501,10 +567,12 @@ figure:has(figcaption) {
 ```
 
 ---
+hideInToc: true
+---
 
 # `:IS()` PSEUDO SELECTOR
 
-The :is() pseudo-class function takes a selector list as its argument and selects any element that can be selected by one of the selectors in that list.
+The `:is()` pseudo-class function takes a selector list as its argument and selects any element that can be selected by one of the selectors in that list.
 
 ```html {monaco-run}
 <style>
@@ -543,7 +611,6 @@ In the code above, we are trying to style the h1 element but we have two CSS rul
 
 Specificity is a score given to selectors, and whenever we have two or more CSS rules pointing to the same element, the selector that has the highest specificity score will win, which means the CSS ruleset of this particular selector will be applied on the element.
 
-## <!-- We will come back to this at the end of this topic. -->
 
 ---
 hideInToc: true
@@ -645,7 +712,7 @@ h1 { color: blue; }   /* normal rule */
 The CSS Box Model is a core concept in web design and layout. It describes how every element on a web page is rendered as a rectangular box.
 It’s basically a box that wraps around every HTML element. Understanding this model is crucial for creating precise layouts and solving common design challenges.
 
-<img class="mt-10 w-200 h-80 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-3.png"/>
+<img class="mt-10 w-200 h-80 border-5" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-3.png"/>
 
 ---
 hideInToc: true
@@ -709,7 +776,7 @@ hideInToc: true
 ---
 
 <div grid place-content-center>
-  <img class="mt-10 w-150 h-90 border-10" src="https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png"/>
+  <img class="mt-10 w-150 h-90 border-5" src="https://res.cloudinary.com/olubebe/image/upload/v1722984014/images_np1kij.png"/>
 </div>
 
 ---
@@ -817,7 +884,7 @@ hideInToc: true
 ---
 
 <div grid place-content-center>
-  <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-19.png"/>
+  <img class="mt-10 h-90 border-5" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-19.png"/>
 </div>
 
 ---
@@ -983,37 +1050,40 @@ Note: Inheritance is always from the parent element in the document tree, even w
 There are 5 major keywords in inheritance:
 
 <dl class="h-80 light:bg-yellow dark:bg-yellow-600 p-4 border border-rounded-4 overflow-y-scroll animate-slide-in-left">
-<dt class="font-sans font-extrabold">
-inherit:
-</dt>
-<dd>
-The inherit keyword causes element to take the computed value of the property from its parent element.
-
-</dd>
-<br/>
-<dt class="font-sans font-extrabold">
-initial: 
-</dt>
-<dd>
-This keyword sets a property back to that initial, default value.
-</dd>
-<br/>
-<dt class="font-sans font-extrabold"> unset: </dt><dd> This keyword resets a property to its inherited value if the property naturally inherits from its parent, and to its initial value if not. This is like shuffling between the inherit and the initial keyword because in its first case it behaves like the inherit keyword when the property is an inherited property and like the initial keyword in the second case when the property is a non-inherited property.
-</dd>
-<br/>
-<dt class="font-sans font-extrabold">
-revert:
-</dt>
-<dd>
-This keyword reverts the cascaded value of the property from its current value to the value the property would have had if no changes had been made by the current style origin to the current element.
-</dd>
-<br/>
-<dt class="font-sans font-extrabold">
-revert-layer:
-</dt>
-<dd>
-This keyword rolls back the value of a property in a cascade layer to the value of a CSS rule matching the element in a previous cascade layer. 
-</dd>
+    <dt class="font-sans font-extrabold">
+        inherit:
+    </dt>
+    <dd>
+        The inherit keyword causes element to take the computed value of the property from its parent element.
+    </dd>
+    <br/>
+    <dt class="font-sans font-extrabold">
+        initial: 
+    </dt>
+    <dd>
+        This keyword sets a property back to that initial, default value.
+    </dd>
+    <br/>
+    <dt class="font-sans font-extrabold">
+        unset:
+    </dt>
+    <dd>
+        This keyword resets a property to its inherited value if the property naturally inherits from its parent, and to its initial value if not. This is like shuffling between the inherit and the initial keyword because in its first case it behaves like the inherit keyword when the property is an inherited property and like the initial keyword in the second case when the property is a non-inherited property.
+    </dd>
+    <br/>
+    <dt class="font-sans font-extrabold">
+        revert:
+    </dt>
+    <dd>
+        This keyword reverts the cascaded value of the property from its current value to the value the property would have had if no changes had been made by the current style origin to the current element.
+    </dd>
+    <br/>
+    <dt class="font-sans font-extrabold">
+        revert-layer:
+    </dt>
+    <dd>
+        This keyword rolls back the value of a property in a cascade layer to the value of a CSS rule matching the element in a previous cascade layer.
+    </dd>
 </dl>
 
 ---
@@ -1073,15 +1143,13 @@ The `all` CSS property
 
 ## CSS Color
 
-Colors in CSS can be defined in various ways, such as using color names, hexadecimal values, RGB, RGBA, HSL, HSLA, LCH, OKLCH, LAB, OKLAB, light-dark, color(), color-mix() and display-p3.
+Colors in CSS can be defined in various ways, such as using color names, hexadecimal values, `RGB`, `RGBA`, `HSL`, `HSLA`, `LCH`, `OKLCH`, `LAB`, `OKLAB`, `light-dark`, `color()`, `color-mix()` and `display-p3`.
 
-keywords: currentColor and transparent are also used in CSS to define colors.
+keywords: `currentColor` and `transparent` are also used in CSS to define colors.
 
 ## Color Names
 
-Definition: These are predefined color names in CSS, such as red, blue, green, black, white, etc. There are 140 named colors in CSS.
-
-Named colors are convenient for quick, common colors but lack precision for more specific color needs.
+Definition: These are predefined color names in CSS, such as `red`, `blue`, `green`, `black`, `white`, etc. There are 140 named colors in CSS. Named colors are convenient for quick, common colors but lack precision for more specific color needs.
 
 ```css
 p {
@@ -1096,9 +1164,7 @@ hideInToc: true
 
 ## Hexadecimal Colors
 
-Hexadecimal colors are defined using a six-digit code consisting of letters and numbers, preceded by a "#".The first two digits represent the red component, the next two represent the green, and the last two represent the blue
-
-You can also use a three-digit shorthand (e.g., #f00 for #ff0000), which is equivalent to doubling each digit.
+Hexadecimal colors are defined using a six-digit code consisting of letters and numbers, preceded by a `#`. The first two digits represent the red component, the next two represent the green, and the last two represent the blue. You can also use a three-digit shorthand (e.g., `#f00` for `#ff0000`), which is equivalent to doubling each digit.
 
 ```css
 p {
@@ -1116,9 +1182,7 @@ hideInToc: true
 
 ## RGB and RGBA Colors
 
-RGB stands for Red, Green, Blue, with values ranging from 0 to 255. RGBA adds an alpha channel for transparency, with a value between 0 (completely transparent) and 1 (completely opaque).
-
-RGBA is particularly useful for overlay effects and blending colors.
+`RGB` stands for Red, Green, Blue, with values ranging from 0 to 255. `RGBA` adds an alpha channel for transparency, with a value between 0 (completely transparent) and 1 (completely opaque). `RGBA` is particularly useful for overlay effects and blending colors.
 
 ```css
 color: rgb(255, 87, 51); /* Bright orange */
@@ -1136,9 +1200,9 @@ hideInToc: true
 
 ## HSL & HSLA Colors
 
-HSL stands for Hue (0-360), Saturation (0%-100%), and Lightness (0%-100%). HSLA adds an alpha channel for transparency.
+`HSL` stands for Hue (0-360), Saturation (0%-100%), and Lightness (0%-100%). `HSLA` adds an alpha channel for transparency.
 
-HSL is intuitive for adjusting colors based on human perception, making it easier to create shades and tints.
+`HSL` is intuitive for adjusting colors based on human perception, making it easier to create shades and tints.
 
 ```css
 color: hsl(9, 100%, 60%); /* Bright orange */
@@ -1147,7 +1211,7 @@ color: hsla(9, 100%, 60%, 0.5); /* 50% transparent */
 
 ## Opacity and Transparency
 
-Transparency: Besides RGBA and HSLA, you can control an element’s transparency using the opacity property, which affects the entire element, including its content.
+Transparency: Besides `RGBA` and `HSLA`, you can control an element’s transparency using the opacity property, which affects the entire element, including its content.
 
 ```css
 opacity: 0.5; /* Makes the element 50% transparent */
@@ -1161,14 +1225,14 @@ hideInToc: true
 
 ## LCH, OKLCH, LAB, OKLAB, Light-Dark, Color(), Color-Mix(), Display-P3
 
-- LCH: Lightness, Chroma, Hue
-- OKLCH: Lightness, Chroma, Hue with an alpha channel
-- LAB: Lightness, A (green-red), B (blue-yellow)
-- OKLAB: Lightness, A (green-red), B (blue-yellow) with an alpha channel
-- Light-Dark: Adjusts the lightness of a color
-- Color(): Creates a color from a string
-- Color-Mix(): Mixes two colors
-- Display-P3: Wide-gamut color space for digital displays
+- `LCH`: Lightness, Chroma, Hue
+- `OKLCH`: Lightness, Chroma, Hue with an alpha channel
+- `LAB`: Lightness, A (green-red), B (blue-yellow)
+- `OKLAB`: Lightness, A (green-red), B (blue-yellow) with an alpha channel
+- `Light-Dark`: Adjusts the lightness of a color
+- `Color()`: Creates a color from a string
+- `Color-Mix()`: Mixes two colors
+- `Display-P3`: Wide-gamut color space for digital displays
 
 ```css
 color: lch(60% 50 90); /* Lightness 60%, Chroma 50, Hue 90 */
@@ -1206,7 +1270,9 @@ hideInToc: true
 ---
 
 # CSS Units
+
 <div />
+
 CSS units are vital for defining the size, spacing, and layout of elements. Here’s a more in-depth look at the types of units:
 
 1. Absolute Units
@@ -1233,7 +1299,7 @@ hideInToc: true
 ---
 
 <div grid place-content-center>
-  <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image.png"/>
+  <img class="mt-10 h-90 border-5" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image.png"/>
 </div>
 
 ---
@@ -1266,7 +1332,7 @@ hideInToc: true
 ---
 
 <div grid place-content-center>
-  <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-1.png"/>
+  <img class="mt-10 h-90 border-5" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-1.png"/>
 </div>
 
 ---
@@ -1294,7 +1360,7 @@ hideInToc: true
 ---
 
 <div grid place-content-center>
-  <img class="mt-10 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-2.png"/>
+  <img class="mt-10 h-90 border-5" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-2.png"/>
 </div>
 
 ---
@@ -1303,10 +1369,9 @@ hideInToc: true
 
 # CSS Gradients
 
-Gradients are used to create smooth transitions between colors, adding depth and visual interest to designs. Here’s a deeper look:
+Gradients are used to create smooth transitions between colors, adding depth and visual interest to designs. Here's a deeper look:
 
-1. Linear Gradients
-   A gradient that transitions along a straight line. You can control the direction and color stops.
+1. Linear Gradients - A gradient that transitions along a straight line. You can control the direction and color stops.
 
 `linear-gradient(direction, color-stop1, color-stop2, ...)`.
 
@@ -1327,8 +1392,7 @@ Direction: Can be specified with angles (e.g., 45deg) or keywords (to right, to 
 hideInToc: true
 ---
 
-2. Radial Gradients
-   Radiates from a central point outward, either circular or elliptical.
+2. Radial Gradients - Radiates from a central point outward, either circular or elliptical.
 
 `radial-gradient(shape size at position, start-color, ..., end-color)`.
 
@@ -1351,10 +1415,7 @@ Shapes and Sizes: You can control the shape (circle or ellipse) and size (closes
 hideInToc: true
 ---
 
-3. Conic Gradients
-
-- A gradient that rotates around a central point, similar to slices of a pie.
-- Often used for visualizations like pie charts.
+3. Conic Gradients - A gradient that rotates around a central point, similar to slices of a pie and often used for visualizations like pie charts.
 
 `conic-gradient(from direction, color-stop1, color-stop2, ...)`
 
@@ -1374,10 +1435,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-4. Repeating Gradients
-
-- Repeats the linear gradient pattern indefinitely.
-- Repeating Radial Gradients: Repeats the radial gradient pattern.
+4. Repeating Gradients - Repeats the linear gradient pattern indefinitely and repeats the radial gradient pattern.
 
 ```html {monaco-run}
 <style>
@@ -1518,7 +1576,7 @@ Typography in CSS
 
 <div class="empty"></div>
 
-Typography is a crucial aspect of web design, as it affects readability, accessibility, and overall user experience. Here are some key CSS properties for typography: `font-style`, `font-weight`, `font-size`, `line-height`, `font-family`, `text-align`, `text-transform`, `text-decoration`, `letter-spacing`, `word-spacing`, `text-shadow`, `white-space`, `overflow-wrap`, `word-break`, `hyphens`, `text-overflow`, `vertical-align`, `text-orientation`.
+Typography is a crucial aspect of web design, as it affects readability, accessibility, and overall user experience. Here are some key CSS properties for typography: `font-style`, `font-weight`, `font-size`, `line-height`, `font-family`, `text-align`, `text-transform`, `text-decoration`, `letter-spacing`, `word-spacing`, `text-shadow`, `white-space`, `overflow-wrap`, `word-break`, `hyphens`, `text-overflow`, `vertical-align`, `text-orientation`, `word-wrap`, `columns`, `column-gap`, `break-inside`, `overflow-wrap`, `initial-letter`, `line-clamp` and `box-orient`
 
 ```html {monaco-run}
 <style>
@@ -1573,40 +1631,40 @@ body {font-family: "CustomFont", sans-serif;}
 
 # Debugging in browser
 
-<h1 class="p-4 bg-green text-center">Debugging</h1>
+## Debugging
+
 Debugging is the process of finding and fixing errors or bug in the source code of any software.
 When writing code, everything may appear normal during development, but errors can arise during runtime. These errors typically fall into two categories:
 
 <ul>
-<li class="animate-slide-in-left"> Syntax Error: Occurs when the code does not adhere to the language's rules or grammar, preventing it from being compiled or interpreted correctly.</li>
-
-<li class="animate-slide-in-right"> Logic Error: Occurs when the code is syntactically correct but produces incorrect or unintended results due to flawed reasoning or incorrect algorithm implementation.</li>
+    <li class="animate-slide-in-left"> Syntax Error: Occurs when the code does not adhere to the language's rules or grammar, preventing it from being compiled or interpreted correctly.</li>
+    <li class="animate-slide-in-right"> Logic Error: Occurs when the code is syntactically correct but produces incorrect or unintended results due to flawed reasoning or incorrect algorithm implementation.</li>
 </ul>
 
 <p>You might wonder when you'd need to debug CSS. Let me explain: Sometimes, when writing CSS rules for an element, you may encounter situations where your styles aren't being applied as expected, or the element isn't behaving the way you intended.</p>
-<p class="w-full bg-black text-white py-4">
-Note: When in doubt in CSS put a border on the element.
-</p>
+
+<p class="w-full bg-black text-white py-4"> Note: When in doubt in CSS put a border on the element. </p>
 
 ---
 
-<h1 class="p-4 bg-green text-center">Debugging in the browser</h1>
+## Debugging in the browser
 
-<div></div>
 
 One of the fastest way to get your CSS debugged is to use the browser. Browser like Chrome, Firefox etc offer powerful developer tools for debugging and this is what we are referring to as debugging in the browser.
 
-<h2 class="mt-2 p-2 bg-green text-center">How to access browser DevTools</h2>
+### How to access browser DevTools
 
 <p class="text font-700">This devtools live inside the browser and you can access it by:</p>
 <ol>
-<li>
-Press-and-hold/right-click an item on a webpage and choose inspect from the context menu that appears. This will show all the code that made up the UI but highlighted the code of the element you right-clicked. Click on Elements to see how the HTML looks like on runtime and their respective CSS applied.
-</li>
-<li>
-Keyboard: On Windows `Ctrl` + `Shift` + `I`
-On macOS:  `Command` + `Shift` + `I`
-</li>
+    <li>
+    Press-and-hold/right-click an item on a webpage and choose inspect from the context menu that appears. This will show all the code that made up the UI but highlighted the code of the element you right-clicked. Click on Elements to see how the HTML looks like on runtime and their respective CSS applied.
+    </li>
+    <li>
+    
+      Keyboard: On Windows `Ctrl` + `Shift` + `I`
+      On macOS:  `Command` + `Shift` + `I`
+    
+    </li>
 </ol>
 
 ```html {monaco-run}
@@ -1630,9 +1688,8 @@ On macOS:  `Command` + `Shift` + `I`
 
 ---
 
-<h1 class="p-4 bg-green text-center">DevTools</h1>
+## DevTools
 
-<div></div>
 
 In the developer tools, you can immediately modify the HTML and CSS, with the changes reflected live in the browser. This feature is valuable for previewing your intended modifications before implementing them locally.
 
@@ -1644,24 +1701,25 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 <img src="https://res.cloudinary.com/drnqdd87d/image/upload/v1737394240/css_inspector_kg1eas.png" alt="image showing chrome developer tools" class="w-3/5" />
 
-<small>How the DevTools look like</small>
+<figcaption>How the DevTools look like</figcaption>
 </div>
 
 ---
 
-<h1 class="p-4 bg-green text-center">Inspecting the applied CSS</h1>
-
-<div></div>
+## Inspecting the applied CSS
 
 To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.In the image below the developer is trying to check the CSS on the body element.
 
 <div class="h-100 overflow-scroll bg-grey">
  <img src="https://developer.chrome.com/static/docs/devtools/css/reference/image/the-tooltip-specificity-e28a5e9a4b32.png" alt="Image of a devtools" />
+ <figcaption>How the DevTools look like</figcaption>
 </div>
 
 ---
 
 # Inline, Internal and External CSS
+
+<div />
 
 Inline CSS is used to apply a unique style to a single HTML element. It is done using the style attribute directly within the HTML tag
 
@@ -1712,14 +1770,14 @@ p {
 <div class="flex justify-between">
 
 <ul>
-<h3>Advantages</h3>
-<li>Keeps styles in one place within the document.</li>
-<li>Useful for applying styles to a single page.</li>
-<li>Easier to manage and maintain than inline CSS.</li>
+    <h3>Advantages</h3>
+    <li>Keeps styles in one place within the document.</li>
+    <li>Useful for applying styles to a single page.</li>
+    <li>Easier to manage and maintain than inline CSS.</li>
 </ul>
 <ul>
-<h3>Disadvantages</h3>
-<li>Not efficient for styling across multiple pages.</li>
+    <h3>Disadvantages</h3>
+    <li>Not efficient for styling across multiple pages.</li>
 </ul>
 </div>
 
@@ -1765,15 +1823,15 @@ hideInToc: true
 <div class="flex justify-between">
 
 <ul>
-<h3>Advantages</h3>
-<li>Keeps HTML files clean and separates content from design..</li>
-<li>Efficient for applying the same styles across multiple pages.</li>
-<li>Easier to maintain and update, as changes in the external CSS file are reflected across all linked pages.</li>
+    <h3>Advantages</h3>
+    <li>Keeps HTML files clean and separates content from design..</li>
+    <li>Efficient for applying the same styles across multiple pages.</li>
+    <li>Easier to maintain and update, as changes in the external CSS file are reflected across all linked pages.</li>
 </ul>
 <ul>
-<h3>Disadvantages</h3>
-<li>Requires an additional HTTP request to load the CSS file.</li>
-<li>No styles will be visible if the CSS file fails to load.</li>
+    <h3>Disadvantages</h3>
+    <li>Requires an additional HTTP request to load the CSS file.</li>
+    <li>No styles will be visible if the CSS file fails to load.</li>
 </ul>
 </div>
 <div mt-5></div>
@@ -1789,6 +1847,7 @@ hideInToc: true
 # FlexBox
 
 <div></div>
+
 <p>Flexbox is a one-dimensional layout method for arranging items vertically(columns) or horizontally(rows).<br/>
 <small>To implement a flexbox layout in CSS, you need to set `display: flex;` in your CSS rules.</small></p>
 
@@ -1798,18 +1857,18 @@ hideInToc: true
   <img src="https://res.cloudinary.com/drnqdd87d/image/upload/v1737394240/flex_terms_btgedj.png" alt="Flexbox model"/>
   <div class= "h-70 overflow-scroll border rounded-lg border-gray-300 shadow-xl">
   <ul >
-  <li>
-  The main axis is the direction in which flex items are laid out, such as across the page in a row or down the page in a column. The start and end points of this axis are referred to as the main start and main end. The distance between the main start and main end is known as the main size.
-  </li>
-  <li>
-The cross axis runs perpendicular to the direction in which flex items are laid out. The start and end points of this axis are called the cross start and cross end. The distance between the cross start and cross end is known as the cross size
-  </li>
-  <li>
-  The parents element must have the `display:flex;` set on it, and this makes it the parent container
-  </li>
-  <li>
-The items inside the parent container will be laid out as flexible boxes which makes them the flex items.
-  </li>
+    <li>
+    The main axis is the direction in which flex items are laid out, such as across the page in a row or down the page in a column. The start and end points of this axis are referred to as the main start and main end. The distance between the main start and main end is known as the main size.
+    </li>
+    <li>
+    The cross axis runs perpendicular to the direction in which flex items are laid out. The start and end points of this axis are called the cross start and cross end. The distance between the cross start and cross end is known as the cross size
+    </li>
+    <li>
+    The parents element must have the `display:flex;` set on it, and this makes it the parent container
+    </li>
+    <li>
+    The items inside the parent container will be laid out as flexible boxes which makes them the flex items.
+    </li>
   </ul>
   </div>
 </div>
@@ -1820,13 +1879,13 @@ hideInToc: true
 
 <h1 class="text-sm bg-orange p-4 text-center">Why Flexbox?</h1>
 <ul>
-<li>It allows you to display item(s) as a row, or a column</li>
-<li>Vertically center a block of content inside its parent</li>
-<li>They respect the writing mode of the document</li>
-<li>Items in the layout can be visually reordered, away from their order in the DOM</li>
-<li>Make all columns in a multiple-column layout adopt the same height even if they contain a different amount of content.</li>
-<li>Space can be distributed inside the items, so they become bigger and smaller according to the space available in their parent.</li>
-<li>Make all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.</li>
+    <li>It allows you to display item(s) as a row, or a column</li>
+    <li>Vertically center a block of content inside its parent</li>
+    <li>They respect the writing mode of the document</li>
+    <li>Items in the layout can be visually reordered, away from their order in the DOM</li>
+    <li>Make all columns in a multiple-column layout adopt the same height even if they contain a different amount of content.</li>
+    <li>Space can be distributed inside the items, so they become bigger and smaller according to the space available in their parent.</li>
+    <li>Make all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.</li>
 </ul>
 
 ---
@@ -1942,7 +2001,9 @@ hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Justify Content(Main Axis Alignment)</h1>
+
 <div></div>
+
 The main axis is the natural way the flex items are laid out across the page in a row. With the `justify-content` flex property you can control how you want your items to be laid out.
 Code Example:
 
@@ -5013,7 +5074,7 @@ hideInToc: true
 Convert the design in the image (without the arrow and heading peeks out) to HTML and CSS.
 
 <div grid place-content-center>
-  <img class="mt-10 w-150 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-5.png"/>
+  <img class="mt-10 w-150 h-90 border-5" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-5.png"/>
 </div>
 
 ---
@@ -5027,7 +5088,7 @@ hideInToc: true
 Convert the design in the image to HTML and CSS. [Check this figma file for pixel perfect design.](https://www.figma.com/file/asii3DqgmbEkAkEQDUPI6C/huckleberry?type=design&node-id=0%3A1&mode=design&t=VpzxbA50b3ezDqVk-1)
 
 <div grid place-content-center>
-  <img class="mt-10 w-150 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-8.png"/>
+  <img class="mt-10 w-150 h-90 border-5" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-8.png"/>
 </div>
 ---
 hideInToc: true
@@ -5040,7 +5101,7 @@ hideInToc: true
 Convert the design in the image to HTML and CSS.
 
 <div grid place-content-center>
-  <img class="mt-10 w-150 h-90 border-10" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-7.png"/>
+  <img class="mt-10 w-150 h-90 border-5" src="https://github.com/Oluwasetemi/css-v3/raw/main/class-notes/image-7.png"/>
 </div>
 
 ---
