@@ -7,8 +7,8 @@ export default defineConfig({
     sourcemap: false,
     minify: 'oxc',
     target: ['chrome90', 'firefox90', 'safari14'],
-    rollupOptions: {
-      external: [],
+    rolldownOptions: {
+      external: ['vue-router'],
       output: {
         manualChunks: (id) => {
           if (id.includes('monaco-editor')) return 'monaco'

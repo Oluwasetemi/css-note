@@ -622,8 +622,8 @@ CSS selectors are of different forms and each of them has its place in the speci
 
 CSS Selectors decrease in specificity from top to bottom, meaning the selector at the top of the hierarchy has the highest specificity.
 
-<div class="grid grid-col-2 gap-4    h-85 p-4 border border-gray-300 bg-blue overflow-auto ">
-  <div class=" flex justify-center animate-slide-in-left">
+<div class="grid grid-col-2 gap-4 h-85 p-4 border border-gray-300 bg-blue overflow-auto ">
+  <div class="flex justify-center animate-slide-in-left">
 
 ```mermaid
 graph TD;
@@ -663,7 +663,7 @@ Looking up the tree if we are to calculate the specificity for IDs, it's going t
 Also, a universal selector (\*) has no specificity and gets 0 points. This means that any rule with 1 or more points will override it.
 <br/>
 
-<div class="bg-white p-4 animate-slide-in-bottom">
+<div class="bg-white text-black-500 dark:bg-black dark:text-white-500 p-4 animate-slide-in-bottom">
 
 Class Assessment: Calculate the specificity of these selectors:
 
@@ -1646,6 +1646,8 @@ When writing code, everything may appear normal during development, but errors c
 <p class="w-full bg-black text-white py-4"> Note: When in doubt in CSS put a border on the element. </p>
 
 ---
+hideInToc: true
+---
 
 ## Debugging in the browser
 
@@ -1660,10 +1662,8 @@ One of the fastest way to get your CSS debugged is to use the browser. Browser l
     Press-and-hold/right-click an item on a webpage and choose inspect from the context menu that appears. This will show all the code that made up the UI but highlighted the code of the element you right-clicked. Click on Elements to see how the HTML looks like on runtime and their respective CSS applied.
     </li>
     <li>
-    
-      Keyboard: On Windows `Ctrl` + `Shift` + `I`
-      On macOS:  `Command` + `Shift` + `I`
-    
+      Keyboard: On Windows <code>Ctrl</code> + <code>Shift</code> + <code>I</code>
+      On macOS:  <code>Command</code> + <code>Shift</code> + <code>I</code>
     </li>
 </ol>
 
@@ -1687,6 +1687,8 @@ One of the fastest way to get your CSS debugged is to use the browser. Browser l
 </style>
 
 ---
+hideInToc: true
+---
 
 ## DevTools
 
@@ -1699,11 +1701,15 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 <div class="h-80 overflow-scroll  grid place-items-center animate-slide-in-left w-full">
 
-<img src="https://res.cloudinary.com/drnqdd87d/image/upload/v1737394240/css_inspector_kg1eas.png" alt="image showing chrome developer tools" class="w-3/5" />
+<figure>
+  <img src="https://res.cloudinary.com/drnqdd87d/image/upload/v1737394240/css_inspector_kg1eas.png" alt="image showing chrome developer tools" class="w-3/5" />
 
-<figcaption>How the DevTools look like</figcaption>
+  <figcaption>How the DevTools look like</figcaption>
+</figure>
 </div>
 
+---
+hideInToc: true
 ---
 
 ## Inspecting the applied CSS
@@ -1715,6 +1721,8 @@ To examine the CSS that an element inherits or has applied to it, right-click on
  <figcaption>How the DevTools look like</figcaption>
 </div>
 
+---
+hideInToc: true
 ---
 
 # Inline, Internal and External CSS
