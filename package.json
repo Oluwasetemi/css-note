@@ -26,6 +26,7 @@
     "@iconify-json/mdi": "^1.2.3",
     "@slidev/types": "52.15.1",
     "@vue/compiler-sfc": "^3.5.34",
+    "esbuild": "^0.28.1",
     "markdown-it-magic-link": "^0.1.4",
     "nodemon": "^3.1.14",
     "playwright-chromium": "^1.60.0",
