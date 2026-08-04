@@ -153,7 +153,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 2000,
     sourcemap: false,
     minify: 'esbuild',
-    target: ['chrome90', 'firefox90', 'safari14'],
+    target: ['es2022'],
     rolldownOptions: {
       external: [],
       output: {
