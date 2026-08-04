@@ -10,3 +10,4 @@ components.d.ts
 *.pptx
 _export
 .slidev
+docs

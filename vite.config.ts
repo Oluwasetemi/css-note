@@ -2,21 +2,6 @@ import MarkdownItMagicLink from 'markdown-it-magic-link'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  build: {
-    chunkSizeWarningLimit: 2000,
-    sourcemap: false,
-    minify: 'oxc',
-    target: ['chrome90', 'firefox90', 'safari14'],
-    rolldownOptions: {
-      external: ['vue-router'],
-      output: {
-        manualChunks: (id) => {
-          if (id.includes('monaco-editor')) return 'monaco'
-          if (id.includes('@babel/standalone')) return 'babel'
-        },
-      },
-    },
-  },
   slidev: {
     markdown: {
       markdownSetup(md) {
@@ -161,6 +146,21 @@ export default defineConfig({
           rules.splice(entityIdx, 0, rule)
           md.inline.ruler.__cache__ = null
         }
+      },
+    },
+  },
+  build: {
+    chunkSizeWarningLimit: 2000,
+    sourcemap: false,
+    minify: 'esbuild',
+    target: ['chrome90', 'firefox90', 'safari14'],
+    rolldownOptions: {
+      external: [],
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('monaco-editor')) return 'monaco'
+          if (id.includes('@babel/standalone')) return 'babel'
+        },
       },
     },
   },
