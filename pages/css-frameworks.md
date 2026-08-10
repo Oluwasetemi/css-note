@@ -12,9 +12,9 @@ Finding easier way to write css could range from using the famous bootstrap or b
 
 The overall advantage is that it helps you write less css and focus more on the design and layout of your website. It gives consistency and you build faster. LESS, SASS, and Stylus are CSS preprocessors that add features like variables, nesting, and mixins to CSS. BEM is a naming convention that helps you create reusable and maintainable CSS. Tailwind CSS is a utility-first CSS framework that provides a set of utility classes to style your website.
 
-In this class, we will be focusing on using a set of utility css framework - TailwindCSS which is currently on v3 and it's v4 release is on the way. Classes are used to style elements directly in the HTML, making it easy to create complex layouts and designs. Tailwind CSS is highly customizable and can be configured to match your design system.
+In this class, we will focus on Tailwind CSS v4, a utility-first CSS framework. Classes are used to style elements directly in HTML, making it easy to create complex layouts and designs. Tailwind v4 uses a CSS-first configuration approach, so you can define much of your design system directly in CSS.
 
-How is compares with the traditional approach of writing css? Tailwind CSS is a utility-first CSS framework that provides a set of utility classes to style your website. Instead of writing custom CSS, you can use classes like text-center, bg-blue-500, or p-4 to style elements directly in your HTML. This approach can be more efficient and faster than writing custom CSS, especially for prototyping and building small projects.
+How does it compare with the traditional approach of writing CSS? Tailwind CSS is a utility-first CSS framework that provides a set of utility classes to style your website. Instead of writing custom CSS, you can use classes like `text-center`, `bg-blue-500`, or `p-4` to style elements directly in your HTML. This approach can be more efficient and faster than writing custom CSS, especially for prototyping and building small projects.
 
 </v-clicks>
 
@@ -61,8 +61,10 @@ hideInToc: true
 ---
 
 # Tailwind CSS
+
 <div />
-Tailwind CSS is a utility-first CSS framework that provides a set of utility classes to style your website. Instead of writing custom CSS, you can use classes like text-center, `bg-blue-500`, or `p-4` to style elements directly in your HTML. This approach can be more efficient and faster than writing custom CSS, especially for prototyping and building small projects.
+
+Tailwind CSS is a utility-first CSS framework that provides a set of utility classes to style your website. Instead of writing custom CSS, you can use classes like `text-center`, `bg-blue-500`, or `p-4` to style elements directly in your HTML. This approach can be more efficient and faster than writing custom CSS, especially for prototyping and building small projects.
 
 ```html
 <div class="flex justify-content">
@@ -78,39 +80,59 @@ Tailwind CSS is a utility-first CSS framework that provides a set of utility cla
   <div class="p-[10px] hover:bg-blue-500 hover:underline">Contact</div>
 </div>
 
-[Tailwind CSS](https://tailwindcss.com/) is highly customizable and can be configured to match your design system. It also provides responsive classes to create layouts that adapt to different screen sizes. With `hover: hover:bg-blue-600` and `focus: focus:outline-none` classes, you can add interactive styles to your website.
+{TailwindCSS} is highly customizable and can be configured to match your design system. It also provides responsive classes to create layouts that adapt to different screen sizes. With `hover:bg-blue-600` and `focus:outline-none` classes, you can add interactive styles to your website.
 
-[UnoCSS](https://unocss.dev/) is a utility-first atomic CSS framework with customizable variant group, shortcuts, attributify mode, and more. It is designed to be a drop-in replacement for Tailwind CSS with a smaller bundle size and faster runtime performance.
+{UnoCSS} is a utility-first atomic CSS framework with customizable variant group, shortcuts, attributify mode, and more. It is designed to be a drop-in replacement for Tailwind CSS with a smaller bundle size and faster runtime performance.
 
 ---
 hideInToc: true
 transition: slide-up
 ---
 
-# Setting Tailwind CSS in your project
+# Start with the Tailwind CSS v4 CDN
 
-1. [CDN Link: You can include the Tailwind CSS CDN link in your HTML file to start using it right away](https://tailwindcss.com/docs/installation/play-cdn).
+For a quick prototype, playground, or small HTML exercise, use Tailwind v4 directly in the browser. Add this script in the document `<head>` before using utility classes:
 
-* `<script src="https://cdn.tailwindcss.com"></script>`
-* customize the tailwind config object
-
-```js
-<script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { clifford: '#da373d', }
-        }
-      }
-    }
-  </script>
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <h1 class="text-3xl font-bold underline">Hello, Tailwind v4!</h1>
+  </body>
+</html>
 ```
 
-* add custom css using `type="text/tailwindcss"` attribute
+The browser CDN scans the page and generates styles while the page runs. It is the easiest way to learn and experiment, but it is intended for development only. For a production site, install Tailwind with the Vite plugin, PostCSS, or CLI so CSS is generated during your build.
 
-* you can try a first party plugin `<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>`
+---
+hideInToc: true
+transition: slide-up
+---
 
-2. [NPM Installation: You can install Tailwind CSS using npm or yarn and configure it in your project](https://tailwindcss.com/docs/installation).
+# Customize v4 with CSS
+
+Tailwind v4 replaces the v3 `tailwind.config` example with CSS-first configuration. Add a `type="text/tailwindcss"` style block after the CDN script, then define theme tokens with `@theme`:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<style type="text/tailwindcss">
+  @theme {
+    --color-clifford: #da373d;
+  }
+</style>
+
+<p class="bg-clifford p-4 text-white">A custom v4 color</p>
+```
+
+`--color-clifford` creates utilities such as `bg-clifford`, `text-clifford`, and `border-clifford`. This keeps design tokens and custom CSS together instead of placing them in a JavaScript configuration object.
+
+[Tailwind Play CDN documentation](https://tailwindcss.com/docs/installation/play-cdn) | [Production installation options](https://tailwindcss.com/docs/installation)
 
 ---
 hideInToc: true
@@ -146,7 +168,8 @@ hideInToc: true
 transition: slide-up
 ---
 
-# Explanation 
+# Explanation
+
 <div />
 
 <v-clicks>
@@ -172,6 +195,7 @@ transition: slide-right
 ---
 
 # Tailwind Advantages
+
 <div />
 
 <v-clicks depth="2">
@@ -185,6 +209,7 @@ transition: slide-right
 </v-clicks>
 
 <v-click after="4" >
+
 When you realize how productive you can be working exclusively in HTML with predefined utility classes, working any other way will feel like torture.
 
 </v-click>

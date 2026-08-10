@@ -30,6 +30,7 @@ selectable: true
 lineNumbers: true
 overviewSnapshots: false
 monacoTypesIgnoreDefaults: true
+pwa: true
 ---
 
 # CSS Class Notes
@@ -139,7 +140,7 @@ hideInToc: true
 - Type selector: The CSS type selector matches elements by node/HTML name.
 
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 p {
   color: red;
@@ -156,7 +157,7 @@ This CSS rule is saying that apply color of red to every `p` element and also in
 - Class selector: There is a class attribute associated to all HTML elements, this allows us to target a specific HTML element for its class name. To style an element using the class name we make use of the dot notation `.` before the class name when writing our selector in the CSS rule `.paragraph`
 
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .paragraph {
   color: red;
@@ -175,7 +176,7 @@ paragraph and also increase its font size to 36px.
 - ID selector: The id selector uses the id attribute of an HTML element to select a specific element. Id value of an element must be unique which means you can only have a specific id value to an HTML element, unlike class where you can give 10 HTML elements same class name. To style an element using the id value we make use of the hash notation `#` before the id value when writing our selector in the CSS rule `#container-wrapper`
 
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 #container-wrapper {
   color: red;
@@ -192,7 +193,7 @@ paragraph and also increase its font size to 36px.
 - [Attribute selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors): This gives you the power to select elements based on the presence of a certain HTML attribute or the value of an HTML attribute. To write the CSS rule for this you have to wrap the selector with square brackets.
 
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 [href] {
   color: red;
@@ -209,7 +210,7 @@ Attribute selectors can exist in several various version from `[attr]`, `[attr="
 
 Examples: `a[href^="#"]`, `a[href*="insensitive" i]`, `a[href*="example"]`, `a[href*="cAsE" s]`, `a[href$=".org"]`, `a[href^="https://"][href$=".org"]`, `div[lang]`, `div:not([lang])`, `div[lang~="en-us"]`, `div[lang="pt"]`, `div[lang|="zh"]`, `div[data-lang="zh-Hant-TW"]`, `ol[type="a"]:first-child`, `ol[type="i" s]`, `ol[type="I" s]`, `ol[type="a" i]`
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 [href="https://altschoolafrica.com"]{
   color: red;
@@ -297,7 +298,7 @@ Note: This method give you the access to style any element that has an attribute
 
 </div>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 button:hover { background-color: orange; cursor: pointer; }
 li:nth-child(even) { text-transform: uppercase; }
@@ -341,7 +342,7 @@ Note: Pseudo-elements are particularly useful for enhancing the design and reada
 hideInToc: true
 ---
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 :root {
     --color: #2563eb;
@@ -419,7 +420,7 @@ In the code above, the parent element is the `p`, inside which we have 3 span el
 - Descendant Selector: This selects all elements that are descendants and we achieve this by giving space`( )` to instruct the browser to look for child elements.
 
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 p span { color: red; }
 </style>
@@ -452,7 +453,7 @@ class: 'text-sm'
 - Child selector (parent > child): This selects all elements that are direct children of a specified element.
 
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 ul > li {
   list-style: none;
@@ -470,7 +471,7 @@ ul > li {
 - Adjacent Sibling Selector (prev + next): This selects an element that is immediately preceded by a specified element.
 
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 h1 + p {
   margin-top: 0;
@@ -489,7 +490,7 @@ class: 'text-sm'
 
 - General Sibling Selector (prev ~ siblings): This selects all elements that are siblings of a specified element.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 h1 ~ p {
   color: blue;
@@ -504,7 +505,7 @@ h1 ~ p {
 
 - Grouping Selector: Applies the same styles to multiple selectors.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 h1, h2, h3 {
   margin-bottom: 10px;
@@ -526,7 +527,7 @@ hideInToc: true
 - `Nesting Selectors &`: This is a way of writing CSS rules that are more specific and easier to read.They explicitly states the relationship between parent and child rules when using CSS nesting. It makes the nested child rule selectors relative to the parent element. Without the & nesting selector, the child rule selector selects child elements. The child rule selectors have the same specificity weight as if they were within `:is()`. Can be use with the Child Combinators.
 
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   padding: 20px;
@@ -549,7 +550,7 @@ hideInToc: true
 
 The `:has()` selector allows you to conditionally select an element when elements deeper in the DOM tree of the original element match the selector you put inside `:has()`.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 figure:has(figcaption) {
   border: 1px solid black;
@@ -574,7 +575,7 @@ hideInToc: true
 
 The `:is()` pseudo-class function takes a selector list as its argument and selects any element that can be selected by one of the selectors in that list.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 :is(h1, h2, h3) {
   color: red;
@@ -594,7 +595,7 @@ The `:is()` pseudo-class function takes a selector list as its argument and sele
 
 Specificity is the key to understanding how CSS decides between competing rules. Let's take a brief at this code before we dive deep into specificity.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 h1 {
   color: blue;
@@ -688,7 +689,7 @@ In CSS, there is one rule that has the highest specificity score of 10,000. This
 
 <a class="bg-red color-black no-underline rounded-sm hover:font-bold hover:text-black" href="https://developer.mozilla.org/en-US/docs/Web/CSS/important" target="_blank">Read more</a>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 h1 { color: blue; }   /* normal rule */
 .override { color: green; } /* higher specificity, but loses to !important */
@@ -819,7 +820,7 @@ class: 'text-sm'
 
 # Example
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .content-box {
   box-sizing: content-box; /* default */
@@ -851,15 +852,15 @@ Understanding the Box Model is crucial for: Centering elements, Creating consist
 
 <div></div>
 
-In CSS, the block and inline axes are used to determine how elements are laid out on a page. Understanding these axes is crucial for creating modern responsive websites with i18n(Internationalization) and localization.
+In CSS, the block and inline axes determine how elements are laid out on a page. Understanding these axes is crucial for creating modern, responsive websites that support i18n (internationalization) and localization.
 
-- Block Axis: The block axis is the horizontal or vertical axes of an element's block depending on the writing-mode. Block-level elements stack on top of each other in the block axis and can corresponding to width or height depending on the writing-mode.
+- Block Axis: The block axis follows the direction in which block-level elements are laid out. Depending on the writing mode, it can correspond to either the vertical or horizontal dimension.
 
-- Inline Axis: The inline axis is the horizontal or vertical axes of an element's block depending on the writing-mode. Inline-level elements flow in the inline axis and it corresponds to height or width based on the writing-mode.
+- Inline Axis: The inline axis follows the direction in which inline content, such as text, flows. Depending on the writing mode, it can correspond to either the horizontal or vertical dimension.
 
-Possible css properties with block and inline axes are: `padding-block`, `margin-block`, `border-block`, `padding-inline`, `margin-inline`, `border-inline`. Padding and margin can have the start, end variant like `padding-inline-start`, `margin-block-end`.
+CSS logical properties for the block and inline axes include `padding-block`, `margin-block`, `border-block`, `padding-inline`, `margin-inline`, and `border-inline`. These properties also have start and end variants, such as `padding-inline-start` and `margin-block-end`.
 
-The `block-size` and `inline-size` properties are used to set the height and width of an element, respectively. The `min-block-size` and `max-block-size` properties set the minimum and maximum height of an element, while the `min-inline-size` and `max-inline-size` properties set the minimum and maximum width of an element. For positioning of elements, `inset-block` or `inset-inline` and can be a start or end variant.
+The `block-size` and `inline-size` properties set an element's logical block and inline dimensions. Their physical direction depends on the writing mode. The `min-block-size`, `max-block-size`, `min-inline-size`, and `max-inline-size` properties define limits for these dimensions. Logical positioning can be controlled with `inset-block` and `inset-inline`, along with variants such as `inset-block-start` and `inset-inline-end`.
 
 ---
 hideInToc: true
@@ -981,7 +982,7 @@ Inherited property
 
 Code Example: The color property falls under the inherited properties, so the `em` element will inherit the color value from the parent element which is `p`
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 p {
   color: green;
@@ -1001,7 +1002,7 @@ Non-inherited property
 
 Code Example: The border property falls under the non-inherited properties so, the `em` element will not inherit the border value from the parent element which is `p`.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 p {
   border: 3px solid red;
@@ -1027,7 +1028,7 @@ To keep everything under the developer's control, we have the inherit keyword th
 
 Code Example:
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 p {
   border: 3px solid red;
@@ -1115,7 +1116,7 @@ The `all` CSS property
 
 </div>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .parent {
   color: red;
@@ -1246,7 +1247,7 @@ color: color-mix(red blue 50%); /* Mixes red and blue 50% */
 hideInToc: true
 ---
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 html {
   --red-hue: 0deg;
@@ -1377,7 +1378,7 @@ Gradients are used to create smooth transitions between colors, adding depth and
 
 Direction: Can be specified with angles (e.g., 45deg) or keywords (to right, to bottom).
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grad {
   height: 120px;
@@ -1398,7 +1399,7 @@ hideInToc: true
 
 Shapes and Sizes: You can control the shape (circle or ellipse) and size (closest-side, farthest-corner, etc.).
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .wrap { display: flex; gap: 12px; }
 .grad { height: 160px; flex: 1; }
@@ -1419,7 +1420,7 @@ hideInToc: true
 
 `conic-gradient(from direction, color-stop1, color-stop2, ...)`
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grad {
   height: 160px;
@@ -1437,7 +1438,7 @@ hideInToc: true
 
 4. Repeating Gradients - Repeats the linear gradient pattern indefinitely and repeats the radial gradient pattern.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .wrap { display: flex; gap: 12px; color: black; }
 .grad { height: 160px; flex: 1; display: flex; align-items: center; justify-content: center; font-weight: bold; }
@@ -1528,7 +1529,7 @@ hideInToc: true
 
 CSS variables (also known as custom properties) are used to store reusable values in CSS. They are defined using the `--` prefix and can be used throughout the stylesheet.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 :root {
   --primary-color: #ff5733;
@@ -1578,7 +1579,7 @@ Typography in CSS
 
 Typography is a crucial aspect of web design, as it affects readability, accessibility, and overall user experience. Here are some key CSS properties for typography: `font-style`, `font-weight`, `font-size`, `line-height`, `font-family`, `text-align`, `text-transform`, `text-decoration`, `letter-spacing`, `word-spacing`, `text-shadow`, `white-space`, `overflow-wrap`, `word-break`, `hyphens`, `text-overflow`, `vertical-align`, `text-orientation`, `word-wrap`, `columns`, `column-gap`, `break-inside`, `overflow-wrap`, `initial-letter`, `line-clamp` and `box-orient`
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 p {
   font-family: "Arial", sans-serif;
@@ -1667,7 +1668,7 @@ One of the fastest way to get your CSS debugged is to use the browser. Browser l
     </li>
 </ol>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 * { border: 1px solid red; }
 </style>
@@ -1699,14 +1700,12 @@ In the developer tools, you can immediately modify the HTML and CSS, with the ch
 
 <p>Additionally, we have talked about the Box Model in the previous lesson, the devTools layout view shows you the box model on a selected elements and gives you proper insight on the element box property like border, margin, padding, height and width.</p>
 
-<div class="h-80 overflow-scroll  grid place-items-center animate-slide-in-left w-full">
 
-<figure>
-  <img src="https://res.cloudinary.com/drnqdd87d/image/upload/v1737394240/css_inspector_kg1eas.png" alt="image showing chrome developer tools" class="w-3/5" />
+<figure class="w-full max-h-full overflow-scroll bg-grey">
+  <img src="https://res.cloudinary.com/drnqdd87d/image/upload/v1737394240/css_inspector_kg1eas.png" alt="image showing chrome developer tools" />
 
   <figcaption>How the DevTools look like</figcaption>
 </figure>
-</div>
 
 ---
 hideInToc: true
@@ -1714,12 +1713,12 @@ hideInToc: true
 
 ## Inspecting the applied CSS
 
-To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element.In the image below the developer is trying to check the CSS on the body element.
+To examine the CSS that an element inherits or has applied to it, right-click on the element and choose "Inspect" to open the devTools. In the devTools, one section displays the HTML, while another shows the CSS inherited by the element as well as the styles directly applied to it. This is particularly helpful for identifying any unexpected CSS affecting the element. In the image below the developer is trying to check the CSS on the body element.
 
-<div class="h-100 overflow-scroll bg-grey">
+<figure class="h-100 overflow-scroll bg-grey">
  <img src="https://developer.chrome.com/static/docs/devtools/css/reference/image/the-tooltip-specificity-e28a5e9a4b32.png" alt="Image of a devtools" />
  <figcaption>How the DevTools look like</figcaption>
-</div>
+</figure>
 
 ---
 hideInToc: true
@@ -1765,7 +1764,7 @@ hideInToc: true
 
 Internal CSS is used to define styles for an entire HTML document. It is placed within the `style` tag in the `head` section of the HTML file.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 p {
   color: red;
@@ -1906,9 +1905,9 @@ hideInToc: true
 
 <p>To determine how flex items are arranged within a flex container, direction and alignment are the key aspects.</p>
 
-<p>Flex Direction:The `flex-direction` property defines the direction in which the flex items are placed within the flex container. The direction can be either block (column) or inline (row).</p> <small>The following values can be assigned to it:</small>
+Flex Direction:The `flex-direction` property defines the direction in which the flex items are placed within the flex container. The direction can be either block (column) or inline (row). <small>The following values can be assigned to it:</small>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2015,9 +2014,9 @@ hideInToc: true
 The main axis is the natural way the flex items are laid out across the page in a row. With the `justify-content` flex property you can control how you want your items to be laid out.
 Code Example:
 
-<p class="text-xl mb-4"><strong>`flex-start`</strong> : Items are aligned to the start of the container.</p>
+`flex-start` : Items are aligned to the start of the container.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2054,9 +2053,9 @@ Code Example:
 hideInToc: true
 ---
        
-<p class="text-xl mb-4"><strong>`flex-end:`</strong> Items are aligned to the end of the container.</p>
+`flex-end:` Items are aligned to the end of the container.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2094,9 +2093,9 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong>`center`</strong> : Items are centered along the main axis.</p>
+`center` : Items are centered along the main axis.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2134,9 +2133,9 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl  mb-4"><strong>`space-between`</strong> : Items are evenly distributed in the line; the first item is on the start line and the last item is on the end line.</p>
+`space-between` : Items are evenly distributed in the line; the first item is on the start line and the last item is on the end line.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2173,9 +2172,9 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong>`space- around`</strong> : Items are evenly distributed in the line with equal space around them.</p>
+`space- around` : Items are evenly distributed in the line with equal space around them.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2212,9 +2211,9 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong>`space-evenly`</strong> : Items are evenly distributed with equal space between them.</p>
+`space-evenly` : Items are evenly distributed with equal space between them.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2251,13 +2250,15 @@ hideInToc: true
 hideInToc: true
 ---
 
-<h1 class="text-sm bg-orange p-4 text-center">Align Items (Cross Axis Alignment)</h1>  
+<h1 class="text-sm bg-orange p-4 text-center">Align Items (Cross Axis Alignment)</h1>
+
 The cross axis runs perpendicular to the direction in which flex items are laid out.
+
 The `align-items` property aligns the flex items along the cross axis (perpendicular to the main axis).
 
-<p class="text-xl mb-4"><strong>`stretch`</strong> : Items stretch to fill the container (default).</p>
+`stretch` : Items stretch to fill the container (default).
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2292,9 +2293,9 @@ The `align-items` property aligns the flex items along the cross axis (perpendic
 
 ---
 
-<p class="text-xl  mb-4"><strong>`flex-start`</strong> : Items are aligned to the start of the cross axis.</p>
+`flex-start` : Items are aligned to the start of the cross axis.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2332,9 +2333,9 @@ The `align-items` property aligns the flex items along the cross axis (perpendic
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong>`flex-end`</strong> : Items are aligned to the end of the cross axis.</p>
+`flex-end` : Items are aligned to the end of the cross axis.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2372,9 +2373,9 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong>`center`</strong>: Items are centered along the cross axis.</p>
+`center`: Items are centered along the cross axis.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2417,9 +2418,9 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong>`baseline`</strong>: Items are aligned along their baseline. If you want to make sure the bottoms of each character are aligned, as they would be if they were written on a page then `align-items: baseline;` is used instead of `align-items: center;`.</p>
+`baseline`: Items are aligned along their baseline. If you want to make sure the bottoms of each character are aligned, as they would be if they were written on a page then `align-items: baseline;` is used instead of `align-items: center;`.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2462,15 +2463,16 @@ hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Align Content (Multi-line Cross Axis Alignment)</h1>
-  The `align-content` property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
+
+The `align-content` property is used to control the alignment of multiple lines of items along the cross axis (which is perpendicular to the main axis). This property is only relevant when the flex container has more than one line of items, typically when flex-wrap is set to wrap or wrap-reverse.
 
 ---
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong>`flex-start`</strong> : Rows are packed to the start of the container.</p>
+`flex-start` : Rows are packed to the start of the container.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2510,9 +2512,9 @@ hideInToc: true
 hideInToc: true
 ---
 
-<p class="text-xl mb-4"><strong>`flex-end`</strong> : Rows are packed to the end of the container.</p>
+`flex-end` : Rows are packed to the end of the container.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2551,9 +2553,11 @@ hideInToc: true
 hideInToc: true
 ---
 
-<h1 class="text-sm bg-orange p-4 text-center">Align Self</h1> In a case where you want a specific child(ren) to have specific alignments instead of aligning all the children, flexbox gives you the `align-self` property to achieve this.
+<h1 class="text-sm bg-orange p-4 text-center">Align Self</h1> 
 
-```html {monaco-run}
+In a case where you want a specific child(ren) to have specific alignments instead of aligning all the children, flexbox gives you the `align-self` property to achieve this.
+
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   display: flex;
@@ -2705,7 +2709,7 @@ hideInToc: true
 
 The grid container is the parent element that contains the grid items (child elements). To create a grid container, you set the display property of the parent element to grid or inline-grid.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grid-container {
   display: grid;
@@ -2740,7 +2744,7 @@ hideInToc: true
 <div></div>
 You can define the structure of the grid using the <b> grid-template-rows</b> and <b>grid-template-columns</b> properties. These properties determine the number of rows and columns in the grid and their respective sizes.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grid-container {
   display: grid;
@@ -2780,7 +2784,7 @@ In this example:
 - <b>grid-template-columns: 200px 1fr 100px;</b> creates three columns. The first column is 200px wide, the second column takes up the remaining space (<b>1fr</b>), and the third column is 100px wide.
 - <b>grid-template-rows: 100px 200px;</b> creates two rows, the first row being 100px tall, and the second row being 200px tall.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grid-container {
   display: grid;
@@ -2813,7 +2817,7 @@ hideInToc: true
 
 By default, grid items are placed in the grid based on the order they appear in the HTML. However, you can control their placement using the grid-column and grid-row properties.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grid-container {
   display: grid;
@@ -2859,7 +2863,7 @@ hideInToc: true
 
 To create space between grid items, you can use the <b>grid-gap</b>, <b>row-gap</b>, and <b>column-gap</b> properties.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grid-container {
   display: grid;
@@ -2894,7 +2898,7 @@ hideInToc: true
 
 Grid areas allow you to name specific sections of the grid, making it easier to define complex layouts. You can use grid-template-areas to define areas and grid-area to place grid items within those areas.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grid-container {
   display: grid;
@@ -2939,7 +2943,7 @@ hideInToc: true
 
 CSS Grid makes it easy to create responsive designs. You can use functions like repeat() and minmax() to create grids that adjust based on the available space.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grid-container {
   display: grid;
@@ -2974,7 +2978,7 @@ hideInToc: true
 
 ## Example(CONTD)
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .page {
   display: grid;
@@ -3005,7 +3009,7 @@ hideInToc: true
 
 Without subgrid, a nested grid creates its own independent track sizes — so items inside different cards can never line up with each other. `subgrid` lets a nested grid **inherit its parent's track definitions**, so rows or columns stay perfectly aligned across siblings.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .grid {
   display: grid;
@@ -3066,7 +3070,7 @@ To style your layout, use the <strong>`position`</strong> property with one of t
 
 The element is positioned `position: relative;` based on the normal document flow and then adjusted relative to its original position using the top, right, bottom, and left values. This adjustment does not impact the layout or positioning of surrounding elements, so the space allocated for the element remains the same as if it were using static positioning.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .flow  { background: #bfdbfe; width: 80px; height: 80px; display: inline-block; }
 .moved {
@@ -3092,7 +3096,7 @@ Every element is contained by a block which is referred to containing block. Whe
 
 Absolutely-positioned elements act just like static-positioned elements when it comes to overflow. If the parent sets `overflow: auto;`, as long as that parent is the containing block, it will allow that child to be scrolled into view:
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .wrapper {
   overflow: auto;
@@ -3117,7 +3121,7 @@ Absolutely-positioned elements act just like static-positioned elements when it 
 
 ---
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .wrapper {
   overflow: hidden;
@@ -3144,7 +3148,7 @@ Absolutely-positioned elements act just like static-positioned elements when it 
 
 Error fixed by adding `position: relative;` to the parent.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .wrapper {
   overflow: hidden;
@@ -3224,7 +3228,7 @@ With `position: absolute;`, the element will move with its parent element if the
 ---
 
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 dl { overflow-y: scroll; height: 200px; margin: 0; }
 dt {
@@ -3328,7 +3332,7 @@ First things first. When you're writing your HTML, the browser stacks elements i
   <text x="10" y="190" fill="black">Natural Stacking Order</text>
 </svg>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <div style="background: red; width: 100px; height: 100px;"></div>
 <div style="background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"></div>
 ```
@@ -3357,7 +3361,7 @@ Here's what it looks like:
   <text x="10" y="190" fill="black">Z-Index Stacking</text>
 </svg>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <div style="position: relative; z-index: 2; background: red; width: 100px; height: 100px;"></div>
 <div style="position: relative; z-index: 1; background: blue; width: 100px; height: 100px; margin-top: -50px; margin-left: 50px;"></div>
 ```
@@ -3429,7 +3433,7 @@ So, how do you create these stacking contexts? There are a bunch of ways, but he
 - Use transforms, filters, or clip-path.
 - Use isolation: isolate (this one's handy if you don't want to mess with the element's position or appearance).
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 [id^="parent"] { position: relative; padding: 40px 16px 16px; margin-bottom: 8px; font-weight: bold; }
 [id^="child"]  { position: absolute; top: 4px; right: 4px; padding: 4px 8px; font-size: 12px; }
@@ -3464,7 +3468,7 @@ hideInToc: true
 
 An interesting exception to the positioning rule for z-index is that children of flex and grid containers can use z-index without needing to be positioned:
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .wrap { display: flex; padding: 20px; }
 .wrap div { width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
@@ -3549,7 +3553,7 @@ This property is a shorthand for:
 
 `overflow: auto;` property makes an element scrollable when its content exceeds its bounds. Although the overflow content is clipped at the element's padding box, it can still be scrolled into view.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .content {
   overflow: auto;
@@ -3572,7 +3576,7 @@ This property is a shorthand for:
 
 The `overflow: hidden;` property makes an element truncate its content when it overflows its boundaries. It behaves similarly to `overflow: scroll;`, but without displaying scrollbars. When `overflow: hidden;` is applied to an element, a scroll container is created without visible scrollbars.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .content {
   overflow: hidden;
@@ -3602,7 +3606,7 @@ The `overflow: hidden;` property makes an element truncate its content when it o
 
 `overflow: scroll;` property causes an element overflow content to be scrolled into view using scroll bars. The scroll bars shows whether the content is going to overflow or not.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .content {
   overflow: scroll;
@@ -3624,7 +3628,7 @@ The `overflow: hidden;` property makes an element truncate its content when it o
 
 `overflow: visible;` property is the default setting for the `overflow` property. When overflow occurs outside the element's padding box, it will be displayed.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .content {
   overflow: visible;
@@ -3657,7 +3661,7 @@ This metaphor helps illustrate how the scroll container behaves — it allows yo
  
 `overflow: clip;` property causes element's content to clipped at the element's overflow clip edge. The content outside the clipped region is not visible, and also no addition of scroll container. This work exactly the way most developers think `overflow: hidden;` should work.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .content {
   overflow: clip;
@@ -3689,7 +3693,7 @@ When you have inline elements that automatically wrap to the next line when they
 
 `white-space` is a CSS property that allows developers to control how words and other inline or inline-block elements wrap.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .img-wrapper {
   overflow: auto;
@@ -3743,7 +3747,7 @@ This means elements on your site will resize proportionally as the screen size c
 The `.container` takes 80% of the screen width and centers itself with margin: auto.
 As the screen size changes, the container's width adjusts proportionally.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .container {
   width: 80%;
@@ -3810,7 +3814,7 @@ Flexible images ensure that pictures and videos resize to fit their container wi
 <br/>
 The image scales to fit the width of its container without overflowing, maintaining its aspect ratio.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .img-wrap {
   width: 60%;
@@ -3970,7 +3974,7 @@ hideInToc: true
 
 First **name the container** with `container`, then write `@container` rules that fire when the container hits a size threshold — not the viewport.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .element-wrap {
   container: element / inline-size;
@@ -4051,7 +4055,7 @@ Container Units (literally units, like px, rem, or vw) allow you to set the size
 
 The units are cqw (“container query width”), cqh (“container query height”), cqi (“container query inline”), cqb (“container query block”), cqmin (smaller of cqi and cqb), and cqmax (larger of cqi and cqb).
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .outer {
   container-type: inline-size;
@@ -4108,7 +4112,7 @@ The `animation` shorthand CSS property applies animation on element of your choi
  <h1 class="text-sm bg-purple p-4 text-center">Transforms</h1>
 <p>The `transform` CSS property allows you to rotate, scale, skew, or translate an element. It plays a significant role in CSS animations, offering a variety of powerful transform functions for creating dynamic visual effects.</p>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .box { width: 80px; height: 80px; background: #a78bfa; display: inline-block; margin: 20px; }
 .rotated  { transform: rotate(45deg); }
@@ -4128,7 +4132,7 @@ The `animation` shorthand CSS property applies animation on element of your choi
 
 The `transform-function` in CSS is used to apply 2D or 3D transformations to elements, enabling you to modify their shape, size, and position without disrupting the document flow. This function is powerful for creating visual effects like scaling, rotating, skewing, or translating elements. The transformations occur within the element's own coordinate system.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .demo { display: flex; gap: 30px; flex-wrap: wrap; padding: 20px; }
 .box { width: 80px; height: 80px; background: #6d28d9; color: white; font-size: 11px; display: flex; align-items: center; justify-content: center; text-align: center; }
@@ -4162,7 +4166,7 @@ The `transform-function` in CSS is used to apply 2D or 3D transformations to ele
 
 ---
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .box-wrapper {
   border: 2px dashed red;
@@ -4189,7 +4193,7 @@ The `scale()` transform function allows you to resize an element by enlarging or
 
 <h2 class="mb-4">scale() transform function code example</h2>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .wrap { display: flex; justify-content: space-around; align-items: center; height: 160px; }
 .box { width: 60px; height: 60px; color: white; display: flex; align-items: center; justify-content: center; font-size: 11px; text-align: center; }
@@ -4217,7 +4221,7 @@ The `rotate()` transform function allows you to rotate an element around a fixed
 
 We use the `deg` unit for rotation, short for degrees.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes spin {
   from { transform: rotate(0deg); }
@@ -4242,7 +4246,7 @@ We use the `deg` unit for rotation, short for degrees.
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Turn</h3>
 The `turn` unit represents how many turns the element should make. 1 turn is equal to 360 degrees.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes one-turn {
   from { transform: rotate(0turn); }
@@ -4267,7 +4271,7 @@ The `turn` unit represents how many turns the element should make. 1 turn is equ
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Skew</h3>
 <p>The `skew` is a seldom-used but pretty-neat transformation. It's most useful when you want to create diagonal decorative elements.</p>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes do-skew {
   from { transform: skewX(0deg); }
@@ -4293,7 +4297,7 @@ The `turn` unit represents how many turns the element should make. 1 turn is equ
 
 Every element has a transformation origin, which is the central point around which transformations are applied. The CSS property `transform-origin` allows you to set and control this origin for any element's transformations. This transform origin acts as a pivot point.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes pivot {
   from { transform: rotate(0deg); }
@@ -4327,7 +4331,7 @@ Right-to-Left Application: The transforms are applied sequentially but executed 
 
 ---
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes spin-box {
   0%   { transform: translateX(0)    rotate(0deg); }
@@ -4347,7 +4351,7 @@ Right-to-Left Application: The transforms are applied sequentially but executed 
 
 ---
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes spin-second-box {
   0%   { transform: rotate(0deg)   translate(0); }
@@ -4371,7 +4375,7 @@ Right-to-Left Application: The transforms are applied sequentially but executed 
 
 The `transform` property does not work with inline elements in a Flow layout because inline elements are designed to flow with the content and cause minimal disruption. To apply transformations, you can change the element's display to `inline-block`, or switch to a different layout mode such as Grid or Flexbox.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .wrap { display: flex; flex-direction: column; gap: 16px; padding: 20px; }
 .row  { display: flex; align-items: center; gap: 20px; }
@@ -4401,7 +4405,7 @@ The CSS `transition` property is an essential tool when discussing CSS animation
 
 Hover over these two circles to notice the difference: the red circle has a transform effect on hover, while the blue circle doesn't.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .wrap { display: flex; gap: 80px; justify-content: center; align-items: center; padding: 40px; }
 .circle {
@@ -4439,7 +4443,7 @@ The `transition` property accepted just two values and these are:
 
 Note: You can pass a comma to create animation on multiple properties.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 .btn {
   padding: 12px 24px;
@@ -4584,7 +4588,7 @@ You'll notice that after `@keyframes` we have a name called `slide-in`; this is 
 <div class="container"></div>
 ```
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes float-in {
   from {
@@ -4616,7 +4620,7 @@ The `animation-iteration-count` CSS property sets the number of times an animati
 - `infinite`: The animation will repeat forever
 - `number`: The number of times the animation will repeat
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes float-in {
   from {
@@ -4672,7 +4676,7 @@ In cases where the animation requires more than 2 steps, instead of using `from`
 
 <h2>Contd: Multi-step animations example</h2>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes fancy-spin {
   0%   { transform: rotate(0turn) scale(1); }
@@ -4722,7 +4726,7 @@ If you want your animations to go through three stages, such as creating a "brea
 
 <h2> Contd: Alternating animations example</h2>
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes grow-and-shrink {
   0%   { transform: scale(1); }
@@ -4742,7 +4746,7 @@ If you want your animations to go through three stages, such as creating a "brea
 The box starts at its default size, grows to 1.5 times its default size, and then shrinks back to its original size.
 Alternatively, we can use the `animation-direction` property to achieve this effect
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes grow-and-shrink-alt {
   0%   { transform: scale(1); }
@@ -4817,7 +4821,7 @@ The `animation-fill-mode` CSS property controls how an element should be styled 
 
 For instance, if you want the element to fade out smoothly after the animation completes, animation-fill-mode ensures the element doesn’t abruptly reappear or reset its styles once the animation ends.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes fade-out {
   from { opacity: 1; }
@@ -4843,7 +4847,7 @@ For instance, if you want the element to fade out smoothly after the animation c
 Contd: You will notice that the box reappears after the animation style passed on it has been executed, that's because there is no `opacity` property set on the container itself.
 To make the container not reappears you should add `opacity` declaration to the container.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes fade-out {
   0%   { opacity: 1; }
@@ -4989,7 +4993,7 @@ Note: The animation property must come before the animation-timeline to avoid th
 
 For the scroll function to work correctly, it must know which element or column to track. To achieve this, the scroll function creates an anonymous scroll timeline that traverses up the ancestor tree from the target element to find the nearest scrollable ancestor. This ensures that the scroll behavior is linked to the correct scrollable container.
 
-```html {monaco-run}
+```html {monaco-run}{height: '430px'}
 <style>
 @keyframes grow-bar { from { width: 0 } }
 

@@ -12,26 +12,26 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@slidev/cli": "52.15.1",
-    "@slidev/client": "52.15.1",
+    "@slidev/cli": "52.19.0",
+    "@slidev/client": "52.19.0",
     "@slidev/theme-default": "latest",
-    "@vueuse/core": "^14.3.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "vue": "^3.5.34"
+    "@vueuse/core": "^14.4.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "vue": "^3.5.41"
   },
   "devDependencies": {
-    "@babel/standalone": "^7.29.3",
-    "@iconify-json/logos": "^1.2.11",
+    "@babel/standalone": "^7.29.8",
+    "@iconify-json/logos": "^1.2.12",
     "@iconify-json/mdi": "^1.2.3",
-    "@slidev/types": "52.15.1",
-    "@vue/compiler-sfc": "^3.5.34",
-    "esbuild": "^0.28.1",
+    "@slidev/types": "52.19.0",
+    "@vue/compiler-sfc": "^3.5.41",
+    "esbuild": "^0.28.2",
     "markdown-it-magic-link": "^0.1.4",
     "nodemon": "^3.1.14",
-    "playwright-chromium": "^1.60.0",
-    "prettier": "^3.8.3",
+    "playwright-chromium": "^1.62.1",
+    "prettier": "^3.9.6",
     "prettier-plugin-slidev": "^1.0.5",
-    "vite": "^8.0.13"
+    "vite": "^8.2.1"
   }
 }
