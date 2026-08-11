@@ -30,7 +30,6 @@ selectable: true
 lineNumbers: true
 overviewSnapshots: false
 monacoTypesIgnoreDefaults: true
-pwa: true
 ---
 
 # CSS Class Notes
@@ -2172,7 +2171,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-`space- around` : Items are evenly distributed in the line with equal space around them.
+`space-around` : Items are evenly distributed in the line with equal space around them.
 
 ```html {monaco-run}{height: '430px'}
 <style>
@@ -2617,7 +2616,9 @@ hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Growing and Shrinking</h1>
-<p></p>
+
+<div></div>
+
 <p>There are two important sizes when dealing with Flexbox: the minimum content size, and the hypothetical size.</p>
 
 - The minimum content size is the smallest an item can get without its contents overflowing.
@@ -2629,8 +2630,11 @@ hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Grow</h1>
+
 <div></div>
-<p>The <strong>`flex-grow`</strong> CSS property specifies how much a flex item will grow relative to the other flex items inside the same container when there is positive free space available.</p>
+
+The `flex-grow` CSS property specifies how much a flex item will grow relative to the other flex items inside the same container when there is positive free space available.
+
 <p>The value of flex-grow is a unitless number that serves as a proportion, determining how much of the available space inside the flex container the item should take up compared to other items.</p>
 <small>Flex grow is about consuming additional space and it only does something when items are above their hypothetical size</small>
 <section class="pt-8">
@@ -2641,9 +2645,11 @@ hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Shrink</h1>
+
 <div></div>
-<p>The <strong>`flex-shrink`</strong> CSS property determines how much flex items will shrink relative to each other when the flex container is too small to accommodate their full size.
-</p>
+
+The `flex-shrink` CSS property determines how much flex items will shrink relative to each other when the flex container is too small to accommodate their full size.
+
 <p>Flex shrink only does something when the items are between their minimum size and hypothetical size <small>and you can disable the ability of an item to shrink by setting `flex-shrink: 0;`.</small></p>
 <section class="pt-10">
  <FlexShrink/>
@@ -2653,7 +2659,9 @@ hideInToc: true
 ---
 
 <h1 class="text-sm bg-orange p-4 text-center">Flex-Basis</h1>
+
 <div></div>
+
 <p>The <strong>`flex-basis`</strong> CSS property has the same effect as `width` in a flex row (height in a column). You can use them interchangeably, but flex-basis will win if there's a conflict.`flex-basis` can't scale an element below its minimum content size, but width can.
 </p>
 
@@ -2699,6 +2707,7 @@ It is recommended to use the `flex` shorthand instead of separate `flex-grow` `f
 # Grid Layout
 
 <div></div>
+
 Grid Layout is a two-dimensional layout system that allows you to create complex web designs with minimal code. It enables you to align elements into rows and columns, making it easier to design web pages that are responsive and adaptable to different screen sizes.
 
 ---
@@ -2742,6 +2751,7 @@ hideInToc: true
 # Defining Rows and Columns
 
 <div></div>
+
 You can define the structure of the grid using the <b> grid-template-rows</b> and <b>grid-template-columns</b> properties. These properties determine the number of rows and columns in the grid and their respective sizes.
 
 ```html {monaco-run}{height: '430px'}
@@ -3060,6 +3070,7 @@ url: https://codepen.io/setemiojo/embed/MWMXVjq?default-tab=html%2Cresult
 # Positioned Layout
 
 <div></div>
+
 Positioned Layout is another layout mode we'll explore in this section. Unlike the flow layout algorithm, which ensures that multiple elements never occupy the same pixels, positioned layout allows items to overlap and break out of the box.
 
 To style your layout, use the <strong>`position`</strong> property with one of the following values: <strong>`relative`</strong>, <strong>`absolute`</strong>, <strong>`fixed`</strong>, or <strong>`sticky`</strong>. Each of these positioning values works uniquely to place the element. Combine it with the <strong>`top`</strong>, <strong>`right`</strong>, <strong>`bottom`</strong>, and <strong>`left`</strong> properties to specify the exact location of the element within its containing block.
@@ -3317,6 +3328,7 @@ url: https://codepen.io/kevinpowell/embed/preview/poMaLjR?default-tab=html%2Cres
 # Stacking Context/Z-index
 
 <div />
+
 In CSS, the stacking order of elements is a crucial aspect of layout and design. Two key concepts that control how elements stack on top of each other are stacking contexts and the z-index property. 
 Alright, imagine you're stacking a bunch of transparent sheets on top of each other. That's basically what's happening when you're building a webpage with CSS. But sometimes, you want to control which sheet goes on top, right? That's where z-index and stacking contexts come in. Let's break it down!
 
