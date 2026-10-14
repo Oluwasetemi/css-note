@@ -859,7 +859,7 @@ In CSS, the block and inline axes determine how elements are laid out on a page.
 
 CSS logical properties for the block and inline axes include `padding-block`, `margin-block`, `border-block`, `padding-inline`, `margin-inline`, and `border-inline`. These properties also have start and end variants, such as `padding-inline-start` and `margin-block-end`.
 
-The `block-size` and `inline-size` properties set an element's logical block and inline dimensions. Their physical direction depends on the writing mode. The `min-block-size`, `max-block-size`, `min-inline-size`, and `max-inline-size` properties define limits for these dimensions. Logical positioning can be controlled with `inset-block` and `inset-inline`, along with variants such as `inset-block-start` and `inset-inline-end`.
+The `block-size` and `inline-size` properties set an element's logical block and inline dimensions. Their physical orientation depends on the writing mode; text direction determines which side is inline-start and inline-end. In the default `horizontal-tb` writing mode, `inline-size` corresponds to `width`, while `block-size` corresponds to `height`; this correspondence changes in vertical writing modes. Unlike these logical properties, `width` and `height` always describe the physical horizontal and vertical dimensions. The `min-block-size`, `max-block-size`, `min-inline-size`, and `max-inline-size` properties define limits for these dimensions. Logical positioning can be controlled with `inset-block` and `inset-inline`, along with variants such as `inset-block-start` and `inset-inline-end`.
 
 ---
 hideInToc: true
@@ -869,7 +869,7 @@ hideInToc: true
 
 ## Width Calculation
 
-- Width is calculated along the inline axis(left to right) and default is auto(using the content inside the element) but can be set using the `width` property. The `max-width` and `min-width` properties set the maximum and minimum width of an element. `max-width` is used to prevent an element from exceeding a certain width, while `min-width` ensures that an element is at least a certain width. `max-width` is useful for creating responsive designs that adapt to different screen sizes and should be used for containers/wrappers that need to be flexible. `min-width` is useful for ensuring that an element is at least a certain width, which can be helpful for maintaining the layout of a page and preventing elements from becoming too narrow. Width considers the parent element's width and the content inside the element. Avoid using fixed width and percentage width if you do not have a parent with an explicit width.
+- The `width` property controls an element's physical horizontal dimension. Its initial value is `auto`, whose behavior depends on the element and layout context. For example, a normal block element with `width: auto` generally fills the available width of its containing block, while an inline-block may size itself according to its content. The `min-width` and `max-width` properties set lower and upper limits on the used width. `max-width` is especially useful for flexible containers that should not grow beyond a certain size, while `min-width` can prevent an element from becoming too narrow. A percentage width is resolved against the width of the containing block, which does not usually need to have an explicitly declared width. Use `inline-size` instead when the dimension should follow the document's writing mode.
 
 ---
 hideInToc: true
@@ -877,7 +877,7 @@ hideInToc: true
 
 # Height Calculation
 
-- Height is calculated along the block axis(top to bottom) and default is auto(using the content inside the element) but can be set using the `height` property. The `max-height` and `min-height` properties set the maximum and minimum height of an element. `max-height` is used to prevent an element from exceeding a certain height, which can be helpful for maintaining the layout of a page and preventing elements from becoming too large. `min-height` ensures that an element is at least a certain height, making it useful for creating responsive designs that adapt to different screen sizes and ensuring adjustable height. Height considers the content inside the element first before the parent element's height.
+- The `height` property controls an element's physical vertical dimension. Its initial value is `auto`, which normally allows the browser to determine the used height from the element's content and layout context. The `min-height` and `max-height` properties set lower and upper limits on the used height. `max-height` can prevent an element from becoming too tall, while `min-height` can preserve a minimum usable area without forcing a fixed height. Percentage heights generally require the containing block to have a definite height; otherwise, they may behave as `auto`. Use `block-size` instead when the dimension should follow the document's writing mode.
 
 ---
 hideInToc: true
