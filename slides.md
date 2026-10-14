@@ -846,6 +846,8 @@ class: 'text-sm'
 Understanding the Box Model is crucial for: Centering elements, Creating consistent spacing, Implementing responsive designs, Debugging layout issues
 
 ---
+class: "text-sm"
+---
 
 # Using Block and Inline Axes in CSS
 
