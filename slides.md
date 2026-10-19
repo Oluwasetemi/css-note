@@ -3957,72 +3957,141 @@ hideInToc: true
 ---
 
 # Container Queries
+
 <div />
-Container queries are a new CSS feature that allows you to apply styles based on the size of a container, rather than the viewport. This enables more granular control over responsive layouts and components.
 
-```css
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
+## Respond to the space you get
 
-@media (min-width: 600px) {
-  .container {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-}
-```
+A media query asks about the **browser or device**. A size container query asks how much space a **component** received from its layout.
 
-Container queries are similar to media queries but apply to the container's size rather than the viewport. They allow you to create responsive designs that adapt to the size of the container they are in, making it easier to create reusable components and layouts.
+| Use a media query for…                | Use a container query for…                        |
+| ------------------------------------- | ------------------------------------------------- |
+| page navigation and the overall shell | cards, widgets, panels, and reusable components   |
+| viewport or user-preference changes   | layouts that depend on a parent’s allocated space |
 
-```css
-.calendar-wrap {
-  container: Calendar / inline-size;
-}
-```
+A card can be narrow on a wide screen when it sits in a sidebar. Container queries use the signal the component actually needs, so the same component can work in many layouts without viewport-breakpoint guesses.
+
+> **Rule of thumb:** media queries arrange the page; container queries arrange a component inside its assigned region.
+
 ---
 hideInToc: true
 ---
 
-# Syntax
+# The two-part pattern
 
-First **name the container** with `container`, then write `@container` rules that fire when the container hits a size threshold — not the viewport.
+1. Make the component’s boundary queryable.
+2. Give the component a safe narrow default, then enhance it when space becomes available.
+
+A container name is **optional**. Use one only when you need to distinguish between multiple query containers.
 
 ```html {monaco-run}{height: '430px'}
 <style>
-.element-wrap {
-  container: element / inline-size;
-  border: 2px dashed #94a3b8;
-  resize: horizontal;      /* drag the edge to see the query fire */
-  overflow: auto;
-  padding: 8px;
-  max-width: 100%;
-  min-width: 80px;
-}
-.element {
-  background: #fecaca;
-  color: #991b1b;
-  padding: 16px;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: background 0.3s;
-}
-@container element (min-inline-size: 300px) {
-  .element {
-    display: flex;
-    gap: 1rem;
-    background: #bbf7d0;
-    color: #166534;
+  .card-slot {
+    container-type: inline-size;
+    border: 2px dashed #64748b;
+    max-width: 100%;
+    min-width: 10rem;
+    padding: 0.75rem;
+    resize: horizontal;
+    overflow: auto;
   }
-}
+  .profile-card {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+    color: #172554;
+    background: #dbeafe;
+  }
+  @container (min-width: 24rem) {
+    .profile-card {
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      background: #dcfce7;
+    }
+  }
 </style>
-<div class="element-wrap">
-  <div class="element">
-    <span>Item A</span>
-    <span>Item B — drag the dashed box wider than 300px</span>
-  </div>
+<div class="card-slot">
+  <article class="profile-card">
+    <strong>Ada Okafor</strong>
+    <span>CSS engineer · drag the boundary wider</span>
+  </article>
 </div>
 ```
+
+---
+hideInToc: true
+---
+
+# Choose the measured axis
+
+`container-type: inline-size` is the usual choice for responsive components.
+
+| Value         | What it enables                          | Sizing consequence                                       |
+| ------------- | ---------------------------------------- | -------------------------------------------------------- |
+| `inline-size` | queries on the inline axis—usually width | block size can still grow with content                   |
+| `size`        | queries on both inline and block axes    | both dimensions must come from layout or explicit sizing |
+
+Containment prevents a feedback loop: queried descendants cannot determine the same dimension used to activate their styles. Otherwise, a child could enlarge its container, turn the query off, shrink it again, and repeat.
+
+**Logical-property reminder:** inline size is not always physical width. In vertical writing modes, the inline axis is vertical.
+
+---
+hideInToc: true
+---
+
+# Separate page and component decisions
+
+The outer page layout and the component solve different problems, so let them use different signals.
+
+```css
+/* Global decision: arrange the page shell */
+@media (min-width: 60rem) {
+  .email-layout {
+    grid-template-columns: 19rem 1fr;
+  }
+}
+
+/* Local boundary: measure the space the component receives */
+.metadata-column {
+  container-type: inline-size;
+}
+
+/* Local decision: arrange the component */
+@container (min-width: 19rem) {
+  .metadata-row {
+    grid-template-columns: 7rem 1fr;
+  }
+}
+```
+
+The metadata layout now works in a narrow sidebar, a full-width mobile row, or a future page shell without recalculating viewport breakpoints.
+
+---
+hideInToc: true
+---
+
+# Name containers only when needed
+
+An unnamed query uses the nearest eligible ancestor. A name makes the intended relationship explicit when several ancestors are query containers.
+
+```css
+.dashboard {
+  container: dashboard / inline-size;
+}
+
+.widget-slot {
+  container: widget / inline-size;
+}
+
+/* Reach past the nearer widget container */
+@container dashboard (min-width: 70rem) {
+  .widget-tools {
+    display: flex;
+  }
+}
+```
+
+The shorthand `container: dashboard / inline-size` sets `container-name` and `container-type` together. Prefer the unnamed form when the nearest-container relationship is already clear.
 
 ---
 hideInToc: true
@@ -4031,67 +4100,117 @@ url: https://codepen.io/setemiojo/embed/oNrypbw?default-tab=html%2Cresult
 ---
 
 ---
-# hideInToc: true
+hideInToc: true
 ---
 
-# Container Queries (Style)
+# Style queries: respond to meaning
+
 <div />
 
-Container Style Queries allow you to apply styles when a given Custom Property has a given value.
+Size queries respond to **available space**. Style queries respond to a **semantic value**, such as a density or surface token inherited from an ancestor.
 
 ```css
-.container {
-  --variant: 1;
+/* No container-type is required for a style query */
+.results-panel {
+  --density: compact;
+}
 
-  &.variant2 {
-    --variant: 2;
+@container style(--density: compact) {
+  .result-card {
+    padding: 0.5rem;
   }
 }
+```
 
-@container style(--variant: 1) {
-  button { } /* You can't style .container, but can select inside it */
-  .other-things { }
+The element that defines `--density` cannot style itself through its own query; the rule applies to descendants.
+
+Use style queries when producers and consumers of a context should remain decoupled—not as a complicated replacement for a simple one-off descendant selector.
+
+---
+hideInToc: true
+---
+
+# Style queries: support strategy
+
+Style queries have newer browser support than size queries. For core behavior, ship a selector-based default and treat the style query as progressive enhancement.
+
+```css
+/* Works everywhere your project supports */
+:where([data-density='compact']) .result-card {
+  padding: 0.5rem;
 }
 
-@container style(--variant: 2) {
-  button { }
-  .whatever { }
+/* Decoupled enhancement in supporting browsers */
+@container style(--density: compact) {
+  .result-card {
+    padding: 0.5rem;
+  }
 }
+```
+
+Using `:where()` keeps the fallback’s specificity low. For a fixed, one-off relationship, the selector alone is often the simpler choice.
+
+---
+hideInToc: true
+---
+
+# Container query units
+
+<div />
+
+Container units scale values continuously with the relevant container. `1cqi` is 1% of its inline size; `1cqb` is 1% of its block size. Prefer logical units (`cqi`, `cqb`) when the design should work across writing modes.
+
+Always constrain fluid values so text and spacing cannot become unusably small or excessively large.
+
+```html {monaco-run}{height: '430px'}
+<style>
+  .outer {
+    container-type: inline-size;
+    width: 60%;
+    min-width: 10rem;
+    max-width: 100%;
+    padding: 1rem;
+    border: 2px dashed #8b5cf6;
+    resize: horizontal;
+    overflow: auto;
+  }
+  .card {
+    padding: 1rem;
+    font-size: 1.25rem;
+    background: #ede9fe;
+  }
+  @supports (font-size: 1cqi) {
+    .card {
+      padding: clamp(1rem, 4cqi, 2rem);
+      font-size: clamp(1.25rem, 5cqi, 2.25rem);
+    }
+  }
+</style>
+<p style="font-size: 12px; color: #6b7280">Resize the dashed box</p>
+<div class="outer">
+  <div class="card">Container-relative text and spacing</div>
+</div>
 ```
 
 ---
 hideInToc: true
 ---
 
-# Container Units
-<div />
-Container Units (literally units, like px, rem, or vw) allow you to set the size of things based on the current size of a container element. Similar to how with viewport units 1vw is 1% of the browser window width, 1cqw is 1% of the width of the container (although I’d recommend you use cqi instead, the “logical equivalent”, meaning the “inline direction”).
+# Choose the right signal
 
-The units are cqw (“container query width”), cqh (“container query height”), cqi (“container query inline”), cqb (“container query block”), cqmin (smaller of cqi and cqb), and cqmax (larger of cqi and cqb).
+| If the design depends on…                                       | Reach for…                 |
+| --------------------------------------------------------------- | -------------------------- |
+| the viewport, device, print, color scheme, or motion preference | `@media`                   |
+| the space allocated to a reusable component                     | size `@container`          |
+| semantic context such as density, theme, or surface             | `@container style()`       |
+| smooth sizing relative to a component                           | `cqi`/`cqb` with `clamp()` |
 
-```html {monaco-run}{height: '430px'}
-<style>
-.outer {
-  container-type: inline-size;
-  border: 2px dashed #a78bfa;
-  padding: 16px;
-  resize: horizontal;
-  overflow: hidden;
-  width: 60%;
-  min-width: 150px;
-}
-.card {
-  background: #ede9fe;
-  padding: 1cqi;
-  font-size: 4cqi;
-  border-radius: 1cqi;
-}
-</style>
-<p style=”font-size:12px;color:#6b7280”>Resize the dashed box → text and padding scale with the container</p>
-<div class=”outer”>
-  <div class=”card”>Container-relative text</div>
-</div>
-```
+Before choosing a breakpoint, ask:
+
+1. **Which box owns this decision?**
+2. **Which axis actually matters?**
+3. **Where does that box get its size?**
+4. **Can the compact layout be the safe default?**
 
 
 
