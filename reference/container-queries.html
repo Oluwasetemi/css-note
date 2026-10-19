@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A printable CSS container query cheat sheet."
+    />
+    <title>CSS container queries · cheat sheet</title>
+    <link rel="stylesheet" href="../assets/course.css" />
+  </head>
+  <body>
+    <main class="reference-page">
+      <header>
+        <p class="mono muted">Quick reference</p>
+        <h1>CSS container queries</h1>
+        <p class="lede">
+          Make a component respond to the space its parent gives it.
+        </p>
+        <p>
+          <a href="../lessons/0001-container-queries.html"
+            >Return to the interactive lesson</a
+          >
+        </p>
+      </header>
+
+      <div class="reference-grid">
+        <section>
+          <h2>Decision rule</h2>
+          <p>
+            <strong>Media query:</strong> the environment or page shell changed.
+          </p>
+          <p>
+            <strong>Container query:</strong> the component’s allocated space
+            changed.
+          </p>
+        </section>
+
+        <section>
+          <h2>Golden rule</h2>
+          <p>
+            Queried descendants cannot determine the container dimension being
+            measured. Containment breaks that feedback loop.
+          </p>
+        </section>
+
+        <section>
+          <h2>Basic pattern</h2>
+          <div class="code-block">
+            <pre><code>.slot {
+  container-type: inline-size;
+}
+
+@container (min-width: 30rem) {
+  .card {
+    grid-template-columns: auto 1fr;
+  }
+}</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Named pattern</h2>
+          <div class="code-block">
+            <pre><code>.slot {
+  container: card-slot / inline-size;
+}
+
+@container card-slot (min-width: 30rem) {
+  .card { /* spacious layout */ }
+}</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Choose a type</h2>
+          <p>
+            <code>inline-size</code>: query the logical inline axis; block size
+            still follows content. Start here.
+          </p>
+          <p>
+            <code>size</code>: query both axes; both dimensions are
+            size-contained. Use deliberately.
+          </p>
+        </section>
+
+        <section>
+          <h2>Breakpoint test</h2>
+          <p>
+            Choose the smallest container width where the spacious layout is
+            comfortable. Avoid device labels and viewport-derived magic numbers.
+          </p>
+        </section>
+
+        <section>
+          <h2>Common mistakes</h2>
+          <ul>
+            <li>
+              Putting <code>container-type</code> on the component and trying to
+              query that same element.
+            </li>
+            <li>Using <code>size</code> without providing a block size.</li>
+            <li>
+              Querying the nearest container when a named outer container was
+              intended.
+            </li>
+            <li>
+              Replacing every media query; page-level responsiveness still
+              belongs to media queries.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Test before shipping</h2>
+          <ol>
+            <li>Render the component narrow and wide.</li>
+            <li>Place it in different parents at one viewport size.</li>
+            <li>Test content growth and long text.</li>
+            <li>Check vertical writing if supported.</li>
+          </ol>
+        </section>
+      </div>
+
+      <section class="lesson-section">
+        <h2>Trusted references</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.joshwcomeau.com/css/container-queries-introduction/"
+              >Josh W. Comeau: Friendly Introduction</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.joshwcomeau.com/css/container-queries-unleashed/"
+              >Josh W. Comeau: Container Queries Unleashed</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@container"
+              >MDN: <code>@container</code></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/container-type"
+              >MDN: <code>container-type</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="An interactive, step-by-step lesson on practical CSS container queries."
+    />
+    <title>Container queries: respond to the space you get</title>
+    <link rel="stylesheet" href="../assets/course.css" />
+    <script src="../assets/lesson.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-mark" href="#top">Container query field guide</a>
+        <nav class="site-nav" aria-label="Lesson links">
+          <a href="../reference/container-queries.html">Cheat sheet</a>
+          <a href="#practice">Practice</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div>
+        <h1>Respond to the space you get.</h1>
+        <p class="hero__lead">
+          Media queries ask about the browser. Container queries ask about the
+          room a component actually has.
+        </p>
+        <p class="hero__goal">
+          Your win: make one component choose its own layout wherever it is
+          placed.
+        </p>
+      </div>
+
+      <div
+        class="measure-frame"
+        aria-label="Interactive profile card container query demonstration"
+      >
+        <div class="demo-controls">
+          <label for="container-width">
+            Container width
+            <output data-width-output for="container-width">—</output>
+          </label>
+          <input
+            id="container-width"
+            data-container-slider
+            type="range"
+            min="45"
+            max="100"
+            value="72"
+            aria-describedby="demo-instruction"
+          />
+          <p id="demo-instruction" class="muted">
+            Drag the control. The browser viewport stays the same.
+          </p>
+        </div>
+        <div class="demo-viewport">
+          <div class="demo-container" data-demo-container>
+            <article class="profile-card">
+              <div class="profile-card__avatar" aria-hidden="true">AO</div>
+              <div>
+                <h3>Ada Okafor</h3>
+                <p>CSS engineer · Lagos</p>
+              </div>
+              <span class="profile-card__status">Available</span>
+            </article>
+          </div>
+        </div>
+        <div class="state-readout" aria-live="polite">
+          <span>Current result</span>
+          <span class="state-pill" data-layout-output>—</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-shell">
+      <aside class="lesson-nav" aria-label="Lesson progress">
+        <strong>Seven-step walkthrough</strong>
+        <ol>
+          <li><a href="#problem">Spot the problem</a></li>
+          <li><a href="#syntax">Learn the grammar</a></li>
+          <li><a href="#containment">Understand containment</a></li>
+          <li><a href="#axis">Choose the axis</a></li>
+          <li><a href="#pattern">Apply the key pattern</a></li>
+          <li><a href="#named">Name containers</a></li>
+          <li><a href="#practice">Choose the right tool</a></li>
+        </ol>
+      </aside>
+
+      <main>
+        <section class="lesson-section" id="problem">
+          <span class="step-number" aria-hidden="true">1</span>
+          <h2>Spot the question you are really asking</h2>
+          <p class="lede">
+            Responsive design has two different signals. Choosing the signal
+            first makes the CSS straightforward.
+          </p>
+
+          <div class="compare-grid">
+            <div>
+              <h3>Media query: global</h3>
+              <p>
+                <strong>Question:</strong> What is true about the viewport or
+                device?
+              </p>
+              <p>
+                Use it for page navigation, the overall shell, motion
+                preferences, print, or color scheme.
+              </p>
+            </div>
+            <div>
+              <h3>Container query: local</h3>
+              <p>
+                <strong>Question:</strong> How much room did this component
+                receive?
+              </p>
+              <p>
+                Use it for cards, sidebars, widgets, reusable panels, and
+                components placed in unpredictable slots.
+              </p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <strong>The practical point</strong>
+            A component can be narrow on a wide screen or wide on a smaller
+            screen. Viewport width is only an indirect guess; container width is
+            the fact the component needs.
+          </div>
+
+          <p>
+            This is the starting point in
+            <a
+              href="https://www.joshwcomeau.com/css/container-queries-introduction/"
+              >Comeau’s friendly introduction</a
+            >: a profile card should switch layouts according to its own
+            available space, not according to the browser window.
+          </p>
+        </section>
+
+        <section class="lesson-section" id="syntax">
+          <span class="step-number" aria-hidden="true">2</span>
+          <h2>Learn the two-part grammar</h2>
+          <p class="lede">
+            First establish a measuring context. Then let a descendant react to
+            it.
+          </p>
+
+          <div class="code-block">
+            <span class="code-label">CSS · the minimum useful pattern</span>
+            <pre><code><span class="token-comment">/* 1. The ancestor becomes measurable */</span>
+.card-slot {
+  <span class="token-property">container-type</span>: <span class="token-value">inline-size</span>;
+}
+
+<span class="token-comment">/* 2. Base style: works in a narrow slot */</span>
+.profile-card {
+  <span class="token-property">display</span>: <span class="token-value">grid</span>;
+  <span class="token-property">gap</span>: <span class="token-value">1rem</span>;
+}
+
+<span class="token-comment">/* 3. Enhancement: room now exists for columns */</span>
+<span class="token-rule">@container</span> (min-width: 30rem) {
+  .profile-card {
+    <span class="token-property">grid-template-columns</span>: <span class="token-value">auto 1fr auto</span>;
+    <span class="token-property">align-items</span>: <span class="token-value">center</span>;
+  }
+}</code></pre>
+          </div>
+
+          <ol class="decision-list">
+            <li>
+              <div>
+                <strong>Choose the boundary.</strong> Put
+                <code>container-type</code> on the ancestor whose allocated
+                space matters.
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Write the compact default.</strong> The component should
+                work before the condition matches.
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Add the spacious layout.</strong> The
+                <code>@container</code> block styles descendants when the
+                boundary is wide enough.
+              </div>
+            </li>
+          </ol>
+
+          <div class="callout callout--warning">
+            <strong>Common mistake</strong>
+            The query does not style the queried container itself. It applies
+            styles to elements inside that container. A wrapper often makes this
+            relationship explicit.
+          </div>
+
+          <p>
+            MDN specifies that size queries measure the container’s
+            <em>content box</em>. See the
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@container"
+              ><code>@container</code> reference</a
+            >.
+          </p>
+        </section>
+
+        <section class="lesson-section" id="containment">
+          <span class="step-number" aria-hidden="true">3</span>
+          <h2>Understand why containment exists</h2>
+          <p class="lede">
+            Without containment, a child could change the parent’s size, reverse
+            the query, and create an endless layout loop.
+          </p>
+
+          <div
+            class="loop-diagram"
+            aria-label="A circular dependency caused by querying a parent whose size depends on its child"
+          >
+            <div class="loop-node">Container is below the threshold</div>
+            <div class="loop-arrow" aria-hidden="true">→</div>
+            <div class="loop-node">Query enlarges the child</div>
+            <div class="loop-arrow" aria-hidden="true">→</div>
+            <div class="loop-node">
+              Child enlarges the container; condition reverses
+            </div>
+          </div>
+
+          <p>
+            Comeau demonstrates this with a content-sized parent and a larger
+            font inside the query. The conditional style changes the very
+            measurement that activated it. The browser would bounce between true
+            and false.
+          </p>
+
+          <div class="callout callout--rule">
+            <strong>The rule to remember</strong>
+            You cannot let queried content determine the dimension you are
+            measuring.
+          </div>
+
+          <p>
+            Size containment breaks that feedback path. The container’s measured
+            axis must get its size from layout context—such as stretching within
+            its parent—or from an explicit size, rather than from the queried
+            descendants. This is the foundation that made container size queries
+            possible.
+          </p>
+          <p>
+            Source:
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/container-type"
+              >MDN’s <code>container-type</code> description</a
+            >
+            explains that size containment prevents child-size/query feedback
+            loops.
+          </p>
+        </section>
+
+        <section class="lesson-section" id="axis">
+          <span class="step-number" aria-hidden="true">4</span>
+          <h2>Contain only the axis you need</h2>
+          <p class="lede">
+            Most components need to react to available inline space while their
+            height continues to grow with content.
+          </p>
+
+          <div class="compare-grid">
+            <div>
+              <h3><code>inline-size</code></h3>
+              <p>
+                Enables queries on the inline axis—usually width in horizontal
+                writing modes.
+              </p>
+              <p>
+                The block axis can still grow around the content. This is the
+                usual choice.
+              </p>
+            </div>
+            <div>
+              <h3><code>size</code></h3>
+              <p>Applies containment in both inline and block axes.</p>
+              <p>
+                If no contextual or explicit height exists, the box can collapse
+                in that axis because its children no longer size it.
+              </p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <strong>Safe default</strong>
+            Start with <code>container-type: inline-size</code>. Reach for
+            <code>size</code> only when you intentionally need both dimensions
+            and have designed how the container gets both sizes.
+          </div>
+
+          <p>
+            In logical-property terms, <em>inline size</em> is not always
+            physical width. In vertical writing modes it maps to the vertical
+            dimension. The article says “typically width”; that word matters.
+          </p>
+        </section>
+
+        <section class="lesson-section" id="pattern">
+          <span class="step-number" aria-hidden="true">5</span>
+          <h2>Apply the pattern that removes magic numbers</h2>
+          <p class="lede">
+            Let media queries arrange the page. Let container queries arrange
+            the component inside its assigned region.
+          </p>
+
+          <p>
+            In
+            <a
+              href="https://www.joshwcomeau.com/css/container-queries-unleashed/"
+              >Container Queries Unleashed</a
+            >, an email page has a metadata column. On a desktop it is one
+            narrow column beside the message. When the page collapses to one
+            column, that metadata region becomes wider—even though the viewport
+            became narrower.
+          </p>
+
+          <div class="pattern">
+            <div class="pattern__pane pattern__pane--bad">
+              <h3>Viewport workaround</h3>
+              <p><code>35rem–42rem OR 60rem+</code></p>
+              <p>
+                Several breakpoints happen to predict the column width. A
+                padding or gap change can invalidate them.
+              </p>
+            </div>
+            <div class="pattern__pane pattern__pane--good">
+              <h3>Container decision</h3>
+              <p><code>metadata width ≥ 19rem</code></p>
+              <p>
+                One threshold states the real design intent: this layout becomes
+                comfortable at this component width.
+              </p>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <span class="code-label"
+              >CSS · shell outside, component inside</span
+            >
+            <pre><code><span class="token-comment">/* Page-level decision */</span>
+<span class="token-rule">@media</span> (min-width: 60rem) {
+  .email-layout {
+    <span class="token-property">grid-template-columns</span>: <span class="token-value">19rem 1fr</span>;
+  }
+}
+
+.metadata-column {
+  <span class="token-property">container-type</span>: <span class="token-value">inline-size</span>;
+}
+
+<span class="token-comment">/* Component-level decision */</span>
+<span class="token-rule">@container</span> (min-width: 19rem) {
+  .metadata-row {
+    <span class="token-property">grid-template-columns</span>: <span class="token-value">7rem 1fr</span>;
+  }
+}</code></pre>
+          </div>
+
+          <div class="callout">
+            <strong>Why this is useful</strong>
+            The component now survives a sidebar, a dashboard grid, a full-width
+            mobile row, and future shell changes without recalculating viewport
+            breakpoints. Its CSS describes its own requirement.
+          </div>
+        </section>
+
+        <section class="lesson-section" id="named">
+          <span class="step-number" aria-hidden="true">6</span>
+          <h2>Name a container when ancestry is ambiguous</h2>
+          <p class="lede">
+            An unnamed query uses the nearest eligible ancestor. A name lets you
+            deliberately reach a different container.
+          </p>
+
+          <div class="code-block">
+            <span class="code-label"
+              >CSS · select the intended measuring context</span
+            >
+            <pre><code>.dashboard {
+  <span class="token-comment">/* shorthand: name / type */</span>
+  <span class="token-property">container</span>: <span class="token-value">dashboard / inline-size</span>;
+}
+
+.widget-slot {
+  <span class="token-property">container</span>: <span class="token-value">widget / inline-size</span>;
+}
+
+<span class="token-comment">/* React to the outer dashboard, not the nearer slot */</span>
+<span class="token-rule">@container dashboard</span> (min-width: 70rem) {
+  .widget-tools {
+    <span class="token-property">display</span>: <span class="token-value">flex</span>;
+  }
+}</code></pre>
+          </div>
+
+          <p>
+            Use names when multiple ancestors are query containers or when the
+            queried relationship is not obvious. Otherwise, the
+            nearest-container default keeps the code simpler. The shorthand is
+            equivalent to setting <code>container-name</code> and
+            <code>container-type</code> separately.
+          </p>
+        </section>
+
+        <section class="lesson-section" id="practice">
+          <span class="step-number" aria-hidden="true">7</span>
+          <h2>Choose the right signal</h2>
+          <p class="lede">
+            Retrieve the decision from memory. Immediate feedback will tell you
+            whether your model is holding.
+          </p>
+
+          <div class="quiz">
+            <fieldset
+              class="quiz-item"
+              data-quiz
+              data-answer="parent"
+              data-correct="The card should respond to its allocated slot."
+              data-hint="The same viewport can contain both a narrow sidebar card and a wide main card."
+            >
+              <legend>
+                A product card appears in a sidebar and in a wide catalogue
+                grid. What should trigger its internal layout?
+              </legend>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q1" value="global" /><span
+                    >Global width changed</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="q1" value="parent" /><span
+                    >Parent width changed</span
+                  ></label
+                >
+              </div>
+              <button class="check-button" type="button">Check answer</button>
+              <p class="quiz-feedback" data-feedback aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset
+              class="quiz-item"
+              data-quiz
+              data-answer="global"
+              data-correct="The whole page navigation responds to viewport space."
+              data-hint="This decision changes the page shell, not one component’s assigned slot."
+            >
+              <legend>
+                The primary navigation collapses into a menu when the browser
+                becomes narrow. What should trigger it?
+              </legend>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q2" value="global" /><span
+                    >Global width changed</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="q2" value="parent" /><span
+                    >Parent width changed</span
+                  ></label
+                >
+              </div>
+              <button class="check-button" type="button">Check answer</button>
+              <p class="quiz-feedback" data-feedback aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset
+              class="quiz-item"
+              data-quiz
+              data-answer="parent"
+              data-correct="The widget should be portable across dashboard slots."
+              data-hint="The dashboard may assign different widths without changing the browser width."
+            >
+              <legend>
+                A reusable analytics widget moves between one-column and
+                three-column dashboard slots. What should trigger it?
+              </legend>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q3" value="global" /><span
+                    >Global width changed</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="q3" value="parent" /><span
+                    >Parent width changed</span
+                  ></label
+                >
+              </div>
+              <button class="check-button" type="button">Check answer</button>
+              <p class="quiz-feedback" data-feedback aria-live="polite"></p>
+            </fieldset>
+          </div>
+
+          <h3>Your application checklist</h3>
+          <ol class="decision-list">
+            <li>
+              <div>
+                Identify a component currently using viewport breakpoints to
+                guess its own width.
+              </div>
+            </li>
+            <li>
+              <div>
+                Wrap it—or choose an existing boundary—that receives the
+                relevant layout space.
+              </div>
+            </li>
+            <li>
+              <div>
+                Add <code>container-type: inline-size</code> to that boundary.
+              </div>
+            </li>
+            <li><div>Keep the narrow component style as the default.</div></li>
+            <li>
+              <div>
+                Add one threshold where the alternative layout becomes
+                comfortable, not where a device category begins.
+              </div>
+            </li>
+            <li>
+              <div>
+                Test the component in at least two different parent layouts at
+                the same viewport width.
+              </div>
+            </li>
+          </ol>
+
+          <div class="callout callout--rule">
+            <strong>One-sentence summary</strong>
+            Use media queries for the environment; use container queries for the
+            component’s allocated space.
+          </div>
+        </section>
+
+        <section class="lesson-section" id="sources">
+          <h2>Continue from primary sources</h2>
+          <div class="sources">
+            <ol>
+              <li>
+                <a
+                  href="https://www.joshwcomeau.com/css/container-queries-introduction/"
+                  >Read “A Friendly Introduction to Container Queries”</a
+                >
+                for the full interactive explanation of containment.
+              </li>
+              <li>
+                <a
+                  href="https://www.joshwcomeau.com/css/container-queries-unleashed/"
+                  >Read “Container Queries Unleashed”</a
+                >
+                for the non-linear column-width pattern and named containers.
+              </li>
+              <li>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@container"
+                  >Use MDN’s <code>@container</code> page</a
+                >
+                to verify syntax and query features.
+              </li>
+            </ol>
+          </div>
+          <a class="next-link" href="../reference/container-queries.html"
+            >Open the printable cheat sheet</a
+          >
+          <p class="muted">
+            Ask your coding agent about anything that remains unclear, or bring
+            it a component from this repository to convert together.
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
