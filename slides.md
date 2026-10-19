@@ -4228,22 +4228,21 @@ All those small changes really matter in satisfying users and encouraging them t
 
 The `animation` shorthand CSS property applies animation on element of your choice. It is shorthand for:
 
-<ul>
-  <li>`animation-name`</li>
-  <li>`animation-duration`</li>
-  <li>`animation-timing-function`</li>
-  <li>`animation-delay`</li>
-  <li>`animation-iteration-count`</li>
-  <li>`animation-direction`</li>
-  <li>`animation-fill-mode`</li>
-  <li>`animation-play-state`</li>
-  <li>`animation-timeline`</li>
-</ul>
+1. `animation-name`
+2. `animation-duration`
+3. `animation-timing-function`
+4. `animation-delay`
+5. `animation-iteration-count`
+6. `animation-direction`
+7. `animation-fill-mode`
+8. `animation-play-state`
+9. `animation-timeline`
 
 ---
 
- <h1 class="text-sm bg-purple p-4 text-center">Transforms</h1>
-<p>The `transform` CSS property allows you to rotate, scale, skew, or translate an element. It plays a significant role in CSS animations, offering a variety of powerful transform functions for creating dynamic visual effects.</p>
+<h1 class="text-sm bg-purple p-4 text-center">Transforms</h1>
+
+The `transform` CSS property allows you to rotate, scale, skew, or translate an element. It plays a significant role in CSS animations, offering a variety of powerful transform functions for creating dynamic visual effects.
 
 ```html {monaco-run}{height: '430px'}
 <style>
@@ -4286,9 +4285,9 @@ The `transform-function` in CSS is used to apply 2D or 3D transformations to ele
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4">Translation</h3>
 
-<p> `translate` is a transform function that allows you to move an element around the page. It accepts two arguments: `x`, which controls the horizontal (side-to-side) movement, and `y`, which controls the vertical (up-and-down) movement.</p>
+`translate` is a transform function that allows you to move an element around the page. It accepts two arguments: `x`, which controls the horizontal (side-to-side) movement, and `y`, which controls the vertical (up-and-down) movement.
 
-<p>When using the `translate` property, you can specify the units in percentages, which refer to the element's own size, rather than the available space in the parent container.</p>
+When using the `translate` property, you can specify the units in percentages, which refer to the element's own size, rather than the available space in the parent container.
 
 ```css
 /*The first argument represents the X-axis, while the second represents the Y-axis, as seen in transform: translate(x, y);. */
@@ -4345,14 +4344,7 @@ The `scale()` transform function allows you to resize an element by enlarging or
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Rotate</h3>
 
-The `rotate()` transform function allows you to rotate an element around a fixed point. We use the following units for the rotate function.
-<ul>
-<li>deg</li>
-<li>turn</li>
-<li>skew</li>
-</ul>
-
-We use the `deg` unit for rotation, short for degrees.
+The `rotate()` transform function allows you to rotate an element around a fixed point. We use the following units for the rotate function: `deg`, `turn`, `skew`. We use the `deg` unit for rotation, short for degrees.
 
 ```html {monaco-run}{height: '430px'}
 <style>
@@ -4377,6 +4369,7 @@ We use the `deg` unit for rotation, short for degrees.
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Turn</h3>
+
 The `turn` unit represents how many turns the element should make. 1 turn is equal to 360 degrees.
 
 ```html {monaco-run}{height: '430px'}
@@ -4402,7 +4395,8 @@ The `turn` unit represents how many turns the element should make. 1 turn is equ
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Skew</h3>
-<p>The `skew` is a seldom-used but pretty-neat transformation. It's most useful when you want to create diagonal decorative elements.</p>
+
+The `skew` is a seldom-used but pretty-neat transformation. It's most useful when you want to create diagonal decorative elements.
 
 ```html {monaco-run}{height: '430px'}
 <style>
@@ -4456,6 +4450,7 @@ Every element has a transformation origin, which is the central point around whi
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Combining multiple operations</h3>
+
 To achieve animations using multiple transform functions in CSS, it’s important to understand that when you combine multiple transformations, they are applied in the order they are written. However, the visual effect is processed from right to left.
 
 Order of Transform Functions: If you have both rotate and translate functions in the same transform property, the effect will change depending on the order. For example, rotate affects the element first if it is written before translate.
@@ -4567,12 +4562,7 @@ Hover over these two circles to notice the difference: the red circle has a tran
 
 ---
 
-The `transition` property accepted just two values and these are:
-
-<ol>
-<li>The name of the property we wish to animate</li>
-<li>The duration of the animation</li>
-</ol>
+The `transition` property accepted just two values and these are: The name of the property we wish to animate and the duration of the animation.
 
 Note: You can pass a comma to create animation on multiple properties.
 
@@ -4606,34 +4596,70 @@ The `transition-timing-function` CSS property is what handles "motion" on the we
 
 We have several timing functions available to us in CSS and we can specify which one we want to use.
 
-<ol>
-  <li>`transition-timing-function: ease;`</li>
-  <li>`transition-timing-function: ease-in;`</li>
-  <li>`transition-timing-function: ease-out;`</li>
-  <li>`transition-timing-function: ease-in-out;`</li>
-  <li>`transition-timing-function: linear;`</li>
-  <!-- <li>`transition-timing-function: step-start;`</li>
-  <li>`transition-timing-function: step-end;`</li> -->
-</ol>
+`transition-timing-function: ease;` `transition-timing-function: ease-in;` `transition-timing-function: ease-out;` `transition-timing-function: ease-in-out;` `transition-timing-function: linear;` `transition-timing-function: step-start;` `transition-timing-function: step-end;`
 
-<div class="overflow-scroll h-45">
-It's either we use the `transition-timing-function` property:
+Edit the timing functions, then select **Run / reverse** to compare them. Each transition takes the same three seconds.
 
-```css
-.btn {
-  transition-timing-function: linear;
-}
-```
+```html {monaco-run}{height: '430px'}
+<style>
+  body { font-family: system-ui, sans-serif; }
+  button { padding: 8px 14px; cursor: pointer; }
+  .demo { display: grid; gap: 8px; margin-top: 12px; }
+  .track {
+    position: relative;
+    height: 30px;
+    border-radius: 6px;
+    background: #ede9fe;
+  }
+  .label {
+    position: absolute;
+    left: 8px;
+    z-index: 1;
+    font: 12px/30px ui-monospace, monospace;
+  }
+  .ball {
+    position: absolute;
+    top: 5px;
+    left: 115px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #7c3aed;
+    transform: translateX(0);
+    transition-property: transform;
+    transition-duration: 3s;
+  }
+  .demo.is-moved .ball {
+    transform: translateX(300px);
+  }
 
-Or, we can pass it directly to the `transition` shorthand property:
+  .ease       { transition-timing-function: ease; }
+  .ease-in    { transition-timing-function: ease-in; }
+  .ease-out   { transition-timing-function: ease-out; }
+  .ease-in-out { transition-timing-function: ease-in-out; }
+  .linear     { transition-timing-function: linear; }
+  .step-start { transition-timing-function: step-start; }
+  .step-end   { transition-timing-function: step-end; }
+</style>
 
-```css
-.btn {
-  transition: all 0.3s linear;
-}
-```
-
+<button id="run" type="button">Run / reverse</button>
+<div class="demo" id="demo">
+  <div class="track"><span class="label">ease</span><span class="ball ease"></span></div>
+  <div class="track"><span class="label">ease-in</span><span class="ball ease-in"></span></div>
+  <div class="track"><span class="label">ease-out</span><span class="ball ease-out"></span></div>
+  <div class="track"><span class="label">ease-in-out</span><span class="ball ease-in-out"></span></div>
+  <div class="track"><span class="label">linear</span><span class="ball linear"></span></div>
+  <div class="track"><span class="label">step-start</span><span class="ball step-start"></span></div>
+  <div class="track"><span class="label">step-end</span><span class="ball step-end"></span></div>
 </div>
+
+<script>
+  const demo = document.querySelector('#demo')
+  document.querySelector('#run').addEventListener('click', () => {
+    demo.classList.toggle('is-moved')
+  })
+</script>
+```
 
 ---
 
