@@ -4605,9 +4605,17 @@ Edit the timing functions, then select **Run / reverse** to compare them. Each t
 <style>
   body { font-family: system-ui, sans-serif; }
   button { padding: 8px 14px; cursor: pointer; }
-  .demo { display: grid; gap: 8px; margin-top: 12px; }
+  .demo {
+    --label-width: 115px;
+    --ball-size: 20px;
+    --edge-gap: 8px;
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+  }
   .track {
     position: relative;
+    container-type: inline-size;
     height: 30px;
     border-radius: 6px;
     background: #ede9fe;
@@ -4621,9 +4629,9 @@ Edit the timing functions, then select **Run / reverse** to compare them. Each t
   .ball {
     position: absolute;
     top: 5px;
-    left: 115px;
-    width: 20px;
-    height: 20px;
+    left: var(--label-width);
+    width: var(--ball-size);
+    height: var(--ball-size);
     border-radius: 50%;
     background: #7c3aed;
     transform: translateX(0);
@@ -4631,7 +4639,13 @@ Edit the timing functions, then select **Run / reverse** to compare them. Each t
     transition-duration: 3s;
   }
   .demo.is-moved .ball {
-    transform: translateX(300px);
+    transform: translateX(
+      clamp(
+        0px,
+        calc(100cqi - var(--label-width) - var(--ball-size) - var(--edge-gap)),
+        300px
+      )
+    );
   }
 
   .ease       { transition-timing-function: ease; }
@@ -4662,6 +4676,8 @@ Edit the timing functions, then select **Run / reverse** to compare them. Each t
 </script>
 ```
 
+---
+class: "text-sm"
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Transition timing functions</h3>
@@ -5077,7 +5093,6 @@ The `animation-fill-mode: forwards;` property ensures that after the animation c
 }
 ```
 
-`animation-fill-mode: backwards;`
 
 The `animation-fill-mode: backwards;` property makes the target element apply the styles from the first keyframe immediately, even during the animation's delay period, before the animation starts.
 
@@ -5085,7 +5100,6 @@ The `animation-fill-mode: backwards;` property makes the target element apply th
 
 
 ```html
-<h3>animation-fill-mode: both;</h3>
 <style>
     .container {
       animation-fill-mode: both;
