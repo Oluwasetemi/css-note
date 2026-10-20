@@ -2639,9 +2639,11 @@ The `flex-grow` CSS property specifies how much a flex item will grow relative t
 
 <p>The value of flex-grow is a unitless number that serves as a proportion, determining how much of the available space inside the flex container the item should take up compared to other items.</p>
 <small>Flex grow is about consuming additional space and it only does something when items are above their hypothetical size</small>
+
 <section class="pt-8">
   <FlexGrow/>
 </section>
+
 ---
 hideInToc: true
 ---
@@ -2656,6 +2658,7 @@ The `flex-shrink` CSS property determines how much flex items will shrink relati
 <section class="pt-10">
  <FlexShrink/>
 </section>
+
 ---
 hideInToc: true
 ---
@@ -2664,18 +2667,15 @@ hideInToc: true
 
 <div></div>
 
-<p>The <strong>`flex-basis`</strong> CSS property has the same effect as `width` in a flex row (height in a column). You can use them interchangeably, but flex-basis will win if there's a conflict.`flex-basis` can't scale an element below its minimum content size, but width can.
-</p>
+The `flex-basis` CSS property has the same effect as `width` in a flex row (height in a column). You can use them interchangeably, but flex-basis will win if there's a conflict.`flex-basis` can't scale an element below its minimum content size, but width can.
 
 ---
 
-<h1 class="text-sm bg-orange p-4 text-center">The "flex" Shorthand</h1>
+<h1 class="text-sm bg-orange p-4 text-center">The <code>flex</code> Shorthand</h1>
 <div></div>
 <p>The <strong>flex</strong> CSS property takes 3 individual values:</p>
 
-`flex-grow`
-`flex-shrink`
-`flex-basis`
+`flex-grow` & `flex-shrink` & `flex-basis`
 
 `flex` sets how a flex item will grow or shrink to fit the space available in its flex container. It does the basic management automatically.
 
@@ -4319,6 +4319,7 @@ When using the `translate` property, you can specify the units in percentages, w
 ---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Scale</h3>
+
 The `scale()` transform function allows you to resize an element by enlarging or shrinking it. It accepts one or two values, which determine the scaling applied in each direction. The `scale()` function is limited to 2D transformations; for 3D scaling, use the `scale3d()` function. Scale uses a unitless value.
 
 ---
@@ -4589,14 +4590,14 @@ Note: You can pass a comma to create animation on multiple properties.
 ```
 
 ---
+class: "text-sm"
+---
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Timing functions</h3>
 
 The `transition-timing-function` CSS property is what handles "motion" on the web. It sets how intermediate values are calculated for CSS properties being affected by a transition effect.
 
-We have several timing functions available to us in CSS and we can specify which one we want to use.
-
-`transition-timing-function: ease;` `transition-timing-function: ease-in;` `transition-timing-function: ease-out;` `transition-timing-function: ease-in-out;` `transition-timing-function: linear;` `transition-timing-function: step-start;` `transition-timing-function: step-end;`
+`transition-timing-function: ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end;`
 
 Edit the timing functions, then select **Run / reverse** to compare them. Each transition takes the same three seconds.
 
@@ -4743,10 +4744,6 @@ You'll notice that after `@keyframes` we have a name called `slide-in`; this is 
 
 ---
 
-```html
-<div class="container"></div>
-```
-
 ```html {monaco-run}{height: '430px'}
 <style>
 @keyframes float-in {
@@ -4773,13 +4770,13 @@ You'll notice that after `@keyframes` we have a name called `slide-in`; this is 
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Looped animations</h3>
 
-The `animation-iteration-count` CSS property sets the number of times an animation sequence should be played before stopping but by default keyframe animations will only run once, yes just once. So, in cases where you want the animation to iterate you have the `animation-iteration-count` property. It has two values and these are:
+The `animation-iteration-count` sets the number of times an animation sequence should be played before stopping but by default keyframe animations will only run once, yes just once. So, in cases where you want the animation to iterate you have the `animation-iteration-count` property. It has two values and these are:
 
 
 - `infinite`: The animation will repeat forever
 - `number`: The number of times the animation will repeat
 
-```html {monaco-run}{height: '430px'}
+```html {monaco-run}
 <style>
 @keyframes float-in {
   from {
@@ -4931,7 +4928,7 @@ When you set `animation-direction` to `alternate`, the animation alternates betw
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Shorthand values</h3>
 
-The `animation` shorthand CSS property applies an animation between styles and is a shorthand for `animation-name`, `animation-duration`, `animation-timing-function`, `animation-delay`, `animation-iteration-count`, `animation-direction`, `animation-fill-mode`, `animation-play-state`, and `animation-timeline`. We've covered many animation properties in this lesson, and fortunately, just like with transitions, we can use the `animation` shorthand to combine all these properties and save on typing.
+The `animation` shorthand applies an animation between styles and is a shorthand for `animation-name`, `animation-duration`, `animation-timing-function`, `animation-delay`, `animation-iteration-count`, `animation-direction`, `animation-fill-mode`, `animation-play-state`, and `animation-timeline`. We've covered many animation properties in this lesson, and fortunately, just like with transitions, we can use the `animation` shorthand to combine all these properties and save on typing.
 
 ```css
 .box {
@@ -4976,7 +4973,7 @@ But, if you want to add `animation-delay` to the shorthand it has to come after 
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">Fill Modes</h3>
 
-The `animation-fill-mode` CSS property controls how an element should be styled before and after an animation runs.
+The `animation-fill-mode` controls how an element should be styled before and after an animation runs.
 
 For instance, if you want the element to fade out smoothly after the animation completes, animation-fill-mode ensures the element doesn’t abruptly reappear or reset its styles once the animation ends.
 
@@ -5035,14 +5032,11 @@ There is a better way to do this and that's what we will be discussing in the ne
 
 <h3 class="text-center animate-slide-in-down bg-purple p-4 mb-6">animation-fill-modes</h3>
 
-In a nutshell, this CSS property sets how a CSS animation applies styles to its target before and after its execution.
+In a nutshell, this sets how a CSS animation applies styles to its target before and after its execution.
 
 We have the following values that can be applied on the property:
 
-- `animation-fill-mode: none;`
-- `animation-fill-mode: forwards;`
-- `animation-fill-mode: backwards;`
-- `animation-fill-mode: both;`
+`animation-fill-mode: none | forwards | backwards | both;`
 
 ---
 
@@ -5059,13 +5053,15 @@ We have the following values that can be applied on the property:
 
 <hr class="my-10"/>
 
-<h3>animation-fill-mode: forwards;</h3>
 
-```css
-.container {
-  animation-fill-mode: forwards;
-  animation-delay: 1s;
-}
+```html
+<h3>animation-fill-mode: forwards;</h3>
+<style>
+    .container {
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+    }
+</style>
 ```
 
 The `animation-fill-mode: forwards;` property ensures that after the animation completes, the target element retains the styles defined in the final keyframe, instead of reverting to its original state.
@@ -5087,13 +5083,15 @@ The `animation-fill-mode: backwards;` property makes the target element apply th
 
 <hr class="my-10"/>
 
-<h3>animation-fill-mode: both;</h3>
 
-```css
-.container {
-  animation-fill-mode: both;
-  animation-delay: 1s;
-}
+```html
+<h3>animation-fill-mode: both;</h3>
+<style>
+    .container {
+      animation-fill-mode: both;
+      animation-delay: 1s;
+    }
+</style>
 ```
 
 The `animation-fill-mode: both;` property makes the target element apply the rules of both the `animation-fill-mode: forwards;` and `animation-fill-mode: backwards;` properties. This means that the element will retain the styles defined in the keyframes after the animation ends (as in forwards), and it will also apply the initial styles of the animation before the animation starts (as in backwards).
@@ -5179,6 +5177,15 @@ For the scroll function to work correctly, it must know which element or column 
   <div class="content">
     <p>Scroll down inside this box ↓</p>
     <p>The purple bar above tracks `scroll(self)` — the nearest scrollable ancestor.</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
+    <p>More content...</p><p>More content...</p><p>More content...</p>
     <p>More content...</p><p>More content...</p><p>More content...</p>
     <p>More content...</p><p>More content...</p>
     <p>You reached the bottom!</p>
